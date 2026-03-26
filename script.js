@@ -25,43 +25,31 @@ document.addEventListener('keydown', (e) => {
 
 
 function ampliarImagem(botao) {
-    console.log("Botão clicado!"); // Aparecerá no console (F12) se funcionar
     const card = botao.parentElement;
     const midiaOriginal = card.querySelector('img, video');
     const overlay = document.getElementById('overlay');
     const conteudoExpandido = document.getElementById('conteudo-expandido');
     
-    if (!overlay || !conteudoExpandido) {
-        console.error("Erro: Elementos do overlay não encontrados no HTML!");
-        return;
-    }
-
     conteudoExpandido.innerHTML = ''; 
 
+    let clone;
     if (midiaOriginal.tagName === 'VIDEO') {
-        const videoClone = document.createElement('video');
-        videoClone.src = midiaOriginal.src;
-        videoClone.autoplay = true;
-        videoClone.controls = true;
-        videoClone.loop = true;
-        conteudoExpandido.appendChild(videoClone);
+        clone = document.createElement('video');
+        clone.src = midiaOriginal.src;
+        clone.autoplay = true;
+        clone.controls = true;
+        clone.loop = true;
     } else {
-        const imgClone = document.createElement('img');
-        imgClone.src = midiaOriginal.src;
-        conteudoExpandido.appendChild(imgClone);
+        clone = document.createElement('img');
+        clone.src = midiaOriginal.src;
     }
 
+    conteudoExpandido.appendChild(clone);
     overlay.style.display = 'flex';
 }
 
 function fecharAmpliacao() {
     const overlay = document.getElementById('overlay');
-    const conteudoExpandido = document.getElementById('conteudo-expandido');
+    document.getElementById('conteudo-expandido').innerHTML = '';
     overlay.style.display = 'none';
-    conteudoExpandido.innerHTML = '';
 }
-
-// Fecha com a tecla ESC
-document.addEventListener('keydown', (e) => {
-    if (e.key === "Escape") fecharAmpliacao();
-});

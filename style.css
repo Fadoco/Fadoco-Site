@@ -109,43 +109,196 @@ header li a:hover {
     filter: brightness(0.5);
 }
 
-/* --- SEÇÃO DE ARTES & CABEÇALHO --- */
-
-.artes-secao {
+.home {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
-    flex-direction: column; 
     align-items: center;
-    padding: 160px 10% 80px 10%; 
+    padding: 120px 10% 0 10%;
 }
 
-.artes-cabecalho {
-    text-align: center;
-    margin-bottom: 60px; 
-    width: 100%;
-}
-
-.artes-cabecalho h1 {
+.home-text h5 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 4rem;
+    color: #00d4ff;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.home-text h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4.5rem;
     color: white;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
     margin-bottom: 20px;
 }
 
-.artes-cabecalho p {
-    color: rgba(255, 255, 255, 0.8);
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    max-width: 700px;
-    margin: 0 auto;
+.home-text p {
+    color: white;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    max-width: 500px;
 }
 
-/* --- REGISTRO DE ARTISTA --- */
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    border: 2px solid #00d4ff;
+    color: #00d4ff;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    border-radius: 50px;
+    transition: 0.4s;
+}
+
+.btn:hover {
+    background: #20aeca;
+    color: #000;
+    box-shadow: 0 0 20px #00d4ff;
+}
+
+
+/* CSS LORE SITE */
+
+.lore {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    padding: 140px 5% 50px 8%;
+}
+
+.container-lore {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-left: 2px solid rgba(0, 212, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: none;
+    border-bottom: none;
+    border-radius: 0 20px 20px 0;
+    padding: 50px;
+    max-width: 550px;
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.3);
+}
+
+.subtitulo-estelar {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.texto-box p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.texto-box strong {
+    color: rgba(138, 43, 226, 0.8);
+    font-weight: 600;
+}
+
+.chamada-lore {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.destaque {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(0, 212, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.chamada-lore p {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .lore {
+        justify-content: center;
+        padding: 120px 20px;
+    }
+    
+    .container-lore {
+        border-radius: 20px;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+    }
+}
+
+
+.historia-personagem {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-left: 1px solid rgba(138, 43, 226, 0.2);
+    padding: 40px;
+    margin-left: 30px;
+    width: 100%;
+    max-width: 700px;
+    height: 500px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.scroll-vazio {
+    overflow-y: auto; 
+    padding-right: 20px;
+}
+
+.scroll-vazio p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+
+.scroll-vazio::-webkit-scrollbar {
+    width: 4px;
+}
+
+.scroll-vazio::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.scroll-vazio::-webkit-scrollbar-thumb {
+    background: rgba(138, 43, 226, 0.5);
+    border-radius: 10px;
+}
+
+.scroll-vazio::-webkit-scrollbar-thumb:hover {
+    background: #00d4ff;
+}
+
+@media (max-width: 1200px) {
+    .lore {
+        flex-direction: column; 
+        align-items: flex-start;
+    }
+    
+    .historia-personagem {
+        margin-left: 0;
+        margin-top: 30px;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+
+
+/* --- ESTILOS DA SEÇÃO DE ARTES (CORREÇÃO DE LAYOUT) --- */
 
 .artista-registro {
     background: rgba(138, 43, 226, 0.1);
@@ -156,7 +309,6 @@ header li a:hover {
     flex-direction: column;
     align-items: center;
     backdrop-filter: blur(10px);
-    margin-top: 20px;
 }
 
 .artista-registro h5 {
@@ -207,9 +359,52 @@ header li a:hover {
     font-family: 'Orbitron', sans-serif;
     color: white;
     font-size: 1rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
-/* --- GRID E CARDS --- */
+.artista-link:hover {
+    transform: scale(1.05);
+}
+
+.artista-link:hover .handle {
+    color: #00d4ff;
+}
+
+.artes-secao {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    padding: 160px 10% 80px 10%; 
+}
+
+.artes-cabecalho {
+    text-align: center;
+    margin-bottom: 60px; 
+    width: 100%;
+}
+
+.artes-cabecalho h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+    margin-bottom: 20px;
+}
+
+.artes-cabecalho p {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+
 
 .galeria-grid {
     display: grid;
@@ -235,19 +430,19 @@ header li a:hover {
     box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
 }
 
-.arte-card img, .arte-card video {
+.arte-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s ease, filter 0.4s ease;
 }
 
-.arte-card:hover img, .arte-card:hover video {
+.arte-card:hover img {
     transform: scale(1.1);
     filter: brightness(0.6);
 }
 
-/* --- BOTÃO DE EXPANDIR --- */
+
 
 .expand-btn {
     position: absolute;
@@ -259,11 +454,15 @@ header li a:hover {
     border-radius: 8px;
     padding: 10px 15px;
     cursor: pointer;
-    opacity: 1; /* Garantindo que apareça para teste */
+    opacity: 0; 
     transition: all 0.3s ease;
     font-size: 1.2rem;
     backdrop-filter: blur(5px);
-    z-index: 100; /* Aumentado para ficar sobre a legenda */
+    z-index: 10;
+}
+
+.arte-card:hover .expand-btn {
+    opacity: 1;
 }
 
 .expand-btn:hover {
@@ -272,41 +471,7 @@ header li a:hover {
     box-shadow: 0 0 15px #00d4ff;
 }
 
-/* --- LEGENDA --- */
 
-.legenda-arte {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px;
-    background: linear-gradient(transparent, rgba(10, 10, 20, 0.95));
-    color: white;
-    transform: translateY(100%);
-    transition: transform 0.4s ease;
-    pointer-events: none;
-    z-index: 10;
-}
-
-.arte-card:hover .legenda-arte {
-    transform: translateY(0);
-}
-
-.legenda-arte h4 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1rem;
-    color: #00d4ff;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-}
-
-.legenda-arte p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-/* --- OVERLAY E CONTEÚDO EXPANDIDO --- */
 
 .overlay {
     position: fixed;
@@ -323,21 +488,12 @@ header li a:hover {
     cursor: zoom-out;
 }
 
-#conteudo-expandido {
-    max-width: 90%;
-    max-height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#conteudo-expandido img, 
-#conteudo-expandido video {
-    max-width: 100%;
-    max-height: 90vh;
+.overlay img {
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 10px;
     border: 3px solid #00d4ff;
     box-shadow: 0 0 50px rgba(0, 212, 255, 0.4);
-    border-radius: 10px;
     animation: zoomIn 0.3s ease-out;
 }
 
@@ -352,6 +508,13 @@ header li a:hover {
     transition: 0.3s;
 }
 
+.close-overlay:hover {
+    color: #ff4b2b;
+    transform: rotate(90deg);
+}
+
+
+
 @keyframes zoomIn {
     from { transform: scale(0.8); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
@@ -362,4 +525,61 @@ header li a:hover {
     .artes-secao { padding-top: 130px; }
     .galeria-grid { grid-template-columns: 1fr; } 
     .close-overlay { right: 20px; top: 20px; font-size: 40px; }
+}
+
+.legenda-arte {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(transparent, rgba(10, 10, 20, 0.9));
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    pointer-events: none;
+}
+
+.arte-card:hover .legenda-arte {
+    transform: translateY(0);
+}
+
+.legenda-arte h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    color: #00d4ff;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.legenda-arte p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+.arte-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+#conteudo-expandido {
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#conteudo-expandido img, 
+#conteudo-expandido video {
+    max-width: 100%;
+    max-height: 90vh;
+    border: 2px solid #00d4ff;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    border-radius: 10px;
 }
