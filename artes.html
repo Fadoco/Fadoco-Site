@@ -32,17 +32,70 @@
     </header>
 
     <main>
-        <section class="home">
-        <div class="home-text">
+    <section class="artes-secao">
+        
+        <div class="artes-cabecalho">
             <h1>Galeria de Artes</h1>
             <p>
-                Aqui <Strong>você</Strong> vai ver um pouco desse meu universo megalomaniaco :)
+                Aqui <strong>você</strong> vai ver um pouco desse meu universo megalomaníaco :)
             </p>
-            
         </div>
 
+        <div class="galeria-grid">
+            
+           <div class="arte-card">
+            <img src="img/1000351967.jpg" alt="Nome da Obra">
+            <button class="expand-btn" onclick="ampliarImagem(this)">⛶</button>
+            <div class="legenda-arte">
+            <h4>Fadoco Forma Guardião</h4>
+            <p>Essa e a primeira versão do meu personagem</p>
+    </div>
+    
+</div>
 
-    </main>
+<div class="galeria-grid">
+            
+           <div class="arte-card">
+            <img src="img/1000312743.png" alt="Nome da Obra">
+            <button class="expand-btn" onclick="ampliarImagem(this)">⛶</button>
+            <div class="legenda-arte">
+            <h4>Fadoco Totem</h4>
+            <p>Essa e uma arte de um totem de RPG que tinha pedido para fazer para minha artista</p>
+    </div>
+</div>
+
+<div class="galeria-grid">
+            
+           <div class="arte-card">
+            <img src="img/1000329522 (1).png" alt="Nome da Obra">
+            <button class="expand-btn" onclick="ampliarImagem(this)">⛶</button>
+            <div class="legenda-arte">
+            <h4>Fadoco Totem Armadura</h4>
+            <p>Essa e uma arte de um totem de RPG que tinha pedido para fazer para minha artista so que versão de armadura</p>
+    </div>
+</div>
+
+<div class="galeria-grid">
+            
+           <div class="arte-card">
+            <img src="img/ChatGPT Image 9 de jan. de 2026, 11_24_10.png" alt="Nome da Obra">
+            <button class="expand-btn" onclick="ampliarImagem(this)">⛶</button>
+            <div class="legenda-arte">
+            <h4>Fadoco Steam</h4>
+            <p>Essa e uma arte de um totem de RPG que tinha pedido para fazer para minha artista</p>
+    </div>
+</div>
+
+        </div>
+    </section>
+
+    
+
+    <div id="overlay" class="overlay" onclick="fecharAmpliacao()">
+        <span class="close-overlay">&times;</span>
+        <img id="img-ampliada" src="" alt="Imagem Ampliada">
+    </div>
+</main>
 
     <script src="script.js"></script>
 </body>
