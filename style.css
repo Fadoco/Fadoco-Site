@@ -300,6 +300,76 @@ header li a:hover {
 
 /* --- ESTILOS DA SEÇÃO DE ARTES (CORREÇÃO DE LAYOUT) --- */
 
+.artista-registro {
+    background: rgba(138, 43, 226, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.artista-registro h5 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00d4ff;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.artista-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.artista-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #8a2be2;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+.artista-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.artista-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.cargo {
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+}
+
+.handle {
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    font-size: 1rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.artista-link:hover {
+    transform: scale(1.05);
+}
+
+.artista-link:hover .handle {
+    color: #00d4ff;
+}
+
 .artes-secao {
     width: 100%;
     min-height: 100vh;
@@ -488,4 +558,28 @@ header li a:hover {
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.7);
     margin: 0;
+}
+
+.arte-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+#conteudo-expandido {
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#conteudo-expandido img, 
+#conteudo-expandido video {
+    max-width: 100%;
+    max-height: 90vh;
+    border: 2px solid #00d4ff;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    border-radius: 10px;
 }

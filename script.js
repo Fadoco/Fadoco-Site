@@ -21,3 +21,36 @@ function fecharAmpliacao() {
 document.addEventListener('keydown', (e) => {
     if (e.key === "Escape") fecharAmpliacao();
 });
+
+
+
+function ampliarImagem(botao) {
+    const card = botao.parentElement;
+    const midiaOriginal = card.querySelector('img, video');
+    const overlay = document.getElementById('overlay');
+    const conteudoExpandido = document.getElementById('conteudo-expandido');
+    
+    conteudoExpandido.innerHTML = ''; 
+
+    if (midiaOriginal.tagName === 'VIDEO') {
+        const videoClone = document.createElement('video');
+        videoClone.src = midiaOriginal.src;
+        videoClone.autoplay = true;
+        videoClone.controls = true; // Adiciona pause/volume na tela cheia
+        videoClone.loop = true;
+        conteudoExpandido.appendChild(videoClone);
+    } else {
+        const imgClone = document.createElement('img');
+        imgClone.src = midiaOriginal.src;
+        conteudoExpandido.appendChild(imgClone);
+    }
+
+    overlay.style.display = 'flex';
+}
+
+function fecharAmpliacao() {
+    const overlay = document.getElementById('overlay');
+    const conteudoExpandido = document.getElementById('conteudo-expandido');
+    overlay.style.display = 'none';
+    conteudoExpandido.innerHTML = ''; // Para o vídeo parar de tocar ao fechar
+}
