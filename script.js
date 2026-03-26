@@ -25,18 +25,24 @@ document.addEventListener('keydown', (e) => {
 
 
 function ampliarImagem(botao) {
+    console.log("Botão clicado!"); // Aparecerá no console (F12) se funcionar
     const card = botao.parentElement;
     const midiaOriginal = card.querySelector('img, video');
     const overlay = document.getElementById('overlay');
     const conteudoExpandido = document.getElementById('conteudo-expandido');
     
+    if (!overlay || !conteudoExpandido) {
+        console.error("Erro: Elementos do overlay não encontrados no HTML!");
+        return;
+    }
+
     conteudoExpandido.innerHTML = ''; 
 
     if (midiaOriginal.tagName === 'VIDEO') {
         const videoClone = document.createElement('video');
         videoClone.src = midiaOriginal.src;
         videoClone.autoplay = true;
-        videoClone.controls = true; // Adiciona pause/volume na tela cheia
+        videoClone.controls = true;
         videoClone.loop = true;
         conteudoExpandido.appendChild(videoClone);
     } else {
@@ -52,5 +58,10 @@ function fecharAmpliacao() {
     const overlay = document.getElementById('overlay');
     const conteudoExpandido = document.getElementById('conteudo-expandido');
     overlay.style.display = 'none';
-    conteudoExpandido.innerHTML = ''; // Para o vídeo parar de tocar ao fechar
+    conteudoExpandido.innerHTML = '';
 }
+
+// Fecha com a tecla ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape") fecharAmpliacao();
+});
