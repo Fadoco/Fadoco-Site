@@ -587,17 +587,20 @@ header li a:hover {
 
 /* --- ESTILOS DA PÁGINA DE CONTATO --- */
 
+
+
+/* Container Principal - Grid Responsivo */
 .pagina-contato {
-    width: 100%;
-    min-height: 100vh;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     padding: 160px 10% 80px 10%;
-    justify-items: center;
-    align-items: start;
+    align-items: stretch; /* Garante que todos os cards da linha tenham a mesma altura */
+    width: 100%;
+    min-height: 100vh;
 }
 
+/* Estilização dos Cards Individuais */
 .card-social {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(15px);
@@ -605,33 +608,32 @@ header li a:hover {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 30px 20px;
-    width: 100%;
-    max-width: 350px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between; /* Alinha topo, meio e botão (base) igualmente */
     align-items: center;
     text-align: center;
-    transition: 0.4s ease;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
-    overflow: hidden;
 }
 
+/* Efeito Hover nos Cards */
 .card-social:hover {
     transform: translateY(-10px);
     border-color: #00d4ff;
-    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 212, 255, 0.2);
 }
 
-/* Identidade Visual por Card */
+/* Identidade Visual - Bordas Inferiores Coloridas */
 .youtube { border-bottom: 4px solid #ff0000; }
 .tiktok { border-bottom: 4px solid #00f2ea; }
 .instagram { border-bottom: 4px solid #e1306c; }
 .gameplay { border-bottom: 4px solid #8a2be2; }
 
-/* Avatar com Anel Neon */
+/* Avatar com Anel Neon Estelar */
 .avatar-ring {
-    width: 80px;
-    height: 80px;
+    width: 85px;
+    height: 85px;
     border-radius: 50%;
     padding: 3px;
     background: linear-gradient(45deg, #8a2be2, #00d4ff);
@@ -644,51 +646,46 @@ header li a:hover {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #0a0a14;
+    border: 3px solid #0a0a14;
 }
 
 .subtitulo-card {
     font-family: 'Orbitron', sans-serif;
     color: white;
-    font-size: 1rem;
+    font-size: 0.95rem;
     letter-spacing: 2px;
     margin-bottom: 20px;
     line-height: 1.4;
+    text-transform: uppercase;
 }
 
-/* Container dos Vídeos/Previews */
-.video-preview-container {
+/* Container de Vídeos e Previews (Tamanho Unificado) */
+.video-preview-container, 
+.stories-placeholder {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    height: 200px; /* Força todos os conteúdos a terem a mesma altura */
     background: #000;
     border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.video-preview-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* Ajuste específico para o TikTok (Vertical) */
-.vertical-ajustado {
-    aspect-ratio: 9 / 16;
-    max-height: 300px;
-}
-
-/* Placeholder Instagram */
-.stories-placeholder {
-    width: 100%;
-    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
-    border-radius: 12px;
-    margin-bottom: 20px;
+}
+
+/* Ajuste para Vídeos (Locais e Iframes) */
+.video-local, 
+.video-preview-container iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Preenche o container sem deformar */
+    border: none;
+}
+
+/* Estilização do Placeholder Instagram */
+.stories-placeholder {
+    background: linear-gradient(45deg, #405de6, #833ab4, #fd1d1d);
 }
 
 .stories-placeholder p {
@@ -696,36 +693,44 @@ header li a:hover {
     font-weight: 900;
     color: white;
     font-size: 0.8rem;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-/* Botão Visitar */
+/* Botões de Ação (Visitar/Seguir) */
 .btn-visitar {
-    display: inline-block;
+    display: block;
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     background: transparent;
     border: 1px solid #00d4ff;
     color: #00d4ff;
     text-decoration: none;
     font-family: 'Orbitron', sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
+    font-weight: 700;
     border-radius: 8px;
     transition: 0.3s;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 .btn-visitar:hover {
     background: #00d4ff;
     color: #000;
-    box-shadow: 0 0 15px #00d4ff;
+    box-shadow: 0 0 20px #00d4ff;
 }
 
-/* Responsividade */
+/* --- RESPONSIVIDADE --- */
+
 @media (max-width: 768px) {
     .pagina-contato {
-        padding-top: 120px;
-        grid-template-columns: 1fr;
+        padding-top: 130px;
+        grid-template-columns: 1fr; /* Um card por linha no celular */
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    
+    .card-social {
+        min-height: auto;
     }
 }
