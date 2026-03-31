@@ -1,93 +1,81 @@
-
-<<<<<<< HEAD
-
-
-
-function ampliarImagem(botao) {
-    // Pega o caminho da imagem que está dentro do mesmo card do botão
-    const srcImagem = botao.parentElement.querySelector('img').src;
+// Função para abrir o Lightbox/Overlay com Imagens ou Vídeos (Galeria de Artes)
+function ampliarImagem(elemento) {
     const overlay = document.getElementById('overlay');
-    const imgAmpliada = document.getElementById('img-ampliada');
+    const conteudo = document.getElementById('conteudo-expandido');
+    conteudo.innerHTML = ''; // Limpa conteúdo anterior
 
-    imgAmpliada.src = srcImagem;
-    overlay.style.display = 'flex';
-}
+    let midiaOriginal;
 
-function fecharAmpliacao() {
-    document.getElementById('overlay').style.display = 'none';
-}
-
-=======
->>>>>>> 3aa7b9b (tentativa numero 3)
-// Fechar ao apertar a tecla "Esc"
-document.addEventListener('keydown', (e) => {
-    if (e.key === "Escape") fecharAmpliacao();
-});
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 3aa7b9b (tentativa numero 3)
-function ampliarImagem(botao) {
-    const card = botao.parentElement;
-    const midiaOriginal = card.querySelector('img, video');
-    const overlay = document.getElementById('overlay');
-    const conteudoExpandido = document.getElementById('conteudo-expandido');
-    
-    conteudoExpandido.innerHTML = ''; 
-
-    let clone;
-    if (midiaOriginal.tagName === 'VIDEO') {
-        clone = document.createElement('video');
-        clone.src = midiaOriginal.src;
-        clone.autoplay = true;
-        clone.controls = true;
-        clone.loop = true;
-    } else {
-        clone = document.createElement('img');
-        clone.src = midiaOriginal.src;
+    // Se o elemento for o botão de expandir (Galeria de Artes)
+    if (elemento.classList.contains('expand-btn')) {
+        midiaOriginal = elemento.parentElement.querySelector('img, video');
+    } 
+    // Se for a tag de favorito ou a própria imagem (Página de Gostos)
+    else if (elemento.tagName === 'IMG') {
+        midiaOriginal = elemento;
     }
 
-    conteudoExpandido.appendChild(clone);
-    overlay.style.display = 'flex';
-}
-
-function fecharAmpliacao() {
-    const overlay = document.getElementById('overlay');
-    document.getElementById('conteudo-expandido').innerHTML = '';
-    overlay.style.display = 'none';
-<<<<<<< HEAD
-=======
-}
-
-// Lógica Genérica para mostrar/esconder seções (Jogos, Animes, Músicas, etc.)
-document.querySelectorAll('.toggle-bar').forEach(bar => {
-    bar.addEventListener('click', () => {
-        // Encontra a grid que está logo após a barra clicada
-        const grid = bar.nextElementSibling;
-        
-        if (grid && grid.classList.contains('gostos-grid')) {
-            grid.classList.toggle('active');
-            
-            // Rotaciona a seta
-            const seta = bar.querySelector('.seta');
-            if (seta) {
-                seta.style.transform = grid.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
-            }
+    if (midiaOriginal) {
+        const clone = midiaOriginal.cloneNode(true);
+        if (clone.tagName === 'VIDEO') {
+            clone.controls = true;
+            clone.autoplay = true;
         }
-    });
-});
+        conteudo.appendChild(clone);
+        overlay.style.display = 'flex';
+    }
+}
 
+// Função para ampliar o Card completo (Página de Gostos)
 function ampliarCard(card) {
     const overlay = document.getElementById('overlay');
-    const conteudoExpandido = document.getElementById('conteudo-expandido');
-    
-    conteudoExpandido.innerHTML = ''; 
+    const conteudo = document.getElementById('conteudo-expandido');
+    conteudo.innerHTML = '';
+
     const clone = card.cloneNode(true);
-    clone.removeAttribute('onclick'); // Evita que o clique no card aberto tente abrir outro
+    clone.removeAttribute('onclick'); // Evita recursão ao clicar no clone
     
-    conteudoExpandido.appendChild(clone);
+    conteudo.appendChild(clone);
     overlay.style.display = 'flex';
->>>>>>> 3aa7b9b (tentativa numero 3)
 }
+
+// Função para fechar qualquer sobreposição
+function fecharAmpliacao() {
+    const overlay = document.getElementById('overlay');
+    const conteudo = document.getElementById('conteudo-expandido');
+    overlay.style.display = 'none';
+    conteudo.innerHTML = '';
+}
+
+// Lógica para os menus expansíveis (Toggle Bars) da página de Gostos
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleBars = document.querySelectorAll('.toggle-bar');
+    
+    toggleBars.forEach(bar => {
+        bar.addEventListener('click', () => {
+            const gridId = bar.id.replace('toggle-', '') + '-grid';
+            const grid = document.getElementById(gridId);
+            const seta = bar.querySelector('.seta');
+
+            if (grid) {
+                grid.classList.toggle('active');
+                // Rotaciona a seta
+                if (grid.classList.contains('active')) {
+                    seta.style.transform = 'rotate(180deg)';
+                } else {
+                    seta.style.transform = 'rotate(0deg)';
+                }
+            }
+        });
+    });
+
+    // Menu Mobile (Hambúrguer)
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navList = document.querySelector('.nav-list');
+    if (mobileMenu && navList) {
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+    }
+});
