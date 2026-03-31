@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gostos | Star Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <img class="background" src="img/Background (1).gif" alt="">
+    <!-- a -->
+    <header>
+        <div class="logo">
+            <div class="row-img">
+                <img src="img/Logo.jpg" alt="Logo">
+            </div>
+        </div>
+
+        <div class="centro">
+            <h1 class="titulo">Star Hub</h1>
+            <div class="mobile-menu" id="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="index.html">Hub</a></li>
+                    <li><a href="lore.html">Lore</a></li>
+                    <li><a href="artes.html">Artes</a></li>
+                    <li><a href="gostos.html">Gostos</a></li>
+                    <li><a href="redes_sociais.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="spacer"></div>
+    </header>
+
+    <main class="gostos-secao">
+        <div class="gostos-cabecalho">
+            <h1>Preferências Estelares</h1>
+            <p>Aqui eu vou listar meus gostos que talvez você também goste: jogos, animes, músicas e muitas outras coisas que vi durante minha vida.</p>
+        </div>
+
+        <div class="toggle-container">
+            <div class="toggle-bar" id="toggle-jogos">
+                <span>Jogos que eu recomendo</span>
+                <span class="seta">▼</span>
+            </div>
+            
+            <div class="gostos-grid" id="jogos-grid">
+            <div class="gostos-card" onclick="ampliarCard(this)">
+                <div class="card-img-container">
+                    <img src="img/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a.jpg" alt="Minecraft">
+                </div>
+                <h3>Minecraft</h3>
+                <p>Um jogo de construção onde os jogadores podem criar e destruir diferentes tipos de blocos em um mundo tridimensional gerado proceduralmente.</p>
+            </div>
+
+            <div class="gostos-card" onclick="ampliarCard(this)">
+                <div class="card-img-container">
+                    <img src="img/447007.jpg" alt="Black Ops 2">
+                </div>
+                <h3>Black Ops 2</h3>
+                <p>FPS aclamado que mistura combates na Guerra Fria e um futuro tecnológico. Famoso por sua campanha ramificada e o icônico modo Zombies.</p>
+            </div>
+
+            <div class="gostos-card" onclick="ampliarCard(this)">
+                <div class="card-img-container">
+                    <img src="img/798682.png" alt="Undertale">
+                </div>
+                <h3>Undertale</h3>
+                <p>RPG indie onde suas escolhas morais definem o destino dos monstros. Destaca-se por permitir terminar a aventura sem matar ninguém.</p>
+                <div class="favorito-tag" onclick="event.stopPropagation(); ampliarImagem(this.querySelector('img'))">
+                    <span>Favorito: Asgore O Rei dos Monstros <Strong>Clique para ver mais</Strong></span>
+                    <img src="img/Asgore the King by YAMsgarden on DeviantArt.jfif" alt="Asgore" class="mini-img">
+                </div>
+            </div>
+
+            <div class="gostos-card" onclick="ampliarCard(this)">
+                <div class="card-img-container">
+                    <img src="img/dac3a26570b5ca1ddf703bf0add7cc7c527f71a2b56521baf69e20c7a573c610.jpg" alt="Terraria">
+                </div>
+                <h3>Terraria</h3>
+                <p>Aventura 2D épica focada em exploração, construção e combate contra chefes colossais em um mundo procedural.</p>
+            </div>
+
+            <div class="gostos-card" onclick="ampliarCard(this)">
+                <div class="card-img-container">
+                    <img src="img/capsule_616x353.jpg" alt="I Wani Hug That Gator">
+                </div>
+                <h3>I Wani Hug That Gator</h3>
+                <p>Visual novel de romance e comédia sobre amadurecimento e escolhas em uma escola de répteis antropomórficos.</p>
+            </div>
+
+            <div class="gostos-card" onclick="ampliarCard(this)">
+                <div class="card-img-container">
+                    <img src="img/1246845511_preview_jalopy.jpg" alt="Jalopy">
+                </div>
+                <h3>Jalopy</h3>
+                <p>Simulador de direção pelo Leste Europeu. Manter seu carro Laika funcionando é o maior desafio desta jornada nostálgica.</p>
+            </div>
+
+            <div class="gostos-card" onclick="ampliarCard(this)">
+                <div class="card-img-container">
+                    <img src="img/thumb-1920-1168976.png" alt="Ultrakill">
+                </div>
+                <h3>Ultrakill</h3>
+                <p>FPS frenético com estética retrô onde o sangue é combustível. Combina movimentação veloz e combate técnico de alto estilo.</p>
+            </div>
+
+            <div class="gostos-card" onclick="ampliarCard(this)">
+                <div class="card-img-container">
+                    <img src="img/833257.jpg" alt="Dead Cells">
+                </div>
+                <h3>Dead Cells</h3>
+                <p>Roguevania 2D de ação intensa estilo Souls-like. Aprenda com a morte em um castelo que muda a cada tentativa.</p>
+            </div>
+            </div>
+        </div>
+
+        <div class="toggle-container">
+            <div class="toggle-bar" id="toggle-animes">
+                <span>Animes que eu recomendo</span>
+                <span class="seta">▼</span>
+            </div>
+            
+            <div class="gostos-grid" id="animes-grid">
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/Knight's & Magic.png" alt="Cyberpunk: Edgerunners">
+                    </div>
+                    <h3>Knight's & Magic</h3>
+                    <p>Knight's & Magic (Naitsu to Majikku) é um isekai mecha sobre Ernesti Echevalier, um programador gênio e fã de robôs que reencarna em um mundo de fantasia com cavaleiros e magia. Ele usa seu conhecimento para pilotar e aprimorar os "Silhouette Knights" (robôs gigantes), buscando realizar seu sonho de construir o mecha supremo..</p>
+                    <div class="favorito-tag" onclick="event.stopPropagation(); ampliarImagem(this.querySelector('img'))">
+                        <span>Personagem Favorito: Ikaruga <strong>Clique para ver</strong></span>
+                        <img src="img/ikaruga.jpg" alt="Ikaruga" class="mini-img">
+                    </div>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/Seihantai na Kimi to Boku.apng.png" alt="Seihantai na Kimi to Bokun">
+                    </div>
+                    <h3>Seihantai na Kimi to Boku</h3>
+                    <p>Suzuki é uma colegial apaixonada, mas o rapaz que ela ama não é nadinha parecido com ela! Enquanto ela é alegre, extrovertida e está sempre tentando se enturmar, seu colega de classe Yusuke Tani é estoico, quieto e parece não se importar com o que as pessoas pensam dele. Será que Suzuki conseguirá superar suas ansiedades e convidá-lo para um encontro, ou descobrirá que os opostos realmente não se atraem?</p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/Kaya-chan wa Kowakunai.png" alt="Kaya-chan wa Kowakunai">
+                    </div>
+                    <h3>Kaya-chan wa Kowakunai</h3>
+                    <p>Kaya-chan é conhecida como uma criança problemática no jardim de infância, mas nenhum adulto sabe o seu segredo — até Chie-sensei assumir a turma e descobrir a habilidade oculta de Kaya-chan de ver espíritos malignos e derrotá-los com um soco! O que será que vai acontecer com essa garotinha de cinco anos que vive se metendo em confusão quando tudo o que ela quer é ajudar?</p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/Hell Mode Yarikomizuki no Gamer.jpg" alt="Hell Mode: Yarikomizuki no Gamer">
+                    </div>
+                    <h3>Hell Mode: Yarikomizuki no Gamer</h3>
+                    <p>Kenichi é atraído pelo jogo sem título que promete um desafio incomparável e um potencial nunca antes visto. Sem hesitar, ele escolhe a dificuldade “Modo Infernal”. Eis que ele reencarna em outro mundo como um servo! Agora chamado Allen, ele começa a explorar os segredos de sua classe, um Invocador. Sem a ajuda de detonadas, guias e fóruns online, ele precisa moldar seu caminho em busca do topo desse novo mundo!</p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/Kimi to Koete Koi ni Naru.jpg" alt="Kimi to Koete Koi ni Naru">
+                    </div>
+                    <h3>Kimi to Koete Koi ni Naru</h3>
+                    <p>Duando Mari, uma estudante do ensino médio, esbarra em um colega atrasado, ela fica surpresa ao descobrir que ele é um homem-fera que vai estudar na mesma escola que ela! Afinal, não é raro homens-fera conviverem com humanos, mas ainda é algo incomum, especialmente devido aos preconceitos que existem… Inicialmente nervosa, Mari logo percebe que há muito mais nele do que sua aparência peluda. Na verdade, quanto mais ela o conhece, mais ela se sente atraída por ele… por sua determinação, sua gentileza e… seu corpo….</p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/Silent Witch.jpg" alt="Silent Witch">
+                    </div>
+                    <h3>Silent Witch</h3>
+                    <p>Monica Everett, a Bruxa Silenciosa, é a única maga do mundo que consegue usar magia sem pronunciar encantamentos, uma verdadeira heroína que derrotou sozinha um dragão negro lendário. No entanto, a jovem prodígio na verdade… é incrivelmente tímida! É isso mesmo: ela aprendeu a invocar feitiços silenciosamente apenas para não falar em público, e, apesar de seu poder, não tem um pingo de confiança em si mesma. Agora, Monica recebeu a missão de secretamente proteger o segundo príncipe. </p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/Umamusume Cinderella Gray.png" alt="Umamusume Cinderella Gray">
+                    </div>
+                    <h3>Umamusume Cinderella Gray</h3>
+                    <p>Esta é a história de Oguri Cap, uma jovem umamusume que inicia sua jornada na Academia Tracen de Kasamatsu, situada numa região rural. Ela corre de forma avassaladora, desafiando o senso comum. Essa garota que chega a ser chamada de “Monstro” escreve sua lenda na história. Foi dada a largada desta história de uma Cinderela corredora!</p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/Sentai Red Isekai.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Sentai Red Isekai</h3>
+                    <p>Asagaki Togo era o Ranger Vermelho em um heróico esquadrão de Rangers. Durante a batalha final contra a última organização do mal, ele sofre uma derrota esmagadora e se resigna à morte… Isto é, até que ele renasce em um mundo totalmente diferente!</p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/Shikanoko Nokonoko Koshitantan.jpg" alt="Shikanoko Nokonoko Koshitantan">
+                    </div>
+                    <h3>Shikanoko Nokonoko Koshitantan</h3>
+                    <p>Torako acreditava ter deixado para trás seu passado turbulento como delinquente nos tempos de ensino fundamental, reinventando-se como uma estudante exemplar no ensino médio, sem que ninguém suspeitasse de suas raízes criminosas. No entanto, sua vida dá uma guinada inesperada com a chegada de Nokotan, uma misteriosa aluna transferida com chifres e uma aura inquietante. </p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/Dereru Tonari no Alya-san.jpg" alt="Dereru Tonari no Alya-san">
+                    </div>
+                    <h3>Dereru Tonari no Alya-san</h3>
+                    <p>Alya é uma aluna transferida bastante popular em sua nova escola, frequentemente exibindo uma atitude fria enquanto tira notas altas. Ela ignora seu colega nerd, Kuze Masachika, exceto quando solta algumas frases de flerte em russo para ele. Mal sabe ela que Kuze entende russo, embora finja que não. Vamos ver até onde essa história de amor maluca os levará!</p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/Boku no Tsuma wa Kanjou ga Nai.jpg" alt="Boku no Tsuma wa Kanjou ga Nai">
+                    </div>
+                    <h3>Boku no Tsuma wa Kanjou ga Nai</h3>
+                    <p>Takuma é um cara solteiro que não faz nada além de ir trabalhar e voltar para casa. Cansado demais para fazer tarefas domésticas, ele decide contratar um robô para cozinhar e cuidar da casa. “Mina-chan” é uma governanta tão boa que Takuma brinca que ela deveria se tornar sua esposa. </p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/Lv2 kara Cheat datta.jpg" alt="Lv2 kara Cheat datta">
+                    </div>
+                    <h3>Lv2 kara Cheat datta</h3>
+                    <p>O Reino Mágico de Klyrode convoca centenas de heróis de outros mundos todos os anos para lutar na guerra contra a Escuridão e seu exército de demônios poderosos. Banaza é um desses heróis, convocado da Royal Capital Paluma, mas algo não está certo – Banaza é apenas um comerciante comum.</p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/Kami wa Game ni Ueteiru.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Kami wa Game ni Ueteiru</h3>
+                    <p>Dado o seu (exagero de) tempo livre, os deuses ficaram entediados e decidiram criar batalhas desafiadoras de inteligência para apimentar as coisas! Seus oponentes? A humanidade!. Alguns jogadores selecionados, chamados de “apóstolos”, encontram os deuses no campo de jogo do reino espiritual para vencer as divindades em seus próprios jogos. </p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/Tensei shitara Dainana Ouji.jpg" alt="Tensei shitara Dainana Ouji">
+                    </div>
+                    <h3>Tensei shitara Dainana Ouji</h3>
+                    <p>Apesar de seu profundo amor pela magia, um jovem feiticeiro nasceu em uma família pobre, sem linhagem sanguínea nem aptidão para o estudo mágico. Após encontrar uma morte prematura e cheia de arrependimentos, ele renasce como Lloyd, o sétimo príncipe do Reino de Saloum, dotado de uma poderosa linhagem mágica. Agora, com todas as suas memórias intactas, ele está determinado a aproveitar essa nova vida!</p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/Saijaku Tamer wa Gomi Hiroi no Tabi.jpg" alt="Saijaku Tamer wa Gomi Hiroi no Tabi">
+                    </div>
+                    <h3>Saijaku Tamer wa Gomi Hiroi no Tabi</h3>
+                    <p>As estrelas representam tudo neste mundo, pois elas conferem habilidades aos Domadores. Assim, quando Ivy veio ao mundo sem uma estrela para si, sua vila interpretou como um mau presságio! Agora exilada, ela leva uma vida solitária, coletando objetos descartados para sobreviver… Tudo muda quando ela cria laços com Sora, uma pequena e frágil criatura gelatinosa encontrada na floresta. A partir de agora, essa dupla delicada inicia uma jornada emocionante de sobrevivência!</p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/placeholder.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Espaço Reservado</h3>
+                    <p>Descrição do seu próximo anime favorito. Edite este texto para contar por que você recomenda esta obra.</p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/placeholder.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Espaço Reservado</h3>
+                    <p>Descrição do seu próximo anime favorito. Edite este texto para contar por que você recomenda esta obra.</p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/placeholder.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Espaço Reservado</h3>
+                    <p>Descrição do seu próximo anime favorito. Edite este texto para contar por que você recomenda esta obra.</p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/placeholder.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Espaço Reservado</h3>
+                    <p>Descrição do seu próximo anime favorito. Edite este texto para contar por que você recomenda esta obra.</p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/placeholder.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Espaço Reservado</h3>
+                    <p>Descrição do seu próximo anime favorito. Edite este texto para contar por que você recomenda esta obra.</p>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/placeholder.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Espaço Reservado</h3>
+                    <p>Descrição do seu próximo anime favorito. Edite este texto para contar por que você recomenda esta obra.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de Músicas -->
+        <div class="toggle-container">
+            <div class="toggle-bar" id="toggle-musicas">
+                <span>Músicas que eu recomendo</span>
+                <span class="seta">▼</span>
+            </div>
+            <div class="gostos-grid" id="musicas-grid">
+                <!-- Repetir este bloco 10 vezes -->
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/placeholder.jpg" alt="Música">
+                    </div>
+                    <h3>Título da Música</h3>
+                    <p>Descrição ou trecho favorito da música.</p>
+                </div>
+                <!-- Adicione mais 9 cards similares abaixo -->
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Música"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Música"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Música"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Música"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Música"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Música"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Música"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Música"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Música"></div><h3>Título</h3><p>Descrição...</p></div>
+            </div>
+        </div>
+
+        <!-- Seção de Filmes -->
+        <div class="toggle-container">
+            <div class="toggle-bar" id="toggle-filmes">
+                <span>Filmes que eu recomendo</span>
+                <span class="seta">▼</span>
+            </div>
+            <div class="gostos-grid" id="filmes-grid">
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/placeholder.jpg" alt="Filme">
+                    </div>
+                    <h3>Título do Filme</h3>
+                    <p>O que você achou dessa obra cinematográfica?</p>
+                </div>
+                <!-- Mais 9 cards -->
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
+            </div>
+        </div>
+
+        <!-- Seção de Séries -->
+        <div class="toggle-container">
+            <div class="toggle-bar" id="toggle-series">
+                <span>Séries que eu recomendo</span>
+                <span class="seta">▼</span>
+            </div>
+            <div class="gostos-grid" id="series-grid">
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/placeholder.jpg" alt="Série">
+                    </div>
+                    <h3>Título da Série</h3>
+                    <p>Uma maratona inesquecível ou uma recomendação clássica.</p>
+                </div>
+                <!-- Mais 9 cards -->
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
+            </div>
+        </div>
+
+        <!-- Seção de Desenhos -->
+        <div class="toggle-container">
+            <div class="toggle-bar" id="toggle-desenhos">
+                <span>Desenhos que eu recomendo</span>
+                <span class="seta">▼</span>
+            </div>
+            <div class="gostos-grid" id="desenhos-grid">
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/placeholder.jpg" alt="Desenho">
+                    </div>
+                    <h3>Título do Desenho</h3>
+                    <p>Nostalgia ou animações modernas que valem a pena.</p>
+                </div>
+                <!-- Mais 9 cards -->
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
+                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="overlay" class="overlay" onclick="fecharAmpliacao()">
+        <span class="close-overlay">&times;</span>
+        <div id="conteudo-expandido"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

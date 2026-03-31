@@ -578,10 +578,19 @@ header li a:hover {
 #conteudo-expandido img, 
 #conteudo-expandido video {
     max-width: 100%;
+<<<<<<< HEAD
     max-height: 90vh;
     border: 2px solid #00d4ff;
     box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
     border-radius: 10px;
+=======
+    width: auto;
+    height: auto;
+    max-height: 90vh;
+    border: 2px solid #00d4ff !important;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    border-radius: 10px !important;
+>>>>>>> 3aa7b9b (tentativa numero 3)
 }
 
 
@@ -733,4 +742,209 @@ header li a:hover {
     .card-social {
         min-height: auto;
     }
+<<<<<<< HEAD
+=======
+}
+
+/* --- ESTILOS DA PÁGINA DE GOSTOS --- */
+
+.gostos-secao {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 160px 10% 80px 10%;
+}
+
+.gostos-cabecalho {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.gostos-cabecalho h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+    margin-bottom: 15px;
+}
+
+.gostos-cabecalho p {
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.gostos-grid {
+    display: none; /* Escondido por padrão */
+    grid-template-columns: repeat(3, 1fr); /* Força 3 colunas no desktop */
+    gap: 25px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.gostos-grid.active {
+    display: grid;
+    animation: fluidReveal 0.7s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+.seta {
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size: 0.8rem;
+}
+
+.toggle-bar {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(138, 43, 226, 0.3);
+    padding: 20px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    transition: 0.4s;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.toggle-bar:hover {
+    border-color: #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+.gostos-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(138, 43, 226, 0.2);
+    border-radius: 20px;
+    padding: 20px;
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.gostos-card:hover {
+    transform: translateY(-10px);
+    border-color: #00d4ff;
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+}
+
+.card-img-container {
+    width: 100%;
+    height: 160px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gostos-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00d4ff;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.gostos-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    display: none; /* Esconde a descrição por padrão na grid */
+}
+
+.favorito-tag {
+    margin-top: 15px;
+    display: none; /* Esconde a tag de favorito por padrão na grid */
+    align-items: center;
+    gap: 10px;
+    background: rgba(138, 43, 226, 0.2);
+    padding: 8px 12px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.favorito-tag:hover {
+    background: rgba(138, 43, 226, 0.4);
+    transform: scale(1.05);
+}
+
+.mini-img {
+    display: none;
+}
+
+/* Estilo do Card quando ampliado no Overlay */
+#conteudo-expandido .gostos-card {
+    max-width: 500px;
+    width: 90%;
+    cursor: default;
+    background: rgba(15, 15, 30, 0.95);
+    border: 2px solid #00d4ff;
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+    transform: none;
+    animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Revela a descrição e a tag apenas quando o card estiver ampliado */
+#conteudo-expandido .gostos-card p {
+    display: block;
+    margin-top: 15px;
+}
+
+#conteudo-expandido .gostos-card .favorito-tag {
+    display: flex;
+}
+
+#conteudo-expandido .gostos-card .card-img-container {
+    height: 250px;
+}
+
+/* Responsividade para a Grid de Gostos */
+@media (max-width: 1024px) {
+    .gostos-grid.active {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas para tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .gostos-grid.active {
+        grid-template-columns: 1fr; /* Linha reta (1 coluna) no telefone */
+    }
+}
+
+/* Animação suave de revelação estelar */
+@keyframes fluidReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.98);
+        filter: blur(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+>>>>>>> 3aa7b9b (tentativa numero 3)
 }
