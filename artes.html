@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lore | Star Hub</title>
+    <title>Artes | Star Hub</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,19 +18,27 @@
 
         <div class="centro">
             <h1 class="titulo">Star Hub</h1>
-            <nav>
+            <nav class="nav-principal">
                 <ul>
                     <li><a href="index.html">Hub</a></li>
                     <li><a href="lore.html">Lore</a></li>
-                    <li><a href="artes.html">Artes</a></li>
-                    <li><a href="gostos.html">Gostos</a></li>
                     <li><a href="redes_sociais.html">Contato</a></li>
                 </ul>
             </nav>
         </div>
 
-        <div class="spacer"></div>
+        <div class="menu-extra">
+            <button class="btn-menu" id="btn-menu">☰</button>
+        </div>
     </header>
+
+    <div id="side-menu" class="side-menu">
+        <span class="btn-fechar" id="btn-fechar">&times;</span>
+        <ul class="nav-secundaria">
+            <li><a href="artes.html">Artes</a></li>
+            <li><a href="gostos.html">Gostos</a></li>
+        </ul>
+    </div>
 
     <main>
     <section class="artes-secao">
@@ -59,9 +67,9 @@
            <div class="arte-card">
             <img src="img/1000351967.jpg" alt="Nome da Obra">
             <button class="expand-btn" onclick="ampliarImagem(this)">⛶</button>
-            <div class="legenda-arte">
-            <h4>Fadoco Forma Guardião</h4>
-            <p>Essa e a primeira versão do meu personagem</p>
+            <div class="legenda-arte"> 
+            <h4>Fadoco: Forma Guardião</h4>
+            <p>Essa é a primeira versão do meu personagem</p>
     </div>
     
 </div>
@@ -71,9 +79,9 @@
            <div class="arte-card">
             <img src="img/1000312743.png" alt="Nome da Obra">
             <button class="expand-btn" onclick="ampliarImagem(this)">⛶</button>
-            <div class="legenda-arte">
+            <div class="legenda-arte"> 
             <h4>Fadoco Totem</h4>
-            <p>Essa e uma arte de um totem de RPG que tinha pedido para fazer para minha artista</p>
+            <p>Essa é uma arte de um totem de RPG que eu tinha pedido para fazer para minha artista</p>
     </div>
 </div>
 
@@ -82,9 +90,9 @@
            <div class="arte-card">
             <img src="img/1000329522 (1).png" alt="Nome da Obra">
             <button class="expand-btn" onclick="ampliarImagem(this)">⛶</button>
-            <div class="legenda-arte">
+            <div class="legenda-arte"> 
             <h4>Fadoco Totem Armadura</h4>
-            <p>Essa e uma arte de um totem de RPG que tinha pedido para fazer para minha artista so que versão de armadura</p>
+            <p>Essa é uma arte de um totem de RPG que eu tinha pedido para fazer para minha artista, só que na versão de armadura</p>
     </div>
 </div>
 
@@ -93,9 +101,9 @@
            <div class="arte-card">
             <img src="img/ChatGPT Image 9 de jan. de 2026, 11_24_10.png" alt="Nome da Obra">
             <button class="expand-btn" onclick="ampliarImagem(this)">⛶</button>
-            <div class="legenda-arte">
+            <div class="legenda-arte"> 
             <h4>Fadoco Steam</h4>
-            <p>Essa foi uma Trend do Tik Tok de artes feitas no GPT nesse estilo</p>
+            <p>Essa foi uma trend do TikTok de artes feitas no GPT, nesse estilo</p>
     </div>
 </div>
 
@@ -106,7 +114,7 @@
         <button class="expand-btn" onclick="ampliarImagem(this)">⛶</button>
         <div class="legenda-arte">
             <h4>Tentativa de animação</h4>
-            <p>Essa foi uma tentativa de fazer uma animação com edição que fiz na epoca</p>
+            <p>Essa foi uma tentativa de fazer uma animação com uma edição que fiz na época</p>
         </div>
     </div>
 
@@ -118,6 +126,8 @@
         </div>
 </div>
 </main>
+
+    <button id="back-to-top" title="Voltar ao topo">▲</button>
 
     <script src="script.js"></script>
 </body>

@@ -18,19 +18,27 @@
 
         <div class="centro">
             <h1 class="titulo">Star Hub</h1>
-            <nav>
+            <nav class="nav-principal">
                 <ul>
                     <li><a href="index.html">Hub</a></li>
                     <li><a href="lore.html">Lore</a></li>
-                    <li><a href="artes.html">Artes</a></li>
-                    <li><a href="gostos.html">Gostos</a></li>
                     <li><a href="redes_sociais.html">Contato</a></li>
                 </ul>
             </nav>
         </div>
 
-        <div class="spacer"></div>
+        <div class="menu-extra">
+            <button class="btn-menu" id="btn-menu">☰</button>
+        </div>
     </header>
+
+    <div id="side-menu" class="side-menu">
+        <span class="btn-fechar" id="btn-fechar">&times;</span>
+        <ul class="nav-secundaria">
+            <li><a href="artes.html">Artes</a></li>
+            <li><a href="gostos.html">Gostos</a></li>
+        </ul>
+    </div>
 
     <main class="pagina-contato">
     <div class="card-social youtube">
@@ -48,7 +56,7 @@
     <div class="avatar-ring">
         <img src="img/Logo.jpg" alt="Fadoco" class="avatar-img">
     </div>
-    <h2 class="subtitulo-card">Fadoco_Edits <br> TIK TOK</h2>
+    <h2 class="subtitulo-card">Fadoco_Edits <br> TikTok</h2>
     <div class="video-preview-container">
         <video autoplay muted loop playsinline class="video-local">
             <source src="/img/SnapVid.Net_7364363821319818501-hd.mp4" type="video/mp4">
@@ -80,6 +88,8 @@
         <a href="https://www.youtube.com/channel/UC2Stl2EtlKYqtWnsKOhL3kA" target="_blank" class="btn-visitar">Inscrever-se</a>
     </div>
 </main>
+
+    <button id="back-to-top" title="Voltar ao topo">▲</button>
 
     <script src="script.js"></script>
 </body>

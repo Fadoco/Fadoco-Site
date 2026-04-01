@@ -56,6 +56,23 @@ function fecharAmpliacao() {
 
 // Lógica para os menus expansíveis (Toggle Bars) da página de Gostos
 document.addEventListener('DOMContentLoaded', () => {
+    // Controle do Menu Lateral (Side Menu)
+    const btnMenu = document.getElementById('btn-menu');
+    const btnFechar = document.getElementById('btn-fechar');
+    const sideMenu = document.getElementById('side-menu');
+
+    if (btnMenu && sideMenu) {
+        btnMenu.addEventListener('click', () => {
+            sideMenu.classList.add('active');
+        });
+    }
+
+    if (btnFechar && sideMenu) {
+        btnFechar.addEventListener('click', () => {
+            sideMenu.classList.remove('active');
+        });
+    }
+
     const toggleBars = document.querySelectorAll('.toggle-bar');
     
     toggleBars.forEach(bar => {
@@ -91,6 +108,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (conteudoExpandido) {
         conteudoExpandido.addEventListener('click', (e) => {
             e.stopPropagation();
+        });
+    }
+
+    // Botão Voltar ao Topo
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 });

@@ -7,6 +7,11 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -41,11 +46,11 @@ header::after {
 
 .titulo {
     font-family: 'Orbitron', sans-serif;
-    font-size: 2.2rem;
+    font-size: clamp(1.2rem, 4vw, 2.2rem);
     font-weight: 900;
     color: white;
     text-transform: uppercase;
-    letter-spacing: 5px;
+    letter-spacing: clamp(1px, 1vw, 5px);
     text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
 }
 
@@ -59,7 +64,7 @@ header::after {
 header ul {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: clamp(10px, 3vw, 30px);
     margin-top: 5px;
 }
 
@@ -71,12 +76,82 @@ header li a {
     transition: 0.3s;
 }
 
-header li a:hover {
+.nav-principal li a:hover {
     color: #00d4ff;
     text-shadow: 0 0 10px #00d4ff;
 }
 
-.logo, .spacer {
+/* --- NOVO MENU LATERAL E BOTÃO --- */
+.menu-extra {
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-menu {
+    background: transparent;
+    border: 2px solid rgba(0, 212, 255, 0.5);
+    color: white;
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-menu:hover {
+    background: rgba(0, 212, 255, 0.2);
+    box-shadow: 0 0 10px #00d4ff;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: rgba(10, 10, 20, 0.98);
+    backdrop-filter: blur(20px);
+    z-index: 2000;
+    transition: right 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    padding: 100px 30px;
+    border-left: 2px solid #8a2be2;
+}
+
+.side-menu.active {
+    right: 0;
+}
+
+.side-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.side-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.side-menu ul li a:hover {
+    color: #00d4ff;
+    padding-left: 10px;
+}
+
+.btn-fechar {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.logo {
     width: 100px;
 }
 
@@ -127,7 +202,7 @@ header li a:hover {
 
 .home-text h1 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 4.5rem;
+    font-size: clamp(2rem, 10vw, 4.5rem);
     color: white;
     margin-bottom: 20px;
 }
@@ -156,6 +231,28 @@ header li a:hover {
     box-shadow: 0 0 20px #00d4ff;
 }
 
+/* --- RESPONSIVIDADE GERAL --- */
+@media (max-width: 1024px) {
+    header {
+        padding: 10px 20px;
+    }
+    .logo, .menu-extra {
+        width: 60px;
+    }
+    .row-img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-principal {
+        display: flex;
+    }
+    header li a {
+        font-size: 0.6rem;
+    }
+}
 
 /* CSS LORE SITE */
 
@@ -755,10 +852,11 @@ header li a:hover {
 
 .gostos-cabecalho h1 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 8vw, 3rem);
     color: white;
     text-transform: uppercase;
-    letter-spacing: 5px;
+    letter-spacing: clamp(1px, 1.5vw, 5px);
+    word-wrap: break-word;
     text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
     margin-bottom: 15px;
 }
@@ -794,7 +892,7 @@ header li a:hover {
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 2px solid rgba(138, 43, 226, 0.3);
-    padding: 20px 40px;
+    padding: clamp(10px, 3vw, 20px) clamp(20px, 5vw, 40px);
     border-radius: 50px;
     cursor: pointer;
     display: flex;
@@ -821,7 +919,7 @@ header li a:hover {
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(138, 43, 226, 0.2);
     border-radius: 20px;
-    padding: 20px;
+    padding: clamp(15px, 3vw, 25px);
     transition: 0.4s;
     display: flex;
     flex-direction: column;
@@ -836,7 +934,7 @@ header li a:hover {
 
 .card-img-container {
     width: 100%;
-    height: 160px;
+    height: clamp(120px, 20vw, 180px);
     border-radius: 12px;
     overflow: hidden;
     margin-bottom: 20px;
@@ -851,15 +949,16 @@ header li a:hover {
 .gostos-card h3 {
     font-family: 'Orbitron', sans-serif;
     color: #00d4ff;
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
     margin-bottom: 12px;
     letter-spacing: 1px;
 }
 
 .gostos-card p {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 2vw, 0.95rem);
     line-height: 1.5;
+    word-wrap: break-word;
     display: none; /* Esconde a descrição por padrão na grid */
 }
 
@@ -888,8 +987,10 @@ header li a:hover {
 
 /* Estilo do Card quando ampliado no Overlay */
 #conteudo-expandido .gostos-card {
-    max-width: 500px;
-    width: 90%;
+    max-width: min(500px, 95vw);
+    width: 95%;
+    max-height: 85vh;
+    overflow-y: auto;
     cursor: default;
     background: rgba(15, 15, 30, 0.95);
     border: 2px solid #00d4ff;
@@ -909,7 +1010,7 @@ header li a:hover {
 }
 
 #conteudo-expandido .gostos-card .card-img-container {
-    height: 250px;
+    height: clamp(180px, 30vw, 250px);
 }
 
 /* Responsividade para a Grid de Gostos */
@@ -937,4 +1038,41 @@ header li a:hover {
         transform: translateY(0) scale(1);
         filter: blur(0);
     }
+}
+
+/* --- BOTÃO VOLTAR AO TOPO --- */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: rgba(138, 43, 226, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid #00d4ff;
+    color: white;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1500;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#back-to-top:hover {
+    background: #00d4ff;
+    color: #000;
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 0 25px #00d4ff;
 }
