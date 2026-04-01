@@ -578,6 +578,7 @@ header li a:hover {
 #conteudo-expandido img, 
 #conteudo-expandido video {
     max-width: 100%;
+    display: block;
     width: auto;
     height: auto;
     max-height: 90vh;
@@ -882,7 +883,7 @@ header li a:hover {
 }
 
 .mini-img {
-    display: none;
+    display: none !important;
 }
 
 /* Estilo do Card quando ampliado no Overlay */
