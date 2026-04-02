@@ -1,4 +1,8 @@
-// Função para abrir o Lightbox/Overlay com Imagens ou Vídeos (Galeria de Artes)
+/**
+ * STAR HUB - LOGICA DE INTERATIVIDADE
+ */
+
+// --- 1. GESTÃO DE OVERLAY E LIGHTBOX ---
 function ampliarImagem(elemento) {
     if (!elemento) return;
 
@@ -8,11 +12,9 @@ function ampliarImagem(elemento) {
 
     let midiaOriginal;
 
-    // Se o elemento for o botão de expandir (Galeria de Artes)
     if (elemento.classList.contains('expand-btn')) {
         midiaOriginal = elemento.parentElement.querySelector('img, video');
     }
-    // Se for a tag de favorito ou a própria imagem (Página de Gostos)
     else if (elemento.tagName === 'IMG' || elemento.tagName === 'VIDEO') {
         midiaOriginal = elemento;
     }
@@ -33,7 +35,6 @@ function ampliarImagem(elemento) {
     }
 }
 
-// Função para ampliar o Card completo (Página de Gostos)
 function ampliarCard(card) {
     const overlay = document.getElementById('overlay');
     const conteudo = document.getElementById('conteudo-expandido');
@@ -46,7 +47,6 @@ function ampliarCard(card) {
     overlay.style.display = 'flex';
 }
 
-// Função para fechar qualquer sobreposição
 function fecharAmpliacao() {
     const overlay = document.getElementById('overlay');
     const conteudo = document.getElementById('conteudo-expandido');
@@ -54,16 +54,34 @@ function fecharAmpliacao() {
     conteudo.innerHTML = '';
 }
 
-// Lógica para os menus expansíveis (Toggle Bars) da página de Gostos
+// --- 2. INICIALIZAÇÃO DE EVENTOS ---
 document.addEventListener('DOMContentLoaded', () => {
-    // Controle do Menu Lateral (Side Menu)
+    
+    // --- BARRA DE PROGRESSO ---
+    const body = document.body;
+    const progressContainer = document.createElement('div');
+    progressContainer.className = 'progress-container';
+    const progressBar = document.createElement('div');
+    progressBar.className = 'progress-bar';
+    progressContainer.appendChild(progressBar);
+    document.body.prepend(progressContainer);
+
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + "%";
+    });
+    
+    // --- MENU LATERAL (SIDEBAR) ---
     const btnMenu = document.getElementById('btn-menu');
     const btnFechar = document.getElementById('btn-fechar');
     const sideMenu = document.getElementById('side-menu');
 
     if (btnMenu && sideMenu) {
-        btnMenu.addEventListener('click', () => {
-            sideMenu.classList.add('active');
+        btnMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+            sideMenu.classList.toggle('active');
         });
     }
 
@@ -73,8 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- GRIDS EXPANSÍVEIS (TOGGLE BARS) ---
     const toggleBars = document.querySelectorAll('.toggle-bar');
-    
     toggleBars.forEach(bar => {
         bar.addEventListener('click', () => {
             const gridId = bar.id.replace('toggle-', '') + '-grid';
@@ -83,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (grid) {
                 grid.classList.toggle('active');
-                // Rotaciona a seta
                 if (grid.classList.contains('active')) {
                     seta.style.transform = 'rotate(180deg)';
                 } else {
@@ -93,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Menu Mobile (Hambúrguer)
+    // --- MENU MOBILE ---
     const mobileMenu = document.getElementById('mobile-menu');
     const navList = document.querySelector('.nav-list');
     if (mobileMenu && navList) {
@@ -103,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Impede que o overlay feche ao clicar no conteúdo (imagem ou card)
+    // --- COMPORTAMENTO DO OVERLAY ---
     const conteudoExpandido = document.getElementById('conteudo-expandido');
     if (conteudoExpandido) {
         conteudoExpandido.addEventListener('click', (e) => {
@@ -111,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Botão Voltar ao Topo
+    // --- BOTÃO VOLTAR AO TOPO ---
     const backToTopBtn = document.getElementById('back-to-top');
     if (backToTopBtn) {
         window.addEventListener('scroll', () => {
@@ -126,4 +143,240 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+
+    // --- SISTEMA DE BUSCA EM TEMPO REAL ---
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const termo = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.gostos-card');
+            const containers = document.querySelectorAll('.toggle-container');
+
+            cards.forEach(card => {
+                const titulo = card.querySelector('h3').innerText.toLowerCase();
+                const descricao = card.querySelector('p').innerText.toLowerCase();
+                const tags = Array.from(card.querySelectorAll('.tag')).map(t => t.innerText.toLowerCase()).join(' ');
+                
+                if (titulo.includes(termo) || descricao.includes(termo) || tags.includes(termo)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            containers.forEach(container => {
+                const grid = container.querySelector('.gostos-grid');
+                const hasVisibleCards = Array.from(grid.querySelectorAll('.gostos-card')).some(c => c.style.display !== 'none');
+
+                if (termo !== "") {
+                    if (hasVisibleCards) {
+                        container.style.display = 'block';
+                        grid.classList.add('active');
+                        const seta = container.querySelector('.seta');
+                        if (seta) seta.style.transform = 'rotate(180deg)';
+                    } else {
+                        container.style.display = 'none';
+                    }
+                } else {
+                    container.style.display = 'block';
+                }
+            });
+        });
+    }
+
+    // --- SISTEMA DE TROCA DE TEMAS (ENERGIA DO HUB) ---
+    const themeBtns = document.querySelectorAll('.theme-btn');
+    
+    const applyTheme = (primary, secondary) => {
+        document.documentElement.style.setProperty('--primary-neon', primary);
+        document.documentElement.style.setProperty('--secondary-neon', secondary);
+        // Atualiza o shadow glow também para combinar
+        document.documentElement.style.setProperty('--text-shadow-glow', `0 0 10px ${primary}cc`);
+        
+        // Salva no localStorage
+        localStorage.setItem('hub-primary', primary);
+        localStorage.setItem('hub-secondary', secondary);
+    };
+
+    // Carregar tema salvo ao iniciar
+    const savedPrimary = localStorage.getItem('hub-primary');
+    const savedSecondary = localStorage.getItem('hub-secondary');
+    if (savedPrimary && savedSecondary) {
+        applyTheme(savedPrimary, savedSecondary);
+        themeBtns.forEach(btn => {
+            if (btn.getAttribute('data-primary') === savedPrimary) btn.classList.add('active');
+        });
+    }
+
+    themeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove classe ativa de todos
+            themeBtns.forEach(b => b.classList.remove('active'));
+            // Adiciona no clicado
+            btn.classList.add('active');
+            
+            const primary = btn.getAttribute('data-primary');
+            const secondary = btn.getAttribute('data-secondary');
+            
+            applyTheme(primary, secondary);
+        });
+    });
+
+    // --- SISTEMA DE FAVORITOS COMPLETO ---
+    const btnFavoritos = document.getElementById('btn-favoritos');
+    const favOverlay = document.getElementById('favorites-overlay');
+    const favGrid = document.getElementById('favorites-grid');
+
+    let toastTimeout;
+
+    // Função de Notificação (Toast)
+    const showNotification = (message) => {
+        let toast = document.querySelector('.toast-notification');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            document.body.appendChild(toast);
+        }
+
+        clearTimeout(toastTimeout); // Limpa o tempo anterior se o usuário clicar rápido
+        toast.innerText = message;
+        toast.classList.add('show');
+
+        toastTimeout = setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    };
+
+    // Função para atualizar o contador visual da estrela
+    const updateFavCounter = () => {
+        const favorites = JSON.parse(localStorage.getItem('user-favorites') || '[]');
+        const counter = document.getElementById('fav-counter');
+        if (counter) {
+            counter.innerText = favorites.length;
+        }
+    };
+
+    // Função para renderizar os favoritos salvos
+    const renderFavorites = () => {
+        const favorites = JSON.parse(localStorage.getItem('user-favorites') || '[]');
+        favGrid.innerHTML = favorites.length ? '' : '<p style="color:white; grid-column: 1/-1; text-align:center;">Você ainda não favoritou nada na sua jornada estelar.</p>';
+        
+        favorites.forEach(fav => {
+            const card = document.createElement('div');
+            card.className = 'gostos-card';
+            card.innerHTML = fav.content;
+            
+            // Torna o card clicável para expandir, como na página normal
+            card.onclick = function() { ampliarCard(this); };
+            
+            favGrid.appendChild(card);
+        });
+
+        // Atualiza as estrelas nos cards da página principal
+        document.querySelectorAll('.gostos-card').forEach(card => {
+            const title = card.querySelector('h3')?.innerText;
+            const star = card.querySelector('.fav-toggle');
+            if (star && favorites.some(f => f.title === title)) {
+                star.classList.add('active');
+            } else if (star) {
+                star.classList.remove('active');
+            }
+        });
+
+        updateFavCounter();
+    };
+
+    // Toggle Favorito
+    window.toggleFavorite = (e, btn) => {
+        e.stopPropagation();
+        const card = btn.closest('.gostos-card');
+        const title = card.querySelector('h3').innerText;
+        let favorites = JSON.parse(localStorage.getItem('user-favorites') || '[]');
+
+        if (favorites.some(f => f.title === title)) {
+            favorites = favorites.filter(f => f.title !== title);
+            btn.classList.remove('active');
+            showNotification(`Removido: ${title}`);
+        } else {
+            // Salva o HTML interno para reconstruir o card na tela de favoritos
+            favorites.push({ title, content: card.innerHTML });
+            btn.classList.add('active');
+            showNotification(`Favoritado: ${title}`);
+        }
+
+        localStorage.setItem('user-favorites', JSON.stringify(favorites));
+        renderFavorites();
+        updateFavCounter();
+    };
+
+    // --- FILTRO POR TAG ---
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('tag')) {
+            const tagText = e.target.innerText.toLowerCase();
+            searchInput.value = tagText;
+            searchInput.dispatchEvent(new Event('input')); // Dispara a busca
+        }
+    });
+
+    if (btnFavoritos) {
+        btnFavoritos.addEventListener('click', () => {
+            renderFavorites();
+            favOverlay.style.display = 'flex';
+        });
+    }
+
+    // --- LÓGICA DE FECHAR AO CLICAR FORA ---
+    document.addEventListener('click', (e) => {
+        // Fechar Sidebar
+        const sideMenu = document.getElementById('side-menu');
+        const btnMenu = document.getElementById('btn-menu');
+        if (sideMenu && sideMenu.classList.contains('active')) {
+            if (!sideMenu.contains(e.target) && !btnMenu.contains(e.target)) {
+                sideMenu.classList.remove('active');
+            }
+        }
+
+        // Fechar Favoritos
+        if (favOverlay && (favOverlay.style.display === 'flex' || getComputedStyle(favOverlay).display === 'flex')) {
+            const favContainer = document.querySelector('.fav-content');
+            if (!favContainer.contains(e.target) && !btnFavoritos.contains(e.target)) {
+                favOverlay.style.display = 'none';
+            }
+        }
+    });
+
+    // Tornando a função de fechar acessível ao HTML
+    window.fecharFavoritos = () => {
+        if (favOverlay) {
+            favOverlay.style.display = 'none';
+        }
+    };
+
+    // --- GERADOR DE RECOMENDAÇÃO ALEATÓRIA ---
+    const btnRandom = document.getElementById('btn-random');
+    if (btnRandom) {
+        btnRandom.addEventListener('click', () => {
+            const cards = document.querySelectorAll('.gostos-card');
+            if (cards.length > 0) {
+                const randomIndex = Math.floor(Math.random() * cards.length);
+                const selectedCard = cards[randomIndex];
+                
+                ampliarCard(selectedCard);
+            }
+        });
+    }
+
+    // Inicializa as estrelas nos cards existentes
+    document.querySelectorAll('.gostos-card').forEach(card => {
+        if (!card.querySelector('.fav-toggle')) {
+            const star = document.createElement('span');
+            star.className = 'fav-toggle';
+            star.innerHTML = '★';
+            star.setAttribute('onclick', 'toggleFavorite(event, this)');
+            card.style.position = 'relative';
+            card.appendChild(star);
+        }
+    });
+    
+    renderFavorites();
 });

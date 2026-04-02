@@ -1,5 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Roboto:wght@300;400;700&display=swap');
 
+:root {
+    --primary-neon: #00d4ff;
+    --secondary-neon: #8a2be2;
+    --bg-dark: rgba(10, 10, 20, 0.6);
+    --bg-overlay: rgba(5, 5, 15, 0.95);
+    --text-shadow-glow: 0 0 10px rgba(0, 212, 255, 0.8);
+}
+
+/* 
+    STAR HUB - ESTRUTURA DE ESTILOS
+    1. GLOBAL & RESET
+    2. HEADER & NAVIGATION
+    3. SIDEBAR MENU
+    4. SEÇÕES ESPECÍFICAS (HOME, LORE, ARTES)
+    5. PÁGINA DE GOSTOS (CARDS & TAGS)
+    6. COMPONENTES UI (OVERLAY, SEARCH, BACK TO TOP)
+    7. ANIMAÇÕES & RESPONSIVIDADE
+*/
+
+/* --- 1. GLOBAL & RESET --- */
 * {
     margin: 0;
     padding: 0;
@@ -10,8 +30,21 @@
 body {
     overflow-x: hidden;
     width: 100%;
+    transition: --primary-neon 0.5s, --secondary-neon 0.5s, background-color 0.5s;
 }
 
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    filter: brightness(0.5);
+}
+
+/* --- 2. HEADER & NAVIGATION --- */
 header {
     position: fixed;
     top: 0;
@@ -21,10 +54,27 @@ header {
     justify-content: space-between;
     padding: 10px 40px;
     z-index: 1000;
-    background-color: rgba(10, 10, 20, 0.6); 
+    background-color: var(--bg-dark); 
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Barra de Progresso de Leitura */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    z-index: 1001;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary-neon), var(--primary-neon));
+    width: 0%;
+    box-shadow: 0 0 10px var(--primary-neon);
 }
 
 header::after {
@@ -34,8 +84,8 @@ header::after {
     left: 0;
     height: 3px;
     width: 150px;
-    background: linear-gradient(90deg, transparent, #8a2be2, #00d4ff, transparent);
-    box-shadow: 0 0 15px #8a2be2;
+    background: linear-gradient(90deg, transparent, var(--secondary-neon), var(--primary-neon), transparent);
+    box-shadow: 0 0 15px var(--secondary-neon);
     animation: deslizar 6s linear infinite alternate;
 }
 
@@ -51,7 +101,7 @@ header::after {
     color: white;
     text-transform: uppercase;
     letter-spacing: clamp(1px, 1vw, 5px);
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+    text-shadow: var(--text-shadow-glow);
 }
 
 .centro {
@@ -81,7 +131,7 @@ header li a {
     text-shadow: 0 0 10px #00d4ff;
 }
 
-/* --- NOVO MENU LATERAL E BOTÃO --- */
+/* --- 3. SIDEBAR MENU --- */
 .menu-extra {
     width: 100px;
     display: flex;
@@ -151,6 +201,48 @@ header li a {
     cursor: pointer;
 }
 
+/* --- PAINEL DE CUSTOMIZAÇÃO NO SIDEBAR --- */
+.custom-panel {
+    margin-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.custom-panel h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.theme-selector {
+    display: flex;
+    gap: 15px;
+}
+
+.theme-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.theme-btn:hover { transform: scale(1.2); }
+
+.theme-btn.default { background: linear-gradient(45deg, #00d4ff, #8a2be2); }
+.theme-btn.matrix { background: linear-gradient(45deg, #39ff14, #008f11); }
+.theme-btn.alert { background: linear-gradient(45deg, #ff4b2b, #ff0000); }
+.theme-btn.cyberpunk { background: linear-gradient(45deg, #ffee00, #ff00ff); }
+
+.theme-btn.active {
+    box-shadow: 0 0 15px white;
+    border-color: #fff;
+}
+
 .logo {
     width: 100px;
 }
@@ -173,23 +265,13 @@ header li a {
     object-fit: cover;
 }
 
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
-    filter: brightness(0.5);
-}
-
+/* --- 4. SEÇÃO HOME --- */
 .home {
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
-    padding: 120px 10% 0 10%;
+    padding: 120px 10% 0;
 }
 
 .home-text h5 {
@@ -231,31 +313,7 @@ header li a {
     box-shadow: 0 0 20px #00d4ff;
 }
 
-/* --- RESPONSIVIDADE GERAL --- */
-@media (max-width: 1024px) {
-    header {
-        padding: 10px 20px;
-    }
-    .logo, .menu-extra {
-        width: 60px;
-    }
-    .row-img {
-        width: 50px;
-        height: 50px;
-    }
-}
-
-@media (max-width: 600px) {
-    .nav-principal {
-        display: flex;
-    }
-    header li a {
-        font-size: 0.6rem;
-    }
-}
-
-/* CSS LORE SITE */
-
+/* --- 5. SEÇÃO LORE --- */
 .lore {
     width: 100%;
     min-height: 100vh;
@@ -393,10 +451,7 @@ header li a {
     }
 }
 
-
-
-/* --- ESTILOS DA SEÇÃO DE ARTES (CORREÇÃO DE LAYOUT) --- */
-
+/* --- 6. SEÇÃO ARTES --- */
 .artista-registro {
     background: rgba(138, 43, 226, 0.1);
     border: 1px solid rgba(0, 212, 255, 0.3);
@@ -568,62 +623,6 @@ header li a {
     box-shadow: 0 0 15px #00d4ff;
 }
 
-
-
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(5, 5, 15, 0.95); 
-    display: none; 
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    backdrop-filter: blur(15px);
-    cursor: zoom-out;
-}
-
-.overlay img {
-    max-width: 85%;
-    max-height: 85%;
-    border-radius: 10px;
-    border: 3px solid #00d4ff;
-    box-shadow: 0 0 50px rgba(0, 212, 255, 0.4);
-    animation: zoomIn 0.3s ease-out;
-}
-
-.close-overlay {
-    position: absolute;
-    top: 40px;
-    right: 60px;
-    color: white;
-    font-size: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.close-overlay:hover {
-    color: #ff4b2b;
-    transform: rotate(90deg);
-}
-
-
-
-@keyframes zoomIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-@media (max-width: 768px) {
-    .artes-cabecalho h1 { font-size: 2.5rem; }
-    .artes-secao { padding-top: 130px; }
-    .galeria-grid { grid-template-columns: 1fr; } 
-    .close-overlay { right: 20px; top: 20px; font-size: 40px; }
-}
-
 .legenda-arte {
     position: absolute;
     bottom: 0;
@@ -664,31 +663,9 @@ header li a {
     transition: 0.5s;
 }
 
-#conteudo-expandido {
-    max-width: 90%;
-    max-height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+/* --- 7. PÁGINA DE CONTATO --- */
 
-#conteudo-expandido img, 
-#conteudo-expandido video {
-    max-width: 100%;
-    display: block;
-    width: auto;
-    height: auto;
-    max-height: 90vh;
-    border: 2px solid #00d4ff !important;
-    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
-    border-radius: 10px !important;
-}
-
-/* --- ESTILOS DA PÁGINA DE CONTATO --- */
-
-
-
-/* Container Principal - Grid Responsivo */
+/* Grid Responsivo */
 .pagina-contato {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -699,7 +676,6 @@ header li a {
     min-height: 100vh;
 }
 
-/* Estilização dos Cards Individuais */
 .card-social {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(15px);
@@ -716,7 +692,6 @@ header li a {
     position: relative;
 }
 
-/* Efeito Hover nos Cards */
 .card-social:hover {
     transform: translateY(-10px);
     border-color: #00d4ff;
@@ -834,7 +809,7 @@ header li a {
     }
 }
 
-/* --- ESTILOS DA PÁGINA DE GOSTOS --- */
+/* --- 8. PÁGINA DE GOSTOS --- */
 
 .gostos-secao {
     width: 100%;
@@ -962,6 +937,59 @@ header li a {
     display: none; /* Esconde a descrição por padrão na grid */
 }
 
+/* --- SISTEMA DE TAGS --- */
+.tags-list {
+    display: none; /* Escondido por padrão na grid */
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.tag {
+    font-size: 0.7rem;
+    background: rgba(138, 43, 226, 0.25);
+    color: #b388ff;
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(138, 43, 226, 0.8);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+/* Variedade de cores neon ao passar o mouse */
+.tag:nth-child(5n+1):hover {
+    border-color: #00d4ff; /* Ciano */
+    color: #00d4ff;
+    background: rgba(0, 212, 255, 0.15);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+}
+.tag:nth-child(5n+2):hover {
+    border-color: #ff00ff; /* Magenta */
+    color: #ff00ff;
+    background: rgba(255, 0, 255, 0.15);
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
+}
+.tag:nth-child(5n+3):hover {
+    border-color: #39ff14; /* Verde Neon */
+    color: #39ff14;
+    background: rgba(57, 255, 20, 0.15);
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.4);
+}
+.tag:nth-child(5n+4):hover {
+    border-color: #ffaa00; /* Ouro/Laranja */
+    color: #ffaa00;
+    background: rgba(255, 170, 0, 0.15);
+    box-shadow: 0 0 10px rgba(255, 170, 0, 0.4);
+}
+.tag:nth-child(5n+5):hover {
+    border-color: #ff4b2b; /* Vermelho */
+    color: #ff4b2b;
+    background: rgba(255, 75, 43, 0.15);
+    box-shadow: 0 0 10px rgba(255, 75, 43, 0.4);
+}
+
 .favorito-tag {
     margin-top: 15px;
     display: none; /* Esconde a tag de favorito por padrão na grid */
@@ -1005,6 +1033,11 @@ header li a {
     margin-top: 15px;
 }
 
+#conteudo-expandido .gostos-card .tags-list {
+    display: flex;
+    margin-bottom: 5px;
+}
+
 #conteudo-expandido .gostos-card .favorito-tag {
     display: flex;
 }
@@ -1040,7 +1073,117 @@ header li a {
     }
 }
 
-/* --- BOTÃO VOLTAR AO TOPO --- */
+/* --- 9. COMPONENTES UI (OVERLAY, SEARCH, BACK TO TOP) --- */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 5, 15, 0.95); 
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(15px);
+    cursor: zoom-out;
+}
+
+.overlay img {
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 10px;
+    border: 3px solid #00d4ff;
+    box-shadow: 0 0 50px rgba(0, 212, 255, 0.4);
+    animation: zoomIn 0.3s ease-out;
+}
+
+.close-overlay {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-overlay:hover {
+    color: #ff4b2b;
+    transform: rotate(90deg);
+}
+
+#conteudo-expandido {
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#conteudo-expandido img, 
+#conteudo-expandido video {
+    max-width: 100%;
+    display: block;
+    width: auto;
+    height: auto;
+    max-height: 90vh;
+    border: 2px solid #00d4ff !important;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    border-radius: 10px !important;
+}
+
+/* --- 10. ANIMAÇÕES & RESPONSIVIDADE FINAL --- */
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .artes-cabecalho h1 { font-size: 2.5rem; }
+    .artes-secao { padding-top: 130px; }
+    .galeria-grid { grid-template-columns: 1fr; } 
+    .close-overlay { right: 20px; top: 20px; font-size: 40px; }
+}
+
+@media (max-width: 1024px) {
+    header { padding: 10px 20px; }
+    .logo, .menu-extra { width: 60px; }
+    .row-img { width: 50px; height: 50px; }
+}
+
+.search-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    position: relative;
+    z-index: 10;
+}
+
+#search-input {
+    width: 100%;
+    padding: 15px 30px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(138, 43, 226, 0.3);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: 0.4s;
+    text-align: center;
+}
+
+#search-input:focus {
+    border-color: #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+    background: rgba(255, 255, 255, 0.1);
+}
+
 #back-to-top {
     position: fixed;
     bottom: 30px;
@@ -1075,4 +1218,169 @@ header li a {
     color: #000;
     transform: scale(1.1) translateY(-5px);
     box-shadow: 0 0 25px #00d4ff;
+}
+
+/* --- SISTEMA DE FAVORITOS --- */
+
+#btn-favoritos {
+    position: fixed;
+    top: 130px; /* Posicionado mais abaixo conforme solicitado */
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    background: var(--bg-dark);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid var(--primary-neon);
+    color: var(--primary-neon);
+    border-radius: 50%;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+#btn-favoritos:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px var(--primary-neon);
+    background: var(--primary-neon);
+    color: #000;
+}
+
+/* Contador de Favoritos */
+#fav-counter {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--secondary-neon);
+    color: white;
+    font-size: 0.75rem;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 2px solid white;
+    box-shadow: 0 0 10px var(--secondary-neon);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.fav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 5, 15, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 3000;
+    display: none; /* Escondido por padrão */
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 10%;
+    overflow-y: auto;
+}
+
+.fav-content {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+/* Estrela de toggle dentro do card */
+.fav-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 5;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: 0.3s;
+    text-shadow: 0 0 5px rgba(0,0,0,0.8);
+}
+
+.fav-toggle.active {
+    color: #ffee00;
+    text-shadow: 0 0 10px #ffee00;
+}
+
+/* Cursor Personalizado para Tags */
+.tag { cursor: pointer; }
+
+/* --- NOTIFICAÇÃO TOAST --- */
+.toast-notification {
+    position: fixed;
+    bottom: 30px;
+    left: 30px; /* Posicionado no canto inferior esquerdo */
+    transform: translateX(-150%) scale(0.5); /* Começa fora e menor */
+    opacity: 0;
+    background: rgba(15, 15, 30, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 212, 255, 0.5);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    z-index: 10000;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+    pointer-events: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-left: 5px solid var(--primary-neon);
+    animation: rgb-glow 6s linear infinite; /* Animação RGB contínua */
+}
+
+.toast-notification.show {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+}
+
+/* --- ANIMAÇÃO RGB PARA NOTIFICAÇÃO --- */
+@keyframes rgb-glow {
+    0%   { border-left-color: #ff0000; box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
+    16%  { border-left-color: #ffff00; box-shadow: 0 0 20px rgba(255, 255, 0, 0.3); }
+    33%  { border-left-color: #00ff00; box-shadow: 0 0 20px rgba(0, 255, 0, 0.3); }
+    50%  { border-left-color: #00ffff; box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); }
+    66%  { border-left-color: #0000ff; box-shadow: 0 0 20px rgba(0, 0, 255, 0.3); }
+    83%  { border-left-color: #ff00ff; box-shadow: 0 0 20px rgba(255, 0, 255, 0.3); }
+    100% { border-left-color: #ff0000; box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
+}
+
+/* --- BOTÃO DE RECOMENDAÇÃO ALEATÓRIA --- */
+.random-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.btn-random {
+    background: transparent;
+    border: 2px solid var(--secondary-neon);
+    color: var(--secondary-neon);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-random:hover {
+    background: var(--secondary-neon);
+    color: white;
+    box-shadow: 0 0 20px var(--secondary-neon);
+    transform: scale(1.05);
 }
