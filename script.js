@@ -57,6 +57,43 @@ function fecharAmpliacao() {
 // --- 2. INICIALIZAÇÃO DE EVENTOS ---
 document.addEventListener('DOMContentLoaded', () => {
     
+    // --- TRANSIÇÃO DE HIPERESPAÇO (Opção 10) ---
+    const transitionOverlay = document.createElement('div');
+    transitionOverlay.className = 'hyperspace-overlay';
+    document.body.appendChild(transitionOverlay);
+
+    // Função para criar as linhas de salto
+    const createJumpLines = () => {
+        for(let i=0; i<20; i++) {
+            const line = document.createElement('div');
+            line.className = 'jump-line';
+            line.style.left = Math.random() * 100 + 'vw';
+            line.style.animationDelay = Math.random() * 0.5 + 's';
+            transitionOverlay.appendChild(line);
+        }
+    };
+
+    // Revela a página suavemente ao entrar (Fade-out do overlay)
+    setTimeout(() => {
+        transitionOverlay.style.opacity = '0';
+    }, 300);
+
+    // Intercepta cliques em links para o efeito de saída
+    document.querySelectorAll('a').forEach(link => {
+        if (link.hostname === window.location.hostname && !link.hash && link.target !== "_blank") {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const destination = link.href;
+                transitionOverlay.innerHTML = ''; // Limpa linhas antigas
+                createJumpLines(); // Adiciona novas linhas
+                transitionOverlay.classList.add('active');
+                setTimeout(() => {
+                    window.location.href = destination;
+                }, 500);
+            });
+        }
+    });
+    
     // --- BARRA DE PROGRESSO ---
     const body = document.body;
     const progressContainer = document.createElement('div');
@@ -144,45 +181,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- SISTEMA DE BUSCA EM TEMPO REAL ---
+    // --- SISTEMA DE BUSCA E FILTROS OTIMIZADO ---
     const searchInput = document.getElementById('search-input');
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            const termo = e.target.value.toLowerCase();
-            const cards = document.querySelectorAll('.gostos-card');
-            const containers = document.querySelectorAll('.toggle-container');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    let activeDecade = 'all';
 
-            cards.forEach(card => {
-                const titulo = card.querySelector('h3').innerText.toLowerCase();
-                const descricao = card.querySelector('p').innerText.toLowerCase();
-                const tags = Array.from(card.querySelectorAll('.tag')).map(t => t.innerText.toLowerCase()).join(' ');
-                
-                if (titulo.includes(termo) || descricao.includes(termo) || tags.includes(termo)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+    const applyFilters = () => {
+        const term = searchInput ? searchInput.value.toLowerCase().trim() : '';
+        const cards = document.querySelectorAll('.gostos-card');
+        const containers = document.querySelectorAll('.toggle-container');
 
-            containers.forEach(container => {
-                const grid = container.querySelector('.gostos-grid');
-                const hasVisibleCards = Array.from(grid.querySelectorAll('.gostos-card')).some(c => c.style.display !== 'none');
+        cards.forEach(card => {
+            const h3 = card.querySelector('h3');
+            if (!h3) return;
+            const title = h3.innerText.toLowerCase();
+            const desc = card.querySelector('p')?.innerText.toLowerCase() || '';
+            const tags = Array.from(card.querySelectorAll('.tag')).map(t => t.innerText.toLowerCase()).join(' ');
+            const year = parseInt(card.getAttribute('data-year')) || 0;
 
-                if (termo !== "") {
-                    if (hasVisibleCards) {
-                        container.style.display = 'block';
-                        grid.classList.add('active');
-                        const seta = container.querySelector('.seta');
-                        if (seta) seta.style.transform = 'rotate(180deg)';
-                    } else {
-                        container.style.display = 'none';
-                    }
-                } else {
-                    container.style.display = 'block';
-                }
-            });
+            const matchesSearch = title.includes(term) || desc.includes(term) || tags.includes(term);
+            let matchesDecade = activeDecade === 'all';
+            if (!matchesDecade) {
+                const startYear = parseInt(activeDecade);
+                matchesDecade = year >= startYear && year < startYear + 10;
+            }
+
+            card.style.display = (matchesSearch && matchesDecade) ? 'flex' : 'none';
         });
-    }
+
+        containers.forEach(container => {
+            const grid = container.querySelector('.gostos-grid');
+            if (!grid) return;
+            const hasVisible = Array.from(grid.querySelectorAll('.gostos-card')).some(c => c.style.display !== 'none');
+
+            if (term !== '' || activeDecade !== 'all') {
+                container.style.display = hasVisible ? 'block' : 'none';
+                if (hasVisible) {
+                    grid.classList.add('active');
+                    const seta = container.querySelector('.seta');
+                    if (seta) seta.style.transform = 'rotate(180deg)';
+                }
+            } else {
+                container.style.display = 'block';
+            }
+        });
+
+        if (activeDecade !== 'all') checkAchievement('time-traveler');
+    };
+
+    if (searchInput) searchInput.addEventListener('input', applyFilters);
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeDecade = btn.getAttribute('data-decade');
+            applyFilters();
+        });
+    });
 
     // --- SISTEMA DE TROCA DE TEMAS (ENERGIA DO HUB) ---
     const themeBtns = document.querySelectorAll('.theme-btn');
@@ -245,6 +301,25 @@ document.addEventListener('DOMContentLoaded', () => {
         toastTimeout = setTimeout(() => {
             toast.classList.remove('show');
         }, 3000);
+    };
+
+    // --- SISTEMA DE CONQUISTAS ---
+    window.checkAchievement = (id) => {
+        let unlocked = JSON.parse(localStorage.getItem('unlocked-achievements') || '[]');
+        if (!unlocked.includes(id)) {
+            unlocked.push(id);
+            localStorage.setItem('unlocked-achievements', JSON.stringify(unlocked));
+            showNotification(`🏆 Conquista Desbloqueada!`);
+            updateAchievementUI();
+        }
+    };
+
+    window.updateAchievementUI = () => {
+        const unlocked = JSON.parse(localStorage.getItem('unlocked-achievements') || '[]');
+        unlocked.forEach(id => {
+            const el = document.querySelector(`[data-achievement="${id}"]`);
+            if (el) el.classList.add('unlocked');
+        });
     };
 
     // Função para atualizar o contador visual da estrela
@@ -366,8 +441,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- NUVEM DE TAGS DINÂMICA (Opção 9) ---
+    const tagCloudContainer = document.getElementById('tag-cloud');
+    const btnTagsToggle = document.getElementById('btn-tags-toggle');
+
+    if (btnTagsToggle && tagCloudContainer) {
+        btnTagsToggle.addEventListener('click', () => {
+            tagCloudContainer.classList.toggle('active');
+        });
+    }
+
+    if (tagCloudContainer) {
+        const allTags = Array.from(document.querySelectorAll('.gostos-card .tag')).map(t => t.innerText);
+        const uniqueTags = [...new Set(allTags)];
+        
+        uniqueTags.sort().forEach(tag => {
+            const tagEl = document.createElement('span');
+            tagEl.className = 'tag-cloud-item';
+            tagEl.innerText = tag;
+            tagEl.onclick = () => {
+                searchInput.value = tag.toLowerCase();
+                searchInput.dispatchEvent(new Event('input'));
+            };
+            tagCloudContainer.appendChild(tagEl);
+        });
+    }
+
+    // --- COMPARTILHAMENTO DIRETO (Opção 6) ---
+    window.copyShareLink = (title) => {
+        const url = window.location.href.split('#')[0];
+        const shareUrl = `${url}?search=${encodeURIComponent(title)}`;
+        navigator.clipboard.writeText(shareUrl);
+        showNotification("Link de acesso direto copiado!");
+    };
+
+    // Verifica se há uma busca na URL ao carregar
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get('search');
+    if (searchQuery && searchInput) {
+        searchInput.value = searchQuery;
+        setTimeout(() => searchInput.dispatchEvent(new Event('input')), 500);
+    }
+
     // Inicializa as estrelas nos cards existentes
     document.querySelectorAll('.gostos-card').forEach(card => {
+        const title = card.querySelector('h3').innerText;
+        
+        // Injeta ícone de compartilhamento
+        const shareIcon = document.createElement('span');
+        shareIcon.className = 'share-btn';
+        shareIcon.innerHTML = '🔗';
+        shareIcon.title = "Copiar link direto";
+        shareIcon.onclick = (e) => { e.stopPropagation(); copyShareLink(title); };
+        card.style.position = 'relative';
+        card.appendChild(shareIcon);
+
         if (!card.querySelector('.fav-toggle')) {
             const star = document.createElement('span');
             star.className = 'fav-toggle';
@@ -379,4 +507,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     renderFavorites();
+    updateAchievementUI();
 });

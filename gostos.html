@@ -72,12 +72,16 @@
             </div>
         </div>
 
+        <!-- Nuvem de Tags Dinâmica -->
+        <div id="tag-cloud" class="tag-cloud"></div>
+
         <div class="search-container">
             <input type="text" id="search-input" placeholder="Pesquisar nos meus gostos (ex: Minecraft, RPG, Anime...)">
         </div>
 
         <div class="random-container">
-            <button id="btn-random" class="btn-random">🎲 Exploração Aleatória</button>
+            <button id="btn-random" class="btn-action">🎲 Exploração Aleatória</button>
+            <button id="btn-tags-toggle" class="btn-action btn-tags-toggle">🏷️ Ver Tags</button>
         </div>
 
         <!-- SEÇÃO: JOGOS -->
@@ -88,7 +92,7 @@
             </div>
             
             <div class="gostos-grid" id="jogos-grid">
-            <div class="gostos-card" onclick="ampliarCard(this)">
+            <div class="gostos-card" onclick="ampliarCard(this)" data-year="2011">
                 <div class="card-img-container">
                     <img src="img/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a.jpg" alt="Minecraft">
                 </div>
@@ -101,7 +105,7 @@
                 </div>
             </div>
 
-            <div class="gostos-card" onclick="ampliarCard(this)">
+            <div class="gostos-card" onclick="ampliarCard(this)" data-year="2012">
                 <div class="card-img-container">
                     <img src="img/447007.jpg" alt="Black Ops 2">
                 </div>
@@ -114,7 +118,7 @@
                 </div>
             </div>
 
-            <div class="gostos-card" onclick="ampliarCard(this)">
+            <div class="gostos-card" onclick="ampliarCard(this)" data-year="2015">
                 <div class="card-img-container">
                     <img src="img/798682.png" alt="Undertale">
                 </div>
@@ -131,7 +135,7 @@
                 </div>
             </div>
 
-            <div class="gostos-card" onclick="ampliarCard(this)">
+            <div class="gostos-card" onclick="ampliarCard(this)" data-year="2011">
                 <div class="card-img-container">
                     <img src="img/terraria.jpg" alt="Terraria">
                 </div>

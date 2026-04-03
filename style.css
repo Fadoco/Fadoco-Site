@@ -1358,15 +1358,32 @@ header li a {
     100% { border-left-color: #ff0000; box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
 }
 
+/* Estilos para Filtros e Conquistas */
+.filter-btn.active {
+    background: var(--secondary-neon);
+    color: white;
+    box-shadow: 0 0 15px var(--secondary-neon);
+}
+
+.achievement-item.unlocked {
+    color: var(--primary-neon) !important;
+    text-shadow: 0 0 8px var(--primary-neon);
+}
+
+.achievement-item.unlocked .achievement-icon {
+    background: rgba(0, 212, 255, 0.2);
+}
+
 /* --- BOTÃO DE RECOMENDAÇÃO ALEATÓRIA --- */
 .random-container {
     width: 100%;
     display: flex;
     justify-content: center;
+    gap: 15px; /* Espaço entre os botões */
     margin-bottom: 40px;
 }
 
-.btn-random {
+.btn-action {
     background: transparent;
     border: 2px solid var(--secondary-neon);
     color: var(--secondary-neon);
@@ -1378,9 +1395,115 @@ header li a {
     transition: 0.3s;
 }
 
-.btn-random:hover {
+.btn-action:hover {
     background: var(--secondary-neon);
     color: white;
     box-shadow: 0 0 20px var(--secondary-neon);
     transform: scale(1.05);
+}
+
+.btn-tags-toggle {
+    border-color: var(--primary-neon);
+    color: var(--primary-neon);
+}
+
+.btn-tags-toggle:hover {
+    background: var(--primary-neon);
+    box-shadow: 0 0 20px var(--primary-neon);
+}
+
+/* --- 11. NOVAS FUNCIONALIDADES (6, 9, 10) --- */
+
+/* Compartilhamento Direto no Card */
+.share-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 5;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: 0.3s;
+    text-shadow: 0 0 5px rgba(0,0,0,0.8);
+}
+
+.share-btn:hover {
+    color: var(--primary-neon);
+    transform: scale(1.2);
+}
+
+/* Nuvem de Tags Dinâmica */
+.tag-cloud {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: none; /* Escondido por padrão */
+}
+
+.tag-cloud.active {
+    display: flex;
+}
+
+.tag-cloud-item {
+    padding: 5px 15px;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: var(--primary-neon);
+    border-radius: 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tag-cloud-item:hover {
+    background: var(--primary-neon);
+    color: black;
+    box-shadow: 0 0 15px var(--primary-neon);
+}
+
+/* Transição de Hiperespaço */
+.hyperspace-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #05050f;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 1; /* Inicia visível para o fade-in da página */
+    transition: opacity 0.6s ease;
+    overflow: hidden;
+}
+
+.hyperspace-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.jump-line {
+    width: 2px;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent, var(--primary-neon), transparent);
+    position: absolute;
+    animation: jump-anim 0.5s linear infinite;
+}
+
+@keyframes jump-anim {
+    0% { transform: translateY(-100vh); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
 }
