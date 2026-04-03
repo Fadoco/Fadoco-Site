@@ -240,43 +240,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- SISTEMA DE TROCA DE TEMAS (ENERGIA DO HUB) ---
-    const themeBtns = document.querySelectorAll('.theme-btn');
-    
-    const applyTheme = (primary, secondary) => {
-        document.documentElement.style.setProperty('--primary-neon', primary);
-        document.documentElement.style.setProperty('--secondary-neon', secondary);
-        // Atualiza o shadow glow também para combinar
-        document.documentElement.style.setProperty('--text-shadow-glow', `0 0 10px ${primary}cc`);
-        
-        // Salva no localStorage
-        localStorage.setItem('hub-primary', primary);
-        localStorage.setItem('hub-secondary', secondary);
+    // Utilitário para localStorage seguro
+    const safeLocalStorage = {
+        get: (key) => {
+            try { return localStorage.getItem(key); } 
+            catch (e) { console.warn("Acesso ao localStorage negado:", e); return null; }
+        },
+        set: (key, value) => {
+            try { localStorage.setItem(key, value); } 
+            catch (e) { console.warn("Erro ao salvar no localStorage:", e); }
+        }
     };
-
-    // Carregar tema salvo ao iniciar
-    const savedPrimary = localStorage.getItem('hub-primary');
-    const savedSecondary = localStorage.getItem('hub-secondary');
-    if (savedPrimary && savedSecondary) {
-        applyTheme(savedPrimary, savedSecondary);
-        themeBtns.forEach(btn => {
-            if (btn.getAttribute('data-primary') === savedPrimary) btn.classList.add('active');
-        });
-    }
-
-    themeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove classe ativa de todos
-            themeBtns.forEach(b => b.classList.remove('active'));
-            // Adiciona no clicado
-            btn.classList.add('active');
-            
-            const primary = btn.getAttribute('data-primary');
-            const secondary = btn.getAttribute('data-secondary');
-            
-            applyTheme(primary, secondary);
-        });
-    });
 
     // --- SISTEMA DE FAVORITOS COMPLETO ---
     const btnFavoritos = document.getElementById('btn-favoritos');
@@ -305,17 +279,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- SISTEMA DE CONQUISTAS ---
     window.checkAchievement = (id) => {
-        let unlocked = JSON.parse(localStorage.getItem('unlocked-achievements') || '[]');
+        let unlocked = JSON.parse(safeLocalStorage.get('unlocked-achievements') || '[]');
         if (!unlocked.includes(id)) {
             unlocked.push(id);
-            localStorage.setItem('unlocked-achievements', JSON.stringify(unlocked));
+            safeLocalStorage.set('unlocked-achievements', JSON.stringify(unlocked));
             showNotification(`🏆 Conquista Desbloqueada!`);
             updateAchievementUI();
         }
     };
 
     window.updateAchievementUI = () => {
-        const unlocked = JSON.parse(localStorage.getItem('unlocked-achievements') || '[]');
+        const unlocked = JSON.parse(safeLocalStorage.get('unlocked-achievements') || '[]');
         unlocked.forEach(id => {
             const el = document.querySelector(`[data-achievement="${id}"]`);
             if (el) el.classList.add('unlocked');
@@ -324,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Função para atualizar o contador visual da estrela
     const updateFavCounter = () => {
-        const favorites = JSON.parse(localStorage.getItem('user-favorites') || '[]');
+        const favorites = JSON.parse(safeLocalStorage.get('user-favorites') || '[]');
         const counter = document.getElementById('fav-counter');
         if (counter) {
             counter.innerText = favorites.length;
@@ -333,7 +307,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Função para renderizar os favoritos salvos
     const renderFavorites = () => {
-        const favorites = JSON.parse(localStorage.getItem('user-favorites') || '[]');
+        if (!favGrid) return;
+        const favorites = JSON.parse(safeLocalStorage.get('user-favorites') || '[]');
         favGrid.innerHTML = favorites.length ? '' : '<p style="color:white; grid-column: 1/-1; text-align:center;">Você ainda não favoritou nada na sua jornada estelar.</p>';
         
         favorites.forEach(fav => {
@@ -365,21 +340,27 @@ document.addEventListener('DOMContentLoaded', () => {
     window.toggleFavorite = (e, btn) => {
         e.stopPropagation();
         const card = btn.closest('.gostos-card');
-        const title = card.querySelector('h3').innerText;
-        let favorites = JSON.parse(localStorage.getItem('user-favorites') || '[]');
+        const h3 = card.querySelector('h3');
+        if (!h3) return;
+        const title = h3.innerText;
+        let favorites = JSON.parse(safeLocalStorage.get('user-favorites') || '[]');
 
         if (favorites.some(f => f.title === title)) {
             favorites = favorites.filter(f => f.title !== title);
             btn.classList.remove('active');
             showNotification(`Removido: ${title}`);
         } else {
-            // Salva o HTML interno para reconstruir o card na tela de favoritos
-            favorites.push({ title, content: card.innerHTML });
+            // Cria um clone limpo do conteúdo para não salvar os botões de interface junto
+            const cleanClone = card.cloneNode(true);
+            const uiButtons = cleanClone.querySelectorAll('.fav-toggle, .share-btn');
+            uiButtons.forEach(b => b.remove());
+            
+            favorites.push({ title, content: cleanClone.innerHTML });
             btn.classList.add('active');
             showNotification(`Favoritado: ${title}`);
         }
 
-        localStorage.setItem('user-favorites', JSON.stringify(favorites));
+        safeLocalStorage.set('user-favorites', JSON.stringify(favorites));
         renderFavorites();
         updateFavCounter();
     };
@@ -412,7 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Fechar Favoritos
-        if (favOverlay && (favOverlay.style.display === 'flex' || getComputedStyle(favOverlay).display === 'flex')) {
+        if (favOverlay && btnFavoritos && (favOverlay.style.display === 'flex' || getComputedStyle(favOverlay).display === 'flex')) {
             const favContainer = document.querySelector('.fav-content');
             if (!favContainer.contains(e.target) && !btnFavoritos.contains(e.target)) {
                 favOverlay.style.display = 'none';
@@ -467,14 +448,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- COMPARTILHAMENTO DIRETO (Opção 6) ---
-    window.copyShareLink = (title) => {
-        const url = window.location.href.split('#')[0];
-        const shareUrl = `${url}?search=${encodeURIComponent(title)}`;
-        navigator.clipboard.writeText(shareUrl);
-        showNotification("Link de acesso direto copiado!");
-    };
-
     // Verifica se há uma busca na URL ao carregar
     const urlParams = new URLSearchParams(window.location.search);
     const searchQuery = urlParams.get('search');
@@ -485,16 +458,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Inicializa as estrelas nos cards existentes
     document.querySelectorAll('.gostos-card').forEach(card => {
-        const title = card.querySelector('h3').innerText;
-        
-        // Injeta ícone de compartilhamento
-        const shareIcon = document.createElement('span');
-        shareIcon.className = 'share-btn';
-        shareIcon.innerHTML = '🔗';
-        shareIcon.title = "Copiar link direto";
-        shareIcon.onclick = (e) => { e.stopPropagation(); copyShareLink(title); };
+        const h3 = card.querySelector('h3');
+        if (!h3) return;
+
         card.style.position = 'relative';
-        card.appendChild(shareIcon);
 
         if (!card.querySelector('.fav-toggle')) {
             const star = document.createElement('span');
@@ -505,7 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.appendChild(star);
         }
     });
-    
+
     renderFavorites();
     updateAchievementUI();
 });
