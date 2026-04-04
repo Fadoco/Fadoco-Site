@@ -118,6 +118,12 @@ header ul {
     margin-top: 5px;
 }
 
+@media (max-width: 768px) {
+    header ul {
+        display: none; /* Esconde nav principal no mobile para usar apenas o sidebar */
+    }
+}
+
 header li a {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.8);
@@ -1159,7 +1165,7 @@ header li a {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1500;
+    z-index: 4000; /* Acima do overlay de favoritos (3000) */
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -1182,8 +1188,9 @@ header li a {
 
 #btn-favoritos {
     position: fixed;
-    top: 130px; /* Posicionado mais abaixo conforme solicitado */
-    right: 30px;
+    top: 120px; /* Posicionado abaixo do header (que tem ~110px no PC) */
+    right: 15px; /* Canto superior direito */
+    left: auto;
     width: 55px;
     height: 55px;
     background: var(--bg-dark);
@@ -1194,7 +1201,7 @@ header li a {
     border-radius: 50%;
     font-size: 1.8rem;
     cursor: pointer;
-    z-index: 999;
+    z-index: 1100; /* Acima do header (1000) */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1207,6 +1214,22 @@ header li a {
     box-shadow: 0 0 25px var(--primary-neon);
     background: var(--primary-neon);
     color: #000;
+}
+
+@media (max-width: 768px) {
+    #btn-favoritos {
+        width: 48px;
+        height: 48px;
+        font-size: 1.5rem;
+        top: 80px; /* Ajustado para o header menor do mobile (evita ficar muito embaixo) */
+        right: 15px;
+        left: auto;
+    }
+    #fav-counter {
+        width: 18px;
+        height: 18px;
+        font-size: 0.65rem;
+    }
 }
 
 /* Contador de Favoritos */

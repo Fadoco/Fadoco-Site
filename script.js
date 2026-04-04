@@ -176,8 +176,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        backToTopBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Evita que o clique feche overlays abertos
+            const isFavOpen = favOverlay && getComputedStyle(favOverlay).display === 'flex';
+            if (isFavOpen) {
+                favOverlay.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         });
     }
 
@@ -433,7 +439,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Fechar Favoritos
         if (favOverlay && btnFavoritos && (favOverlay.style.display === 'flex' || getComputedStyle(favOverlay).display === 'flex')) {
             const favContainer = document.querySelector('.fav-content');
-            if (!favContainer.contains(e.target) && !btnFavoritos.contains(e.target)) {
+            
+            // Verifica se o clique não foi no container, nem no botão de abrir, nem no botão de voltar ao topo
+            const isBackToTopClick = backToTopBtn && backToTopBtn.contains(e.target);
+            
+            if (!favContainer.contains(e.target) && !btnFavoritos.contains(e.target) && !isBackToTopClick) {
                 favOverlay.style.display = 'none';
             }
         }
@@ -443,6 +453,9 @@ document.addEventListener('DOMContentLoaded', () => {
     window.fecharFavoritos = () => {
         if (favOverlay) {
             favOverlay.style.display = 'none';
+            // Re-avalia o botão para a janela principal ao fechar
+            if (window.scrollY > 400) backToTopBtn.classList.add('show');
+            else backToTopBtn.classList.remove('show');
         }
     };
 
