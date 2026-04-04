@@ -310,11 +310,38 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!favGrid) return;
         const favorites = JSON.parse(safeLocalStorage.get('user-favorites') || '[]');
         favGrid.innerHTML = favorites.length ? '' : '<p style="color:white; grid-column: 1/-1; text-align:center;">Você ainda não favoritou nada na sua jornada estelar.</p>';
-        
+
         favorites.forEach(fav => {
             const card = document.createElement('div');
             card.className = 'gostos-card';
-            card.innerHTML = fav.content;
+            card.style.position = 'relative';
+
+            // Reconstrói o HTML a partir dos dados salvos (mais estável)
+            const tagsHtml = fav.tags ? fav.tags.map(t => `<span class="tag">${t}</span>`).join('') : '';
+            
+            card.innerHTML = `
+                <div class="card-img-container">
+                    <img src="${fav.img}" alt="${fav.title}">
+                </div>
+                <h3>${fav.title}</h3>
+                <p>${fav.desc}</p>
+                <div class="tags-list" style="display: flex;">${tagsHtml}</div>
+            `;
+
+            if (fav.favoritoTag) {
+                card.innerHTML += `<div class="favorito-tag" style="display: flex;">${fav.favoritoTag}</div>`;
+            }
+
+            // Botão de remover elegante
+            const removeBtn = document.createElement('span');
+            removeBtn.className = 'remove-fav-btn';
+            removeBtn.innerHTML = '&times;';
+            removeBtn.title = 'Remover dos favoritos';
+            removeBtn.onclick = (e) => {
+                e.stopPropagation();
+                toggleFavorite(e, null, fav.title);
+            };
+            card.appendChild(removeBtn);
             
             // Torna o card clicável para expandir, como na página normal
             card.onclick = function() { ampliarCard(this); };
@@ -337,25 +364,36 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Toggle Favorito
-    window.toggleFavorite = (e, btn) => {
-        e.stopPropagation();
-        const card = btn.closest('.gostos-card');
-        const h3 = card.querySelector('h3');
-        if (!h3) return;
-        const title = h3.innerText;
+    window.toggleFavorite = (e, btn, directTitle = null) => {
+        if (e) e.stopPropagation();
+        
+        let title;
+        let card;
+        if (directTitle) {
+            title = directTitle;
+        } else {
+            card = btn.closest('.gostos-card');
+            title = card.querySelector('h3')?.innerText;
+        }
+
+        if (!title) return;
         let favorites = JSON.parse(safeLocalStorage.get('user-favorites') || '[]');
 
         if (favorites.some(f => f.title === title)) {
             favorites = favorites.filter(f => f.title !== title);
-            btn.classList.remove('active');
+            if (btn) btn.classList.remove('active');
             showNotification(`Removido: ${title}`);
         } else {
-            // Cria um clone limpo do conteúdo para não salvar os botões de interface junto
-            const cleanClone = card.cloneNode(true);
-            const uiButtons = cleanClone.querySelectorAll('.fav-toggle, .share-btn');
-            uiButtons.forEach(b => b.remove());
-            
-            favorites.push({ title, content: cleanClone.innerHTML });
+            // Salva apenas os DADOS necessários, não o HTML
+            const favData = {
+                title: title,
+                desc: card.querySelector('p')?.innerText || '',
+                img: card.querySelector('.card-img-container img')?.src || '',
+                tags: Array.from(card.querySelectorAll('.tag')).map(t => t.innerText),
+                favoritoTag: card.querySelector('.favorito-tag')?.innerHTML || null
+            };
+
+            favorites.push(favData);
             btn.classList.add('active');
             showNotification(`Favoritado: ${title}`);
         }
