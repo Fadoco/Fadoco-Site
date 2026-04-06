@@ -873,16 +873,18 @@ header li a {
 
 .card-img-container {
     width: 100%;
-    height: clamp(120px, 20vw, 180px);
+    height: 200px;
     border-radius: 12px;
     overflow: hidden;
     margin-bottom: 20px;
+    background: #000;
 }
 
 .card-img-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 .gostos-card h3 {
@@ -1010,6 +1012,25 @@ header li a {
     height: clamp(180px, 30vw, 250px);
 }
 
+/* Garante que a imagem ocupe 100% do container dentro do card expandido */
+#conteudo-expandido .gostos-card .card-img-container img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+}
+
+/* Estilo para análise de imagem (foco apenas na imagem) */
+.img-analise {
+    max-width: 90vw;
+    max-height: 90vh;
+    width: 100% !important; /* Garante que a imagem preencha a largura do container */
+    height: 100% !important; /* Garante que a imagem preencha a altura do container */
+    object-fit: contain;
+    border: 2px solid var(--primary-neon);
+    box-shadow: 0 0 30px var(--primary-neon);
+    border-radius: 10px;
+}
+
 /* Responsividade para a Grid de Gostos */
 @media (max-width: 1024px) {
     .gostos-grid.active {
@@ -1072,6 +1093,7 @@ header li a {
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
+    z-index: 11000; /* Garante que o X fique acima de tudo */
 }
 
 .close-overlay:hover {
@@ -1082,6 +1104,8 @@ header li a {
 #conteudo-expandido {
     max-width: 90%;
     max-height: 90%;
+    width: 100%; /* Ocupa 100% da largura do overlay */
+    height: 100%; /* Ocupa 100% da altura do overlay */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1094,6 +1118,9 @@ header li a {
     width: auto;
     height: auto;
     max-height: 90vh;
+    /* Removido width: auto; height: auto; e max-height: 90vh; */
+    /* Agora, as classes específicas (.img-analise ou .boku-video) ou o object-fit gerenciam o tamanho */
+    /* Isso permite que .img-analise e .boku-video preencham o espaço de forma mais eficaz */
     border: 2px solid #00d4ff !important;
     box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
     border-radius: 10px !important;
@@ -1520,4 +1547,46 @@ header li a {
     font-size: 0.8rem;
     padding: 8px 15px;
     margin-bottom: 5px;
+}
+
+/* --- EFEITOS ESPECIAIS BOKU NO PICO --- */
+.boku-video {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    object-fit: contain !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    background: #000;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.shaking-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ff0000;
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.5rem, 8vw, 4rem);
+    font-weight: 900;
+    text-shadow: 0 0 20px #000, 0 0 10px #ff0000;
+    z-index: 10001;
+    pointer-events: none;
+    animation: tremor 0.1s infinite;
+    text-align: center;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+@keyframes tremor {
+    0% { transform: translate(-50%, -50%) translate(2px, 2px) rotate(0deg); }
+    25% { transform: translate(-50%, -50%) translate(-2px, -2px) rotate(-1deg); }
+    50% { transform: translate(-50%, -50%) translate(-2px, 2px) rotate(1deg); }
+    75% { transform: translate(-50%, -50%) translate(2px, -2px) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) translate(0, 0); }
 }

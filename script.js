@@ -35,16 +35,67 @@ function ampliarImagem(elemento) {
     }
 }
 
-function ampliarCard(card) {
+function ampliarCard(elemento) {
     const overlay = document.getElementById('overlay');
     const conteudo = document.getElementById('conteudo-expandido');
     conteudo.innerHTML = '';
 
+    const card = elemento.closest('.gostos-card');
+    const h3 = card.querySelector('h3');
+    const title = h3 ? h3.innerText.trim() : "";
+
+    // --- LOGICA ESPECIAL: BOKU NO PICO ---
+    if (title === "Boku no Pico") {
+        const video = document.createElement('video');
+        video.src = 'img/esqueleto.mp4';
+        video.autoplay = true;
+        video.loop = true;
+        video.className = 'boku-video';
+        
+        const text = document.createElement('div');
+        text.className = 'shaking-text';
+        text.innerText = 'Porque você clicou?';
+
+        conteudo.appendChild(video);
+        conteudo.appendChild(text);
+        
+        // Ajusta o container para ocupar tudo no modo easter egg
+        conteudo.style.width = '100vw';
+        conteudo.style.height = '100vh';
+        
+        overlay.style.display = 'flex';
+        return; // Interrompe aqui
+    }
+
+    // --- COMPORTAMENTO: ABRIR CARD DETALHADO ---
     const clone = card.cloneNode(true);
-    clone.removeAttribute('onclick'); // Evita recursão ao clicar no clone
+    clone.removeAttribute('onclick'); // Evita recursão
+
+    // Tornar a imagem dentro do card expandido clicável para análise
+    const imgContainer = clone.querySelector('.card-img-container');
+    if (imgContainer) {
+        imgContainer.style.cursor = 'zoom-in';
+        imgContainer.onclick = function(e) {
+            e.stopPropagation();
+            analisarImagem(this);
+        };
+    }
     
     conteudo.appendChild(clone);
+    conteudo.style.width = ''; // Reseta tamanho caso venha do modo easter egg
+    conteudo.style.height = '';
     overlay.style.display = 'flex';
+}
+
+function analisarImagem(imageContainer) {
+    const conteudo = document.getElementById('conteudo-expandido');
+    const originalImg = imageContainer.querySelector('img');
+    if (!originalImg) return;
+
+    const clone = originalImg.cloneNode(true);
+    clone.className = 'img-analise';
+    conteudo.innerHTML = ''; // Remove o card para focar apenas na imagem
+    conteudo.appendChild(clone);
 }
 
 function fecharAmpliacao() {
