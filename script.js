@@ -221,7 +221,9 @@ async function carregarPlaylistYouTube() {
         
         let mensagemErro = `Falha na conexão estelar: ${error.message}`;
         
-        if (error.message.includes('referer')) {
+        if (error.message.includes('API key not valid')) {
+            mensagemErro = "Chave de API Inválida: Provavelmente foi desativada por estar exposta no GitHub.";
+        } else if (error.message.includes('referer')) {
             mensagemErro = "Acesso Negado: Verifique as restrições de URL no Google Cloud Console (Referer).";
         } else if (error.message.includes('quota')) {
             mensagemErro = "Cota Esgotada: O limite diário de buscas no YouTube foi atingido.";
