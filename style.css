@@ -120,7 +120,13 @@ header ul {
 
 @media (max-width: 768px) {
     header ul {
-        display: none; /* Esconde nav principal no mobile para usar apenas o sidebar */
+        display: flex; /* Garante que os botões continuem visíveis */
+        gap: 12px;     /* Reduz o espaço entre os botões no mobile */
+        margin-top: 2px;
+    }
+
+    header li a {
+        font-size: 0.65rem; /* Diminui um pouco a fonte para caber em telas estreitas */
     }
 }
 
