@@ -1,97 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gostos | Star Hub</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-     <img class="background" src="img/Background (1).gif" alt="">
-    
-    <header>
-        <div class="logo">
-            <div class="row-img">
-                <img src="img/Logo.jpg" alt="Logo">
-            </div>
-        </div>
-
-        <div class="centro">
-            <h1 class="titulo">Star Hub</h1>
-            <nav class="nav-principal">
-                <ul class="nav-list">
-                    <li><a href="index.html">Hub</a></li>
-                    <li><a href="lore.html">Lore</a></li>
-                    <li><a href="redes_sociais.html">Contato</a></li>
-                </ul>
-            </nav>
-        </div>
-
-        <div class="menu-extra">
-            <button class="btn-menu" id="btn-menu">☰</button>
-        </div>
-    </header>
-
-    <div id="side-menu" class="side-menu">
-        <span class="btn-fechar" id="btn-fechar">&times;</span>
-        <ul class="nav-secundaria">
-            <li><a href="artes.html">Artes</a></li>
-            <li><a href="gostos.html">Gostos</a></li>
-        </ul>
-    </div>
-
-    <main class="gostos-secao">
-        <div class="gostos-cabecalho">
-            <h1>Preferências Estelares</h1>
-            <p>Aqui eu vou listar meus gostos que talvez você também goste: jogos, animes, músicas e muitas outras coisas que vi durante minha vida.</p>
-        </div>
-
-        <!-- Gatilho de Favoritos -->
-        <button id="btn-favoritos" title="Meus Favoritos">
-            ★
-            <span id="fav-counter">0</span>
-        </button>
-
-        <!-- Overlay de Favoritos -->
-        <div id="favorites-overlay" class="fav-overlay">
-            <span class="close-overlay" onclick="fecharFavoritos()">&times;</span>
-            <h1 class="titulo" style="margin-bottom: 40px;">Tesouros Estelares</h1>
-            <div id="favorites-grid" class="fav-content">
-                <!-- Favoritos serão injetados aqui via JS -->
-            </div>
-        </div>
-
-        <!-- Nuvem de Tags Dinâmica -->
-        <div id="tag-cloud" class="tag-cloud"></div>
-
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Pesquisar nos meus gostos (ex: Minecraft, RPG, Anime...)">
-        </div>
-
-        <div class="random-container">
-            <button id="btn-random" class="btn-action">🎲 Exploração Aleatória</button>
-            <button id="btn-tags-toggle" class="btn-action btn-tags-toggle">🏷️ Ver Tags</button>
-        </div>
-
-        <!-- SEÇÃO: JOGOS -->
-        <div class="toggle-container">
-            <div class="toggle-bar" id="toggle-jogos">
-                <span>Jogos que eu recomendo</span>
-                <span class="seta">▼</span>
-            </div>
-            
-            <div class="gostos-grid" id="jogos-grid">
-            </div>
-        </div>
-
-        <!-- SEÇÃO: ANIMES -->
-        <div class="toggle-container">
-            <div class="toggle-bar" id="toggle-animes">
-                <span>Animes que eu recomendo</span>
-                <span class="seta">▼</span>
-            </div>
-            
-            <div class="gostos-grid" id="animes-grid">
+   <div class="gostos-grid" id="animes-grid">
                 <div class="gostos-card" onclick="ampliarCard(this)">
                     <div class="card-img-container">
                         <img src="img/Knight's & Magic.png" alt="Cyberpunk: Edgerunners">
@@ -911,7 +818,825 @@
                 </div>
 
                 <div class="gostos-card">
+                    <div clas<div class="gostos-grid" id="animes-grid">
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/Knight's & Magic.png" alt="Cyberpunk: Edgerunners">
+                    </div>
+                    <h3>Knight's & Magic</h3>
+                    <p>Knight's & Magic (Naitsu to Majikku) é um isekai mecha sobre Ernesti Echevalier, um programador gênio e fã de robôs que reencarna em um mundo de fantasia com cavaleiros e magia. Ele usa seu conhecimento para pilotar e aprimorar os "Silhouette Knights" (robôs gigantes), buscando realizar seu sonho de construir o mecha supremo.</p>
+                    <div class="tags-list">
+                        <span class="tag">Mecha</span>
+                        <span class="tag">Isekai</span>
+                        <span class="tag">Fantasia</span>
+                    </div>
+                    <div class="favorito-tag" onclick="event.stopPropagation(); ampliarImagem(this.querySelector('img'))">
+                        <span>Personagem Favorito: Ikaruga <strong>Clique para ver</strong></span>
+                        <img src="img/ikaruga.jpg" alt="Ikaruga" class="mini-img">
+                    </div>
+                </div>
+
+                <div class="gostos-card" onclick="ampliarCard(this)">
+                    <div class="card-img-container">
+                        <img src="img/Seihantai na Kimi to Boku.apng.png" alt="Seihantai na Kimi to Bokun">
+                    </div>
+                    <h3>Seihantai na Kimi to Boku</h3>
+                    <p>Suzuki é uma colegial apaixonada, mas o rapaz que ela ama não é nadinha parecido com ela! Enquanto ela é alegre, extrovertida e está sempre tentando se enturmar, seu colega de classe Yusuke Tani é estoico, quieto e parece não se importar com o que as pessoas pensam dele. Será que Suzuki conseguirá superar suas ansiedades e convidá-lo para um encontro, ou descobrirá que os opostos realmente não se atraem?</p>
+                    <div class="tags-list">
+                        <span class="tag">Romance</span>
+                        <span class="tag">Escolar</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
                     <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Kaya-chan wa Kowakunai.png" alt="Kaya-chan wa Kowakunai">
+                    </div>
+                    <h3>Kaya-chan wa Kowakunai</h3>
+                    <p>Kaya-chan é conhecida como uma criança problemática no jardim de infância, mas nenhum adulto sabe o seu segredo — até Chie-sensei assumir a turma e descobrir a habilidade oculta de Kaya-chan de ver espíritos malignos e derrotá-los com um soco! O que será que vai acontecer com essa garotinha de cinco anos que vive se metendo em confusão quando tudo o que ela quer é ajudar?</p>
+                    <div class="tags-list">
+                        <span class="tag">Sobrenatural</span>
+                        <span class="tag">Comédia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Hell Mode Yarikomizuki no Gamer.jpg" alt="Hell Mode: Yarikomizuki no Gamer">
+                    </div>
+                    <h3>Hell Mode: Yarikomizuki no Gamer</h3>
+                    <p>Kenichi é atraído pelo jogo sem título que promete um desafio incomparável e um potencial nunca antes visto. Sem hesitar, ele escolhe a dificuldade “Modo Infernal”. Eis que ele reencarna em outro mundo como um servo! Agora chamado Allen, ele começa a explorar os segredos de sua classe, um Invocador. Sem a ajuda de detonadas, guias e fóruns online, ele precisa moldar seu caminho em busca do topo desse novo mundo!</p>
+                    <div class="tags-list">
+                        <span class="tag">Isekai</span>
+                        <span class="tag">RPG</span>
+                        <span class="tag">Fantasia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Kimi to Koete Koi ni Naru.jpg" alt="Kimi to Koete Koi ni Naru">
+                    </div>
+                    <h3>Kimi to Koete Koi ni Naru</h3>
+                    <p>Quando Mari, uma estudante do ensino médio, esbarra em um colega atrasado, ela fica surpresa ao descobrir que ele é um homem-fera que vai estudar na mesma escola que ela! Afinal, não é raro homens-fera conviverem com humanos, mas ainda é algo incomum, especialmente devido aos preconceitos que existem. Inicialmente nervosa, Mari logo percebe que há muito mais nele do que sua aparência peluda. Na verdade, quanto mais ela o conhece, mais ela se sente atraída por ele: por sua determinação, sua gentileza e… seu corpo.</p>
+                    <div class="tags-list">
+                        <span class="tag">Romance</span>
+                        <span class="tag">Fantasia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Silent Witch.jpg" alt="Silent Witch">
+                    </div>
+                    <h3>Silent Witch</h3>
+                    <p>Monica Everett, a Bruxa Silenciosa, é a única maga do mundo que consegue usar magia sem pronunciar encantamentos, uma verdadeira heroína que derrotou sozinha um dragão negro lendário. No entanto, a jovem prodígio, na verdade, é incrivelmente tímida! É isso mesmo: ela aprendeu a invocar feitiços silenciosamente apenas para não falar em público e, apesar de seu poder, não tem um pingo de confiança em si mesma. Agora, Monica recebeu a missão de secretamente proteger o segundo príncipe.</p>
+                    <div class="tags-list">
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Magia</span>
+                        <span class="tag">Comédia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Umamusume Cinderella Gray.png" alt="Umamusume Cinderella Gray">
+                    </div>
+                    <h3>Umamusume Cinderella Gray</h3>
+                    <p>Esta é a história de Oguri Cap, uma jovem umamusume que inicia sua jornada na Academia Tracen de Kasamatsu, situada numa região rural. Ela corre de forma avassaladora, desafiando o senso comum. Essa garota que chega a ser chamada de “Monstro” escreve sua lenda na história. Foi dada a largada desta história de uma Cinderela corredora!</p>
+                    <div class="tags-list">
+                        <span class="tag">Esporte</span>
+                        <span class="tag">Drama</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Sentai Red Isekai.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Sentai Red Isekai</h3>
+                    <p>Asagaki Togo era o Ranger Vermelho em um heroico esquadrão de Rangers. Durante a batalha final contra a última organização do mal, ele sofre uma derrota esmagadora e se resigna à morte. Isto é, até que ele renasce em um mundo totalmente diferente!</p>
+                    <div class="tags-list">
+                        <span class="tag">Isekai</span>
+                        <span class="tag">Ação</span>
+                        <span class="tag">Sentai</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Shikanoko Nokonoko Koshitantan.jpg" alt="Shikanoko Nokonoko Koshitantan">
+                    </div>
+                    <h3>Shikanoko Nokonoko Koshitantan</h3>
+                    <p>Torako acreditava ter deixado para trás seu passado turbulento como delinquente nos tempos de ensino fundamental, reinventando-se como uma estudante exemplar no ensino médio, sem que ninguém suspeitasse de suas raízes criminosas. No entanto, sua vida dá uma guinada inesperada com a chegada de Nokotan, uma misteriosa aluna transferida com chifres e uma aura inquietante.</p>
+                    <div class="tags-list">
+                        <span class="tag">Comédia</span>
+                        <span class="tag">Escolar</span>
+                        <span class="tag">Surreal</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Dereru Tonari no Alya-san.jpg" alt="Dereru Tonari no Alya-san">
+                    </div>
+                    <h3>Dereru Tonari no Alya-san</h3>
+                    <p>Alya é uma aluna transferida bastante popular em sua nova escola, frequentemente exibindo uma atitude fria enquanto tira notas altas. Ela ignora seu colega nerd, Kuze Masachika, exceto quando solta algumas frases de flerte em russo para ele. Mal sabe ela que Kuze entende russo, embora finja que não. Vamos ver até onde essa história de amor maluca os levará!</p>
+                    <div class="tags-list">
+                        <span class="tag">Romance</span>
+                        <span class="tag">Escolar</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Boku no Tsuma wa Kanjou ga Nai.jpg" alt="Boku no Tsuma wa Kanjou ga Nai">
+                    </div>
+                    <h3>Boku no Tsuma wa Kanjou ga Nai</h3>
+                    <p>Takuma é um cara solteiro que não faz nada além de ir trabalhar e voltar para casa. Cansado demais para fazer tarefas domésticas, ele decide contratar um robô para cozinhar e cuidar da casa. “Mina-chan” é uma governanta tão boa que Takuma brinca que ela deveria se tornar sua esposa.</p>
+                    <div class="tags-list">
+                        <span class="tag">Sci-Fi</span>
+                        <span class="tag">Romance</span>
+                        <span class="tag">Slice of Life</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Lv2 kara Cheat datta.jpg" alt="Lv2 kara Cheat datta">
+                    </div>
+                    <h3>Lv2 kara Cheat datta</h3>
+                    <p>O Reino Mágico de Klyrode convoca centenas de heróis de outros mundos todos os anos para lutar na guerra contra a Escuridão e seu exército de demônios poderosos. Banaza é um desses heróis, convocado da Royal Capital Paluma, mas algo não está certo – Banaza é apenas um comerciante comum.</p>
+                    <div class="tags-list">
+                        <span class="tag">Isekai</span>
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Romance</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Kami wa Game ni Ueteiru.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Kami wa Game ni Ueteiru</h3>
+                    <p>Dado o seu (exagero de) tempo livre, os deuses ficaram entediados e decidiram criar batalhas desafiadoras de inteligência para apimentar as coisas! Seus oponentes? A humanidade! Alguns jogadores selecionados, chamados de “apóstolos”, encontram os deuses no campo de jogo do reino espiritual para vencer as divindades em seus próprios jogos.</p>
+                    <div class="tags-list">
+                        <span class="tag">Jogos</span>
+                        <span class="tag">Estratégia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Tensei shitara Dainana Ouji.jpg" alt="Tensei shitara Dainana Ouji">
+                    </div>
+                    <h3>Tensei shitara Dainana Ouji</h3>
+                    <p>Apesar de seu profundo amor pela magia, um jovem feiticeiro nasceu em uma família pobre, sem linhagem sanguínea nem aptidão para o estudo mágico. Após encontrar uma morte prematura e cheia de arrependimentos, ele renasce como Lloyd, o sétimo príncipe do Reino de Saloum, dotado de uma poderosa linhagem mágica. Agora, com todas as suas memórias intactas, ele está determinado a aproveitar essa nova vida!</p>
+                    <div class="tags-list">
+                        <span class="tag">Magia</span>
+                        <span class="tag">Fantasia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Saijaku Tamer wa Gomi Hiroi no Tabi.jpg" alt="Saijaku Tamer wa Gomi Hiroi no Tabi">
+                    </div>
+                    <h3>Saijaku Tamer wa Gomi Hiroi no Tabi</h3>
+                    <p>As estrelas representam tudo neste mundo, pois elas conferem habilidades aos Domadores. Assim, quando Ivy veio ao mundo sem uma estrela para si, sua vila interpretou como um mau presságio! Agora exilada, ela leva uma vida solitária, coletando objetos descartados para sobreviver. Tudo muda quando ela cria laços com Sora, uma pequena e frágil criatura gelatinosa encontrada na floresta. A partir de agora, essa dupla delicada inicia uma jornada emocionante de sobrevivência!</p>
+                    <div class="tags-list">
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Aventura</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Chiyu Mahou no Machigatta.jpg" alt="Chiyu Mahou no Machigatta">
+                    </div>
+                    <h3>Chiyu Mahou no Machigatta</h3>
+                    <p>Uma caminhada comum de volta para casa após a escola se transforma em uma jornada épica para Usato! Após ser subitamente transportado para outro mundo juntamente de dois colegas de classe, Usato descobre que foi convocado lá por acidente. No entanto, as coisas mudam de água para o vinho quando ele descobre que tem uma habilidade única para a magia de cura! Agora, ele treina além das limitações humanas, utilizando suas habilidades de autocura para ganhar uma força absurda e uma resistência incomparável.</p>
+                    <div class="tags-list">
+                        <span class="tag">Isekai</span>
+                        <span class="tag">Ação</span>
+                        <span class="tag">Magia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Oroka na Tenshi wa Akuma.jpg" alt="Oroka na Tenshi wa Akuma">
+                    </div>
+                    <h3>Oroka na Tenshi wa Akuma</h3>
+                    <p>Masatora Akutsu, um demônio que está em uma missão de recrutamento numa escola humana, está atrás de aliados para o Inferno na luta contra os anjos celestiais. Mas quando ele se senta ao lado da cativante Lily Amane, ele terá uma surpresa celestial incrivelmente hilária!</p>
+                    <div class="tags-list">
+                        <span class="tag">Comédia</span>
+                        <span class="tag">Romance</span>
+                        <span class="tag">Sobrenatural</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Akuyaku Reijou Level 99.jpg" alt="Akuyaku Reijou Level 99">
+                    </div>
+                    <h3>Akuyaku Reijou Level 99</h3>
+                    <p>Essa estudante universitária só quer uma vida tranquila. Então, quando renasce como Yumiella, a vilã oculta de um jogo otome, ela não fica muito empolgada. Ainda ansiando por paz, ela abandona suas tarefas malignas para viver uma vida mais discreta e tranquila. Até que seu lado de jogadora entra em ação e ela alcança acidentalmente o nível 99! Agora, todos suspeitam que ela seja a infame Lorde Demônio. Que futuro a aguarda?</p>
+                    <div class="tags-list">
+                        <span class="tag">Reencarnação</span>
+                        <span class="tag">Vilã</span>
+                        <span class="tag">Fantasia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Solo Leveling.jpeg" alt="Novo Anime">
+                    </div>
+                    <h3>Solo Leveling</h3>
+                    <p>Há mais de uma década, surgiu uma misteriosa passagem chamada “portal”, que conecta este mundo a uma dimensão diferente, o que fez com que pessoas despertassem poderes únicos, e essas pessoas são chamadas de “caçadores”. Os caçadores usam seus poderes sobre-humanos para conquistar masmorras dentro dos portais e assim ganhar a vida. Sung Jinwoo, um caçador de nível baixo, é considerado o caçador mais fraco de toda a humanidade. Certo dia, ele se depara com uma “masmorra dupla”, que tem uma masmorra de nível alto escondida dentro de uma masmorra de nível baixo. Diante de um Jinwoo gravemente ferido, surge uma misteriosa missão! À beira da morte, Jinwoo decide aceitar essa missão, tornando-se assim a única pessoa capaz de subir de nível!</p>
+                    <div class="tags-list">
+                        <span class="tag">Ação</span>
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">RPG</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Sokushi Cheat ga Saikyou sugite.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Sokushi Cheat ga Saikyou sugite</h3>
+                    <p>Acordando em meio a um absoluto caos durante sua viagem escolar, Yogiri Takatou descobriu que sua classe foi enviada para um mundo paralelo e que seus colegas receberam habilidades especiais de uma sábia enquanto ele, de alguma forma, conseguia dormir. Não o bastante, seu ônibus da escola está sendo atacado por um dragão e as únicas pessoas ali são ele e Tomochika Dannoura, uma garota que também foi deixada como isca por não ter recebido habilidades. Isso tudo poderia ser um grande problema, senão fosse pela descoberta de que Yogiri tem a habilidade de “morte instantânea”, derrotando tudo com apenas um pensamento. Agora junto de Tomochika, Yogiri precisará aprender a viver nesse novo mundo cheio de perigos.</p>
+                    <div class="tags-list">
+                        <span class="tag">Isekai</span>
+                        <span class="tag">Overpowered</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Mahou Shoujo ni Akogarete.png" alt="Novo Anime">
+                    </div>
+                    <h3>Mahou Shoujo ni Akogarete</h3>
+                    <p>Hiiragi Utena é uma garota apaixonada por Mahou Shoujo que sonhava em se tornar uma delas e poder lutar ao lado de sua heroína favorita. Certo dia, um mascote inesperadamente apareceu ao seu lado e lançou um feitiço em Hiiragi, oferecendo a ela a oportunidade de estar de frente para sua ídola. Entretanto, diferente do que ela esperava, a transformação a fez virar uma vilã em vez de uma Mahou Shoujo. Para piorar, a mudança faz com que ela deixe de ser uma garota tímida e passe a ser uma dominatrix sádica. Agora, Hiiragi precisará lidar com sua nova “profissão”, ao mesmo tempo em que tenta aproveitar os momentos ao lado de sua heroína, por mais que seja para tentar torturá-la.</p>
+                    <div class="tags-list">
+                        <span class="tag">Mahou Shoujo</span>
+                        <span class="tag">Comédia</span>
+                        <span class="tag">Ecchi</span>
+                    </div>
+                </div>
+               
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Dekoboko Majo no Oyako Jijou.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Dekoboko Majo no Oyako Jijou</h3>
+                    <p>Alyssa é uma bruxa que vive sozinha na floresta e, em um certo dia, encontra uma bebê humana. Apesar do desafio, ela dá o nome de “Viola” à criança e decide criá-la. 16 anos depois, Viola cresceu muito mais do que Alyssa jamais imaginou. Mas espere, ela cresceu demais! E assim começa a caótica comédia de uma mãe e uma filha com aparências invertidas!</p>
+                    <div class="tags-list">
+                        <span class="tag">Comédia</span>
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Slice of Life</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Suki na Ko ga Megane wo Wasureta.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Suki na Ko ga Megane wo Wasureta</h3>
+                    <p>Uma comédia romântica muito agradável sobre um garoto que só tem olhos para a garota que sempre esquece seus óculos! Com o novo ano escolar, chega uma nova sala de aula, novos colegas de classe e uma nova carteira para o tímido Komura. Mas qualquer apreensão que ele possa ter sentido se dissipa rapidamente quando ele avista Mie, que se senta ao seu lado. Com o hábito de deixar escapar silenciosamente as coisas mais aleatórias possíveis, a peculiar Mie usa óculos grossos que acentuam seus olhos adoráveis, fazendo o coração de Komura bater mais forte! Infelizmente, Mie é patologicamente esquecida e nunca consegue se lembrar de levar seus óculos para a aula! Mas nem tudo está perdido! Seu rosto franzino e malvado faz o coração de Komura disparar! Enquanto Komura está ansioso para ajudar e compartilhar seus livros com Mie, seu coração desistirá da tensão quase diária de estar próximo de sua paixão?!</p>
+                    <div class="tags-list">
+                        <span class="tag">Romance</span>
+                        <span class="tag">Escolar</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Yumemiru Danshi wa Genjitsushugisha.jpg" alt="Yumemiru Danshi wa Genjitsushugisha">
+                    </div>
+                    <h3>Yumemiru Danshi wa Genjitsushugisha</h3>
+                    <p>Wataru Sajou está profundamente apaixonado por sua bela companheira de classe Aika Natsukawa. Ele se aproxima dela destemidamente enquanto sonha com o amor mútuo deles. No entanto, um dia, ele acordou pensando: “Eu realmente não sirvo para alguém tão boa quanto ela, hein…” Percebendo isso, Wataru começou a manter uma distância adequada dela, para surpresa de Aika. ‘Será que ele me odeia agora…?’ Ele agiu contra suas intenções porque estava ficando impaciente após chegar à conclusão errada?! Este é o começo de uma comédia romântica que gira em torno de duas pessoas que não conseguem transmitir seus sentimentos e ambas pensam que seu amor não é correspondido.</p>
+                    <div class="tags-list">
+                        <span class="tag">Romance</span>
+                        <span class="tag">Escolar</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Jitsu wa Ore, Saikyou deshita.jpg" alt="Jitsu wa Ore, Saikyou deshita">
+                    </div>
+                    <h3>Jitsu wa Ore, Saikyou deshita?</h3>
+                    <p>Ser reencarnado em outro mundo com a promessa de um poder 'trapaceiro' é uma coisa. Mas renascer como um bebê e depois ser deixado para morrer depois que seus pais verdadeiros o acham impotente? Isso é algo totalmente diferente. Agora, o recém-nascido Reinhart – Hart para seus novos amigos – deve encontrar seu caminho através de um mundo perigoso…</p>
+                    <div class="tags-list">
+                        <span class="tag">Isekai</span>
+                        <span class="tag">Fantasia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Ryza no Atelier.jpg" alt="Ryza no Atelier">
+                    </div>
+                    <h3>Ryza no Atelier</h3>
+                    <p>O jogo segue a história de Reisalin Stout, uma garota que mora na Ilha Kurken em busca de aventura. Em um dia de verão, ela encontra um barco a remo abandonado e se aventura no continente com seus amigos Lent Marslink e Tao Mongarten. Ao longo do caminho, ela salva a filha de um comerciante viajante e conhece o alquimista Empel Vollmer com sua parceira Lila Decyrus, que inicia Ryza no caminho do aprendizado da alquimia e suas aventuras interligadas e logo descobre a verdade sobre seu lar.</p>
+                    <div class="tags-list">
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Aventura</span>
+                        <span class="tag">Alquimia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/horimiya Piece.png" alt="Horimiya Piece">
+                    </div>
+                    <h3>Horimiya</h3>
+                    <p>Horimiya Todos os Episodios Online, Assistir Horimiya Anime Completo.
+                    Embora seja admirada na escola por sua amabilidade e proeza acadêmica, a estudante Kyouko Hori esconde outro lado dela. Com os pais muitas vezes longe de casa devido ao trabalho, Hori tem que cuidar do irmão mais novo e fazer as tarefas domésticas, não deixando chance de socializar fora da escola. Enquanto isso, Izumi Miyamura é vista como um otaku taciturno de óculos. No entanto, na realidade, ele é uma pessoa gentil, incapaz de estudar. Além disso, ele tem nove piercings escondidos atrás de seu cabelo comprido e uma tatuagem nas costas e no ombro esquerdo. Por mero acaso, Hori e Miyamura se cruzam fora da escola – nenhum parecendo o que o outro esperava. Esses opostos aparentemente polares tornam-se amigos, compartilhando um com o outro um lado que nunca mostraram a ninguém..</p>
+                    <div class="tags-list">
+                        <span class="tag">Romance</span>
+                        <span class="tag">Escolar</span>
+                        <span class="tag">Slice of Life</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Mashle.jpeg" alt="Mashle">
+                    </div>
+                    <h3>Mashle</h3>
+                    <p>Em um mundo onde todos são capazes de usar magia, há uma floresta densa e escura, onde um jovem treina sem parar. Seu nome é Mash Burnedead, e ele guarda um segredo: ele não sabe usar magia. Tudo o que ele queria era levar uma vida tranquila com seu avô, mas a sociedade mágica não tolera não-usuários – e para escapar do perigo, ele acaba se matriculando na Escola de Magia. Seu objetivo? Tornar-se um Visionário Divino de elite, acima de tudo e todos. Será que seus músculos trincados vão conseguir encarar os maiores talentos do mundo mágico?</p>
+                    <div class="tags-list">
+                        <span class="tag">Ação</span>
+                        <span class="tag">Comédia</span>
+                        <span class="tag">Magia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Tondemo Skill de Isekai Hourou Meshi.jpg" alt="Tondemo Skill de Isekai Hourou Meshie">
+                    </div>
+                    <h3>Tondemo Skill de Isekai Hourou Meshi</h3>
+                    <p>Mukouda Tsuyoshi nunca foi alguém especial, então quando foi invocado em um mundo de fantasia como um dos grandes heróis acreditou ser sua oportunidade de viver uma aventura. Entretanto, sua invocação foi um erro, e seus status estão muito abaixo dos outros heróis que foram trazidos juntos dele, além de que sua única grande habilidade é a de ser capaz de comprar produtos modernos do seu antigo mundo. </p>
+                    <div class="tags-list">
+                        <span class="tag">Isekai</span>
+                        <span class="tag">Culinária</span>
+                        <span class="tag">Aventura</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Kubo-san wa Mob wo Yurusanai.jpg" alt="Kubo-san wa Mob wo Yurusanai">
+                    </div>
+                    <h3>Kubo-san wa Mob wo Yurusanai</h3>
+                    <p>O estudante do ensino médio Junta Shiraishi tem um objetivo simples – viver uma juventude gratificante. No entanto, atingir esse objetivo parece ser mais difícil do que o esperado, pois todos ao seu redor muitas vezes não o notam devido à sua falta de presença. Na verdade, a falta de presença de Shiraishi é tão severa que as pessoas pensam que sua cadeira na sala de aula está sempre vazia e assumem erroneamente que ele frequentemente falta à escola. Existe até um boato estranho se espalhando na classe, alegando que aqueles que localizarem Shiraishi com sucesso serão abençoados com boa sorte para o dia.</p>
+                    <div class="tags-list">
+                        <span class="tag">Romance</span>
+                        <span class="tag">Escolar</span>
+                        <span class="tag">Slice of Life</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Saikyou Onmyouji no Isekai Tenseiki.jpg" alt="Saikyou Onmyouji no Isekai Tenseiki">
+                    </div>
+                    <h3>Saikyou Onmyouji no Isekai Tenseiki</h3>
+                    <p>A história acompanha Haruyoshi, um poderoso Onmyouji (exorcista) que foi traído pelo seu amigo. Em um último desejo antes de morrer, Haruyoshi pede para ser feliz na sua próxima vida e usa um feitiço de reencarnação. Inesperadamente, o feitiço funciona, mas acaba levando Haruyoshi para outro mundo, onde nasce em uma família de magos, mas sem qualquer poder mágico. Agora apenas com suas habilidade de Onmyouji, Haruyoshi tenta levar uma vida calma e pacifica ao lado das criaturas espirituais que o servem.</p>
+                    <div class="tags-list">
+                        <span class="tag">Isekai</span>
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Sobrenatural</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Bocchi the Rock.png" alt="Bocchi the Rock">
+                    </div>
+                    <h3>Bocchi the Rock</h3>
+                    <p>A história acompanha Hitori Gotou, uma garota sem amigos que está aprendendo a tocar guitarra para se tornar uma estrela do rock, mas é extremamente tímida. Por mais que seu sonho parecesse inalcançável, ela acaba por conhecer Nijika Ijichi, uma baterista que está a procura de uma guitarrista para sua banda, criando assim a oportunidade para HItori entrar no mundo da música.</p>
+                    <div class="tags-list">
+                        <span class="tag">Música</span>
+                        <span class="tag">Comédia</span>
+                        <span class="tag">Slice of Life</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Yuusha Party wo Tsuihou sareta Beast Tamer.jpg" alt="Yuusha Party wo Tsuihou sareta Beast Tamer">
+                    </div>
+                    <h3>Yuusha Party wo Tsuihou sareta Beast Tamer</h3>
+                    <p>Rein é um domador de feras que lutou ao lado do Herói para derrotar o Rei Demônio, até o dia em que seus colegas decidem expulsá-lo do bando. Ele então decide se aventurar sozinho, quando encontra uma garota chamada Kanade sendo atacada por um monstro. Rein tenta salvá-la, mas a garota derrota o monstro em um só golpe, revelando-se membro da Tribo dos Felinos Espirituais, uma das raças mais fortes do mundo! Rein então decide “domar” a garota, firmando um contrato com ela, e os dois partem em uma jornada. Mas a força estrondosa da garota-gato não passará despercebida por muito tempo…</p>
+                    <div class="tags-list">
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Aventura</span>
+                        <span class="tag">Harem</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Isekai Meikyuu de Harem wo.png" alt="Isekai Meikyuu de Harem wo">
+                    </div>
+                    <h3>Isekai Meikyuu de Harem wo</h3>
+                    <p>A história acompanha Michio Kaga, um garoto sem muitos objetivos que passava o dia navegando pela internet. Certo dia ele se vê transportado para um outro mundo, onde está no corpo de um jovem forte e cheio de poderes acima da média. Aproveitando a oportunidade, Kaga decide se tornar um aventureiro para poder conseguir fama e dinheiro, podendo assim também conseguir várias garotas bonitas para o seu harém particular.</p>
+                    <div class="tags-list">
+                        <span class="tag">Isekai</span>
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Harem</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Kinsou no Vermeil.jpg" alt="Kinsou no Vermeil">
+                    </div>
+                    <h3>Kinsou no Vermeil</h3>
+                    <p>A história acompanha um jovem que estava preste a repetir de ano na escola de magia, mas acaba encontrando por acidente um livro antigo que libera o selo da bela demônio Vermeil. Conhecida por ser poderosa o suficiente para causar desastres sem precedentes, o jovem precisa lidar com a inesperada responsabilidade que criou ao transformá-la em sua familiar, além de aprender a conviver com uma criatura capaz de destruir o mundo.</p>
+                    <div class="tags-list">
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Ecchi</span>
+                        <span class="tag">Romance</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Tensei Kenja no Isekai Life.jpg" alt="Tensei Kenja no Isekai Life">
+                    </div>
+                    <h3>Tensei Kenja no Isekai Life</h3>
+                    <p>A história acompanha um jovem que é transportado para um mundo de fantasia onde ele se torna o líder de um grupo de heróis. Ele precisa lidar com os desafios e perigos deste novo mundo enquanto busca seu lugar e propósito.</p>
+                    <div class="tags-list">
+                        <span class="tag">Isekai</span>
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Aventura</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Kawaii dake ja Nai Shikimori-san.jpg" alt="Kawaii dake ja Nai Shikimori-san">
+                    </div>
+                    <h3>Kawaii dake ja Nai Shikimori-san</h3>
+                    <p>A história acompanha Shikimori, um garota linda e perfeita que começou a namorar com Izumi, um garoto calmo e pacifico. Por mais que Shikimori tente agir de acordo com sua aparência, tentando fazer coisas doces e meigas, ela acaba sempre se envolvendo em situações que a fazem parecer sombria e descolada, deixando Izumi ainda mais apaixonado por ela.</p>
+                    <div class="tags-list">
+                        <span class="tag">Romance</span>
+                        <span class="tag">Escolar</span>
+                        <span class="tag">Comédia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Gaikotsu Kishi-sama.jpg" alt="Gaikotsu Kishi-sama">
+                    </div>
+                    <h3>Gaikotsu Kishi-sama</h3>
+                    <p>A história acompanha um jovem que dormiu enquanto passava a noite jogando, entretanto, ao acordar, percebeu que estava agora no mundo do jogo. Não o bastante, ele ainda foi colocado no corpo de um esqueleto. A partir de então, ele decide encontrar um lugar seguro onde possa viver naquele mundo, mas ao se deparar com uma jovem elfa sua paz é colocada em jogo, onde acaba sempre se envolvendo em novas batalhas.</p>
+                    <div class="tags-list">
+                        <span class="tag">Isekai</span>
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Aventura</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Otome Game Sekai wa Mob ni Kibishii Sekai desu.jpeg" alt="Novo Anime">
+                    </div>
+                    <h3>Otome Game Sekai wa Mob ni Kibishii Sekai desu</h3>
+                    <p>Após acordar em um mundo desconhecido, Leon percebe que foi reencarnado no universo de um otome game que jogou. Nesse mundo as mulheres dominam completamente os homens, os usando como bem entendem para alcançar seus objetivos. Não o bastante, as únicas rotas amorosas disponíveis no jogo são com um grupo de príncipes herdeiros. Percebendo sua situação, Leon decide usar seus conhecimentos do jogo para iniciar uma revolução contra as mulheres, mudando completamente aquele mundo </p>
+                    <div class="tags-list">
+                        <span class="tag">Isekai</span>
+                        <span class="tag">Mecha</span>
+                        <span class="tag">Harem</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Sentouin, Hakenshimasu.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Sentouin, Hakenshimasu!</h3>
+                    <p>A história acompanha um homem conhecido com Número 6, que faz parte de uma organização maligna chamada Kisaragi Secret Society. Em um certo dia, ele é enviado para fazer o reconhecimento de um mundo distante, ao lado de sua nova parceira, uma androide chamada Alice. Entretanto, ao chegar no novo mundo, que ele supostamente deveria invadir e dominar, Número 6 acaba por perceber que o lugar é o completo clichê de mundo de fantasias, com várias criaturas e pessoas do tipo. Agora, ele precisa encontrar uma forma de superar a diferença cultural do lugar antes de completar a sua temida dominação.</p>
+                    <div class="tags-list">
+                        <span class="tag">Ação</span>
+                        <span class="tag">Comédia</span>
+                        <span class="tag">Sci-Fi</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Komi-san wa, Comyushou desu.jpg" alt="Komi-san wa, Comyushou desu">
+                    </div>
+                    <h3>Komi-san wa, Comyushou desu</h3>
+                    <p>A história acompanha Komi Shouko, um das garotas mais bonitas da escola, que comumente é conhecida pela sua aura de superioridade e frieza. Porém, o que muitos não sabem é que essa “presença superiora” é resultado da sua completa falta de capacidade de comunicação, e agora cabe a Hitohito Tadano, o único que sabe do problema da garota, ajudá-la a aprender a se comunicar melhor.</p>
+                    <div class="tags-list">
+                        <span class="tag">Comédia</span>
+                        <span class="tag">Escolar</span>
+                        <span class="tag">Slice of Life</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Shinka no Mi Shiranai Uchi ni Kachigumi Jinsei.jpg" alt="Shinka no Mi: Shiranai Uchi ni Kachigumi Jinsei">
+                    </div>
+                    <h3>Shinka no Mi: Shiranai Uchi ni Kachigumi Jinsei</h3>
+                    <p>A história acompanha Seiichi Hiiragi, um garoto que sofria bullying por conta de seu peso e aparência. Certo dia, enquanto fazia uma excursão da escola, toda sua turma foi transportada para um mundo de fantasia, recebendo classes e funções especificas. Entretanto, Seiichi foi enviado para um lugar sozinho, onde encontra o “Fruto da Evolução”, que o transforma em uma nova pessoa. Pouco tempo depois, uma gorila se apaixona por ele e o pede em casamento, também comendo o fruto e se transformando em uma bela garota.</p>
+                    <div class="tags-list">
+                        <span class="tag">Isekai</span>
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Romance</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Tsuki ga Michibiku Isekai Douchuu.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Tsuki ga Michibiku Isekai Douchuu</h3>
+                    <p>A história acompanha Makoto Misumi, um jovem comum que é invocado em um mundo de fantasia para ser o grande herói que salvará as pessoas. Entretanto, quando a Deusa do lugar o vê, acaba o destituindo do título e o banindo para uma região deserta por achar o rosto do rapaz feio demais. Tendo adquirido grandes poderes nesse novo mundo, Makoto consegue sobreviver ao seu banimento e encontrar várias criaturas incríveis, como aranhas e dragões, formando assim alianças inesperadas para que possa remodelar o mundo em que os Deuses e humanos o abandonaram.</p>
+                    <div class="tags-list">
+                        <span class="tag">Isekai</span>
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Ação</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Ijiranaide, Nagatoro-san.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Ijiranaide, Nagatoro-san</h3>
+                    <p>A estudante Hayase Nagatoro adora passar seu tempo livre fazendo uma coisa, que é intimidar seu Senpai! Depois que Nagatoro e seus amigos tropeçam nos desenhos da aspirante a artista, eles se divertem em intimidar impiedosamente o tímido Senpai. Nagatoro resolve continuar seu jogo cruel e o visita diariamente para que ela possa forçar Senpai a fazer o que lhe interessar no momento, especialmente se isso o deixar desconfortável. Ligeiramente excitado e com um pouco de medo de Nagatoro, Senpai está constantemente amarrado em suas travessuras enquanto seus interesses, hobbies, aparência e até personalidade são usados ​​contra ele enquanto ela se diverte às custas dele.</p>
+                    <div class="tags-list">
+                        <span class="tag">Romance</span>
+                        <span class="tag">Comédia</span>
+                        <span class="tag">Escolar</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Slime Taoshite 300-nen.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Slime Taoshite 300-nen</h3>
+                    <p>Uma comédia caseira sobre uma garota poderosa que quer evitar a fadiga! Depois de morrer de estafa no mundo real, eu reencarnei como uma bruxa imortal, e passei 300 anos desfrutando a vida boa… Até que acabei batendo no nível 99! Tantos anos matando slimes pra pagar as contas me deram bastante XP… Mas os rumores se espalharam, e agora começam a surgir aventureiros curiosos, dragões afrontosos e até uma garota-monstro que me chama de mãe! Eu nunca parti numa aventura, mas agora sou a mais forte do mundo… O que será da minha vida tranquila?!</p>
+                    <div class="tags-list">
+                        <span class="tag">Slice of Life</span>
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Comédia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Dragon, Ie wo Kau.png" alt="Novo Anime">
+                    </div>
+                    <h3>Dragon, Ie wo Kau</h3>
+                    <p>Em um mundo onde dragões são vistos como uma das mais poderosas criaturas mitológicas, sendo seus corpos o material perfeito para a criação de equipamentos, Letty, com a ajuda de um elfo arquiteto, precisa encontrar um lugar seguro para viver depois de ter sido expulso de casa pelo próprio pai, já que ele, como um dragão, não tem qualquer capacidade para agir como tal.</p>
+                    <div class="tags-list">
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Comédia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Ore dake Haireru Kakushi.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Ore dake Haireru Kakushi</h3>
+                    <p>
+                    A Dungeon Secreta é um lugar lendário onde escondem-se raros tesouros e itens. Nor, o terceiro filho de um clã de nobres falidos que acaba de perder sua única oportunidade de emprego, ouve falar por acaso da dungeon. Ele logo adquire uma habilidade que lhe permite criar, editar e conferir habilidades… E para usá-la, ele precisa acumular pontos através de tarefas, como comer refeições deliciosas e realizando atividades sexuais com indivíduas sedutoras do sexo oposto.</p>
+                    <div class="tags-list">
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Ecchi</span>
+                        <span class="tag">Aventura</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Kaifuku Jutsushi no Yarinaoshi.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Kaifuku Jutsushi no Yarinaoshi</h3>
+                    <p>
+                    A história se passa em um mundo de fantasia, acompanhando Keyar, um healer (Curandeiro) que foi traído e usado pelos seus companheiros de grupo por sua classe ser vista como inútil, já que não pode lutar sozinha. Entretanto, após certos eventos, Keyar desperta uma magia de cura suprema, “regenerando” seu própria mundo e voltando no tempo 4 anos antes, para que assim possa refazer sua vida, e ter sua vingança contra todos que fizeram mal a ele.</p>
+                    <div class="tags-list">
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Vingança</span>
+                        <span class="tag">Ecchi</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Mushoku Tensei.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Mushoku Tensei</h3>
+                    <p>Morto ao salvar um estranho de uma colisão de trânsito, um NEET de 34 anos reencarnou em um mundo mágico como Rudeus Greyrat, um bebê recém-nascido. Com conhecimento, experiência e arrependimentos de sua vida anterior retidos, Rudeus jura levar uma vida plena e não repetir seus erros do passado. Agora dotado de uma tremenda quantidade de poder mágico, bem como a mente de um adulto, Rudeus é visto como um gênio em formação por seus novos pais. Logo, ele se encontra estudando com poderosos guerreiros, como seu pai espadachim e um mago chamado Roxy Migurdia – tudo para aprimorar seus aparentes talentos. Mas, apesar de seu exterior inocente, Rudeus ainda é um otaku pervertido, que usa sua riqueza de conhecimento para fazer movimentos em mulheres que ele nunca poderia fazer em sua vida anterior.</p>
+                    <div class="tags-list">
+                        <span class="tag">Isekai</span>
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Aventura</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Kami-tachi ni Hirowareta Otoko.png" alt="Novo Anime">
+                    </div>
+                    <h3>Kami-tachi ni Hirowareta Otoko</h3>
+                    <p>
+                    Ryouma Takebayashi morre dormindo aos 39 anos, após levar uma vida de infortúnios. Com pena dele, três divindades lhe oferecem a chance de reencarnar em um mundo de magia onde ele tem apenas uma missão: ser ele mesmo e aproveitar a vida. Eles conferem a Ryouma poderosas habilidades físicas, bem como a afinidade para dominar todos os elementos, e prometem cuidar dele. Sua nova vida de criança começa oficialmente quando ele é teletransportado para uma floresta.</p>
+                    <div class="tags-list">
+                        <span class="tag">Isekai</span>
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Slice of Life</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Tonikaku Kawaii.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Tonikaku Kawaii</h3>
+                    <p>
+                    Após um encontro com a misteriosa Tsukasa, Nasa Yuzaki se apaixona à primeira vista. Nasa decide se declarar pra garota, mas ela responde: “Só vou sair com você se a gente se casar.” Assim começa a vida cativante e amorosa destes dois recém-casados!</p>
+                    <div class="tags-list">
+                        <span class="tag">Romance</span>
+                        <span class="tag">Comédia</span>
+                        <span class="tag">Escolar</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Uzaki-chan wa Asobitai.png" alt="Novo Anime">
+                    </div>
+                    <h3>Uzaki-chan wa Asobitai</h3>
+                    <p>
+                    A história acompanha Sakurai Shinichi, um garoto que só queria levar a sua vida em paz, mas que acaba por conhecer Uzuki Hana, uma energética e bem dotada garota que só quer se divertir e infernizá-lo. Graças ao seu charme provocador, e sua insistência, Uzuki consegue levar Shinichi para as mais diferentes loucuras, começando assim uma inesperada relação entre os dois.</p>
+                    <div class="tags-list">
+                        <span class="tag">Comédia</span>
+                        <span class="tag">Slice of Life</span>
+                        <span class="tag">Romance</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Girls und Panzer.png" alt="Novo Anime">
+                    </div>
+                    <h3>Girls und Panzer</h3>
+                    <p>
+                    Você pode ter ouvido de kung fu, mas as meninas da High School de Oarai prática arma-fu-muito, muito grande 75 milímetros arma-fu, na verdade. É chamado Sensha-do, e é a arte marcial de operar tanques blindados! Eles levam a sério demais, e desde que venceu o campeonato nacional Sensha-do é um negócio tão grande em Oarai, eles às vezes ir a extremos, a fim de obter os melhores alunos da classe Panzer para se inscrever. </p>
+                    <div class="tags-list">
+                        <span class="tag">Ação</span>
+                        <span class="tag">Esporte</span>
+                        <span class="tag">Militar</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/JoJo’s Bizarre Adventure.png" alt="Novo Anime">
+                    </div>
+                    <h3>JoJo’s Bizarre Adventure</h3>
+                    <p>
+                    A história segue os Joestar, uma família cuja a linhagem é destinada a combater inimigos sobrenaturais, com membros de gerações diferentes recebendo diferentes poderes. A série é dividida em partes únicas, cada uma seguindo a história de um membro da família, que inevitavelmente tem um nome que pode ser abreviado para o titular “JoJo”.</p>
+                    <div class="tags-list">
+                        <span class="tag">Ação</span>
+                        <span class="tag">Aventura</span>
+                        <span class="tag">Sobrenatural</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Ishuzoku Reviewers.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Ishuzoku Reviewers</h3>
+                    <p>O anime acompanha um grupo de homens dando suas opiniões a respeito de quais tipos de garotas são as melhores (Elfas, succubus, humanas), onde eles visitam diferentes lugares a fim de provar suas opiniões a respeito de qual é a melhor espécie de mulher.</p>
+                    <div class="tags-list">
+                        <span class="tag">Comédia</span>
+                        <span class="tag">Ecchi</span>
+                        <span class="tag">Fantasia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Itai no wa Iya nano de Bougyoryoku.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Itai no wa Iya nano de Bougyoryoku</h3>
+                    <p>A história acompanha uma garota que foi convidada para um VRMMORPG pela amiga de escola, mas, por conta de suas preocupações em sentir dor, acaba criando um personagem totalmente focado em defesa. Graças a ter colocado todo os seus pontos em VIT (vitalidade) ela conseguiu a skill especial “Absolute Defense”, que não a deixa tomar nenhum dano, ou sentir dor. A partir daí, mesmo não sendo capaz de se mover rapidamente, usar magia, e tendo uma força menor que a de um coelho, Maple começa a se aventurar com seus amigos no mundo do jogo.</p>
+                    <div class="tags-list">
+                        <span class="tag">Jogos</span>
+                        <span class="tag">Comédia</span>
+                        <span class="tag">Fantasia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Sewayaki Kitsune no Senko-san.png" alt="Novo Anime">
+                    </div>
+                    <h3>Sewayaki Kitsune no Senko-san</h3>
+                    <p>A vida cotidiana de Nakano, um trabalhador assalariado que trabalha para uma empresa exploradora, é subitamente invadida pela raposa, Senko-san. Seja cozinhando, limpando ou no serviço especial… ela vai curar sua exaustão com seu cuidado carinhoso.</p>
+                    <div class="tags-list">
+                        <span class="tag">Slice of Life</span>
+                        <span class="tag">Sobrenatural</span>
+                        <span class="tag">Comédia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Seishun Buta Yarou wa Bunny Girl Senpai.png" alt="Novo Anime">
+                    </div>
+                    <h3>Seishun Buta Yarou wa Bunny Girl Senpai</h3>
+                    <p>Sindrome da puberdade – experiências anormais que dizem ser causadas pela sensitividade e instabilidade comuns na adolescência. Este ano, Sakuta Azusagawa, um estudante do segundo ano de um colégio perto de Enoshima, conheceu várias garotas que estão sofrendo dessa “síndrome da puberdade.” Como, por exemplo, uma garota-coelhinho que ele conheceu na biblioteca. Ela é Mai Sakurajima, uma atriz que deu uma pausa na carreira, e também sua veterana no colégio. Por algum motivo, ninguém mais consegue ver essa encantadora garota. Como será que ela ficou invisível?</p>
+                    <div class="tags-list">
+                        <span class="tag">Romance</span>
+                        <span class="tag">Sobrenatural</span>
+                        <span class="tag">Escolar</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Shoujo Shuumatsu Ryokou.jpeg" alt="Novo Anime">
+                    </div>
+                    <h3>Shoujo Shuumatsu Ryokou</h3>
+                    <p>A civilização está morta, mas Chito e Yuuri ainda estão vivas. Elas sobem a bordo de sua amada moto Kettenkrad e vagarosamente vagam pelas ruínas do mundo que já conheceram. Dia após dia sem esperança, elas procuram sua próxima refeição e abastecem seu transporte. Mas enquanto as duas estiverem juntas, até uma existência tão sombria como a delas tem um ou dois raios de luz, quer estejam sugando sua sopa ou caçando peças. Para as duas meninas em um mundo cheio de nada, as experiências e os sentimentos que compartilham lhes dão motivo para viver…</p>
+                    <div class="tags-list">
+                        <span class="tag">Adventure</span>
+                        <span class="tag">Sci-Fi</span>
+                        <span class="tag">Slice of Life</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Kobayashi-san Chi no Maid.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Kobayashi-san Chi no Maid</h3>
+                    <p>Kobayashi vivia sozinha em um apartamento, até que um dia, Tooru apareceu e elas acabaram vivendo juntas. Tooru, que é uma garota dragão, encara os seres humanos como inferiores e tolos, mas como foi salva por Kobayashi-san, ela faz tudo o que pode para pagar sua dívida e a ajuda com várias coisas, embora nem tudo saia de acordo com o planejado.</p>
+                    <div class="tags-list">
+                        <span class="tag">Comédia</span>
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Slice of Life</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Beastars.jpg" alt="Novo Anime">
+                    </div>
+                    <h3>Beastars</h3>
+                    <p>Em um mundo onde animais humanoides vivem em paz, um jovem lobo membro de uma academia de drama (atuação, teatro), sofre preconceito devido a sua raça ser considerada ameaçadora, apesar dele na verdade ser uma criatura sensível e obstinado a conseguir realizar seus sonhos. Na história acompanhamos a vida dele e de seus colegas animais da academia.</p>
+                    <div class="tags-list">
+                        <span class="tag">Drama</span>
+                        <span class="tag">Psicológico</span>
+                        <span class="tag">Slice of Life</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Rokudenashi Majutsu Koushi to Akashic Records.png" alt="Novo Anime">
+                    </div>
+                    <h3>Rokudenashi Majutsu Koushi to Akashic Records</h3>
+                    <p>Sisti frequenta uma academia de magia para aprimorar suas habilidades nas artes mágicas, e com isso espera resolver o mistério que ronda um Castelo Celeste, mas antes de resolver o grande mistério relacionado ao seu avó, Sisti terá que lidar com Glen, o professor substituto que não passa de um preguiçoso e, aparentemente, um instrutor incompetente. Como poderia Glen ser escolhido para lecionar na melhor academia de magia?!</p>
+                    <div class="tags-list">
+                        <span class="tag">Magia</span>
+                        <span class="tag">Escolar</span>
+                        <span class="tag">Fantasia</span>
+                    </div>
+                </div>
+
+                <div class="gostos-card">
+                    <div class="card-img-container" onclick="ampliarCard(this)">
+                        <img src="img/Rakudai Kishi no Cavalry.png" alt="Novo Anime">
+                    </div>
+                    <h3>Rakudai Kishi no Cavalry</h3>
+                    <p>Os Cavaleiros Mágicos, usuários de magia modernos que lutam com armas convertidas de suas almas. Kurogane Ikki frequenta uma escola para esses Cavaleiros Mágicos, mas é o “Cavaleiro Fracassado” ou “O Pior” que falhou por não ter habilidades mágicas. No entanto, certo dia, ele é desafiado para um duelo por Stella, uma princesa estrangeira e a aluna número um. Neste duelo, o perdedor deve obedecer o vencedor pelo resto da vida.</p>
+                    <div class="tags-list">
+                        <span class="tag">Ação</span>
+                        <span class="tag">Fantasia</span>
+                        <span class="tag">Romance</span>
+                    </div>
+                </div>
+s="card-img-container" onclick="ampliarCard(this)">
                         <img src="img/Charlotte.png" alt="Novo Anime">
                     </div>
                     <h3>Charlotte</h3>
@@ -1194,110 +1919,3 @@
                         <span class="tag">Drama</span>
                     </div>
                 </div>
-
-            </div>
-        </div>
-
-        <!-- SEÇÃO: MÚSICAS -->
-        <div class="toggle-container">
-            <div class="toggle-bar" id="toggle-musicas">
-                <span>Músicas que eu recomendo</span>
-                <span class="seta">▼</span>
-            </div>
-            <div class="gostos-grid" id="musicas-grid">
-            </div>
-        </div>
-
-        <!-- SEÇÃO: FILMES -->
-        <div class="toggle-container">
-            <div class="toggle-bar" id="toggle-filmes">
-                <span>Filmes que eu recomendo</span>
-                <span class="seta">▼</span>
-            </div>
-            <div class="gostos-grid" id="filmes-grid">
-                <div class="gostos-card" onclick="ampliarCard(this)">
-                    <div class="card-img-container">
-                        <img src="img/placeholder.jpg" alt="Filme">
-                    </div>
-                    <h3>Título do Filme</h3>
-                    <p>O que você achou dessa obra cinematográfica?</p>
-                </div>
-                <!-- Mais 9 cards -->
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Filme"></div><h3>Título</h3><p>Descrição...</p></div>
-            </div>
-        </div>
-
-        <!-- SEÇÃO: SÉRIES -->
-        <div class="toggle-container">
-            <div class="toggle-bar" id="toggle-series">
-                <span>Séries que eu recomendo</span>
-                <span class="seta">▼</span>
-            </div>
-            <div class="gostos-grid" id="series-grid">
-                <div class="gostos-card" onclick="ampliarCard(this)">
-                    <div class="card-img-container">
-                        <img src="img/placeholder.jpg" alt="Série">
-                    </div>
-                    <h3>Título da Série</h3>
-                    <p>Uma maratona inesquecível ou uma recomendação clássica.</p>
-                </div>
-                <!-- Mais 9 cards -->
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Série"></div><h3>Título</h3><p>Descrição...</p></div>
-            </div>
-        </div>
-
-        <!-- SEÇÃO: DESENHOS -->
-        <div class="toggle-container">
-            <div class="toggle-bar" id="toggle-desenhos">
-                <span>Desenhos que eu recomendo</span>
-                <span class="seta">▼</span>
-            </div>
-            <div class="gostos-grid" id="desenhos-grid">
-                <div class="gostos-card" onclick="ampliarCard(this)">
-                    <div class="card-img-container">
-                        <img src="img/placeholder.jpg" alt="Desenho">
-                    </div>
-                    <h3>Título do Desenho</h3>
-                    <p>Nostalgia ou animações modernas que valem a pena.</p>
-                </div>
-                <!-- Mais 9 cards -->
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
-                <div class="gostos-card" onclick="ampliarCard(this)"><div class="card-img-container"><img src="img/placeholder.jpg" alt="Desenho"></div><h3>Título</h3><p>Descrição...</p></div>
-            </div>
-        </div>
-
-    </main>
-
-    <div id="overlay" class="overlay" onclick="fecharAmpliacao()">
-        <span class="close-overlay">&times;</span>
-        <div id="conteudo-expandido"></div>
-    </div>
-
-    <button id="back-to-top" title="Voltar ao topo">▲</button>
-
-    <script src="script.js"></script>
-</body>
-</html>

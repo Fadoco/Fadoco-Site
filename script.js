@@ -114,8 +114,11 @@ function fecharAmpliacao() {
 }
 
 // --- CONFIGURAÇÃO DA API DO YOUTUBE ---
-const YT_API_KEY = 'AIzaSyDaPbh2ZDKB3Gq16K68V8xatYZ4ZTy2hlQ'; 
-const PLAYLIST_ID = 'PLKQ_ZTvlL-M-XEn1Biw7iMalaIGxl3IBg';
+const YT_CONFIG = {
+    KEY: 'AIzaSyDaPbh2ZDKB3Gq16K68V8xatYZ4ZTy2hlQ',
+    PLAYLIST_ID: 'PLKQ_ZTvlL-M-XEn1Biw7iMalaIGxl3IBg',
+    MAX_RESULTS: 50
+};
 let ytPlaylistLoaded = false; // Controle para carregar apenas uma vez
 let isFetching = false; // Evita múltiplas requisições simultâneas
 
@@ -135,9 +138,9 @@ async function carregarPlaylistYouTube() {
         do {
             const params = new URLSearchParams({
                 part: 'snippet',
-                maxResults: 50,
-                playlistId: PLAYLIST_ID,
-                key: YT_API_KEY,
+                maxResults: YT_CONFIG.MAX_RESULTS,
+                playlistId: YT_CONFIG.PLAYLIST_ID,
+                key: YT_CONFIG.KEY,
                 pageToken: nextPageToken
             });
             
@@ -178,11 +181,14 @@ async function carregarPlaylistYouTube() {
                     !thumbnail
                 ) return;
 
-                const descricao = snippet.description.substring(0, 100) + '...';
+                const descCompleta = snippet.description || "";
+                const descricaoMostrada = descCompleta.substring(0, 100) + '...';
                 const capa = thumbnail.high ? thumbnail.high.url : (thumbnail.default ? thumbnail.default.url : 'img/mp3.jpg');
+                const searchStr = `${titulo} ${descCompleta} youtube musica playlist`.toLowerCase();
 
                 const card = document.createElement('div');
                 card.className = 'gostos-card';
+                card.setAttribute('data-search', searchStr);
                 card.onclick = function() { ampliarCard(this); };
 
                 card.innerHTML = `
@@ -190,7 +196,7 @@ async function carregarPlaylistYouTube() {
                         <img src="${capa}" alt="${titulo}">
                     </div>
                     <h3>${titulo}</h3>
-                    <p>${descricao}</p>
+                    <p>${descricaoMostrada}</p>
                     <div class="tags-list" style="display: none;">
                         <span class="tag">YouTube</span>
                         <span class="tag">Música</span>
@@ -240,9 +246,71 @@ async function carregarPlaylistYouTube() {
     }
 }
 
+// --- CARREGAMENTO DE DADOS LOCAIS (JSON) ---
+async function carregarDadosLocais() {
+    try {
+        const response = await fetch('dados.json?v=' + Date.now()); // Evita cache
+        const data = await response.json();
+        
+        // Renderiza todas as categorias presentes no JSON automaticamente
+        Object.keys(data).forEach(categoria => {
+            renderizarCategoria(data[categoria], `${categoria}-grid`);
+        });
+
+        inicializarComponentesDinamicos();
+    } catch (error) {
+        console.error("Erro ao carregar dados locais:", error);
+    }
+}
+
+function renderizarCategoria(lista, gridId) {
+    const grid = document.getElementById(gridId);
+    if (!grid || !lista) return;
+
+    const favorites = JSON.parse(localStorage.getItem('user-favorites') || '[]');
+
+    grid.innerHTML = lista.map(item => {
+        const tagsHtml = item.tags.map(t => `<span class="tag">${t}</span>`).join('');
+        
+        // Prepara o texto de busca antecipadamente para performance
+        const searchStr = `${item.titulo} ${item.descricao} ${item.tags.join(' ')}`.toLowerCase();
+        
+        const favHtml = item.favorito ? `
+            <div class="favorito-tag" onclick="event.stopPropagation(); ampliarImagem(this.querySelector('img'))">
+                <span>Favorito: ${item.favorito.texto} <strong>Clique para ver</strong></span>
+                <img src="${item.favorito.imagem}" alt="${item.favorito.texto}" class="mini-img">
+            </div>` : '';
+
+        const isFavorited = favorites.some(f => f.title === item.titulo) ? 'active' : '';
+
+        return `
+            <div class="gostos-card" 
+                 ${item.ano ? `data-year="${item.ano}"` : ''} 
+                 data-search="${searchStr}" 
+                 onclick="ampliarCard(this)"
+                 style="position: relative;">
+                <div class="card-img-container">
+                    <img src="${item.imagem}" alt="${item.titulo}">
+                </div>
+                <h3>${item.titulo}</h3>
+                <p>${item.descricao}</p>
+                <div class="tags-list">${tagsHtml}</div>
+                ${favHtml}
+                <span class="fav-toggle ${isFavorited}" onclick="toggleFavorite(event, this)">★</span>
+            </div>
+        `;
+    }).join('');
+}
+
+function inicializarComponentesDinamicos() {
+    // Chama funções que dependem dos cards estarem no DOM
+    if (typeof renderFavorites === "function") renderFavorites();
+    // Re-gera a nuvem de tags se necessário
+}
+
 // --- 2. INICIALIZAÇÃO DE EVENTOS ---
 document.addEventListener('DOMContentLoaded', () => {
-    
+    carregarDadosLocais();
     // --- TRANSIÇÃO DE HIPERESPAÇO (Opção 10) ---
     const transitionOverlay = document.createElement('div');
     transitionOverlay.className = 'hyperspace-overlay';
@@ -395,14 +463,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const containers = document.querySelectorAll('.toggle-container');
 
         cards.forEach(card => {
-            const h3 = card.querySelector('h3');
-            if (!h3) return;
-            const title = h3.innerText.toLowerCase();
-            const desc = card.querySelector('p')?.innerText.toLowerCase() || '';
-            const tags = Array.from(card.querySelectorAll('.tag')).map(t => t.innerText.toLowerCase()).join(' ');
+            // Busca ultra rápida usando o atributo data-search pré-calculado
+            const content = card.getAttribute('data-search') || '';
             const year = parseInt(card.getAttribute('data-year')) || 0;
-
-            const matchesSearch = title.includes(term) || desc.includes(term) || tags.includes(term);
+            const matchesSearch = content.includes(term);
             let matchesDecade = activeDecade === 'all';
             if (!matchesDecade) {
                 const startYear = parseInt(activeDecade);

@@ -1,0 +1,762 @@
+{
+    "jogos": [
+        {
+            "titulo": "Minecraft",
+            "descricao": "Um jogo de construção onde os jogadores podem criar e destruir diferentes tipos de blocos em um mundo tridimensional gerado proceduralmente.",
+            "imagem": "img/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a.jpg",
+            "ano": 2011,
+            "tags": ["Sandbox", "Criativo", "Mundo Aberto"],
+            "favorito": null
+        },
+        {
+            "titulo": "Black Ops 2",
+            "descricao": "FPS aclamado que mistura combates na Guerra Fria e um futuro tecnológico. Famoso por sua campanha ramificada e o icônico modo Zombies.",
+            "imagem": "img/447007.jpg",
+            "ano": 2012,
+            "tags": ["FPS", "Tiro", "Zombies"],
+            "favorito": null
+        },
+        {
+            "titulo": "Undertale",
+            "descricao": "RPG indie onde suas escolhas morais definem o destino dos monstros. Destaca-se por permitir terminar a aventura sem matar ninguém.",
+            "imagem": "img/798682.png",
+            "ano": 2015,
+            "tags": ["RPG", "Indie", "Escolhas"],
+            "favorito": {
+                "texto": "Asgore O Rei dos Monstros",
+                "imagem": "img/Asgore the King by YAMsgarden on DeviantArt.jfif"
+            }
+        },
+        {
+            "titulo": "Terraria",
+            "descricao": "Aventura 2D épica focada em exploração, construção e combate contra chefes colossais em um mundo procedural.",
+            "imagem": "img/terraria.jpg",
+            "ano": 2011,
+            "tags": ["Sobrenatural", "Aventura", "Exploração"],
+            "favorito": null
+        },
+        {
+            "titulo": "I Wani Hug That Gator",
+            "descricao": "Visual novel de romance e comédia sobre amadurecimento e escolhas em uma escola de répteis antropomórficos.",
+            "imagem": "img/capsule_616x353.jpg",
+            "ano": 2024,
+            "tags": ["Visual Novel", "Romance"],
+            "favorito": null
+        },
+        {
+            "titulo": "Jalopy",
+            "descricao": "Simulador de direção pelo Leste Europeu. Manter seu carro Laika funcionando é o maior desafio desta jornada nostálgica.",
+            "imagem": "img/1246845511_preview_jalopy.jpg",
+            "ano": 2016,
+            "tags": ["Simulador", "Carros", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Ultrakill",
+            "descricao": "FPS frenético com estética retrô onde o sangue é combustível. Combina movimentação veloz e combate técnico de alto estilo.",
+            "imagem": "img/thumb-1920-1168976.png",
+            "ano": 2020,
+            "tags": ["FPS", "Fast-paced", "Retrô"],
+            "favorito": null
+        },
+        {
+            "titulo": "Dead Cells",
+            "descricao": "Roguevania 2D de ação intensa estilo Souls-like. Aprenda com a morte em um castelo que muda a cada tentativa.",
+            "imagem": "img/833257.jpg",
+            "ano": 2018,
+            "tags": ["Roguelike", "Ação", "Metroidvania"],
+            "favorito": null
+        }
+    ],
+    "animes": [
+        {
+            "titulo": "Knight's & Magic",
+            "descricao": "Knight's & Magic (Naitsu to Majikku) é um isekai mecha sobre Ernesti Echevalier, um programador gênio e fã de robôs que reencarna em um mundo de fantasia com cavaleiros e magia. Ele usa seu conhecimento para pilotar e aprimorar os \"Silhouette Knights\" (robôs gigantes), buscando realizar seu sonho de construir o mecha supremo.",
+            "imagem": "img/Knight's & Magic.png",
+            "ano": null,
+            "tags": ["Mecha", "Isekai", "Fantasia"],
+            "favorito": {
+                "texto": "Ikaruga",
+                "imagem": "img/ikaruga.jpg"
+            }
+        },
+        
+        {
+            "titulo": "Seihantai na Kimi to Boku",
+            "descricao": "Suzuki é uma colegial apaixonada, mas o rapaz que ela ama não é nadinha parecido com ela! Enquanto ela é alegre, extrovertida e está sempre tentando se enturmar, seu colega de classe Yusuke Tani é estoico, quieto e parece não se importar com o que as pessoas pensam dele. Será que Suzuki conseguirá superar suas ansiedades e convidá-lo para um encontro, ou descobrirá que os opostos realmente não se atraem?",
+            "imagem": "img/Seihantai na Kimi to Boku.apng.png",
+            "ano": null,
+            "tags": ["Romance", "Escolar"],
+            "favorito": null
+        },
+        {
+            "titulo": "Kaya-chan wa Kowakunai",
+            "descricao": "Kaya-chan é conhecida como uma criança problemática no jardim de infância, mas nenhum adulto sabe o seu segredo — até Chie-sensei assumir a turma e descobrir a habilidade oculta de Kaya-chan de ver espíritos malignos e derrotá-los com um soco! O que será que vai acontecer com essa garotinha de cinco anos que vive se metendo em confusão quando tudo o que ela quer é ajudar?",
+            "imagem": "img/Kaya-chan wa Kowakunai.png",
+            "ano": null,
+            "tags": ["Sobrenatural", "Comédia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Hell Mode: Yarikomizuki no Gamer",
+            "descricao": "Kenichi é atraído pelo jogo sem título que promete um desafio incomparável e um potencial nunca antes visto. Sem hesitar, ele escolhe a dificuldade “Modo Infernal”. Eis que ele reencarna em outro mundo como um servo! Agora chamado Allen, ele começa a explorar os segredos de sua classe, um Invocador. Sem a ajuda de detonadas, guias e fóruns online, ele precisa moldar seu caminho em busca do topo desse novo mundo!",
+            "imagem": "img/Hell Mode Yarikomizuki no Gamer.jpg",
+            "ano": null,
+            "tags": ["Isekai", "RPG", "Fantasia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Kimi to Koete Koi ni Naru",
+            "descricao": "Quando Mari, uma estudante do ensino médio, esbarra em um colega atrasado, ela fica surpresa ao descobrir que ele é um homem-fera que vai estudar na mesma escola que ela! Afinal, não é raro homens-fera conviverem com humanos, mas ainda é algo incomum, especialmente devido aos preconceitos que existem. Inicialmente nervosa, Mari logo percebe que há muito mais nele do que sua aparência peluda. Na verdade, quanto mais ela o conhece, mais ela se sente atraída por ele: por sua determinação, sua gentileza e… seu corpo.",
+            "imagem": "img/Kimi to Koete Koi ni Naru.jpg",
+            "ano": null,
+            "tags": ["Romance", "Fantasia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Silent Witch",
+            "descricao": "Monica Everett, a Bruxa Silenciosa, é a única maga do mundo que consegue usar magia sem pronunciar encantamentos, uma verdadeira heroína que derrotou sozinha um dragão negro lendário. No entanto, a jovem prodígio, na verdade, é incrivelmente tímida! É isso mesmo: ela aprendeu a invocar feitiços silenciosamente apenas para não falar em público e, apesar de seu poder, não tem um pingo de confiança em si mesma. Agora, Monica recebeu a missão de secretamente proteger o segundo príncipe.",
+            "imagem": "img/Silent Witch.jpg",
+            "ano": null,
+            "tags": ["Fantasia", "Magia", "Comédia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Umamusume Cinderella Gray",
+            "descricao": "Esta é a história de Oguri Cap, uma jovem umamusume que inicia sua jornada na Academia Tracen de Kasamatsu, situada numa região rural. Ela corre de forma avassaladora, desafiando o senso comum. Essa garota que chega a ser chamada de “Monstro” escreve sua lenda na história. Foi dada a largada desta história de uma Cinderela corredora!",
+            "imagem": "img/Umamusume Cinderella Gray.png",
+            "ano": null,
+            "tags": ["Esporte", "Drama"],
+            "favorito": null
+        },
+        {
+            "titulo": "Sentai Red Isekai",
+            "descricao": "Asagaki Togo era o Ranger Vermelho em um heroico esquadrão de Rangers. Durante a batalha final contra a última organização do mal, ele sofre uma derrota esmagadora e se resigna à morte. Isto é, até que ele renasce em um mundo totalmente diferente!",
+            "imagem": "img/Sentai Red Isekai.jpg",
+            "ano": null,
+            "tags": ["Isekai", "Ação", "Sentai"],
+            "favorito": null
+        },
+        {
+            "titulo": "Shikanoko Nokonoko Koshitantan",
+            "descricao": "Torako acreditava ter deixado para trás seu passado turbulento como delinquente nos tempos de ensino fundamental, reinventando-se como uma estudante exemplar no ensino médio, sem que ninguém suspeitasse de suas raízes criminosas. No entanto, sua vida dá uma guinada inesperada com a chegada de Nokotan, uma misteriosa aluna transferida com chifres e uma aura inquietante.",
+            "imagem": "img/Shikanoko Nokonoko Koshitantan.jpg",
+            "ano": null,
+            "tags": ["Comédia", "Escolar", "Surreal"],
+            "favorito": null
+        },
+        {
+            "titulo": "Dereru Tonari no Alya-san",
+            "descricao": "Alya é uma aluna transferida bastante popular em sua nova escola, frequentemente exibindo uma atitude fria enquanto tira notas altas. Ela ignora seu colega nerd, Kuze Masachika, exceto quando solta algumas frases de flerte em russo para ele. Mal sabe ela que Kuze entende russo, embora finja que não. Vamos ver até onde essa história de amor maluca os levará!",
+            "imagem": "img/Dereru Tonari no Alya-san.jpg",
+            "ano": null,
+            "tags": ["Romance", "Escolar"],
+            "favorito": null
+        },
+        {
+            "titulo": "Boku no Tsuma wa Kanjou ga Nai",
+            "descricao": "Takuma contrata uma robô governanta e brinca que ela deveria ser sua esposa.",
+            "imagem": "img/Boku no Tsuma wa Kanjou ga Nai.jpg",
+            "ano": null,
+            "tags": ["Sci-Fi", "Romance", "Slice of Life"],
+            "favorito": null
+        },
+        {
+            "titulo": "Lv2 kara Cheat datta",
+            "descricao": "Banaza é um comerciante comum convocado como herói, mas algo não está certo.",
+            "imagem": "img/Lv2 kara Cheat datta.jpg",
+            "ano": null,
+            "tags": ["Isekai", "Fantasia", "Romance"],
+            "favorito": null
+        },
+        {
+            "titulo": "Kami wa Game ni Ueteiru",
+            "descricao": "Deuses entediados criam batalhas de inteligência contra a humanidade.",
+            "imagem": "img/Kami wa Game ni Ueteiru.jpg",
+            "ano": null,
+            "tags": ["Jogos", "Estratégia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Tensei shitara Dainana Ouji",
+            "descricao": "Um feiticeiro renasce como Lloyd, o sétimo príncipe de um reino mágico.",
+            "imagem": "img/Tensei shitara Dainana Ouji.jpg",
+            "ano": null,
+            "tags": ["Magia", "Fantasia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Saijaku Tamer wa Gomi Hiroi no Tabi",
+            "descricao": "Ivy, uma domadora sem estrelas, inicia uma jornada com uma criatura gelatinosa frágil.",
+            "imagem": "img/Saijaku Tamer wa Gomi Hiroi no Tabi.jpg",
+            "ano": null,
+            "tags": ["Fantasia", "Aventura"],
+            "favorito": null
+        },
+        {
+            "titulo": "Chiyu Mahou no Machigatta",
+            "descricao": "Usato descobre que tem uma habilidade única para magia de cura após ser transportado para outro mundo.",
+            "imagem": "img/Chiyu Mahou no Machigatta.jpg",
+            "ano": null,
+            "tags": ["Isekai", "Ação", "Magia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Oroka na Tenshi wa Akuma",
+            "descricao": "Um demônio em missão de recrutamento se apaixona por uma anjo disfarçada.",
+            "imagem": "img/Oroka na Tenshi wa Akuma.jpg",
+            "ano": null,
+            "tags": ["Comédia", "Romance", "Sobrenatural"],
+            "favorito": null
+        },
+        {
+            "titulo": "Akuyaku Reijou Level 99",
+            "descricao": "Yumiella renasce como uma vilã e acidentalmente alcança o nível 99.",
+            "imagem": "img/Akuyaku Reijou Level 99.jpg",
+            "ano": null,
+            "tags": ["Reencarnação", "Vilã", "Fantasia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Solo Leveling",
+            "descricao": "Sung Jinwoo, o caçador mais fraco, ganha a habilidade única de subir de nível.",
+            "imagem": "img/Solo Leveling.jpeg",
+            "ano": null,
+            "tags": ["Ação", "Fantasia", "RPG"],
+            "favorito": null
+        },
+        {
+            "titulo": "Sokushi Cheat ga Saikyou sugite",
+            "descricao": "Yogiri Takatou tem a habilidade de causar morte instantânea com apenas um pensamento.",
+            "imagem": "img/Sokushi Cheat ga Saikyou sugite.jpg",
+            "ano": null,
+            "tags": ["Isekai", "Overpowered"],
+            "favorito": null
+        },
+        
+        {
+            "titulo": "Mahou Shoujo ni Akogarete",
+            "descricao": "Hiiragi Utena quer ser uma garota mágica, mas acaba se tornando uma vilã sádica.",
+            "imagem": "img/Mahou Shoujo ni Akogarete.png",
+            "ano": null,
+            "tags": ["Mahou Shoujo", "Comédia", "Ecchi"],
+            "favorito": null
+        },
+        {
+            "titulo": "Dekoboko Majo no Oyako Jijou",
+            "descricao": "Uma bruxa adota uma bebê que cresce muito mais do que o esperado.",
+            "imagem": "img/Dekoboko Majo no Oyako Jijou.jpg",
+            "ano": null,
+            "tags": ["Comédia", "Fantasia", "Slice of Life"],
+            "favorito": null
+        },
+        {
+            "titulo": "Suki na Ko ga Megane wo Wasureta",
+            "descricao": "Komura ajuda sua colega Mie, que vive esquecendo os óculos.",
+            "imagem": "img/Suki na Ko ga Megane wo Wasureta.jpg",
+            "ano": null,
+            "tags": ["Romance", "Escolar"],
+            "favorito": null
+        },
+        {
+            "titulo": "Yumemiru Danshi wa Genjitsushugisha",
+            "descricao": "Wataru decide manter distância da garota que ama após perceber que não serve para ela.",
+            "imagem": "img/Yumemiru Danshi wa Genjitsushugisha.jpg",
+            "ano": null,
+            "tags": ["Romance", "Escolar"],
+            "favorito": null
+        },
+        {
+            "titulo": "Jitsu wa Ore, Saikyou deshita?",
+            "descricao": "Hart renasce como um bebê com poderes roubados e é abandonado pela família real.",
+            "imagem": "img/Jitsu wa Ore, Saikyou deshita.jpg",
+            "ano": null,
+            "tags": ["Isekai", "Fantasia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Ryza no Atelier",
+            "descricao": "Reisalin Stout busca aventura e descobre o mundo da alquimia.",
+            "imagem": "img/Ryza no Atelier.jpg",
+            "ano": null,
+            "tags": ["Fantasia", "Aventura", "Alquimia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Horimiya",
+            "descricao": "Hori e Miyamura descobrem os segredos um do outro fora da escola.",
+            "imagem": "img/horimiya Piece.png",
+            "ano": null,
+            "tags": ["Romance", "Escolar", "Slice of Life"],
+            "favorito": null
+        },
+        {
+            "titulo": "Mashle",
+            "descricao": "Em um mundo de magia, Mash usa seus músculos para enfrentar feiticeiros poderosos.",
+            "imagem": "img/Mashle.jpeg",
+            "ano": null,
+            "tags": ["Ação", "Comédia", "Magia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Tondemo Skill de Isekai Hourou Meshi",
+            "descricao": "Mukouda Tsuyoshi foi invocado por erro em um mundo de fantasia. Sua única habilidade é comprar produtos modernos do seu antigo mundo.",
+            "imagem": "img/Tondemo Skill de Isekai Hourou Meshi.jpg",
+            "ano": null,
+            "tags": ["Isekai", "Culinária", "Aventura"],
+            "favorito": null
+        },
+        {
+            "titulo": "Kubo-san wa Mob wo Yurusanai",
+            "descricao": "Junta Shiraishi é um 'personagem de fundo' que ninguém nota, exceto por sua colega de classe Kubo, que não o deixa em paz.",
+            "imagem": "img/Kubo-san wa Mob wo Yurusanai.jpg",
+            "ano": null,
+            "tags": ["Romance", "Escolar", "Slice of Life"],
+            "favorito": null
+        },
+        {
+            "titulo": "Saikyou Onmyouji no Isekai Tenseiki",
+            "descricao": "O exorcista mais forte reencarna em um mundo de magia sem poderes mágicos, usando apenas suas habilidades de Onmyouji.",
+            "imagem": "img/Saikyou Onmyouji no Isekai Tenseiki.jpg",
+            "ano": null,
+            "tags": ["Isekai", "Fantasia", "Sobrenatural"],
+            "favorito": null
+        },
+        {
+            "titulo": "Bocchi the Rock",
+            "descricao": "Hitori Gotou é uma guitarrista extremamente tímida que sonha em entrar em uma banda e fazer amigos.",
+            "imagem": "img/Bocchi the Rock.png",
+            "ano": null,
+            "tags": ["Música", "Comédia", "Slice of Life"],
+            "favorito": null
+        },
+        {
+            "titulo": "Yuusha Party wo Tsuihou sareta Beast Tamer",
+            "descricao": "Rein, um domador de feras, é expulso do grupo do herói e decide seguir seu próprio caminho ao lado de garotas de raças fortes.",
+            "imagem": "img/Yuusha Party wo Tsuihou sareta Beast Tamer.jpg",
+            "ano": null,
+            "tags": ["Fantasia", "Aventura", "Harem"],
+            "favorito": null
+        },
+        {
+            "titulo": "Isekai Meikyuu de Harem wo",
+            "descricao": "Michio Kaga reencarna em um mundo de jogo onde ele pode ganhar dinheiro explorando masmorras e montar seu próprio harém.",
+            "imagem": "img/Isekai Meikyuu de Harem wo.png",
+            "ano": null,
+            "tags": ["Isekai", "Fantasia", "Harem"],
+            "favorito": null
+        },
+        {
+            "titulo": "Kinsou no Vermeil",
+            "descricao": "Um estudante de magia acidentalmente invoca uma demônio poderosa que se torna sua familiar.",
+            "imagem": "img/Kinsou no Vermeil.jpg",
+            "ano": null,
+            "tags": ["Fantasia", "Ecchi", "Romance"],
+            "favorito": null
+        },
+        {
+            "titulo": "Tensei Kenja no Isekai Life",
+            "descricao": "Um funcionário de escritório é transportado para outro mundo onde se torna um domador de slimes e um sábio poderoso.",
+            "imagem": "img/Tensei Kenja no Isekai Life.jpg",
+            "ano": null,
+            "tags": ["Isekai", "Fantasia", "Aventura"],
+            "favorito": null
+        },
+        {
+            "titulo": "Kawaii dake ja Nai Shikimori-san",
+            "descricao": "Izumi namora Shikimori, que parece ser a namorada perfeita, mas que revela um lado sombrio e legal em situações de perigo.",
+            "imagem": "img/Kawaii dake ja Nai Shikimori-san.jpg",
+            "ano": null,
+            "tags": ["Romance", "Escolar", "Comédia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Gaikotsu Kishi-sama",
+            "descricao": "Um jogador acorda no mundo do jogo dentro do corpo de um esqueleto blindado, tentando viver sem chamar atenção.",
+            "imagem": "img/Gaikotsu Kishi-sama.jpg",
+            "ano": null,
+            "tags": ["Isekai", "Fantasia", "Aventura"],
+            "favorito": null
+        },
+        {
+            "titulo": "Otome Game Sekai wa Mob ni Kibishii Sekai desu",
+            "descricao": "Leon reencarna em um mundo de jogo otome onde os homens são tratados como cidadãos de segunda classe.",
+            "imagem": "img/Otome Game Sekai wa Mob ni Kibishii Sekai desu.jpeg",
+            "ano": null,
+            "tags": ["Isekai", "Mecha", "Harem"],
+            "favorito": null
+        },
+        {
+            "titulo": "Sentouin, Hakenshimasu!",
+            "descricao": "O Agente Nº 6 de uma organização maligna é enviado para um mundo de fantasia para preparar o terreno para uma invasão.",
+            "imagem": "img/Sentouin, Hakenshimasu.jpg",
+            "ano": null,
+            "tags": ["Ação", "Comédia", "Sci-Fi"],
+            "favorito": null
+        },
+        {
+            "titulo": "Komi-san wa, Comyushou desu",
+            "descricao": "A bela Komi-san sofre de uma ansiedade social extrema e seu colega Tadano decide ajudá-la a fazer 100 amigos.",
+            "imagem": "img/Komi-san wa, Comyushou desu.jpg",
+            "ano": null,
+            "tags": ["Comédia", "Escolar", "Slice of Life"],
+            "favorito": null
+        },
+        {
+            "titulo": "Shinka no Mi: Shiranai Uchi ni Kachigumi Jinsei",
+            "descricao": "Seiichi, um garoto excluído, é transportado para outro mundo onde come o Fruto da Evolução e muda completamente de vida.",
+            "imagem": "img/Shinka no Mi Shiranai Uchi ni Kachigumi Jinsei.jpg",
+            "ano": null,
+            "tags": ["Isekai", "Fantasia", "Romance"],
+            "favorito": null
+        },
+        {
+            "titulo": "Tsuki ga Michibiku Isekai Douchuu",
+            "descricao": "Makoto é banido para os confins de um novo mundo por uma deusa que o achou feio, mas ele acaba se tornando incrivelmente forte.",
+            "imagem": "img/Tsuki ga Michibiku Isekai Douchuu.jpg",
+            "ano": null,
+            "tags": ["Isekai", "Fantasia", "Ação"],
+            "favorito": null
+        },
+        {
+            "titulo": "Ijiranaide, Nagatoro-san",
+            "descricao": "Nagatoro adora provocar e zombar de seu Senpai tímido, mas conforme o tempo passa, os dois se aproximam.",
+            "imagem": "img/Ijiranaide, Nagatoro-san.jpg",
+            "ano": null,
+            "tags": ["Romance", "Comédia", "Escolar"],
+            "favorito": null
+        },
+        {
+            "titulo": "Slime Taoshite 300-nen",
+            "descricao": "Após morrer de excesso de trabalho, Azusa reencarna como uma bruxa imortal e passa 300 anos matando apenas slimes.",
+            "imagem": "img/Slime Taoshite 300-nen.jpg",
+            "ano": null,
+            "tags": ["Slice of Life", "Fantasia", "Comédia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Dragon, Ie wo Kau",
+            "descricao": "Um dragão covarde é expulso de casa e sai em busca da casa dos seus sonhos em um mundo de fantasia perigoso.",
+            "imagem": "img/Dragon, Ie wo Kau.png",
+            "ano": null,
+            "tags": ["Fantasia", "Comédia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Ore dake Haireru Kakushi",
+            "descricao": "Nor descobre uma masmorra secreta que lhe dá habilidades raras, mas ele precisa gastar 'pontos' de formas peculiares.",
+            "imagem": "img/Ore dake Haireru Kakushi.jpg",
+            "ano": null,
+            "tags": ["Fantasia", "Ecchi", "Aventura"],
+            "favorito": null
+        },
+        {
+            "titulo": "Kaifuku Jutsushi no Yarinaoshi",
+            "descricao": "Um mago de cura traído volta no tempo para se vingar de todos que o usaram como ferramenta.",
+            "imagem": "img/Kaifuku Jutsushi no Yarinaoshi.jpg",
+            "ano": null,
+            "tags": ["Fantasia", "Vingança", "Ecchi"],
+            "favorito": null
+        },
+        {
+            "titulo": "Mushoku Tensei",
+            "descricao": "Um NEET reencarna como Rudeus em um mundo mágico, decidido a levar essa nova vida a sério e não repetir erros.",
+            "imagem": "img/Mushoku Tensei.jpg",
+            "ano": null,
+            "tags": ["Isekai", "Fantasia", "Aventura"],
+            "favorito": null
+        },
+        {
+            "titulo": "Kami-tachi ni Hirowareta Otoko",
+            "descricao": "Ryouma morre de forma azarada e reencarna como uma criança que vive na floresta domando slimes.",
+            "imagem": "img/Kami-tachi ni Hirowareta Otoko.png",
+            "ano": null,
+            "tags": ["Isekai", "Fantasia", "Slice of Life"],
+            "favorito": null
+        },
+        {
+            "titulo": "Tonikaku Kawaii",
+            "descricao": "Nasa se apaixona por Tsukasa e ela aceita sair com ele, contanto que eles se casem primeiro.",
+            "imagem": "img/Tonikaku Kawaii.jpg",
+            "ano": null,
+            "tags": ["Romance", "Comédia", "Escolar"],
+            "favorito": null
+        },
+        {
+            "titulo": "Uzaki-chan wa Asobitai",
+            "descricao": "Hana Uzaki inferniza a vida de seu veterano quieto, Sakurai, tentando tirá-lo de sua zona de conforto.",
+            "imagem": "img/Uzaki-chan wa Asobitai.png",
+            "ano": null,
+            "tags": ["Comédia", "Slice of Life", "Romance"],
+            "favorito": null
+        },
+        {
+            "titulo": "Girls und Panzer",
+            "descricao": "Em um mundo onde operar tanques é uma arte marcial feminina, Miho lidera seu time rumo ao campeonato.",
+            "imagem": "img/Girls und Panzer.png",
+            "ano": null,
+            "tags": ["Ação", "Esporte", "Militar"],
+            "favorito": null
+        },
+        {
+            "titulo": "JoJo’s Bizarre Adventure",
+            "descricao": "A saga multigeracional da família Joestar e sua luta contra forças sobrenaturais usando poderes de Stands.",
+            "imagem": "img/JoJo’s Bizarre Adventure.png",
+            "ano": null,
+            "tags": ["Ação", "Aventura", "Sobrenatural"],
+            "favorito": null
+        },
+        {
+            "titulo": "Ishuzoku Reviewers",
+            "descricao": "Aventureiros em um mundo de fantasia avaliam casas de entretenimento de diferentes raças mágicas.",
+            "imagem": "img/Ishuzoku Reviewers.jpg",
+            "ano": null,
+            "tags": ["Comédia", "Ecchi", "Fantasia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Boku no Pico",
+            "descricao": "Pico, um garoto afeminado, trabalha no bar do avô no verão. Tamotsu, um homem mais velho, confunde Pico com uma garota e se apaixona.",
+            "imagem": "img/Boku no Pico.jpg",
+            "ano": null,
+            "tags": ["Romance", "Drama"],
+            "favorito": null
+        },
+        {
+            "titulo": "Itai no wa Iya nano de Bougyoryoku",
+            "descricao": "Maple começa a jogar um VRMMORPG e foca todos os seus pontos em defesa, tornando-se uma fortaleza invencível por acidente.",
+            "imagem": "img/Itai no wa Iya nano de Bougyoryoku.jpg",
+            "ano": null,
+            "tags": ["Jogos", "Comédia", "Fantasia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Sewayaki Kitsune no Senko-san",
+            "descricao": "Uma raposa divina aparece para cuidar de um funcionário exausto, trazendo conforto e refeições quentes.",
+            "imagem": "img/Sewayaki Kitsune no Senko-san.png",
+            "ano": null,
+            "tags": ["Slice of Life", "Sobrenatural", "Comédia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Seishun Buta Yarou wa Bunny Girl Senpai",
+            "descricao": "Sakuta encontra garotas sofrendo da 'Síndrome da Puberdade', começando por uma atriz famosa vestida de coelhinha.",
+            "imagem": "img/Seishun Buta Yarou wa Bunny Girl Senpai.png",
+            "ano": null,
+            "tags": ["Romance", "Sobrenatural", "Escolar"],
+            "favorito": null
+        },
+        {
+            "titulo": "Shoujo Shuumatsu Ryokou",
+            "descricao": "Duas garotas viajam pelas ruínas de uma civilização morta em seu veículo militar, buscando comida e combustível.",
+            "imagem": "img/Shoujo Shuumatsu Ryokou.jpeg",
+            "ano": null,
+            "tags": ["Adventure", "Sci-Fi", "Slice of Life"],
+            "favorito": null
+        },
+        {
+            "titulo": "Kobayashi-san Chi no Maid",
+            "descricao": "Kobayashi salva uma dragão e acaba com uma empregada dragão dedicada vivendo em seu apartamento.",
+            "imagem": "img/Kobayashi-san Chi no Maid.jpg",
+            "ano": null,
+            "tags": ["Comédia", "Fantasia", "Slice of Life"],
+            "favorito": null
+        },
+        {
+            "titulo": "Beastars",
+            "descricao": "Em um mundo de animais antropomórficos, um lobo sensível luta contra seus instintos e o preconceito social.",
+            "imagem": "img/Beastars.jpg",
+            "ano": null,
+            "tags": ["Drama", "Psicológico", "Slice of Life"],
+            "favorito": null
+        },
+        {
+            "titulo": "Rokudenashi Majutsu Koushi to Akashic Records",
+            "descricao": "Um professor substituto preguiçoso e aparentemente inútil esconde um passado de combate em uma academia de magia.",
+            "imagem": "img/Rokudenashi Majutsu Koushi to Akashic Records.png",
+            "ano": null,
+            "tags": ["Magia", "Escolar", "Fantasia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Rakudai Kishi no Cavalry",
+            "descricao": "Ikki, o 'pior' cavaleiro mágico, precisa provar seu valor em duelos contra a elite da escola.",
+            "imagem": "img/Rakudai Kishi no Cavalry.png",
+            "ano": null,
+            "tags": ["Ação", "Fantasia", "Romance"],
+            "favorito": null
+        },
+        {
+            "titulo": "Charlotte",
+            "descricao": "Jovens com poderes imperfeitos são reunidos em uma escola para protegê-los de cientistas e do próprio destino.",
+            "imagem": "img/Charlotte.png",
+            "ano": null,
+            "tags": ["Drama", "Escolar", "Superpoderes"],
+            "favorito": null
+        },
+        {
+            "titulo": "Chuunibyou Demo Koi Ga Shitai",
+            "descricao": "Yuuta quer esquecer seu passado embaraçoso de 'delírios', mas encontra Rikka, que ainda vive neles.",
+            "imagem": "img/Chuunibyou Demo Koi Ga Shitai.png",
+            "ano": null,
+            "tags": ["Comédia", "Romance", "Escolar"],
+            "favorito": null
+        },
+        {
+            "titulo": "Chobits",
+            "descricao": "Hideki encontra um computador humanoide jogado no lixo e começa a descobrir os segredos de sua consciência.",
+            "imagem": "img/Chobits.jpg",
+            "ano": null,
+            "tags": ["Sci-Fi", "Romance", "Comédia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Naruto Shippuden",
+            "descricao": "Naruto retorna após dois anos de treinamento para enfrentar a organização Akatsuki e resgatar Sasuke.",
+            "imagem": "img/Naruto Shippuden.jpg",
+            "ano": null,
+            "tags": ["Ação", "Aventura", "Shounen"],
+            "favorito": null
+        },
+        {
+            "titulo": "Midara na Ao-chan wa Benkyou ga Dekinai",
+            "descricao": "Ao tenta estudar para fugir da influência de seu pai (autor erótico), mas seus próprios pensamentos começam a traí-la.",
+            "imagem": "img/Midara na Ao-chan wa Benkyou ga Dekinai.jpg",
+            "ano": null,
+            "tags": ["Comédia", "Romance", "Ecchi"],
+            "favorito": null
+        },
+        {
+            "titulo": "Fullmetal Alchemist: Brotherhood",
+            "descricao": "Dois irmãos buscam a Pedra Filosofal para recuperar seus corpos após um experimento de alquimia proibido falhar.",
+            "imagem": "img/Fullmetal Alchemist Brotherhood.jpg",
+            "ano": null,
+            "tags": ["Ação", "Aventura", "Drama"],
+            "favorito": null
+        },
+        {
+            "titulo": "Noragami",
+            "descricao": "Yato, um deus menor sem santuário, faz bicos por 5 ienes enquanto tenta se tornar uma divindade famosa.",
+            "imagem": "img/Noragami.png",
+            "ano": null,
+            "tags": ["Ação", "Sobrenatural", "Aventura"],
+            "favorito": null
+        },
+        {
+            "titulo": "Kono Subarashii Sekai Ni Shukufuku Wo",
+            "descricao": "Kazuma morre e leva uma deusa inútil consigo para um mundo de fantasia, onde formam um grupo caótico.",
+            "imagem": "img/Kono Subarashii Sekai Ni Shukufuku Wo.png",
+            "ano": null,
+            "tags": ["Isekai", "Comédia", "Fantasia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Kyoukai No Kanata",
+            "descricao": "A história de um imortal metade-youmu e uma caçadora de youmus que usa seu próprio sangue como arma.",
+            "imagem": "img/Kyoukai No Kanata.png",
+            "ano": null,
+            "tags": ["Fantasia", "Sobrenatural", "Slice of Life"],
+            "favorito": null
+        },
+        {
+            "titulo": "Isekai Maou to Shoukan Shoujo no Dorei Majutsu",
+            "descricao": "Um jogador de MMORPG é invocado como seu avatar Rei Demônio em um mundo onde acaba escravizando as invocadoras sem querer.",
+            "imagem": "img/Isekai Maou to Shoukan Shoujo no Dorei Majutsu.jpg",
+            "ano": null,
+            "tags": ["Isekai", "Ecchi", "Fantasia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Isekai wa Smartphone to Tomo ni",
+            "descricao": "Touya morre por engano e Deus o reencarna em um mundo mágico com seu smartphone e poderes aprimorados.",
+            "imagem": "img/Isekai wa Smartphone to Tomo ni.png",
+            "ano": null,
+            "tags": ["Isekai", "Harem", "Fantasia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Acchi Kocchi",
+            "descricao": "Uma comédia romântica fofa sobre um grupo de amigos e a relação entre a tímida Tsumiki e o calmo Io.",
+            "imagem": "img/Acchi Kocchi.jpg",
+            "ano": null,
+            "tags": ["Comédia", "Romance", "Slice of Life"],
+            "favorito": null
+        },
+        {
+            "titulo": "Ao no Exorcist",
+            "descricao": "Rin descobre que é filho de Satã e decide se tornar um exorcista para derrotar seu próprio pai.",
+            "imagem": "img/Ao no Exorcist.jpg",
+            "ano": null,
+            "tags": ["Ação", "Sobrenatural", "Fantasia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Black Clover",
+            "descricao": "Asta nasceu sem magia em um mundo onde ela é tudo, mas ele recebe um grimório raro de anti-magia.",
+            "imagem": "img/Black Clover.png",
+            "ano": null,
+            "tags": ["Ação", "Magia", "Fantasia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Naruto Clássico",
+            "descricao": "Um jovem ninja órfão e excluído busca reconhecimento e sonha em se tornar o líder de sua vila, o Hokage.",
+            "imagem": "img/Naruto Clássico.jpg",
+            "ano": null,
+            "tags": ["Ação", "Aventura", "Shounen"],
+            "favorito": null
+        },
+        {
+            "titulo": "Tensei Shitara Slime Datta Ken",
+            "descricao": "Um homem morre e reencarna como um slime poderoso, construindo uma nação para monstros em um novo mundo.",
+            "imagem": "img/Tensei Shitara Slime Datta Ken.jpg",
+            "ano": null,
+            "tags": ["Isekai", "Ação", "Fantasia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Tsugumomo",
+            "descricao": "Kazuya possui um obi herdado de sua mãe que se transforma em uma bela e agressiva garota espírito.",
+            "imagem": "img/Tsugumomo.png",
+            "ano": null,
+            "tags": ["Ação", "Ecchi", "Comédia"],
+            "favorito": null
+        },
+        {
+            "titulo": "One Punch Man",
+            "descricao": "Saitama treinou tanto que agora derrota qualquer inimigo com um único soco, o que o deixa entediado.",
+            "imagem": "img/One Punch Man.jpg",
+            "ano": null,
+            "tags": ["Ação", "Comédia", "Paródia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Overlord",
+            "descricao": "Um jogador fica preso em um jogo de realidade virtual como seu avatar esqueleto e decide conquistar o mundo.",
+            "imagem": "img/Overlord.jpeg",
+            "ano": null,
+            "tags": ["Isekai", "Ação", "Fantasia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Owari no Seraph",
+            "descricao": "Após um vírus matar adultos, crianças são escravizadas por vampiros, e Yuuichirou luta para se libertar e se vingar.",
+            "imagem": "img/Owari no Seraph.png",
+            "ano": null,
+            "tags": ["Ação", "Sobrenatural", "Drama"],
+            "favorito": null
+        },
+        {
+            "titulo": "Uma Musume: Pretty Derby",
+            "descricao": "Garotas-cavalo competem em corridas e se tornam ídolos em um esporte de alta velocidade.",
+            "imagem": "img/Uma Musume Pretty Derby.png",
+            "ano": null,
+            "tags": ["Esporte", "Slice of Life"],
+            "favorito": null
+        }
+    ],
+    "filmes": [],
+    "series": [],
+    "desenhos": [],
+    "musicas": []
+}
