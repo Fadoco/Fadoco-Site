@@ -117,10 +117,12 @@ function fecharAmpliacao() {
 const YT_API_KEY = 'AIzaSyDaPbh2ZDKB3Gq16K68V8xatYZ4ZTy2hlQ'; 
 const PLAYLIST_ID = 'PLKQ_ZTvlL-M-XEn1Biw7iMalaIGxl3IBg';
 let ytPlaylistLoaded = false; // Controle para carregar apenas uma vez
+let isFetching = false; // Evita múltiplas requisições simultâneas
 
 async function carregarPlaylistYouTube() {
     const musicasGrid = document.getElementById('musicas-grid');
-    if (!musicasGrid) return;
+    if (!musicasGrid || isFetching) return;
+    isFetching = true;
 
     // Mensagem de feedback visual enquanto carrega
     musicasGrid.innerHTML = `<p style="color:var(--primary-neon); grid-column: 1/-1; text-align:center; padding: 20px;">Sintonizando frequências do YouTube...</p>`;
@@ -214,17 +216,19 @@ async function carregarPlaylistYouTube() {
         } while (nextPageToken);
 
         ytPlaylistLoaded = true; // Só marca como carregado se o loop terminar com sucesso
+        isFetching = false;
 
     } catch (error) {
         console.error('Erro YouTube API:', error);
         ytPlaylistLoaded = false; // Permite tentar carregar de novo ao clicar na barra
+        isFetching = false;
         
         let mensagemErro = `Falha na conexão estelar: ${error.message}`;
         
-        if (error.message.includes('API key not valid')) {
-            mensagemErro = "Chave de API Inválida: Provavelmente foi desativada por estar exposta no GitHub.";
-        } else if (error.message.includes('referer')) {
-            mensagemErro = "Acesso Negado: Verifique as restrições de URL no Google Cloud Console (Referer).";
+        if (error.message.includes('API key not valid') || error.message.includes('key expired')) {
+            mensagemErro = "Chave de API Inválida ou Expirada: O GitHub pode ter desativado sua chave por segurança.";
+        } else if (error.message.includes('referer') || error.message.includes('RefererNotAllowed')) {
+            mensagemErro = `Acesso Negado (Referer): O domínio ${window.location.hostname} não está autorizado no Google Cloud.`;
         } else if (error.message.includes('quota')) {
             mensagemErro = "Cota Esgotada: O limite diário de buscas no YouTube foi atingido.";
         }
