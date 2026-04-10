@@ -1110,8 +1110,6 @@ header li a {
 #conteudo-expandido {
     max-width: 90%;
     max-height: 90%;
-    width: 100%; /* Ocupa 100% da largura do overlay */
-    height: 100%; /* Ocupa 100% da altura do overlay */
     display: flex;
     justify-content: center;
     align-items: center;

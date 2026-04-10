@@ -66,12 +66,764 @@
             "ano": 2018,
             "tags": ["Roguelike", "Ação", "Metroidvania"],
             "favorito": null
+        },
+        {
+            "titulo": "Counter-Strike",
+            "descricao": "O FPS competitivo mais icônico do mundo, focado em estratégia de equipe e precisão tática entre terroristas e contra-terroristas.",
+            "imagem": "img/placeholder.jpg",
+            "ano": null,
+            "tags": ["FPS", "Competitivo", "Tiro"],
+            "favorito": null
+        },
+        {
+            "titulo": "Farlight 84",
+            "descricao": "Um Battle Royale futurista e frenético com veículos armados, heróis com habilidades únicas e muita mobilidade no campo de batalha.",
+            "imagem": "img/placeholder.jpg",
+            "ano": null,
+            "tags": ["Battle Royale", "FPS", "Sci-Fi"],
+            "favorito": null
+        },
+        {
+            "titulo": "BattleBit Remastered",
+            "descricao": "FPS massivo de baixo polígono que suporta até 254 jogadores por servidor, com foco em jogabilidade tática e destruição de ambiente.",
+            "imagem": "img/placeholder.jpg",
+            "ano": null,
+            "tags": ["FPS", "Guerra", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "Grand Theft Auto V",
+            "descricao": "Explore o vasto mundo de Los Santos neste épico de mundo aberto que segue as vidas entrelaçadas de três criminosos muito diferentes.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2013,
+            "tags": ["Mundo Aberto", "Ação", "Crime"],
+            "favorito": null
+        },
+        {
+            "titulo": "Garry's Mod",
+            "descricao": "Um sandbox físico sem objetivos definidos. Crie suas próprias experiências, modos de jogo e construções malucas com ferramentas de física.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2006,
+            "tags": ["Sandbox", "Física", "Multiplayer"],
+            "favorito": null
+        },
+        {
+            "titulo": "Euro Truck Simulator 2",
+            "descricao": "Viaje pela Europa como o rei da estrada, um caminhoneiro que entrega cargas importantes através de distâncias impressionantes.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2012,
+            "tags": ["Simulador", "Direção", "Relaxante"],
+            "favorito": null
+        },
+        {
+            "titulo": "Forager",
+            "descricao": "Um jogo de mundo aberto 2D inspirado em títulos de exploração, farming e crafting. Explore, crie, colete e evolua sua base.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2019,
+            "tags": ["Crafting", "Sandbox", "Exploração"],
+            "favorito": null
+        },
+        {
+            "titulo": "Ori And The Blind Forest",
+            "descricao": "Um metroidvania visualmente deslumbrante que conta a história de um jovem órfão destinado ao heroísmo através de uma jornada emocional.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2015,
+            "tags": ["Metroidvania", "Plataforma", "Atmosférico"],
+            "favorito": null
+        },
+        {
+            "titulo": "Left 4 Dead 2",
+            "descricao": "O apocalipse zumbi nunca foi tão cooperativo. Enfrente hordas de infectados e zumbis especiais em uma corrida pela sobrevivência.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2009,
+            "tags": ["FPS", "Zombies", "Cooperativo"],
+            "favorito": null
+        },
+        {
+            "titulo": "Left 4 Dead",
+            "descricao": "O clássico que definiu o gênero de tiro cooperativo contra hordas de mortos-vivos e mutantes letais.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2008,
+            "tags": ["FPS", "Zombies", "Cooperativo"],
+            "favorito": null
+        },
+        {
+            "titulo": "Celeste",
+            "descricao": "Ajude Madeline a enfrentar seus demônios internos em sua jornada até o topo da Montanha Celeste neste jogo de plataforma super preciso.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2018,
+            "tags": ["Plataforma", "Difícil", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Ultimate Marvel VS Capcom 3",
+            "descricao": "O crossover definitivo de luta em 3vs3, reunindo os maiores heróis da Marvel e os ícones lendários da Capcom.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2011,
+            "tags": ["Luta", "Arcade", "2D"],
+            "favorito": null
+        },
+        {
+            "titulo": "SUPER CHICKEN JUMPER",
+            "descricao": "Um jogo de corrida e plataforma frenético onde você controla um frango em uma missão para salvar o mundo.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2021,
+            "tags": ["Ação", "Runner", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Trailmakers",
+            "descricao": "Construa veículos incríveis a partir de blocos e explore um mundo aberto cheio de desafios e corridas.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2019,
+            "tags": ["Sandbox", "Construção", "Veículos"],
+            "favorito": null
+        },
+        {
+            "titulo": "Sniper Elite 3",
+            "descricao": "Um jogo de tiro tático em terceira pessoa focado em infiltração e precisão durante a Segunda Guerra Mundial.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2014,
+            "tags": ["Sniper", "Furtividade", "Guerra"],
+            "favorito": null
+        },
+        {
+            "titulo": "SpiderHeck",
+            "descricao": "Brawler baseado em física onde aranhas lutam até a morte com sabres de luz e granadas.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2022,
+            "tags": ["Combate", "Física", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "Game Dev Tycoon",
+            "descricao": "Simulador de negócios onde você gerencia sua própria empresa de desenvolvimento de jogos desde a garagem.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2012,
+            "tags": ["Simulação", "Estratégia", "Tycoon"],
+            "favorito": null
+        },
+        {
+            "titulo": "Hollow Knight",
+            "descricao": "Um metroidvania desafiador e atmosférico ambientado em um vasto reino de insetos em ruínas.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2017,
+            "tags": ["Metroidvania", "Souls-like", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Haste",
+            "descricao": "Um jogo focado em velocidade e reflexos rápidos em ambientes de plataforma desafiadores.",
+            "imagem": "img/placeholder.jpg",
+            "ano": null,
+            "tags": ["Plataforma", "Velocidade"],
+            "favorito": null
+        },
+        {
+            "titulo": "Just Cause 2",
+            "descricao": "Ação em mundo aberto com foco em destruição total, saltos de paraquedas e o uso criativo de um gancho.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2010,
+            "tags": ["Ação", "Mundo Aberto", "Destruição"],
+            "favorito": null
+        },
+        {
+            "titulo": "Human Fall Flat",
+            "descricao": "Um jogo de quebra-cabeça baseado em física hilário onde você controla personagens desajeitados em cenários surreais.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2016,
+            "tags": ["Física", "Puzzle", "Cooperativo"],
+            "favorito": null
+        },
+        {
+            "titulo": "Brotato",
+            "descricao": "Um roguelite de tiro de arena onde você controla uma batata empunhando até 6 armas ao mesmo tempo.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2023,
+            "tags": ["Roguelite", "Ação", "Sobrevivência"],
+            "favorito": null
+        },
+        {
+            "titulo": "Slime Rancher",
+            "descricao": "Explore um planeta alienígena, colete slimes fofos e gerencie sua fazenda nesta aventura relaxante.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2017,
+            "tags": ["Aventura", "Simulação", "Exploração"],
+            "favorito": null
+        },
+        {
+            "titulo": "VRChat",
+            "descricao": "Uma plataforma social massiva onde você pode criar avatares, mundos e interagir com pessoas de todo o mundo em VR.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2014,
+            "tags": ["Social", "VR", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "Need for Speed™ Rivals",
+            "descricao": "Escolha entre ser um piloto de rua ou um policial em perseguições de alta velocidade em um mundo aberto dinâmico.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2013,
+            "tags": ["Corrida", "Ação", "Carros"],
+            "favorito": null
+        },
+        {
+            "titulo": "Muse Dash",
+            "descricao": "Um jogo de ritmo vibrante que mistura jogabilidade de parkour com música e estética de anime.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2019,
+            "tags": ["Ritmo", "Anime", "Ação"],
+            "favorito": null
+        },
+        {
+            "titulo": "HOT WHEELS UNLEASHED™",
+            "descricao": "Colecione os carros mais icônicos da Hot Wheels, construa pistas malucas e participe de corridas épicas.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2021,
+            "tags": ["Corrida", "Arcade", "Colecionismo"],
+            "favorito": null
+        },
+        {
+            "titulo": "Your Only Move Is HUSTLE",
+            "descricao": "Um simulador de luta tático por turnos onde você planeja cada movimento para criar sequências de combate épicas.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2023,
+            "tags": ["Luta", "Estratégia", "Turnos"],
+            "favorito": null
+        },
+        {
+            "titulo": "My Summer Car",
+            "descricao": "O simulador definitivo de posse, construção e manutenção de carros em uma área rural da Finlândia nos anos 90.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2016,
+            "tags": ["Simulação", "Sobrevivência", "Carros"],
+            "favorito": null
+        },
+        {
+            "titulo": "Hotshot Racing",
+            "descricao": "Um jogo de corrida arcade com visual retrô inspirado nos clássicos dos anos 90, focado em drift e velocidade.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2020,
+            "tags": ["Corrida", "Arcade", "Retrô"],
+            "favorito": null
+        },
+        {
+            "titulo": "Gatekeeper: Eclipse",
+            "descricao": "Um prólogo de ação roguelite acelerado onde você deve proteger o Coração do Universo contra hordas de inimigos.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2024,
+            "tags": ["Ação", "Roguelite", "Shooter"],
+            "favorito": null
+        },
+        {
+            "titulo": "Friends vs Friends",
+            "descricao": "Um shooter online frenético que combina combate 1v1 ou 2v2 com mecânicas de construção de baralho.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2023,
+            "tags": ["FPS", "Cartas", "PvP"],
+            "favorito": null
+        },
+        {
+            "titulo": "Clone Drone in the Danger Zone",
+            "descricao": "Um jogo de luta de espadas baseado em voxel onde sua mente é transferida para um gladiador robô.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2021,
+            "tags": ["Ação", "Robôs", "Voxel"],
+            "favorito": null
+        },
+        {
+            "titulo": "Umamusume: Pretty Derby",
+            "descricao": "Treine garotas-cavalo inspiradas em cavalos de corrida reais para vencer competições e se tornarem idols.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2021,
+            "tags": ["Simulação", "Esporte", "Anime"],
+            "favorito": null
+        },
+        {
+            "titulo": "Party Animals",
+            "descricao": "Lute com seus amigos como filhotes, gatinhos e outros animais fofos neste brawler baseado em física.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2023,
+            "tags": ["Física", "Party", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "Deducto 2",
+            "descricao": "Um jogo de dedução social em primeira pessoa onde o caos e a traição reinam em um ambiente de escritório.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2024,
+            "tags": ["Dedução", "Social", "FPS"],
+            "favorito": null
+        },
+        {
+            "titulo": "Ultimate Chicken Horse",
+            "descricao": "Um jogo de plataforma onde você e seus amigos constroem o nível enquanto jogam, tentando criar armadilhas para os outros.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2016,
+            "tags": ["Plataforma", "Party", "Criativo"],
+            "favorito": null
+        },
+        {
+            "titulo": "Stray",
+            "descricao": "Controle um gato perdido em uma cidade cibernética habitada por robôs, resolvendo mistérios para encontrar o caminho de volta.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2022,
+            "tags": ["Aventura", "Gato", "Cyberpunk"],
+            "favorito": null
+        },
+        {
+            "titulo": "Unrailed!",
+            "descricao": "Um jogo cooperativo caótico onde você deve construir trilhos para um trem que nunca para através de mundos procedurais.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2020,
+            "tags": ["Cooperativo", "Estratégia", "Caos"],
+            "favorito": null
+        },
+        {
+            "titulo": "Helltaker",
+            "descricao": "Um jogo curto de quebra-cabeças sobre um homem que viaja ao inferno para formar um harém de demônios.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2020,
+            "tags": ["Puzzle", "Indie", "Curto"],
+            "favorito": null
+        },
+        {
+            "titulo": "Stick Fight: The Game",
+            "descricao": "Um jogo de luta baseado em física onde bonecos de palito combatem em arenas perigosas com armas malucas.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2017,
+            "tags": ["Física", "Luta", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "POSTAL 2",
+            "descricao": "Um simulador de vida cotidiana absurdamente violento e politicamente incorreto que se passa durante uma semana.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2003,
+            "tags": ["FPS", "Sátira", "Mundo Aberto"],
+            "favorito": null
+        },
+        {
+            "titulo": "Unturned",
+            "descricao": "Sobreviva ao apocalipse zumbi em um mundo aberto massivo, construindo bases e interagindo com outros jogadores.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2014,
+            "tags": ["Sobrevivência", "Zombies", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "Castle Story",
+            "descricao": "Um jogo de estratégia baseado em voxel onde você comanda criaturas fofas para construir castelos e defendê-los.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2017,
+            "tags": ["Estratégia", "Construção", "Voxel"],
+            "favorito": null
+        },
+        {
+            "titulo": "Donut County",
+            "descricao": "Um jogo de quebra-cabeça baseado em física onde você controla um buraco no chão que cresce à medida que engole coisas.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2018,
+            "tags": ["Puzzle", "Física", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Subnautica",
+            "descricao": "Mergulhe em um mundo oceânico alienígena, explore as profundezas e sobreviva aos perigos do mar desconhecido.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2018,
+            "tags": ["Sobrevivência", "Exploração", "Ficção Científica"],
+            "favorito": null
+        },
+        {
+            "titulo": "Buckshot Roulette",
+            "descricao": "Um jogo de terror psicológico e roleta russa com uma atmosfera sombria e decisões de vida ou morte.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2023,
+            "tags": ["Terror", "Indie", "Estratégia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Dark Deception",
+            "descricao": "Um jogo de terror em primeira pessoa onde você deve coletar fragmentos de alma em labirintos infestados por monstros.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2018,
+            "tags": ["Terror", "Arcade", "Ação"],
+            "favorito": null
+        },
+        {
+            "titulo": "Lethal Company",
+            "descricao": "Um jogo de terror cooperativo onde você e sua equipe exploram luas abandonadas para coletar sucata e cumprir cotas.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2023,
+            "tags": ["Terror", "Cooperativo", "Sobrevivência"],
+            "favorito": null
+        },
+        {
+            "titulo": "Liar's Bar",
+            "descricao": "Um jogo de dedução social e blefe ambientado em um bar, onde você tenta descobrir quem está mentindo.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2024,
+            "tags": ["Dedução", "Social", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "Wreckfest",
+            "descricao": "Corridas de demolição com física realista e danos detalhados. Muita destruição e diversão caótica.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2018,
+            "tags": ["Corrida", "Destruição", "Simulação"],
+            "favorito": null
+        },
+        {
+            "titulo": "Goat Simulator",
+            "descricao": "Um simulador de cabra hilário e cheio de bugs, onde você causa o máximo de caos possível em um mundo aberto.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2014,
+            "tags": ["Simulador", "Comédia", "Sandbox"],
+            "favorito": null
+        },
+        {
+            "titulo": "Zumbi Blocks 2 Open Alpha",
+            "descricao": "Um jogo de sobrevivência a zumbis em mundo aberto com gráficos voxel, focado em construção e combate.",
+            "imagem": "img/placeholder.jpg",
+            "ano": null,
+            "tags": ["Sobrevivência", "Zombies", "Voxel"],
+            "favorito": null
+        },
+        {
+            "titulo": "Emily Wants To Play",
+            "descricao": "Um jogo de terror de sobrevivência onde um entregador de pizza fica preso em uma casa com bonecas assustadoras.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2015,
+            "tags": ["Terror", "Indie", "Sobrevivência"],
+            "favorito": null
+        },
+        {
+            "titulo": "Pacify",
+            "descricao": "Um jogo de terror cooperativo onde você e seus amigos investigam uma casa assombrada por uma garota demoníaca.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2019,
+            "tags": ["Terror", "Cooperativo", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Skullgirls 2nd Encore",
+            "descricao": "Um jogo de luta 2D com personagens únicos, animações fluidas e um sistema de combate profundo.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2015,
+            "tags": ["Luta", "2D", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "OneShot",
+            "descricao": "Uma aventura de quebra-cabeças com elementos meta-ficcionais, onde o jogo interage diretamente com o jogador.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2016,
+            "tags": ["Puzzle", "Aventura", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Lost Ruins",
+            "descricao": "Um jogo de plataforma 2D de sobrevivência e ação com elementos de metroidvania e um estilo de arte pixelado.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2022,
+            "tags": ["Plataforma", "Metroidvania", "Ação"],
+            "favorito": null
+        },
+        {
+            "titulo": "Move or Die",
+            "descricao": "Um jogo de festa multiplayer de ritmo acelerado onde as regras mudam a cada 20 segundos, garantindo caos e diversão.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2016,
+            "tags": ["Party", "Multijogador", "Ação"],
+            "favorito": null
+        },
+        {
+            "titulo": "Need for Speed™ Most Wanted",
+            "descricao": "Corridas de rua intensas, perseguições policiais e uma lista de carros exóticos para dominar a cidade de Fairhaven.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2012,
+            "tags": ["Corrida", "Mundo Aberto", "Ação"],
+            "favorito": null
+        },
+        {
+            "titulo": "Content Warning",
+            "descricao": "Um jogo de terror cooperativo onde você e seus amigos filmam coisas assustadoras para se tornarem virais na SpookTube.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2024,
+            "tags": ["Terror", "Cooperativo", "Comédia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Thief Simulator",
+            "descricao": "Simulador de ladrão em primeira pessoa onde você planeja e executa roubos, aprimora suas habilidades e vende o saque.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2018,
+            "tags": ["Simulador", "Furtividade", "Mundo Aberto"],
+            "favorito": null
+        },
+        {
+            "titulo": "Bum Simulator",
+            "descricao": "Um simulador de vida de mendigo com humor negro e elementos de sandbox, onde você sobrevive e causa problemas na cidade.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2021,
+            "tags": ["Simulador", "Comédia", "Sandbox"],
+            "favorito": null
+        },
+        {
+            "titulo": "Resident Evil 4 (2005)",
+            "descricao": "O clássico de terror de sobrevivência que redefiniu o gênero, com Leon S. Kennedy resgatando a filha do presidente em uma vila rural.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2005,
+            "tags": ["Terror", "Ação", "Sobrevivência"],
+            "favorito": null
+        },
+        {
+            "titulo": "Rock of Ages 2",
+            "descricao": "Um jogo de defesa de torre e corrida com uma bola gigante, combinando humor, arte e estratégia.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2017,
+            "tags": ["Estratégia", "Tower Defense", "Comédia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Witch It",
+            "descricao": "Um jogo de esconde-esconde multiplayer onde caçadores procuram bruxas que se transformam em objetos.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2017,
+            "tags": ["Multijogador", "Esconde-esconde", "Casual"],
+            "favorito": null
+        },
+        {
+            "titulo": "Choo-Choo Charles",
+            "descricao": "Um jogo de terror de sobrevivência em mundo aberto onde você é caçado por um trem-aranha demoníaco.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2022,
+            "tags": ["Terror", "Sobrevivência", "Mundo Aberto"],
+            "favorito": null
+        },
+        {
+            "titulo": "Portal",
+            "descricao": "Um inovador jogo de quebra-cabeças em primeira pessoa que utiliza um dispositivo de portal para resolver desafios de física.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2007,
+            "tags": ["Puzzle", "FPS", "Física"],
+            "favorito": null
+        },
+        {
+            "titulo": "Battlefield 4™",
+            "descricao": "Um FPS militar com batalhas em larga escala, veículos e ambientes destrutíveis, conhecido por seu multiplayer intenso.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2013,
+            "tags": ["FPS", "Guerra", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "Bendy and the Ink Machine",
+            "descricao": "Um jogo de terror de sobrevivência em primeira pessoa com um estilo de arte de desenho animado vintage e uma atmosfera sombria.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2017,
+            "tags": ["Terror", "Indie", "Puzzle"],
+            "favorito": null
+        },
+        {
+            "titulo": "Black Mesa",
+            "descricao": "Um remake aclamado pelos fãs do clássico Half-Life, com gráficos atualizados e jogabilidade aprimorada.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2020,
+            "tags": ["FPS", "Sci-Fi", "Ação"],
+            "favorito": null
+        },
+        {
+            "titulo": "The Binding of Isaac: Rebirth",
+            "descricao": "Um roguelike de tiro com elementos de RPG, onde você explora masmorras geradas proceduralmente e enfrenta chefes bizarros.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2014,
+            "tags": ["Roguelike", "Ação", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Blasphemous",
+            "descricao": "Um metroidvania de ação e plataforma com uma atmosfera sombria e gótica, combate desafiador e um mundo rico em lore.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2019,
+            "tags": ["Metroidvania", "Souls-like", "Plataforma"],
+            "favorito": null
+        },
+        {
+            "titulo": "Children of the Sun",
+            "descricao": "Um jogo de tiro tático e puzzle onde você controla uma única bala para eliminar múltiplos inimigos.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2024,
+            "tags": ["Puzzle", "Tático", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "The Crew 2",
+            "descricao": "Um jogo de corrida em mundo aberto que permite alternar instantaneamente entre carros, barcos e aviões nos EUA.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2018,
+            "tags": ["Corrida", "Mundo Aberto", "Veículos"],
+            "favorito": null
+        },
+        {
+            "titulo": "Far Cry 4",
+            "descricao": "Um FPS de mundo aberto ambientado no Himalaia, onde você luta contra um regime tirânico em uma paisagem deslumbrante.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2014,
+            "tags": ["FPS", "Mundo Aberto", "Ação"],
+            "favorito": null
+        },
+        {
+            "titulo": "Gang Beasts",
+            "descricao": "Um hilário jogo de luta multiplayer com personagens gelatinosos e ambientes perigosos, focado em física e diversão.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2017,
+            "tags": ["Party", "Física", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "The Forest",
+            "descricao": "Um jogo de terror de sobrevivência em mundo aberto onde você deve sobreviver em uma ilha infestada por canibais mutantes.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2018,
+            "tags": ["Sobrevivência", "Terror", "Mundo Aberto"],
+            "favorito": null
+        },
+        {
+            "titulo": "GRIS",
+            "descricao": "Uma experiência de plataforma e quebra-cabeças visualmente deslumbrante, com uma narrativa emocional contada sem palavras.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2018,
+            "tags": ["Plataforma", "Indie", "Atmosférico"],
+            "favorito": null
+        },
+        {
+            "titulo": "Half-Life",
+            "descricao": "O FPS revolucionário que estabeleceu novos padrões para narrativa e imersão em jogos de tiro em primeira pessoa.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 1998,
+            "tags": ["FPS", "Sci-Fi", "Clássico"],
+            "favorito": null
+        },
+        {
+            "titulo": "Half-Life 2",
+            "descricao": "A aclamada sequência de Half-Life, com física inovadora, narrativa envolvente e combate memorável.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2004,
+            "tags": ["FPS", "Sci-Fi", "Clássico"],
+            "favorito": null
+        },
+        {
+            "titulo": "Just Cause 3",
+            "descricao": "Ação explosiva em mundo aberto com foco em destruição, paraquedas, wingsuit e um gancho para causar o caos.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2015,
+            "tags": ["Ação", "Mundo Aberto", "Destruição"],
+            "favorito": null
+        },
+        {
+            "titulo": "KinitoPET",
+            "descricao": "Um jogo de terror psicológico e simulação de desktop onde você interage com uma IA de animal de estimação virtual que se torna cada vez mais perturbadora.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2023,
+            "tags": ["Terror", "Simulação", "Psicológico"],
+            "favorito": null
+        },
+        {
+            "titulo": "LIMBO",
+            "descricao": "Um jogo de plataforma e quebra-cabeças atmosférico com gráficos monocromáticos e uma narrativa minimalista e enigmática.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2010,
+            "tags": ["Plataforma", "Puzzle", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Need for Speed™ Heat",
+            "descricao": "Domine as ruas de Palm City durante o dia e arrisque tudo à noite em corridas ilegais enquanto foge de uma força policial corrupta.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2019,
+            "tags": ["Corrida", "Mundo Aberto", "Carros"],
+            "favorito": null
+        },
+        {
+            "titulo": "Need for Speed™ Payback",
+            "descricao": "Situado no submundo de Fortune Valley, você e sua equipe se reúnem em uma busca por vingança contra a 'The House', um cartel nefasto.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2017,
+            "tags": ["Corrida", "Ação", "Carros"],
+            "favorito": null
+        },
+        {
+            "titulo": "Otaku's Adventure",
+            "descricao": "Uma visual novel de aventura point-and-click incomum que conta a história de um otaku em busca de amor, cheia de minijogos e finais variados.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2019,
+            "tags": ["Aventura", "Comédia", "Anime"],
+            "favorito": null
+        },
+        {
+            "titulo": "PEAK",
+            "descricao": "Um jogo focado em superar limites e alcançar o topo através de desafios de plataforma ou quebra-cabeças intensos.",
+            "imagem": "img/placeholder.jpg",
+            "ano": null,
+            "tags": ["Indie", "Desafio"],
+            "favorito": null
+        },
+        {
+            "titulo": "Portal 2",
+            "descricao": "A sequência do inovador jogo de quebra-cabeças, expandindo as mecânicas de portais com um modo cooperativo e uma narrativa hilária.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2011,
+            "tags": ["Puzzle", "Sci-Fi", "Cooperativo"],
+            "favorito": null
+        },
+        {
+            "titulo": "Sniper Elite 4",
+            "descricao": "Combate sniper de terceira pessoa em cenários vastos da Itália durante a Segunda Guerra Mundial, focado em tática e furtividade.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2017,
+            "tags": ["Sniper", "Furtividade", "Guerra"],
+            "favorito": null
+        },
+        {
+            "titulo": "Sniper Elite 5",
+            "descricao": "Karl Fairburne retorna para desmantelar a Operação Kraken na França de 1944, oferecendo a experiência de sniper mais imersiva da série.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2022,
+            "tags": ["Sniper", "Furtividade", "Guerra"],
+            "favorito": null
+        },
+        {
+            "titulo": "Stardew Valley",
+            "descricao": "Crie a fazenda dos seus sonhos, cultive plantações, crie animais e faça amizade com os habitantes da Vila Pelicano neste simulador rural encantador.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2016,
+            "tags": ["Simulador", "RPG", "Fazenda"],
+            "favorito": null
+        },
+        {
+            "titulo": "Wall World",
+            "descricao": "Explore o misterioso Wall World em seu robocraft gigante. Minere recursos preciosos, melhore seu equipamento e lute contra hordas de monstros.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2023,
+            "tags": ["Roguelite", "Mineração", "Ação"],
+            "favorito": null
+        },
+        {
+            "titulo": "Zueirama",
+            "descricao": "Um jogo de plataforma inspirado nos memes brasileiros e na cultura dos anos 90, cheio de referências e humor 'zueiro'.",
+            "imagem": "img/placeholder.jpg",
+            "ano": 2019,
+            "tags": ["Plataforma", "Comédia", "Indie"],
+            "favorito": null
         }
     ],
     "animes": [
         {
             "titulo": "Knight's & Magic",
-            "descricao": "Knight's & Magic (Naitsu to Majikku) é um isekai mecha sobre Ernesti Echevalier, um programador gênio e fã de robôs que reencarna em um mundo de fantasia com cavaleiros e magia. Ele usa seu conhecimento para pilotar e aprimorar os \"Silhouette Knights\" (robôs gigantes), buscando realizar seu sonho de construir o mecha supremo.",
+            "descricao": "Knight's & Magic (Naitsu to Majikku) é um isekai mecha sobre Ernesti Echevalier, um programador gênio e fã de robôs que reencarna em um mundo de fantasia com cavaleiros e magia. Ele usa seu conhecimento para pilotar e aprimorar os Silhouette Knights (robôs gigantes), buscando realizar seu sonho de construir o mecha supremo.",
             "imagem": "img/Knight's & Magic.png",
             "ano": null,
             "tags": ["Mecha", "Isekai", "Fantasia"],
@@ -155,7 +907,7 @@
         },
         {
             "titulo": "Boku no Tsuma wa Kanjou ga Nai",
-            "descricao": "Takuma contrata uma robô governanta e brinca que ela deveria ser sua esposa.",
+            "descricao": "Takuma é um cara solteiro que não faz nada além de ir trabalhar e voltar para casa. Cansado demais para fazer tarefas domésticas, ele decide contratar um robô para cozinhar e cuidar da casa. “Mina-chan” é uma governanta tão boa que Takuma brinca que ela deveria se tornar sua esposa.",
             "imagem": "img/Boku no Tsuma wa Kanjou ga Nai.jpg",
             "ano": null,
             "tags": ["Sci-Fi", "Romance", "Slice of Life"],
@@ -163,7 +915,7 @@
         },
         {
             "titulo": "Lv2 kara Cheat datta",
-            "descricao": "Banaza é um comerciante comum convocado como herói, mas algo não está certo.",
+            "descricao": "O Reino Mágico de Klyrode convoca centenas de heróis de outros mundos todos os anos para lutar na guerra contra a Escuridão e seu exército de demônios poderosos. Banaza é um desses heróis, convocado da Royal Capital Paluma, mas algo não está certo – Banaza é apenas um comerciante comum.",
             "imagem": "img/Lv2 kara Cheat datta.jpg",
             "ano": null,
             "tags": ["Isekai", "Fantasia", "Romance"],
@@ -171,7 +923,7 @@
         },
         {
             "titulo": "Kami wa Game ni Ueteiru",
-            "descricao": "Deuses entediados criam batalhas de inteligência contra a humanidade.",
+            "descricao": "Dado o seu (exagero de) tempo livre, os deuses ficaram entediados e decidiram criar batalhas desafiadoras de inteligência para apimentar as coisas! Seus oponentes? A humanidade! Alguns jogadores selecionados, chamados de “apóstolos”, encontram os deuses no campo de jogo do reino espiritual para vencer as divindades em seus próprios jogos.",
             "imagem": "img/Kami wa Game ni Ueteiru.jpg",
             "ano": null,
             "tags": ["Jogos", "Estratégia"],
@@ -179,7 +931,7 @@
         },
         {
             "titulo": "Tensei shitara Dainana Ouji",
-            "descricao": "Um feiticeiro renasce como Lloyd, o sétimo príncipe de um reino mágico.",
+            "descricao": "Apesar de seu profundo amor pela magia, um jovem feiticeiro nasceu em uma família pobre, sem linhagem sanguínea nem aptidão para o estudo mágico. Após encontrar uma morte prematura e cheia de arrependimentos, ele renasce como Lloyd, o sétimo príncipe do Reino de Saloum, dotado de uma poderosa linhagem mágica. Agora, com todas as suas memórias intactas, ele está determinado a aproveitar essa nova vida!",
             "imagem": "img/Tensei shitara Dainana Ouji.jpg",
             "ano": null,
             "tags": ["Magia", "Fantasia"],
@@ -187,7 +939,7 @@
         },
         {
             "titulo": "Saijaku Tamer wa Gomi Hiroi no Tabi",
-            "descricao": "Ivy, uma domadora sem estrelas, inicia uma jornada com uma criatura gelatinosa frágil.",
+            "descricao": "As estrelas representam tudo neste mundo, pois elas conferem habilidades aos Domadores. Assim, quando Ivy veio ao mundo sem uma estrela para si, sua vila interpretou como um mau presságio! Agora exilada, ela leva uma vida solitária, coletando objetos descartados para sobreviver. Tudo muda quando ela cria laços com Sora, uma pequena e frágil criatura gelatinosa encontrada na floresta. A partir de agora, essa dupla delicada inicia uma jornada emocionante de sobrevivência!.",
             "imagem": "img/Saijaku Tamer wa Gomi Hiroi no Tabi.jpg",
             "ano": null,
             "tags": ["Fantasia", "Aventura"],
@@ -195,7 +947,7 @@
         },
         {
             "titulo": "Chiyu Mahou no Machigatta",
-            "descricao": "Usato descobre que tem uma habilidade única para magia de cura após ser transportado para outro mundo.",
+            "descricao": "Uma caminhada comum de volta para casa após a escola se transforma em uma jornada épica para Usato! Após ser subitamente transportado para outro mundo juntamente de dois colegas de classe, Usato descobre que foi convocado lá por acidente. No entanto, as coisas mudam de água para o vinho quando ele descobre que tem uma habilidade única para a magia de cura! Agora, ele treina além das limitações humanas, utilizando suas habilidades de autocura para ganhar uma força absurda e uma resistência incomparável.",
             "imagem": "img/Chiyu Mahou no Machigatta.jpg",
             "ano": null,
             "tags": ["Isekai", "Ação", "Magia"],
@@ -203,7 +955,7 @@
         },
         {
             "titulo": "Oroka na Tenshi wa Akuma",
-            "descricao": "Um demônio em missão de recrutamento se apaixona por uma anjo disfarçada.",
+            "descricao": "Masatora Akutsu, um demônio que está em uma missão de recrutamento numa escola humana, está atrás de aliados para o Inferno na luta contra os anjos celestiais. Mas quando ele se senta ao lado da cativante Lily Amane, ele terá uma surpresa celestial incrivelmente hilária!",
             "imagem": "img/Oroka na Tenshi wa Akuma.jpg",
             "ano": null,
             "tags": ["Comédia", "Romance", "Sobrenatural"],
@@ -211,7 +963,7 @@
         },
         {
             "titulo": "Akuyaku Reijou Level 99",
-            "descricao": "Yumiella renasce como uma vilã e acidentalmente alcança o nível 99.",
+            "descricao": "Essa estudante universitária só quer uma vida tranquila. Então, quando renasce como Yumiella, a vilã oculta de um jogo otome, ela não fica muito empolgada. Ainda ansiando por paz, ela abandona suas tarefas malignas para viver uma vida mais discreta e tranquila. Até que seu lado de jogadora entra em ação e ela alcança acidentalmente o nível 99! Agora, todos suspeitam que ela seja a infame Lorde Demônio. Que futuro a aguarda?",
             "imagem": "img/Akuyaku Reijou Level 99.jpg",
             "ano": null,
             "tags": ["Reencarnação", "Vilã", "Fantasia"],
@@ -219,7 +971,7 @@
         },
         {
             "titulo": "Solo Leveling",
-            "descricao": "Sung Jinwoo, o caçador mais fraco, ganha a habilidade única de subir de nível.",
+            "descricao": "Há mais de uma década, surgiu uma misteriosa passagem chamada “portal”, que conecta este mundo a uma dimensão diferente, o que fez com que pessoas despertassem poderes únicos, e essas pessoas são chamadas de “caçadores”. Os caçadores usam seus poderes sobre-humanos para conquistar masmorras dentro dos portais e assim ganhar a vida. Sung Jinwoo, um caçador de nível baixo, é considerado o caçador mais fraco de toda a humanidade. Certo dia, ele se depara com uma “masmorra dupla”, que tem uma masmorra de nível alto escondida dentro de uma masmorra de nível baixo. Diante de um Jinwoo gravemente ferido, surge uma misteriosa missão! À beira da morte, Jinwoo decide aceitar essa missão, tornando-se assim a única pessoa capaz de subir de nível!",
             "imagem": "img/Solo Leveling.jpeg",
             "ano": null,
             "tags": ["Ação", "Fantasia", "RPG"],
@@ -227,7 +979,7 @@
         },
         {
             "titulo": "Sokushi Cheat ga Saikyou sugite",
-            "descricao": "Yogiri Takatou tem a habilidade de causar morte instantânea com apenas um pensamento.",
+            "descricao": "Acordando em meio a um absoluto caos durante sua viagem escolar, Yogiri Takatou descobriu que sua classe foi enviada para um mundo paralelo e que seus colegas receberam habilidades especiais de uma sábia enquanto ele, de alguma forma, conseguia dormir. Não o bastante, seu ônibus da escola está sendo atacado por um dragão e as únicas pessoas ali são ele e Tomochika Dannoura, uma garota que também foi deixada como isca por não ter recebido habilidades. Isso tudo poderia ser um grande problema, senão fosse pela descoberta de que Yogiri tem a habilidade de “morte instantânea”, derrotando tudo com apenas um pensamento. Agora junto de Tomochika, Yogiri precisará aprender a viver nesse novo mundo cheio de perigos.",
             "imagem": "img/Sokushi Cheat ga Saikyou sugite.jpg",
             "ano": null,
             "tags": ["Isekai", "Overpowered"],
@@ -236,7 +988,7 @@
         
         {
             "titulo": "Mahou Shoujo ni Akogarete",
-            "descricao": "Hiiragi Utena quer ser uma garota mágica, mas acaba se tornando uma vilã sádica.",
+            "descricao": "Hiiragi Utena é uma garota apaixonada por Mahou Shoujo que sonhava em se tornar uma delas e poder lutar ao lado de sua heroína favorita. Certo dia, um mascote inesperadamente apareceu ao seu lado e lançou um feitiço em Hiiragi, oferecendo a ela a oportunidade de estar de frente para sua ídola. Entretanto, diferente do que ela esperava, a transformação a fez virar uma vilã em vez de uma Mahou Shoujo. Para piorar, a mudança faz com que ela deixe de ser uma garota tímida e passe a ser uma dominatrix sádica. Agora, Hiiragi precisará lidar com sua nova “profissão”, ao mesmo tempo em que tenta aproveitar os momentos ao lado de sua heroína, por mais que seja para tentar torturá-la.",
             "imagem": "img/Mahou Shoujo ni Akogarete.png",
             "ano": null,
             "tags": ["Mahou Shoujo", "Comédia", "Ecchi"],
@@ -244,7 +996,7 @@
         },
         {
             "titulo": "Dekoboko Majo no Oyako Jijou",
-            "descricao": "Uma bruxa adota uma bebê que cresce muito mais do que o esperado.",
+            "descricao": "UAlyssa é uma bruxa que vive sozinha na floresta e, em um certo dia, encontra uma bebê humana. Apesar do desafio, ela dá o nome de “Viola” à criança e decide criá-la. 16 anos depois, Viola cresceu muito mais do que Alyssa jamais imaginou. Mas espere, ela cresceu demais! E assim começa a caótica comédia de uma mãe e uma filha com aparências invertidas!",
             "imagem": "img/Dekoboko Majo no Oyako Jijou.jpg",
             "ano": null,
             "tags": ["Comédia", "Fantasia", "Slice of Life"],
@@ -252,7 +1004,7 @@
         },
         {
             "titulo": "Suki na Ko ga Megane wo Wasureta",
-            "descricao": "Komura ajuda sua colega Mie, que vive esquecendo os óculos.",
+            "descricao": "Uma comédia romântica muito agradável sobre um garoto que só tem olhos para a garota que sempre esquece seus óculos! Com o novo ano escolar, chega uma nova sala de aula, novos colegas de classe e uma nova carteira para o tímido Komura. Mas qualquer apreensão que ele possa ter sentido se dissipa rapidamente quando ele avista Mie, que se senta ao seu lado. Com o hábito de deixar escapar silenciosamente as coisas mais aleatórias possíveis, a peculiar Mie usa óculos grossos que acentuam seus olhos adoráveis, fazendo o coração de Komura bater mais forte! Infelizmente, Mie é patologicamente esquecida e nunca consegue se lembrar de levar seus óculos para a aula! Mas nem tudo está perdido! Seu rosto franzino e malvado faz o coração de Komura disparar! Enquanto Komura está ansioso para ajudar e compartilhar seus livros com Mie, seu coração desistirá da tensão quase diária de estar próximo de sua paixão?!",
             "imagem": "img/Suki na Ko ga Megane wo Wasureta.jpg",
             "ano": null,
             "tags": ["Romance", "Escolar"],
@@ -260,7 +1012,7 @@
         },
         {
             "titulo": "Yumemiru Danshi wa Genjitsushugisha",
-            "descricao": "Wataru decide manter distância da garota que ama após perceber que não serve para ela.",
+            "descricao": "Wataru Sajou está profundamente apaixonado por sua bela companheira de classe Aika Natsukawa. Ele se aproxima dela destemidamente enquanto sonha com o amor mútuo deles. No entanto, um dia, ele acordou pensando: “Eu realmente não sirvo para alguém tão boa quanto ela, hein…” Percebendo isso, Wataru começou a manter uma distância adequada dela, para surpresa de Aika. ‘Será que ele me odeia agora…?’ Ele agiu contra suas intenções porque estava ficando impaciente após chegar à conclusão errada?! Este é o começo de uma comédia romântica que gira em torno de duas pessoas que não conseguem transmitir seus sentimentos e ambas pensam que seu amor não é correspondido.",
             "imagem": "img/Yumemiru Danshi wa Genjitsushugisha.jpg",
             "ano": null,
             "tags": ["Romance", "Escolar"],
@@ -268,7 +1020,7 @@
         },
         {
             "titulo": "Jitsu wa Ore, Saikyou deshita?",
-            "descricao": "Hart renasce como um bebê com poderes roubados e é abandonado pela família real.",
+            "descricao": "Ser reencarnado em outro mundo com a promessa de um poder 'trapaceiro' é uma coisa. Mas renascer como um bebê e depois ser deixado para morrer depois que seus pais verdadeiros o acham impotente? Isso é algo totalmente diferente. Agora, o recém-nascido Reinhart – Hart para seus novos amigos – deve encontrar seu caminho através de um mundo perigoso…",
             "imagem": "img/Jitsu wa Ore, Saikyou deshita.jpg",
             "ano": null,
             "tags": ["Isekai", "Fantasia"],
@@ -276,7 +1028,7 @@
         },
         {
             "titulo": "Ryza no Atelier",
-            "descricao": "Reisalin Stout busca aventura e descobre o mundo da alquimia.",
+            "descricao": "O jogo segue a história de Reisalin Stout, uma garota que mora na Ilha Kurken em busca de aventura. Em um dia de verão, ela encontra um barco a remo abandonado e se aventura no continente com seus amigos Lent Marslink e Tao Mongarten. Ao longo do caminho, ela salva a filha de um comerciante viajante e conhece o alquimista Empel Vollmer com sua parceira Lila Decyrus, que inicia Ryza no caminho do aprendizado da alquimia e suas aventuras interligadas e logo descobre a verdade sobre seu lar.",
             "imagem": "img/Ryza no Atelier.jpg",
             "ano": null,
             "tags": ["Fantasia", "Aventura", "Alquimia"],
@@ -284,7 +1036,7 @@
         },
         {
             "titulo": "Horimiya",
-            "descricao": "Hori e Miyamura descobrem os segredos um do outro fora da escola.",
+            "descricao": "Embora seja admirada na escola por sua amabilidade e proeza acadêmica, a estudante Kyouko Hori esconde outro lado dela. Com os pais muitas vezes longe de casa devido ao trabalho, Hori tem que cuidar do irmão mais novo e fazer as tarefas domésticas, não deixando chance de socializar fora da escola. Enquanto isso, Izumi Miyamura é vista como um otaku taciturno de óculos. No entanto, na realidade, ele é uma pessoa gentil, incapaz de estudar. Além disso, ele tem nove piercings escondidos atrás de seu cabelo comprido e uma tatuagem nas costas e no ombro esquerdo. Por mero acaso, Hori e Miyamura se cruzam fora da escola  nenhum parecendo o que o outro esperava. Esses opostos aparentemente polares tornam-se amigos, compartilhando um com o outro um lado que nunca mostraram a ninguém..",
             "imagem": "img/horimiya Piece.png",
             "ano": null,
             "tags": ["Romance", "Escolar", "Slice of Life"],
@@ -292,7 +1044,7 @@
         },
         {
             "titulo": "Mashle",
-            "descricao": "Em um mundo de magia, Mash usa seus músculos para enfrentar feiticeiros poderosos.",
+            "descricao": "Em um mundo onde todos são capazes de usar magia, há uma floresta densa e escura, onde um jovem treina sem parar. Seu nome é Mash Burnedead, e ele guarda um segredo: ele não sabe usar magia. Tudo o que ele queria era levar uma vida tranquila com seu avô, mas a sociedade mágica não tolera não-usuários – e para escapar do perigo, ele acaba se matriculando na Escola de Magia. Seu objetivo? Tornar-se um Visionário Divino de elite, acima de tudo e todos. Será que seus músculos trincados vão conseguir encarar os maiores talentos do mundo mágico?",
             "imagem": "img/Mashle.jpeg",
             "ano": null,
             "tags": ["Ação", "Comédia", "Magia"],
@@ -300,7 +1052,7 @@
         },
         {
             "titulo": "Tondemo Skill de Isekai Hourou Meshi",
-            "descricao": "Mukouda Tsuyoshi foi invocado por erro em um mundo de fantasia. Sua única habilidade é comprar produtos modernos do seu antigo mundo.",
+            "descricao": "Mukouda Tsuyoshi nunca foi alguém especial, então quando foi invocado em um mundo de fantasia como um dos grandes heróis acreditou ser sua oportunidade de viver uma aventura. Entretanto, sua invocação foi um erro, e seus status estão muito abaixo dos outros heróis que foram trazidos juntos dele, além de que sua única grande habilidade é a de ser capaz de comprar produtos modernos do seu antigo mundo.",
             "imagem": "img/Tondemo Skill de Isekai Hourou Meshi.jpg",
             "ano": null,
             "tags": ["Isekai", "Culinária", "Aventura"],
@@ -308,7 +1060,7 @@
         },
         {
             "titulo": "Kubo-san wa Mob wo Yurusanai",
-            "descricao": "Junta Shiraishi é um 'personagem de fundo' que ninguém nota, exceto por sua colega de classe Kubo, que não o deixa em paz.",
+            "descricao": "O estudante do ensino médio Junta Shiraishi tem um objetivo simples – viver uma juventude gratificante. No entanto, atingir esse objetivo parece ser mais difícil do que o esperado, pois todos ao seu redor muitas vezes não o notam devido à sua falta de presença. Na verdade, a falta de presença de Shiraishi é tão severa que as pessoas pensam que sua cadeira na sala de aula está sempre vazia e assumem erroneamente que ele frequentemente falta à escola. Existe até um boato estranho se espalhando na classe, alegando que aqueles que localizarem Shiraishi com sucesso serão abençoados com boa sorte para o dia.",
             "imagem": "img/Kubo-san wa Mob wo Yurusanai.jpg",
             "ano": null,
             "tags": ["Romance", "Escolar", "Slice of Life"],
@@ -316,7 +1068,7 @@
         },
         {
             "titulo": "Saikyou Onmyouji no Isekai Tenseiki",
-            "descricao": "O exorcista mais forte reencarna em um mundo de magia sem poderes mágicos, usando apenas suas habilidades de Onmyouji.",
+            "descricao": "A história acompanha Haruyoshi, um poderoso Onmyouji (exorcista) que foi traído pelo seu amigo. Em um último desejo antes de morrer, Haruyoshi pede para ser feliz na sua próxima vida e usa um feitiço de reencarnação. Inesperadamente, o feitiço funciona, mas acaba levando Haruyoshi para outro mundo, onde nasce em uma família de magos, mas sem qualquer poder mágico. Agora apenas com suas habilidade de Onmyouji, Haruyoshi tenta levar uma vida calma e pacifica ao lado das criaturas espirituais que o servem.",
             "imagem": "img/Saikyou Onmyouji no Isekai Tenseiki.jpg",
             "ano": null,
             "tags": ["Isekai", "Fantasia", "Sobrenatural"],
@@ -324,7 +1076,7 @@
         },
         {
             "titulo": "Bocchi the Rock",
-            "descricao": "Hitori Gotou é uma guitarrista extremamente tímida que sonha em entrar em uma banda e fazer amigos.",
+            "descricao": "A história acompanha Hitori Gotou, uma garota sem amigos que está aprendendo a tocar guitarra para se tornar uma estrela do rock, mas é extremamente tímida. Por mais que seu sonho parecesse inalcançável, ela acaba por conhecer Nijika Ijichi, uma baterista que está a procura de uma guitarrista para sua banda, criando assim a oportunidade para HItori entrar no mundo da música.",
             "imagem": "img/Bocchi the Rock.png",
             "ano": null,
             "tags": ["Música", "Comédia", "Slice of Life"],
@@ -332,7 +1084,7 @@
         },
         {
             "titulo": "Yuusha Party wo Tsuihou sareta Beast Tamer",
-            "descricao": "Rein, um domador de feras, é expulso do grupo do herói e decide seguir seu próprio caminho ao lado de garotas de raças fortes.",
+            "descricao": "Rein é um domador de feras que lutou ao lado do Herói para derrotar o Rei Demônio, até o dia em que seus colegas decidem expulsá-lo do bando. Ele então decide se aventurar sozinho, quando encontra uma garota chamada Kanade sendo atacada por um monstro. Rein tenta salvá-la, mas a garota derrota o monstro em um só golpe, revelando-se membro da Tribo dos Felinos Espirituais, uma das raças mais fortes do mundo! Rein então decide “domar” a garota, firmando um contrato com ela, e os dois partem em uma jornada. Mas a força estrondosa da garota-gato não passará despercebida por muito tempo…",
             "imagem": "img/Yuusha Party wo Tsuihou sareta Beast Tamer.jpg",
             "ano": null,
             "tags": ["Fantasia", "Aventura", "Harem"],
@@ -340,7 +1092,7 @@
         },
         {
             "titulo": "Isekai Meikyuu de Harem wo",
-            "descricao": "Michio Kaga reencarna em um mundo de jogo onde ele pode ganhar dinheiro explorando masmorras e montar seu próprio harém.",
+            "descricao": "A história acompanha Michio Kaga, um garoto sem muitos objetivos que passava o dia navegando pela internet. Certo dia ele se vê transportado para um outro mundo, onde está no corpo de um jovem forte e cheio de poderes acima da média. Aproveitando a oportunidade, Kaga decide se tornar um aventureiro para poder conseguir fama e dinheiro, podendo assim também conseguir várias garotas bonitas para o seu harém particular.",
             "imagem": "img/Isekai Meikyuu de Harem wo.png",
             "ano": null,
             "tags": ["Isekai", "Fantasia", "Harem"],
@@ -348,7 +1100,7 @@
         },
         {
             "titulo": "Kinsou no Vermeil",
-            "descricao": "Um estudante de magia acidentalmente invoca uma demônio poderosa que se torna sua familiar.",
+            "descricao": "A história acompanha um jovem que estava preste a repetir de ano na escola de magia, mas acaba encontrando por acidente um livro antigo que libera o selo da bela demônio Vermeil. Conhecida por ser poderosa o suficiente para causar desastres sem precedentes, o jovem precisa lidar com a inesperada responsabilidade que criou ao transformá-la em sua familiar, além de aprender a conviver com uma criatura capaz de destruir o mundo.",
             "imagem": "img/Kinsou no Vermeil.jpg",
             "ano": null,
             "tags": ["Fantasia", "Ecchi", "Romance"],
@@ -356,7 +1108,7 @@
         },
         {
             "titulo": "Tensei Kenja no Isekai Life",
-            "descricao": "Um funcionário de escritório é transportado para outro mundo onde se torna um domador de slimes e um sábio poderoso.",
+            "descricao": "A história acompanha um jovem que é transportado para um mundo de fantasia onde ele se torna o líder de um grupo de heróis. Ele precisa lidar com os desafios e perigos deste novo mundo enquanto busca seu lugar e propósito.",
             "imagem": "img/Tensei Kenja no Isekai Life.jpg",
             "ano": null,
             "tags": ["Isekai", "Fantasia", "Aventura"],
@@ -364,7 +1116,7 @@
         },
         {
             "titulo": "Kawaii dake ja Nai Shikimori-san",
-            "descricao": "Izumi namora Shikimori, que parece ser a namorada perfeita, mas que revela um lado sombrio e legal em situações de perigo.",
+            "descricao": "A história acompanha Shikimori, um garota linda e perfeita que começou a namorar com Izumi, um garoto calmo e pacifico. Por mais que Shikimori tente agir de acordo com sua aparência, tentando fazer coisas doces e meigas, ela acaba sempre se envolvendo em situações que a fazem parecer sombria e descolada, deixando Izumi ainda mais apaixonado por ela.",
             "imagem": "img/Kawaii dake ja Nai Shikimori-san.jpg",
             "ano": null,
             "tags": ["Romance", "Escolar", "Comédia"],
@@ -372,7 +1124,7 @@
         },
         {
             "titulo": "Gaikotsu Kishi-sama",
-            "descricao": "Um jogador acorda no mundo do jogo dentro do corpo de um esqueleto blindado, tentando viver sem chamar atenção.",
+            "descricao": "A história acompanha um jovem que dormiu enquanto passava a noite jogando, entretanto, ao acordar, percebeu que estava agora no mundo do jogo. Não o bastante, ele ainda foi colocado no corpo de um esqueleto. A partir de então, ele decide encontrar um lugar seguro onde possa viver naquele mundo, mas ao se deparar com uma jovem elfa sua paz é colocada em jogo, onde acaba sempre se envolvendo em novas batalhas.",
             "imagem": "img/Gaikotsu Kishi-sama.jpg",
             "ano": null,
             "tags": ["Isekai", "Fantasia", "Aventura"],
@@ -380,7 +1132,7 @@
         },
         {
             "titulo": "Otome Game Sekai wa Mob ni Kibishii Sekai desu",
-            "descricao": "Leon reencarna em um mundo de jogo otome onde os homens são tratados como cidadãos de segunda classe.",
+            "descricao": "Após acordar em um mundo desconhecido, Leon percebe que foi reencarnado no universo de um otome game que jogou. Nesse mundo as mulheres dominam completamente os homens, os usando como bem entendem para alcançar seus objetivos. Não o bastante, as únicas rotas amorosas disponíveis no jogo são com um grupo de príncipes herdeiros. Percebendo sua situação, Leon decide usar seus conhecimentos do jogo para iniciar uma revolução contra as mulheres, mudando completamente aquele mundo ",
             "imagem": "img/Otome Game Sekai wa Mob ni Kibishii Sekai desu.jpeg",
             "ano": null,
             "tags": ["Isekai", "Mecha", "Harem"],
@@ -388,7 +1140,7 @@
         },
         {
             "titulo": "Sentouin, Hakenshimasu!",
-            "descricao": "O Agente Nº 6 de uma organização maligna é enviado para um mundo de fantasia para preparar o terreno para uma invasão.",
+            "descricao": "A história acompanha um homem conhecido com Número 6, que faz parte de uma organização maligna chamada Kisaragi Secret Society. Em um certo dia, ele é enviado para fazer o reconhecimento de um mundo distante, ao lado de sua nova parceira, uma androide chamada Alice. Entretanto, ao chegar no novo mundo, que ele supostamente deveria invadir e dominar, Número 6 acaba por perceber que o lugar é o completo clichê de mundo de fantasias, com várias criaturas e pessoas do tipo. Agora, ele precisa encontrar uma forma de superar a diferença cultural do lugar antes de completar a sua temida dominação.",
             "imagem": "img/Sentouin, Hakenshimasu.jpg",
             "ano": null,
             "tags": ["Ação", "Comédia", "Sci-Fi"],
@@ -396,7 +1148,7 @@
         },
         {
             "titulo": "Komi-san wa, Comyushou desu",
-            "descricao": "A bela Komi-san sofre de uma ansiedade social extrema e seu colega Tadano decide ajudá-la a fazer 100 amigos.",
+            "descricao": "A história acompanha Komi Shouko, um das garotas mais bonitas da escola, que comumente é conhecida pela sua aura de superioridade e frieza. Porém, o que muitos não sabem é que essa “presença superiora” é resultado da sua completa falta de capacidade de comunicação, e agora cabe a Hitohito Tadano, o único que sabe do problema da garota, ajudá-la a aprender a se comunicar melhor.",
             "imagem": "img/Komi-san wa, Comyushou desu.jpg",
             "ano": null,
             "tags": ["Comédia", "Escolar", "Slice of Life"],
@@ -404,7 +1156,7 @@
         },
         {
             "titulo": "Shinka no Mi: Shiranai Uchi ni Kachigumi Jinsei",
-            "descricao": "Seiichi, um garoto excluído, é transportado para outro mundo onde come o Fruto da Evolução e muda completamente de vida.",
+            "descricao": "A história acompanha Seiichi Hiiragi, um garoto que sofria bullying por conta de seu peso e aparência. Certo dia, enquanto fazia uma excursão da escola, toda sua turma foi transportada para um mundo de fantasia, recebendo classes e funções especificas. Entretanto, Seiichi foi enviado para um lugar sozinho, onde encontra o “Fruto da Evolução”, que o transforma em uma nova pessoa. Pouco tempo depois, uma gorila se apaixona por ele e o pede em casamento, também comendo o fruto e se transformando em uma bela garota.",
             "imagem": "img/Shinka no Mi Shiranai Uchi ni Kachigumi Jinsei.jpg",
             "ano": null,
             "tags": ["Isekai", "Fantasia", "Romance"],
@@ -412,7 +1164,7 @@
         },
         {
             "titulo": "Tsuki ga Michibiku Isekai Douchuu",
-            "descricao": "Makoto é banido para os confins de um novo mundo por uma deusa que o achou feio, mas ele acaba se tornando incrivelmente forte.",
+            "descricao": "A história acompanha Makoto Misumi, um jovem comum que é invocado em um mundo de fantasia para ser o grande herói que salvará as pessoas. Entretanto, quando a Deusa do lugar o vê, acaba o destituindo do título e o banindo para uma região deserta por achar o rosto do rapaz feio demais. Tendo adquirido grandes poderes nesse novo mundo, Makoto consegue sobreviver ao seu banimento e encontrar várias criaturas incríveis, como aranhas e dragões, formando assim alianças inesperadas para que possa remodelar o mundo em que os Deuses e humanos o abandonaram.",
             "imagem": "img/Tsuki ga Michibiku Isekai Douchuu.jpg",
             "ano": null,
             "tags": ["Isekai", "Fantasia", "Ação"],
@@ -420,7 +1172,7 @@
         },
         {
             "titulo": "Ijiranaide, Nagatoro-san",
-            "descricao": "Nagatoro adora provocar e zombar de seu Senpai tímido, mas conforme o tempo passa, os dois se aproximam.",
+            "descricao": "A estudante Hayase Nagatoro adora passar seu tempo livre fazendo uma coisa, que é intimidar seu Senpai! Depois que Nagatoro e seus amigos tropeçam nos desenhos da aspirante a artista, eles se divertem em intimidar impiedosamente o tímido Senpai. Nagatoro resolve continuar seu jogo cruel e o visita diariamente para que ela possa forçar Senpai a fazer o que lhe interessar no momento, especialmente se isso o deixar desconfortável. Ligeiramente excitado e com um pouco de medo de Nagatoro, Senpai está constantemente amarrado em suas travessuras enquanto seus interesses, hobbies, aparência e até personalidade são usados ​​contra ele enquanto ela se diverte às custas dele.",
             "imagem": "img/Ijiranaide, Nagatoro-san.jpg",
             "ano": null,
             "tags": ["Romance", "Comédia", "Escolar"],
@@ -428,7 +1180,7 @@
         },
         {
             "titulo": "Slime Taoshite 300-nen",
-            "descricao": "Após morrer de excesso de trabalho, Azusa reencarna como uma bruxa imortal e passa 300 anos matando apenas slimes.",
+            "descricao": "Em um mundo onde dragões são vistos como uma das mais poderosas criaturas mitológicas, sendo seus corpos o material perfeito para a criação de equipamentos, Letty, com a ajuda de um elfo arquiteto, precisa encontrar um lugar seguro para viver depois de ter sido expulso de casa pelo próprio pai, já que ele, como um dragão, não tem qualquer capacidade para agir como tal.",
             "imagem": "img/Slime Taoshite 300-nen.jpg",
             "ano": null,
             "tags": ["Slice of Life", "Fantasia", "Comédia"],
@@ -436,7 +1188,7 @@
         },
         {
             "titulo": "Dragon, Ie wo Kau",
-            "descricao": "Um dragão covarde é expulso de casa e sai em busca da casa dos seus sonhos em um mundo de fantasia perigoso.",
+            "descricao": "A Dungeon Secreta é um lugar lendário onde escondem-se raros tesouros e itens. Nor, o terceiro filho de um clã de nobres falidos que acaba de perder sua única oportunidade de emprego, ouve falar por acaso da dungeon. Ele logo adquire uma habilidade que lhe permite criar, editar e conferir habilidades… E para usá-la, ele precisa acumular pontos através de tarefas, como comer refeições deliciosas e realizando atividades sexuais com indivíduas sedutoras do sexo oposto.",
             "imagem": "img/Dragon, Ie wo Kau.png",
             "ano": null,
             "tags": ["Fantasia", "Comédia"],
@@ -444,7 +1196,7 @@
         },
         {
             "titulo": "Ore dake Haireru Kakushi",
-            "descricao": "Nor descobre uma masmorra secreta que lhe dá habilidades raras, mas ele precisa gastar 'pontos' de formas peculiares.",
+            "descricao": "A Dungeon Secreta é um lugar lendário onde escondem-se raros tesouros e itens. Nor, o terceiro filho de um clã de nobres falidos que acaba de perder sua única oportunidade de emprego, ouve falar por acaso da dungeon. Ele logo adquire uma habilidade que lhe permite criar, editar e conferir habilidades… E para usá-la, ele precisa acumular pontos através de tarefas, como comer refeições deliciosas e realizando atividades sexuais com indivíduas sedutoras do sexo oposto.",
             "imagem": "img/Ore dake Haireru Kakushi.jpg",
             "ano": null,
             "tags": ["Fantasia", "Ecchi", "Aventura"],
@@ -452,7 +1204,7 @@
         },
         {
             "titulo": "Kaifuku Jutsushi no Yarinaoshi",
-            "descricao": "Um mago de cura traído volta no tempo para se vingar de todos que o usaram como ferramenta.",
+            "descricao": "A história se passa em um mundo de fantasia, acompanhando Keyar, um healer (Curandeiro) que foi traído e usado pelos seus companheiros de grupo por sua classe ser vista como inútil, já que não pode lutar sozinha. Entretanto, após certos eventos, Keyar desperta uma magia de cura suprema, “regenerando” seu própria mundo e voltando no tempo 4 anos antes, para que assim possa refazer sua vida, e ter sua vingança contra todos que fizeram mal a ele..",
             "imagem": "img/Kaifuku Jutsushi no Yarinaoshi.jpg",
             "ano": null,
             "tags": ["Fantasia", "Vingança", "Ecchi"],
@@ -460,7 +1212,7 @@
         },
         {
             "titulo": "Mushoku Tensei",
-            "descricao": "Um NEET reencarna como Rudeus em um mundo mágico, decidido a levar essa nova vida a sério e não repetir erros.",
+            "descricao": "Morto ao salvar um estranho de uma colisão de trânsito, um NEET de 34 anos reencarnou em um mundo mágico como Rudeus Greyrat, um bebê recém-nascido. Com conhecimento, experiência e arrependimentos de sua vida anterior retidos, Rudeus jura levar uma vida plena e não repetir seus erros do passado. Agora dotado de uma tremenda quantidade de poder mágico, bem como a mente de um adulto, Rudeus é visto como um gênio em formação por seus novos pais. Logo, ele se encontra estudando com poderosos guerreiros, como seu pai espadachim e um mago chamado Roxy Migurdia – tudo para aprimorar seus aparentes talentos. Mas, apesar de seu exterior inocente, Rudeus ainda é um otaku pervertido, que usa sua riqueza de conhecimento para fazer movimentos em mulheres que ele nunca poderia fazer em sua vida anterior.",
             "imagem": "img/Mushoku Tensei.jpg",
             "ano": null,
             "tags": ["Isekai", "Fantasia", "Aventura"],
@@ -468,7 +1220,7 @@
         },
         {
             "titulo": "Kami-tachi ni Hirowareta Otoko",
-            "descricao": "Ryouma morre de forma azarada e reencarna como uma criança que vive na floresta domando slimes.",
+            "descricao": "Ryouma Takebayashi morre dormindo aos 39 anos, após levar uma vida de infortúnios. Com pena dele, três divindades lhe oferecem a chance de reencarnar em um mundo de magia onde ele tem apenas uma missão: ser ele mesmo e aproveitar a vida. Eles conferem a Ryouma poderosas habilidades físicas, bem como a afinidade para dominar todos os elementos, e prometem cuidar dele. Sua nova vida de criança começa oficialmente quando ele é teletransportado para uma floresta.",
             "imagem": "img/Kami-tachi ni Hirowareta Otoko.png",
             "ano": null,
             "tags": ["Isekai", "Fantasia", "Slice of Life"],
@@ -476,7 +1228,7 @@
         },
         {
             "titulo": "Tonikaku Kawaii",
-            "descricao": "Nasa se apaixona por Tsukasa e ela aceita sair com ele, contanto que eles se casem primeiro.",
+            "descricao": "Após um encontro com a misteriosa Tsukasa, Nasa Yuzaki se apaixona à primeira vista. Nasa decide se declarar pra garota, mas ela responde: “Só vou sair com você se a gente se casar.” Assim começa a vida cativante e amorosa destes dois recém-casados!",
             "imagem": "img/Tonikaku Kawaii.jpg",
             "ano": null,
             "tags": ["Romance", "Comédia", "Escolar"],
@@ -484,7 +1236,7 @@
         },
         {
             "titulo": "Uzaki-chan wa Asobitai",
-            "descricao": "Hana Uzaki inferniza a vida de seu veterano quieto, Sakurai, tentando tirá-lo de sua zona de conforto.",
+            "descricao": "A história acompanha Sakurai Shinichi, um garoto que só queria levar a sua vida em paz, mas que acaba por conhecer Uzuki Hana, uma energética e bem dotada garota que só quer se divertir e infernizá-lo. Graças ao seu charme provocador, e sua insistência, Uzuki consegue levar Shinichi para as mais diferentes loucuras, começando assim uma inesperada relação entre os dois.",
             "imagem": "img/Uzaki-chan wa Asobitai.png",
             "ano": null,
             "tags": ["Comédia", "Slice of Life", "Romance"],
@@ -492,7 +1244,7 @@
         },
         {
             "titulo": "Girls und Panzer",
-            "descricao": "Em um mundo onde operar tanques é uma arte marcial feminina, Miho lidera seu time rumo ao campeonato.",
+            "descricao": "Você pode ter ouvido de kung fu, mas as meninas da High School de Oarai prática arma-fu-muito, muito grande 75 milímetros arma-fu, na verdade. É chamado Sensha-do, e é a arte marcial de operar tanques blindados! Eles levam a sério demais, e desde que venceu o campeonato nacional Sensha-do é um negócio tão grande em Oarai, eles às vezes ir a extremos, a fim de obter os melhores alunos da classe Panzer para se inscrever.",
             "imagem": "img/Girls und Panzer.png",
             "ano": null,
             "tags": ["Ação", "Esporte", "Militar"],
@@ -500,7 +1252,7 @@
         },
         {
             "titulo": "JoJo’s Bizarre Adventure",
-            "descricao": "A saga multigeracional da família Joestar e sua luta contra forças sobrenaturais usando poderes de Stands.",
+            "descricao": "A história segue os Joestar, uma família cuja a linhagem é destinada a combater inimigos sobrenaturais, com membros de gerações diferentes recebendo diferentes poderes. A série é dividida em partes únicas, cada uma seguindo a história de um membro da família, que inevitavelmente tem um nome que pode ser abreviado para o titular “JoJo”.",
             "imagem": "img/JoJo’s Bizarre Adventure.png",
             "ano": null,
             "tags": ["Ação", "Aventura", "Sobrenatural"],
@@ -508,7 +1260,7 @@
         },
         {
             "titulo": "Ishuzoku Reviewers",
-            "descricao": "Aventureiros em um mundo de fantasia avaliam casas de entretenimento de diferentes raças mágicas.",
+            "descricao": "O anime acompanha um grupo de homens dando suas opiniões a respeito de quais tipos de garotas são as melhores (Elfas, succubus, humanas), onde eles visitam diferentes lugares a fim de provar suas opiniões a respeito de qual é a melhor espécie de mulher.",
             "imagem": "img/Ishuzoku Reviewers.jpg",
             "ano": null,
             "tags": ["Comédia", "Ecchi", "Fantasia"],
@@ -516,7 +1268,7 @@
         },
         {
             "titulo": "Boku no Pico",
-            "descricao": "Pico, um garoto afeminado, trabalha no bar do avô no verão. Tamotsu, um homem mais velho, confunde Pico com uma garota e se apaixona.",
+            "descricao": "A história acompanha uma garota que foi convidada para um VRMMORPG pela amiga de escola, mas, por conta de suas preocupações em sentir dor, acaba criando um personagem totalmente focado em defesa. Graças a ter colocado todo os seus pontos em VIT (vitalidade) ela conseguiu a skill especial “Absolute Defense”, que não a deixa tomar nenhum dano, ou sentir dor. A partir daí, mesmo não sendo capaz de se mover rapidamente, usar magia, e tendo uma força menor que a de um coelho, Maple começa a se aventurar com seus amigos no mundo do jogo.",
             "imagem": "img/Boku no Pico.jpg",
             "ano": null,
             "tags": ["Romance", "Drama"],
@@ -524,7 +1276,7 @@
         },
         {
             "titulo": "Itai no wa Iya nano de Bougyoryoku",
-            "descricao": "Maple começa a jogar um VRMMORPG e foca todos os seus pontos em defesa, tornando-se uma fortaleza invencível por acidente.",
+            "descricao": "A história acompanha uma garota que foi convidada para um VRMMORPG pela amiga de escola, mas, por conta de suas preocupações em sentir dor, acaba criando um personagem totalmente focado em defesa. Graças a ter colocado todo os seus pontos em VIT (vitalidade) ela conseguiu a skill especial “Absolute Defense”, que não a deixa tomar nenhum dano, ou sentir dor. A partir daí, mesmo não sendo capaz de se mover rapidamente, usar magia, e tendo uma força menor que a de um coelho, Maple começa a se aventurar com seus amigos no mundo do jogo.",
             "imagem": "img/Itai no wa Iya nano de Bougyoryoku.jpg",
             "ano": null,
             "tags": ["Jogos", "Comédia", "Fantasia"],
@@ -532,7 +1284,7 @@
         },
         {
             "titulo": "Sewayaki Kitsune no Senko-san",
-            "descricao": "Uma raposa divina aparece para cuidar de um funcionário exausto, trazendo conforto e refeições quentes.",
+            "descricao": "A vida cotidiana de Nakano, um trabalhador assalariado que trabalha para uma empresa exploradora, é subitamente invadida pela raposa, Senko-san. Seja cozinhando, limpando ou no serviço especial… ela vai curar sua exaustão com seu cuidado carinhoso.",
             "imagem": "img/Sewayaki Kitsune no Senko-san.png",
             "ano": null,
             "tags": ["Slice of Life", "Sobrenatural", "Comédia"],
@@ -540,7 +1292,7 @@
         },
         {
             "titulo": "Seishun Buta Yarou wa Bunny Girl Senpai",
-            "descricao": "Sakuta encontra garotas sofrendo da 'Síndrome da Puberdade', começando por uma atriz famosa vestida de coelhinha.",
+            "descricao": "Sindrome da puberdade – experiências anormais que dizem ser causadas pela sensitividade e instabilidade comuns na adolescência. Este ano, Sakuta Azusagawa, um estudante do segundo ano de um colégio perto de Enoshima, conheceu várias garotas que estão sofrendo dessa “síndrome da puberdade.” Como, por exemplo, uma garota-coelhinho que ele conheceu na biblioteca. Ela é Mai Sakurajima, uma atriz que deu uma pausa na carreira, e também sua veterana no colégio. Por algum motivo, ninguém mais consegue ver essa encantadora garota. Como será que ela ficou invisível?",
             "imagem": "img/Seishun Buta Yarou wa Bunny Girl Senpai.png",
             "ano": null,
             "tags": ["Romance", "Sobrenatural", "Escolar"],
@@ -548,7 +1300,7 @@
         },
         {
             "titulo": "Shoujo Shuumatsu Ryokou",
-            "descricao": "Duas garotas viajam pelas ruínas de uma civilização morta em seu veículo militar, buscando comida e combustível.",
+            "descricao": "A civilização está morta, mas Chito e Yuuri ainda estão vivas. Elas sobem a bordo de sua amada moto Kettenkrad e vagarosamente vagam pelas ruínas do mundo que já conheceram. Dia após dia sem esperança, elas procuram sua próxima refeição e abastecem seu transporte. Mas enquanto as duas estiverem juntas, até uma existência tão sombria como a delas tem um ou dois raios de luz, quer estejam sugando sua sopa ou caçando peças. Para as duas meninas em um mundo cheio de nada, as experiências e os sentimentos que compartilham lhes dão motivo para viver…",
             "imagem": "img/Shoujo Shuumatsu Ryokou.jpeg",
             "ano": null,
             "tags": ["Adventure", "Sci-Fi", "Slice of Life"],
@@ -556,7 +1308,7 @@
         },
         {
             "titulo": "Kobayashi-san Chi no Maid",
-            "descricao": "Kobayashi salva uma dragão e acaba com uma empregada dragão dedicada vivendo em seu apartamento.",
+            "descricao": "Kobayashi vivia sozinha em um apartamento, até que um dia, Tooru apareceu e elas acabaram vivendo juntas. Tooru, que é uma garota dragão, encara os seres humanos como inferiores e tolos, mas como foi salva por Kobayashi-san, ela faz tudo o que pode para pagar sua dívida e a ajuda com várias coisas, embora nem tudo saia de acordo com o planejado.",
             "imagem": "img/Kobayashi-san Chi no Maid.jpg",
             "ano": null,
             "tags": ["Comédia", "Fantasia", "Slice of Life"],
@@ -564,7 +1316,7 @@
         },
         {
             "titulo": "Beastars",
-            "descricao": "Em um mundo de animais antropomórficos, um lobo sensível luta contra seus instintos e o preconceito social.",
+            "descricao": "Em um mundo onde animais humanoides vivem em paz, um jovem lobo membro de uma academia de drama (atuação, teatro), sofre preconceito devido a sua raça ser considerada ameaçadora, apesar dele na verdade ser uma criatura sensível e obstinado a conseguir realizar seus sonhos. Na história acompanhamos a vida dele e de seus colegas animais da academia.",
             "imagem": "img/Beastars.jpg",
             "ano": null,
             "tags": ["Drama", "Psicológico", "Slice of Life"],
@@ -572,7 +1324,7 @@
         },
         {
             "titulo": "Rokudenashi Majutsu Koushi to Akashic Records",
-            "descricao": "Um professor substituto preguiçoso e aparentemente inútil esconde um passado de combate em uma academia de magia.",
+            "descricao": "Sisti frequenta uma academia de magia para aprimorar suas habilidades nas artes mágicas, e com isso espera resolver o mistério que ronda um Castelo Celeste, mas antes de resolver o grande mistério relacionado ao seu avó, Sisti terá que lidar com Glen, o professor substituto que não passa de um preguiçoso e, aparentemente, um instrutor incompetente. Como poderia Glen ser escolhido para lecionar na melhor academia de magia?!",
             "imagem": "img/Rokudenashi Majutsu Koushi to Akashic Records.png",
             "ano": null,
             "tags": ["Magia", "Escolar", "Fantasia"],
@@ -580,7 +1332,7 @@
         },
         {
             "titulo": "Rakudai Kishi no Cavalry",
-            "descricao": "Ikki, o 'pior' cavaleiro mágico, precisa provar seu valor em duelos contra a elite da escola.",
+            "descricao": "Os Cavaleiros Mágicos, usuários de magia modernos que lutam com armas convertidas de suas almas. Kurogane Ikki frequenta uma escola para esses Cavaleiros Mágicos, mas é o “Cavaleiro Fracassado” ou “O Pior” que falhou por não ter habilidades mágicas. No entanto, certo dia, ele é desafiado para um duelo por Stella, uma princesa estrangeira e a aluna número um. Neste duelo, o perdedor deve obedecer o vencedor pelo resto da vida.",
             "imagem": "img/Rakudai Kishi no Cavalry.png",
             "ano": null,
             "tags": ["Ação", "Fantasia", "Romance"],
@@ -588,7 +1340,7 @@
         },
         {
             "titulo": "Charlotte",
-            "descricao": "Jovens com poderes imperfeitos são reunidos em uma escola para protegê-los de cientistas e do próprio destino.",
+            "descricao": "Um número muito reduzido de adolescentes possui poderes sobrenaturais. No entanto, todos esses poderes são imperfeitos, tendo, por isso, uma utilidade muito limitada. Otosaka Yuu é um desses jovens e usa a sua habilidade de possuir outras pessoas por cinco segundos para ter uma vida escolar satisfatória e entrar numa escola prestigiosa, possuindo os melhores alunos e copiando-os. Contudo, certo dia é denunciado por Tomori Nao, que também possui poderes e é presidente da Associação de Estudantes da Academia Hoshinoumi, instituição destinada àqueles com habilidades sobrenaturais. O seu encontro leva Yuu a transferir-se para a Academia Hoshinoumi e, assim, a descobrir o duro destino daqueles que possuem poderes.",
             "imagem": "img/Charlotte.png",
             "ano": null,
             "tags": ["Drama", "Escolar", "Superpoderes"],
@@ -596,7 +1348,7 @@
         },
         {
             "titulo": "Chuunibyou Demo Koi Ga Shitai",
-            "descricao": "Yuuta quer esquecer seu passado embaraçoso de 'delírios', mas encontra Rikka, que ainda vive neles.",
+            "descricao": "Yuuta Togashi sofria de chuunibyou enquanto ele estava no ensino médio. Quando se formou, ele colocou que a história escuro atrás dele e esqueceu … ou ele deveria. High school era bom velejar e cheio de prazer, até que o inevitável evento, triste ocorre. . O evento que bloqueia Yuuta um contrato com Rikka Takanashi e atrapalha sua vida desesperadamente normal.",
             "imagem": "img/Chuunibyou Demo Koi Ga Shitai.png",
             "ano": null,
             "tags": ["Comédia", "Romance", "Escolar"],
@@ -604,7 +1356,7 @@
         },
         {
             "titulo": "Chobits",
-            "descricao": "Hideki encontra um computador humanoide jogado no lixo e começa a descobrir os segredos de sua consciência.",
+            "descricao": "No futuro, foram criados os “Persocoms”, humanóides inteligentes que se parecem com seres humanos. Hideki Motosuwa deseja comprar um, mas não tem dinheiro para isso. Um dia, ele encontra um Persocom que aparentemente foi jogado fora e decide ficar com ela. Ao ligar o Persocom, tudo o que ela diz é “Chi” então ele decide que esse será o seu nome. Após um tempo, Hideki começa a perceber que Chi não é um Persocom qualquer. Ela aparenta ser um ”Chobit”, um tipo avançado de Persocom que tem pensamento próprio, ou seja, consciência.",
             "imagem": "img/Chobits.jpg",
             "ano": null,
             "tags": ["Sci-Fi", "Romance", "Comédia"],
@@ -612,7 +1364,7 @@
         },
         {
             "titulo": "Naruto Shippuden",
-            "descricao": "Naruto retorna após dois anos de treinamento para enfrentar a organização Akatsuki e resgatar Sasuke.",
+            "descricao": "Naruto Shippuuden ocorre 2 anos e meio após Naruto ter ficado para treinar com Jiraiya. Após seu retorno, Naruto descobre que seus amigos shinobi’s o superaram na classificação, e ele caiu para trás. No entanto, com apenas 6 meses para resgatar Sasuke, Naruto tem de enfrentar inimigos ainda mais perigosos. O plano da Akatsuki se revela lentamente e os perigos surgem mais do que nunca!",
             "imagem": "img/Naruto Shippuden.jpg",
             "ano": null,
             "tags": ["Ação", "Aventura", "Shounen"],
@@ -620,7 +1372,7 @@
         },
         {
             "titulo": "Midara na Ao-chan wa Benkyou ga Dekinai",
-            "descricao": "Ao tenta estudar para fugir da influência de seu pai (autor erótico), mas seus próprios pensamentos começam a traí-la.",
+            "descricao": "Quando Ao estava no jardim de infância, ela costumava sorrir e contar de forma inocente a seus colegas como seu pai (um autor best-seller de novels eróticas) escolheu seu nome: A de Apple e O de Orgia. Esse dia ainda a assombra 10 anos depois, enquanto ela estuda desesperadamente com um único objetivo em mente: entrar em uma universidade de elite e ganhar independência para se ver livre de seu pai. Ela não tem tempo para pensar em relacionamentos, ou ao menos assim ela pensava, até que um dos garotos da sua turma se declara para ela. Ela tenta fazê-lo desistir, mas ele continua insistindo, enquanto a mente dela começa a explodir com pensamentos eróticos, e ela descobre que seu pai a influenciou mais do que podia imaginar.",
             "imagem": "img/Midara na Ao-chan wa Benkyou ga Dekinai.jpg",
             "ano": null,
             "tags": ["Comédia", "Romance", "Ecchi"],
@@ -628,7 +1380,7 @@
         },
         {
             "titulo": "Fullmetal Alchemist: Brotherhood",
-            "descricao": "Dois irmãos buscam a Pedra Filosofal para recuperar seus corpos após um experimento de alquimia proibido falhar.",
+            "descricao": "Depois de perderem sua mãe, Alphonse e Edward Elric tentam trazê-la de volta usando uma técnica de alquimia proíbida. Contudo, o princípio básico da alquimia é a ‘troca equivalente’, e tentar ressucitar alguém custa muito alto. Ed perde sua perna, e Al perde seu corpo. Ed consegue selar a alma de Al dentro de uma grande armadura metálica, dando em troca seu braço. Anos depois, Ed (com dois membros de metal) e Al (ainda preso na armadura) deixam a sua cidade natal.Ed, que possui um talento nato para a alquimia, se torna um alquimista com certificado nacional, e logo passa a ser chamado de ‘full metal alchemist’. Mas o verdadeiro objetivo dos irmãos é encontrar a pedra filosofal, na esperança de recuperarem os seus corpos originais. Logo eles descobrem que essa mística pedra, que pode nem existir, é visada não só por eles, mas como muitas outras pessoas também.",
             "imagem": "img/Fullmetal Alchemist Brotherhood.jpg",
             "ano": null,
             "tags": ["Ação", "Aventura", "Drama"],
@@ -636,7 +1388,7 @@
         },
         {
             "titulo": "Noragami",
-            "descricao": "Yato, um deus menor sem santuário, faz bicos por 5 ienes enquanto tenta se tornar uma divindade famosa.",
+            "descricao": "A história começa por Yato, um deus menor cujo sonho é ter milhões de seguidores. Infelizmente, seu sonho está longe de se tornar realidade, visto que sequer tem um santuário dedicado ao seu nome e se encontra sem nenhum Instrumento Divino, depois que seu último se demitiu após 3 meses de parceria. Neste cenário, Yato se depara com Hiyori, uma garota que secretamente é fã de artes marciais. Em seu primeiro encontro com ela, Yato é “salvo” quando Hiyori impede que ele seja atingindo por um caminhão, mas ela é atingida em seu lugar. A partir desse momento, Hiyori se encontra entre dois mundos. O que acontecerá?",
             "imagem": "img/Noragami.png",
             "ano": null,
             "tags": ["Ação", "Sobrenatural", "Aventura"],
@@ -644,7 +1396,7 @@
         },
         {
             "titulo": "Kono Subarashii Sekai Ni Shukufuku Wo",
-            "descricao": "Kazuma morre e leva uma deusa inútil consigo para um mundo de fantasia, onde formam um grupo caótico.",
+            "descricao": "A vida de Satou Kazuma, um hikikomori que gosta de jogos, subitamente chega a um fim devido a um acidente de trânsito… Era para ser assim, mas quando ele acordou, uma linda garota que dizia ser uma deusa estava diante dele. Ela então o convida para um outro mundo para o qual ele só pode levar uma coisa que escolher. A partir daí a grande aventura para derrotar o Rei Demônio começa para o Kazuma reencarnado… Ou é o que você pensaria, mas é a luta para conseguir comida, roupa e abrigo que começa! Apesar de Kazuma querer viver em paz, a deusa continua causando problemas um atrás do outro e eles acabam atraindo a atenção do exército do Rei Demônio!",
             "imagem": "img/Kono Subarashii Sekai Ni Shukufuku Wo.png",
             "ano": null,
             "tags": ["Isekai", "Comédia", "Fantasia"],
@@ -652,7 +1404,7 @@
         },
         {
             "titulo": "Kyoukai No Kanata",
-            "descricao": "A história de um imortal metade-youmu e uma caçadora de youmus que usa seu próprio sangue como arma.",
+            "descricao": "A história acompanha Akihito Kanbara, segundo ano, que apesar de parecer humano, é metade yõmu e pode se curar rapidamente de feridas, tornando-se praticamente invulnerável. Um dia, Akihito encontra a caloura Mirai Kuriyama, quando ela parecia querer pular da cobertura da escola. Mirai é solitária por causa da abilidade que possui de manipular sangue,o que é considerado heresia mesmo entre as pessoas do mundo espiritual.Logo após que Akihito salva Mirai do suícido, terríveis eventos começam a acontecer aos dois.",
             "imagem": "img/Kyoukai No Kanata.png",
             "ano": null,
             "tags": ["Fantasia", "Sobrenatural", "Slice of Life"],
@@ -660,7 +1412,7 @@
         },
         {
             "titulo": "Isekai Maou to Shoukan Shoujo no Dorei Majutsu",
-            "descricao": "Um jogador de MMORPG é invocado como seu avatar Rei Demônio em um mundo onde acaba escravizando as invocadoras sem querer.",
+            "descricao": "UNo MMORPG Cross Reverie, Sakamoto Takuma ostentava uma força avassaladora que foi suficiente para ele ser chamado de Rei Demônio pelos outros jogadores. Um dia, ele é invocado para outro mundo com a sua aparência do jogo. Lá, há duas pessoas que insistem que “Eu sou a verdadeira Mestra de Invocação”. As garotas utilizam Magia de Escravidão, que normalmente é usado em bestas invocadas, nele. Entretanto, a peculiar habilidade “Reflexão de Magias” é ativada! As que foram transformadas em escravas, foram as garotas!",
             "imagem": "img/Isekai Maou to Shoukan Shoujo no Dorei Majutsu.jpg",
             "ano": null,
             "tags": ["Isekai", "Ecchi", "Fantasia"],
@@ -668,7 +1420,7 @@
         },
         {
             "titulo": "Isekai wa Smartphone to Tomo ni",
-            "descricao": "Touya morre por engano e Deus o reencarna em um mundo mágico com seu smartphone e poderes aprimorados.",
+            "descricao": "Depois de morrer por um engano de Deus, o protagonista vai parar num mundo paralelo, onde ele começa sua nova vida. Suas únicas posses são o corpo que Deus lhe devolveu e um smartphone, que ainda funciona nesse outro mundo. Após conhecer várias novas pessoas e forjar novas amizades, ele começa a descobrir o segredo deste mundo. Ele herda o legado de uma antiga civilização e colabora com reis de vários países em sua jornada despreocupada neste novo mundo.",
             "imagem": "img/Isekai wa Smartphone to Tomo ni.png",
             "ano": null,
             "tags": ["Isekai", "Harem", "Fantasia"],
@@ -676,7 +1428,7 @@
         },
         {
             "titulo": "Acchi Kocchi",
-            "descricao": "Uma comédia romântica fofa sobre um grupo de amigos e a relação entre a tímida Tsumiki e o calmo Io.",
+            "descricao": "Uma grande Série de animação de televisão japonesa, Acchi Kocchi Online é totalmente baseado no grande mangá que teve o seu dia marcado no dia 05 do mês de abril e também na data de 28 de abril do ano de 2012. A Animação teve dois grandes episódios já lançadosásti e um episodio extra também foi lançado sendo ele um ova na data 16 de novembro do ano de 2012, o anime Acchi Kocchi Online, com o seu disco em blu-ray e 6 volumes já em DVD em seu país de origem no qual é o Japão",
             "imagem": "img/Acchi Kocchi.jpg",
             "ano": null,
             "tags": ["Comédia", "Romance", "Slice of Life"],
@@ -684,7 +1436,7 @@
         },
         {
             "titulo": "Ao no Exorcist",
-            "descricao": "Rin descobre que é filho de Satã e decide se tornar um exorcista para derrotar seu próprio pai.",
+            "descricao": "O mundo em Ao no Exorcist consiste em duas dimensões, adjuntas uma a outra como um espelho e seu reflexo. Uma é o mundo onde os humanos vivem, Assiah. A outra é mundo dos demônios, Gehenna. Originalmente, uma viagem entre os mundos, ou mesmo um contato entre eles, é impossível. Entretanto, qualquer demônio é capaz de passar à dimensão de Assiah atráves da possessão de um ser vivente na mesma. Blue Exorcist",
             "imagem": "img/Ao no Exorcist.jpg",
             "ano": null,
             "tags": ["Ação", "Sobrenatural", "Fantasia"],
@@ -692,7 +1444,7 @@
         },
         {
             "titulo": "Black Clover",
-            "descricao": "Asta nasceu sem magia em um mundo onde ela é tudo, mas ele recebe um grimório raro de anti-magia.",
+            "descricao": "Num mundo onde magia é tudo, Asta e Yuno são abandonados em uma igreja no mesmo dia. Enquanto Yuno possui poderes mágicos excepcionais, Asta é a única pessoa do mundo todo desprovida desse dom. Aos quinze anos, ambos recebem grimórios – livros mágicos que amplificam os poderes do detentor. Asta recebe um raro grimório de anti-magia, capaz de negar e repelir os feitiços do oponente. Dois opostos que nutrem uma rivalidade amigável, Yuno e Asta estão prontos para encarar os mais difíceis desafios para conquistar seu sonho em comum: tornar-se o Rei dos Feiticeiros. Desistir não é opção!",
             "imagem": "img/Black Clover.png",
             "ano": null,
             "tags": ["Ação", "Magia", "Fantasia"],
@@ -700,7 +1452,7 @@
         },
         {
             "titulo": "Naruto Clássico",
-            "descricao": "Um jovem ninja órfão e excluído busca reconhecimento e sonha em se tornar o líder de sua vila, o Hokage.",
+            "descricao": "Doze anos antes do início da série, um monstro conhecido como Raposa de Nove Caudas (Kyuubi) atacou a aldeia de Konoha, destruindo grande parte da aldeia e tirando muitas vidas. O líder da aldeia, o quarto Hokage, sacrificou a sua vida para selá-la em um recém-nascido, Naruto Uzumaki. Órfão por causa do ataque, Naruto sempre é evitado pelos moradores, que por medo e raiva, veem-no como o próprio Nove Caudas. Com sua sede por reconhecimento, Naruto jura que um dia se tornará o maior Hokage da aldeia.",
             "imagem": "img/Naruto Clássico.jpg",
             "ano": null,
             "tags": ["Ação", "Aventura", "Shounen"],
@@ -708,7 +1460,7 @@
         },
         {
             "titulo": "Tensei Shitara Slime Datta Ken",
-            "descricao": "Um homem morre e reencarna como um slime poderoso, construindo uma nação para monstros em um novo mundo.",
+            "descricao": "Vivendo sozinho e sem nunca ter uma namorada, Satoru Mikami, de 37 anos, está insatisfeito como onde sua vida chegou. Mas depois de morrer nas mãos de um ladrão, ele desperta para um novo começo em um novo mundo… como um slime.",
             "imagem": "img/Tensei Shitara Slime Datta Ken.jpg",
             "ano": null,
             "tags": ["Isekai", "Ação", "Fantasia"],
@@ -716,7 +1468,7 @@
         },
         {
             "titulo": "Tsugumomo",
-            "descricao": "Kazuya possui um obi herdado de sua mãe que se transforma em uma bela e agressiva garota espírito.",
+            "descricao": "Kagami Kazuya nunca vai a qualquer lugar sem o precioso “Sakura Obi” que sua mãe lhe deu. Um dia, uma bela moça vestida de quimono chamada Kiriha apareceu diante dele. Kiriha naturalmente começou a viver com Kazuya em seu quarto. Então, tem Chisato, a amiga de Kazuya com óculos e tranças, que se intromete em seus assuntos. Há também a irmã mais velha superprotetora que parece querer tomar banho com ele. Misture uma sacerdotisa de fartos seios, uma bela feiticeira chamada Kokuyoura, mulheres bonitas e meninas excitadas e a feliz, constrangedora e confusa vida de Kazuya começa.",
             "imagem": "img/Tsugumomo.png",
             "ano": null,
             "tags": ["Ação", "Ecchi", "Comédia"],
@@ -724,7 +1476,7 @@
         },
         {
             "titulo": "One Punch Man",
-            "descricao": "Saitama treinou tanto que agora derrota qualquer inimigo com um único soco, o que o deixa entediado.",
+            "descricao": "aitama se tornou um herói por hobbie. Após três anos de um treinamento “especial”, ele se tornou tão forte que é praticamente invencível. Na verdade, ele é forte demais! Até mesmo o mais poderoso dos inimigos é derrotado em um soco só, mas, com uma vida sem desafios, ele sofre com o tédio e a depressão… Mesmo perdendo a sua paixão pelo heroísmo junto ao seu cabelo, ele ainda é confrontado por inimigos diariamente. Por quanto tempo ele ainda conseguirá seguir este caminho?",
             "imagem": "img/One Punch Man.jpg",
             "ano": null,
             "tags": ["Ação", "Comédia", "Paródia"],
@@ -732,7 +1484,7 @@
         },
         {
             "titulo": "Overlord",
-            "descricao": "Um jogador fica preso em um jogo de realidade virtual como seu avatar esqueleto e decide conquistar o mundo.",
+            "descricao": "Um homem decide não deslogar quando um VRMMORPG antigo é fechado e como consequência ele é transportado para o jogo. Com apenas ele ali e sem uma família para se preocupar ele começa a tentar dominar o mundo do jogo, aonde os NPCs estão mudando pouco a pouco e começando a sentir emoções humanas.",
             "imagem": "img/Overlord.jpeg",
             "ano": null,
             "tags": ["Isekai", "Ação", "Fantasia"],
@@ -740,7 +1492,7 @@
         },
         {
             "titulo": "Owari no Seraph",
-            "descricao": "Após um vírus matar adultos, crianças são escravizadas por vampiros, e Yuuichirou luta para se libertar e se vingar.",
+            "descricao": "Um dia, um vírus misterioso apareceu na Terra, que matou todos os humanos infectados com idade superior a 13 anos. Ao mesmo tempo, os vampiros surgiram a partir de trevas do mundo e da humanidade escravizada. Hyakuya Yuuichirou, um jovem rapaz, que, juntamente com o resto das crianças de seu orfanato, são tratados como gado pelos vampiros. Mesmo em cativeiro, Yuuichirou sonha grande. Ele sonha em matar vampiros. Ele sonha em matar todos eles.",
             "imagem": "img/Owari no Seraph.png",
             "ano": null,
             "tags": ["Ação", "Sobrenatural", "Drama"],
@@ -748,7 +1500,7 @@
         },
         {
             "titulo": "Uma Musume: Pretty Derby",
-            "descricao": "Garotas-cavalo competem em corridas e se tornam ídolos em um esporte de alta velocidade.",
+            "descricao": "A história do anime baseia se na história do jogo da serie, desenrola-se à volta de Uma Musume (meninas cavalo) que têm uma excelente capacidade para correr e que têm como objetivo tornarem-se idols e competirem no programa “Twinkle Series”.",
             "imagem": "img/Uma Musume Pretty Derby.png",
             "ano": null,
             "tags": ["Esporte", "Slice of Life"],

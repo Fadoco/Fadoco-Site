@@ -4,7 +4,7 @@
                         <img src="img/Knight's & Magic.png" alt="Cyberpunk: Edgerunners">
                     </div>
                     <h3>Knight's & Magic</h3>
-                    <p>Knight's & Magic (Naitsu to Majikku) é um isekai mecha sobre Ernesti Echevalier, um programador gênio e fã de robôs que reencarna em um mundo de fantasia com cavaleiros e magia. Ele usa seu conhecimento para pilotar e aprimorar os "Silhouette Knights" (robôs gigantes), buscando realizar seu sonho de construir o mecha supremo.</p>
+                    <p></p>
                     <div class="tags-list">
                         <span class="tag">Mecha</span>
                         <span class="tag">Isekai</span>
