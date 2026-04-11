@@ -222,7 +222,7 @@
         {
             "titulo": "Human Fall Flat",
             "descricao": "Um jogo de quebra-cabeça baseado em física hilário onde você controla personagens desajeitados em cenários surreais.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Human Fall Flat.jpg",
             "ano": 2016,
             "tags": ["Física", "Puzzle", "Cooperativo"],
             "favorito": null
@@ -230,7 +230,7 @@
         {
             "titulo": "Brotato",
             "descricao": "Um roguelite de tiro de arena onde você controla uma batata empunhando até 6 armas ao mesmo tempo.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Brotato.jpg",
             "ano": 2023,
             "tags": ["Roguelite", "Ação", "Sobrevivência"],
             "favorito": null
@@ -238,7 +238,7 @@
         {
             "titulo": "Slime Rancher",
             "descricao": "Explore um planeta alienígena, colete slimes fofos e gerencie sua fazenda nesta aventura relaxante.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Slime Rancher.jpg",
             "ano": 2017,
             "tags": ["Aventura", "Simulação", "Exploração"],
             "favorito": null
@@ -246,7 +246,7 @@
         {
             "titulo": "VRChat",
             "descricao": "Uma plataforma social massiva onde você pode criar avatares, mundos e interagir com pessoas de todo o mundo em VR.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/VRChat.jpg",
             "ano": 2014,
             "tags": ["Social", "VR", "Multijogador"],
             "favorito": null
@@ -254,7 +254,7 @@
         {
             "titulo": "Need for Speed™ Rivals",
             "descricao": "Escolha entre ser um piloto de rua ou um policial em perseguições de alta velocidade em um mundo aberto dinâmico.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Need for Speed™ Rivals.jpg",
             "ano": 2013,
             "tags": ["Corrida", "Ação", "Carros"],
             "favorito": null
@@ -262,7 +262,7 @@
         {
             "titulo": "Muse Dash",
             "descricao": "Um jogo de ritmo vibrante que mistura jogabilidade de parkour com música e estética de anime.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Muse Dash.jpg",
             "ano": 2019,
             "tags": ["Ritmo", "Anime", "Ação"],
             "favorito": null
@@ -270,7 +270,7 @@
         {
             "titulo": "HOT WHEELS UNLEASHED™",
             "descricao": "Colecione os carros mais icônicos da Hot Wheels, construa pistas malucas e participe de corridas épicas.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/HOT WHEELS UNLEASHED™.jpg",
             "ano": 2021,
             "tags": ["Corrida", "Arcade", "Colecionismo"],
             "favorito": null
@@ -286,7 +286,7 @@
         {
             "titulo": "My Summer Car",
             "descricao": "O simulador definitivo de posse, construção e manutenção de carros em uma área rural da Finlândia nos anos 90.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/My Summer Car.jpg",
             "ano": 2016,
             "tags": ["Simulação", "Sobrevivência", "Carros"],
             "favorito": null
@@ -294,7 +294,7 @@
         {
             "titulo": "Hotshot Racing",
             "descricao": "Um jogo de corrida arcade com visual retrô inspirado nos clássicos dos anos 90, focado em drift e velocidade.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Hotshot Racing.jpg",
             "ano": 2020,
             "tags": ["Corrida", "Arcade", "Retrô"],
             "favorito": null
@@ -302,7 +302,7 @@
         {
             "titulo": "Gatekeeper: Eclipse",
             "descricao": "Um prólogo de ação roguelite acelerado onde você deve proteger o Coração do Universo contra hordas de inimigos.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Gatekeeper: Eclipse.jpg",
             "ano": 2024,
             "tags": ["Ação", "Roguelite", "Shooter"],
             "favorito": null
@@ -310,7 +310,7 @@
         {
             "titulo": "Friends vs Friends",
             "descricao": "Um shooter online frenético que combina combate 1v1 ou 2v2 com mecânicas de construção de baralho.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Friends vs Friends.jpg",
             "ano": 2023,
             "tags": ["FPS", "Cartas", "PvP"],
             "favorito": null
@@ -318,7 +318,7 @@
         {
             "titulo": "Clone Drone in the Danger Zone",
             "descricao": "Um jogo de luta de espadas baseado em voxel onde sua mente é transferida para um gladiador robô.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Clone Drone in the Danger Zone.jpg",
             "ano": 2021,
             "tags": ["Ação", "Robôs", "Voxel"],
             "favorito": null
@@ -326,7 +326,7 @@
         {
             "titulo": "Umamusume: Pretty Derby",
             "descricao": "Treine garotas-cavalo inspiradas em cavalos de corrida reais para vencer competições e se tornarem idols.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Umamusume Pretty Derby.jpg",
             "ano": 2021,
             "tags": ["Simulação", "Esporte", "Anime"],
             "favorito": null
