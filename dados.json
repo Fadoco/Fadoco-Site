@@ -70,7 +70,7 @@
         {
             "titulo": "Counter-Strike",
             "descricao": "O FPS competitivo mais icônico do mundo, focado em estratégia de equipe e precisão tática entre terroristas e contra-terroristas.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Counter-Strike.jpg",
             "ano": null,
             "tags": ["FPS", "Competitivo", "Tiro"],
             "favorito": null
@@ -78,7 +78,7 @@
         {
             "titulo": "Farlight 84",
             "descricao": "Um Battle Royale futurista e frenético com veículos armados, heróis com habilidades únicas e muita mobilidade no campo de batalha.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Farlight 84.png",
             "ano": null,
             "tags": ["Battle Royale", "FPS", "Sci-Fi"],
             "favorito": null
@@ -86,7 +86,7 @@
         {
             "titulo": "BattleBit Remastered",
             "descricao": "FPS massivo de baixo polígono que suporta até 254 jogadores por servidor, com foco em jogabilidade tática e destruição de ambiente.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/BattleBit Remastered.jpg",
             "ano": null,
             "tags": ["FPS", "Guerra", "Multijogador"],
             "favorito": null
@@ -94,7 +94,7 @@
         {
             "titulo": "Grand Theft Auto V",
             "descricao": "Explore o vasto mundo de Los Santos neste épico de mundo aberto que segue as vidas entrelaçadas de três criminosos muito diferentes.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Grand Theft Auto V.jpg",
             "ano": 2013,
             "tags": ["Mundo Aberto", "Ação", "Crime"],
             "favorito": null
@@ -102,7 +102,7 @@
         {
             "titulo": "Garry's Mod",
             "descricao": "Um sandbox físico sem objetivos definidos. Crie suas próprias experiências, modos de jogo e construções malucas com ferramentas de física.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Garry's Mod.jpg",
             "ano": 2006,
             "tags": ["Sandbox", "Física", "Multiplayer"],
             "favorito": null
@@ -110,7 +110,7 @@
         {
             "titulo": "Euro Truck Simulator 2",
             "descricao": "Viaje pela Europa como o rei da estrada, um caminhoneiro que entrega cargas importantes através de distâncias impressionantes.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Euro Truck Simulator 2.jpg",
             "ano": 2012,
             "tags": ["Simulador", "Direção", "Relaxante"],
             "favorito": null
@@ -118,7 +118,7 @@
         {
             "titulo": "Forager",
             "descricao": "Um jogo de mundo aberto 2D inspirado em títulos de exploração, farming e crafting. Explore, crie, colete e evolua sua base.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Forager.jpg",
             "ano": 2019,
             "tags": ["Crafting", "Sandbox", "Exploração"],
             "favorito": null
@@ -126,7 +126,7 @@
         {
             "titulo": "Ori And The Blind Forest",
             "descricao": "Um metroidvania visualmente deslumbrante que conta a história de um jovem órfão destinado ao heroísmo através de uma jornada emocional.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Ori And The Blind Forest.jpg",
             "ano": 2015,
             "tags": ["Metroidvania", "Plataforma", "Atmosférico"],
             "favorito": null
@@ -134,23 +134,15 @@
         {
             "titulo": "Left 4 Dead 2",
             "descricao": "O apocalipse zumbi nunca foi tão cooperativo. Enfrente hordas de infectados e zumbis especiais em uma corrida pela sobrevivência.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Left 4 Dead 2.jpg",
             "ano": 2009,
-            "tags": ["FPS", "Zombies", "Cooperativo"],
-            "favorito": null
-        },
-        {
-            "titulo": "Left 4 Dead",
-            "descricao": "O clássico que definiu o gênero de tiro cooperativo contra hordas de mortos-vivos e mutantes letais.",
-            "imagem": "img/placeholder.jpg",
-            "ano": 2008,
             "tags": ["FPS", "Zombies", "Cooperativo"],
             "favorito": null
         },
         {
             "titulo": "Celeste",
             "descricao": "Ajude Madeline a enfrentar seus demônios internos em sua jornada até o topo da Montanha Celeste neste jogo de plataforma super preciso.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Celeste.png",
             "ano": 2018,
             "tags": ["Plataforma", "Difícil", "Indie"],
             "favorito": null
@@ -158,7 +150,7 @@
         {
             "titulo": "Ultimate Marvel VS Capcom 3",
             "descricao": "O crossover definitivo de luta em 3vs3, reunindo os maiores heróis da Marvel e os ícones lendários da Capcom.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Ultimate Marvel VS Capcom 3.jpg",
             "ano": 2011,
             "tags": ["Luta", "Arcade", "2D"],
             "favorito": null
@@ -166,7 +158,7 @@
         {
             "titulo": "SUPER CHICKEN JUMPER",
             "descricao": "Um jogo de corrida e plataforma frenético onde você controla um frango em uma missão para salvar o mundo.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/SUPER CHICKEN JUMPER.jpg",
             "ano": 2021,
             "tags": ["Ação", "Runner", "Indie"],
             "favorito": null
@@ -174,7 +166,7 @@
         {
             "titulo": "Trailmakers",
             "descricao": "Construa veículos incríveis a partir de blocos e explore um mundo aberto cheio de desafios e corridas.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Trailmakers.jpg",
             "ano": 2019,
             "tags": ["Sandbox", "Construção", "Veículos"],
             "favorito": null
@@ -182,7 +174,7 @@
         {
             "titulo": "Sniper Elite 3",
             "descricao": "Um jogo de tiro tático em terceira pessoa focado em infiltração e precisão durante a Segunda Guerra Mundial.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Sniper Elite 3.jpg",
             "ano": 2014,
             "tags": ["Sniper", "Furtividade", "Guerra"],
             "favorito": null
@@ -190,7 +182,7 @@
         {
             "titulo": "SpiderHeck",
             "descricao": "Brawler baseado em física onde aranhas lutam até a morte com sabres de luz e granadas.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/SpiderHeck.jpg",
             "ano": 2022,
             "tags": ["Combate", "Física", "Multijogador"],
             "favorito": null
@@ -198,7 +190,7 @@
         {
             "titulo": "Game Dev Tycoon",
             "descricao": "Simulador de negócios onde você gerencia sua própria empresa de desenvolvimento de jogos desde a garagem.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Game Dev Tycoon.jpg",
             "ano": 2012,
             "tags": ["Simulação", "Estratégia", "Tycoon"],
             "favorito": null
@@ -206,7 +198,7 @@
         {
             "titulo": "Hollow Knight",
             "descricao": "Um metroidvania desafiador e atmosférico ambientado em um vasto reino de insetos em ruínas.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Hollow Knight.jpg",
             "ano": 2017,
             "tags": ["Metroidvania", "Souls-like", "Indie"],
             "favorito": null
@@ -214,7 +206,7 @@
         {
             "titulo": "Haste",
             "descricao": "Um jogo focado em velocidade e reflexos rápidos em ambientes de plataforma desafiadores.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Haste.jpg",
             "ano": null,
             "tags": ["Plataforma", "Velocidade"],
             "favorito": null
@@ -222,7 +214,7 @@
         {
             "titulo": "Just Cause 2",
             "descricao": "Ação em mundo aberto com foco em destruição total, saltos de paraquedas e o uso criativo de um gancho.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Just Cause 2.jpg",
             "ano": 2010,
             "tags": ["Ação", "Mundo Aberto", "Destruição"],
             "favorito": null
