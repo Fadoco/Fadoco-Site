@@ -230,7 +230,7 @@
         {
             "titulo": "Brotato",
             "descricao": "Um roguelite de tiro de arena onde você controla uma batata empunhando até 6 armas ao mesmo tempo.",
-            "imagem": "img/Brotato.jpg",
+            "imagem": "img/Brotato.jpeg",
             "ano": 2023,
             "tags": ["Roguelite", "Ação", "Sobrevivência"],
             "favorito": null
@@ -278,7 +278,7 @@
         {
             "titulo": "Your Only Move Is HUSTLE",
             "descricao": "Um simulador de luta tático por turnos onde você planeja cada movimento para criar sequências de combate épicas.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Your Only Move Is HUSTLE.jpg",
             "ano": 2023,
             "tags": ["Luta", "Estratégia", "Turnos"],
             "favorito": null
@@ -302,7 +302,7 @@
         {
             "titulo": "Gatekeeper: Eclipse",
             "descricao": "Um prólogo de ação roguelite acelerado onde você deve proteger o Coração do Universo contra hordas de inimigos.",
-            "imagem": "img/Gatekeeper: Eclipse.jpg",
+            "imagem": "img/Gatekeeper Eclipse.jpg",
             "ano": 2024,
             "tags": ["Ação", "Roguelite", "Shooter"],
             "favorito": null
@@ -334,7 +334,7 @@
         {
             "titulo": "Party Animals",
             "descricao": "Lute com seus amigos como filhotes, gatinhos e outros animais fofos neste brawler baseado em física.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Party Animals.jpg",
             "ano": 2023,
             "tags": ["Física", "Party", "Multijogador"],
             "favorito": null
@@ -342,7 +342,7 @@
         {
             "titulo": "Deducto 2",
             "descricao": "Um jogo de dedução social em primeira pessoa onde o caos e a traição reinam em um ambiente de escritório.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Deducto 2.jpg",
             "ano": 2024,
             "tags": ["Dedução", "Social", "FPS"],
             "favorito": null
@@ -350,7 +350,7 @@
         {
             "titulo": "Ultimate Chicken Horse",
             "descricao": "Um jogo de plataforma onde você e seus amigos constroem o nível enquanto jogam, tentando criar armadilhas para os outros.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Ultimate Chicken Horse.jpg",
             "ano": 2016,
             "tags": ["Plataforma", "Party", "Criativo"],
             "favorito": null
@@ -358,7 +358,7 @@
         {
             "titulo": "Stray",
             "descricao": "Controle um gato perdido em uma cidade cibernética habitada por robôs, resolvendo mistérios para encontrar o caminho de volta.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Stray.jpg",
             "ano": 2022,
             "tags": ["Aventura", "Gato", "Cyberpunk"],
             "favorito": null
@@ -366,7 +366,7 @@
         {
             "titulo": "Unrailed!",
             "descricao": "Um jogo cooperativo caótico onde você deve construir trilhos para um trem que nunca para através de mundos procedurais.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Unrailed.jpg",
             "ano": 2020,
             "tags": ["Cooperativo", "Estratégia", "Caos"],
             "favorito": null
@@ -374,7 +374,7 @@
         {
             "titulo": "Helltaker",
             "descricao": "Um jogo curto de quebra-cabeças sobre um homem que viaja ao inferno para formar um harém de demônios.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Helltaker.jpg",
             "ano": 2020,
             "tags": ["Puzzle", "Indie", "Curto"],
             "favorito": null
@@ -382,7 +382,7 @@
         {
             "titulo": "Stick Fight: The Game",
             "descricao": "Um jogo de luta baseado em física onde bonecos de palito combatem em arenas perigosas com armas malucas.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Stick Fight The Game.jpg",
             "ano": 2017,
             "tags": ["Física", "Luta", "Multijogador"],
             "favorito": null
@@ -390,7 +390,7 @@
         {
             "titulo": "POSTAL 2",
             "descricao": "Um simulador de vida cotidiana absurdamente violento e politicamente incorreto que se passa durante uma semana.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/POSTAL 2.jpg",
             "ano": 2003,
             "tags": ["FPS", "Sátira", "Mundo Aberto"],
             "favorito": null
@@ -398,7 +398,7 @@
         {
             "titulo": "Unturned",
             "descricao": "Sobreviva ao apocalipse zumbi em um mundo aberto massivo, construindo bases e interagindo com outros jogadores.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Unturned.jpg",
             "ano": 2014,
             "tags": ["Sobrevivência", "Zombies", "Multijogador"],
             "favorito": null
@@ -406,7 +406,7 @@
         {
             "titulo": "Castle Story",
             "descricao": "Um jogo de estratégia baseado em voxel onde você comanda criaturas fofas para construir castelos e defendê-los.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Castle Story.jpg",
             "ano": 2017,
             "tags": ["Estratégia", "Construção", "Voxel"],
             "favorito": null
@@ -414,7 +414,7 @@
         {
             "titulo": "Donut County",
             "descricao": "Um jogo de quebra-cabeça baseado em física onde você controla um buraco no chão que cresce à medida que engole coisas.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Donut County.jpg",
             "ano": 2018,
             "tags": ["Puzzle", "Física", "Indie"],
             "favorito": null
@@ -422,7 +422,7 @@
         {
             "titulo": "Subnautica",
             "descricao": "Mergulhe em um mundo oceânico alienígena, explore as profundezas e sobreviva aos perigos do mar desconhecido.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Subnautica.jpg",
             "ano": 2018,
             "tags": ["Sobrevivência", "Exploração", "Ficção Científica"],
             "favorito": null
@@ -430,7 +430,7 @@
         {
             "titulo": "Buckshot Roulette",
             "descricao": "Um jogo de terror psicológico e roleta russa com uma atmosfera sombria e decisões de vida ou morte.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Buckshot Roulette.jpg",
             "ano": 2023,
             "tags": ["Terror", "Indie", "Estratégia"],
             "favorito": null
@@ -438,7 +438,7 @@
         {
             "titulo": "Dark Deception",
             "descricao": "Um jogo de terror em primeira pessoa onde você deve coletar fragmentos de alma em labirintos infestados por monstros.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Dark Deception.jpg",
             "ano": 2018,
             "tags": ["Terror", "Arcade", "Ação"],
             "favorito": null
@@ -446,7 +446,7 @@
         {
             "titulo": "Lethal Company",
             "descricao": "Um jogo de terror cooperativo onde você e sua equipe exploram luas abandonadas para coletar sucata e cumprir cotas.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Lethal Company.jpg",
             "ano": 2023,
             "tags": ["Terror", "Cooperativo", "Sobrevivência"],
             "favorito": null
@@ -454,7 +454,7 @@
         {
             "titulo": "Liar's Bar",
             "descricao": "Um jogo de dedução social e blefe ambientado em um bar, onde você tenta descobrir quem está mentindo.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/liar's bar.jpg",
             "ano": 2024,
             "tags": ["Dedução", "Social", "Multijogador"],
             "favorito": null
@@ -462,7 +462,7 @@
         {
             "titulo": "Wreckfest",
             "descricao": "Corridas de demolição com física realista e danos detalhados. Muita destruição e diversão caótica.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Wreckfest.jpg",
             "ano": 2018,
             "tags": ["Corrida", "Destruição", "Simulação"],
             "favorito": null
@@ -470,7 +470,7 @@
         {
             "titulo": "Goat Simulator",
             "descricao": "Um simulador de cabra hilário e cheio de bugs, onde você causa o máximo de caos possível em um mundo aberto.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Goat Simulator.jpg",
             "ano": 2014,
             "tags": ["Simulador", "Comédia", "Sandbox"],
             "favorito": null
@@ -478,7 +478,7 @@
         {
             "titulo": "Zumbi Blocks 2 Open Alpha",
             "descricao": "Um jogo de sobrevivência a zumbis em mundo aberto com gráficos voxel, focado em construção e combate.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Zumbi Blocks 2 Open Alpha.jpg",
             "ano": null,
             "tags": ["Sobrevivência", "Zombies", "Voxel"],
             "favorito": null
@@ -486,7 +486,7 @@
         {
             "titulo": "Emily Wants To Play",
             "descricao": "Um jogo de terror de sobrevivência onde um entregador de pizza fica preso em uma casa com bonecas assustadoras.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Emily Wants To Play.jpg",
             "ano": 2015,
             "tags": ["Terror", "Indie", "Sobrevivência"],
             "favorito": null
@@ -494,7 +494,7 @@
         {
             "titulo": "Pacify",
             "descricao": "Um jogo de terror cooperativo onde você e seus amigos investigam uma casa assombrada por uma garota demoníaca.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Pacify.jpg",
             "ano": 2019,
             "tags": ["Terror", "Cooperativo", "Indie"],
             "favorito": null
@@ -502,7 +502,7 @@
         {
             "titulo": "Skullgirls 2nd Encore",
             "descricao": "Um jogo de luta 2D com personagens únicos, animações fluidas e um sistema de combate profundo.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Skullgirls 2nd Encore.jpg",
             "ano": 2015,
             "tags": ["Luta", "2D", "Indie"],
             "favorito": null
@@ -510,7 +510,7 @@
         {
             "titulo": "OneShot",
             "descricao": "Uma aventura de quebra-cabeças com elementos meta-ficcionais, onde o jogo interage diretamente com o jogador.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/OneShot.jpg",
             "ano": 2016,
             "tags": ["Puzzle", "Aventura", "Indie"],
             "favorito": null
@@ -518,7 +518,7 @@
         {
             "titulo": "Lost Ruins",
             "descricao": "Um jogo de plataforma 2D de sobrevivência e ação com elementos de metroidvania e um estilo de arte pixelado.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Lost Ruins.jpg",
             "ano": 2022,
             "tags": ["Plataforma", "Metroidvania", "Ação"],
             "favorito": null
@@ -526,7 +526,7 @@
         {
             "titulo": "Move or Die",
             "descricao": "Um jogo de festa multiplayer de ritmo acelerado onde as regras mudam a cada 20 segundos, garantindo caos e diversão.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Move or Die.jpg",
             "ano": 2016,
             "tags": ["Party", "Multijogador", "Ação"],
             "favorito": null
@@ -534,7 +534,7 @@
         {
             "titulo": "Need for Speed™ Most Wanted",
             "descricao": "Corridas de rua intensas, perseguições policiais e uma lista de carros exóticos para dominar a cidade de Fairhaven.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Need for Speed™ Most Wanted.jpg",
             "ano": 2012,
             "tags": ["Corrida", "Mundo Aberto", "Ação"],
             "favorito": null
@@ -542,7 +542,7 @@
         {
             "titulo": "Content Warning",
             "descricao": "Um jogo de terror cooperativo onde você e seus amigos filmam coisas assustadoras para se tornarem virais na SpookTube.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Content Warning.jpg",
             "ano": 2024,
             "tags": ["Terror", "Cooperativo", "Comédia"],
             "favorito": null
@@ -550,7 +550,7 @@
         {
             "titulo": "Thief Simulator",
             "descricao": "Simulador de ladrão em primeira pessoa onde você planeja e executa roubos, aprimora suas habilidades e vende o saque.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Thief Simulator.jpg",
             "ano": 2018,
             "tags": ["Simulador", "Furtividade", "Mundo Aberto"],
             "favorito": null
@@ -558,7 +558,7 @@
         {
             "titulo": "Bum Simulator",
             "descricao": "Um simulador de vida de mendigo com humor negro e elementos de sandbox, onde você sobrevive e causa problemas na cidade.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Bum Simulator.jpg",
             "ano": 2021,
             "tags": ["Simulador", "Comédia", "Sandbox"],
             "favorito": null
@@ -566,7 +566,7 @@
         {
             "titulo": "Resident Evil 4 (2005)",
             "descricao": "O clássico de terror de sobrevivência que redefiniu o gênero, com Leon S. Kennedy resgatando a filha do presidente em uma vila rural.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Resident Evil 4 (2005).jpg",
             "ano": 2005,
             "tags": ["Terror", "Ação", "Sobrevivência"],
             "favorito": null
@@ -574,7 +574,7 @@
         {
             "titulo": "Rock of Ages 2",
             "descricao": "Um jogo de defesa de torre e corrida com uma bola gigante, combinando humor, arte e estratégia.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Rock of Ages 2.jpg",
             "ano": 2017,
             "tags": ["Estratégia", "Tower Defense", "Comédia"],
             "favorito": null
@@ -582,7 +582,7 @@
         {
             "titulo": "Witch It",
             "descricao": "Um jogo de esconde-esconde multiplayer onde caçadores procuram bruxas que se transformam em objetos.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Witch It.jpg",
             "ano": 2017,
             "tags": ["Multijogador", "Esconde-esconde", "Casual"],
             "favorito": null
@@ -590,7 +590,7 @@
         {
             "titulo": "Choo-Choo Charles",
             "descricao": "Um jogo de terror de sobrevivência em mundo aberto onde você é caçado por um trem-aranha demoníaco.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Choo-Choo Charles.png",
             "ano": 2022,
             "tags": ["Terror", "Sobrevivência", "Mundo Aberto"],
             "favorito": null
@@ -598,7 +598,7 @@
         {
             "titulo": "Portal",
             "descricao": "Um inovador jogo de quebra-cabeças em primeira pessoa que utiliza um dispositivo de portal para resolver desafios de física.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Portal.jpg",
             "ano": 2007,
             "tags": ["Puzzle", "FPS", "Física"],
             "favorito": null
@@ -606,7 +606,7 @@
         {
             "titulo": "Battlefield 4™",
             "descricao": "Um FPS militar com batalhas em larga escala, veículos e ambientes destrutíveis, conhecido por seu multiplayer intenso.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Battlefield 4™.jpg",
             "ano": 2013,
             "tags": ["FPS", "Guerra", "Multijogador"],
             "favorito": null
@@ -614,7 +614,7 @@
         {
             "titulo": "Bendy and the Ink Machine",
             "descricao": "Um jogo de terror de sobrevivência em primeira pessoa com um estilo de arte de desenho animado vintage e uma atmosfera sombria.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Bendy and the Ink Machine.jpg",
             "ano": 2017,
             "tags": ["Terror", "Indie", "Puzzle"],
             "favorito": null
@@ -622,7 +622,7 @@
         {
             "titulo": "Black Mesa",
             "descricao": "Um remake aclamado pelos fãs do clássico Half-Life, com gráficos atualizados e jogabilidade aprimorada.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Black Mesa.jpg",
             "ano": 2020,
             "tags": ["FPS", "Sci-Fi", "Ação"],
             "favorito": null
@@ -630,7 +630,7 @@
         {
             "titulo": "The Binding of Isaac: Rebirth",
             "descricao": "Um roguelike de tiro com elementos de RPG, onde você explora masmorras geradas proceduralmente e enfrenta chefes bizarros.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/The Binding of Isaac Rebirth.jpg",
             "ano": 2014,
             "tags": ["Roguelike", "Ação", "Indie"],
             "favorito": null
@@ -638,7 +638,7 @@
         {
             "titulo": "Blasphemous",
             "descricao": "Um metroidvania de ação e plataforma com uma atmosfera sombria e gótica, combate desafiador e um mundo rico em lore.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Blasphemous.png",
             "ano": 2019,
             "tags": ["Metroidvania", "Souls-like", "Plataforma"],
             "favorito": null
@@ -646,7 +646,7 @@
         {
             "titulo": "Children of the Sun",
             "descricao": "Um jogo de tiro tático e puzzle onde você controla uma única bala para eliminar múltiplos inimigos.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Children of the Sun.jpg",
             "ano": 2024,
             "tags": ["Puzzle", "Tático", "Indie"],
             "favorito": null
@@ -654,7 +654,7 @@
         {
             "titulo": "The Crew 2",
             "descricao": "Um jogo de corrida em mundo aberto que permite alternar instantaneamente entre carros, barcos e aviões nos EUA.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/The Crew 2.jpg",
             "ano": 2018,
             "tags": ["Corrida", "Mundo Aberto", "Veículos"],
             "favorito": null
@@ -662,7 +662,7 @@
         {
             "titulo": "Far Cry 4",
             "descricao": "Um FPS de mundo aberto ambientado no Himalaia, onde você luta contra um regime tirânico em uma paisagem deslumbrante.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Far Cry 4.jpg",
             "ano": 2014,
             "tags": ["FPS", "Mundo Aberto", "Ação"],
             "favorito": null
@@ -670,7 +670,7 @@
         {
             "titulo": "Gang Beasts",
             "descricao": "Um hilário jogo de luta multiplayer com personagens gelatinosos e ambientes perigosos, focado em física e diversão.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Gang Beasts.jpg",
             "ano": 2017,
             "tags": ["Party", "Física", "Multijogador"],
             "favorito": null
@@ -678,7 +678,7 @@
         {
             "titulo": "The Forest",
             "descricao": "Um jogo de terror de sobrevivência em mundo aberto onde você deve sobreviver em uma ilha infestada por canibais mutantes.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/The Forest.jpg",
             "ano": 2018,
             "tags": ["Sobrevivência", "Terror", "Mundo Aberto"],
             "favorito": null
@@ -686,7 +686,7 @@
         {
             "titulo": "GRIS",
             "descricao": "Uma experiência de plataforma e quebra-cabeças visualmente deslumbrante, com uma narrativa emocional contada sem palavras.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/GRIS.jpg",
             "ano": 2018,
             "tags": ["Plataforma", "Indie", "Atmosférico"],
             "favorito": null
@@ -694,7 +694,7 @@
         {
             "titulo": "Half-Life",
             "descricao": "O FPS revolucionário que estabeleceu novos padrões para narrativa e imersão em jogos de tiro em primeira pessoa.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Half-Life.jpg",
             "ano": 1998,
             "tags": ["FPS", "Sci-Fi", "Clássico"],
             "favorito": null
@@ -702,7 +702,7 @@
         {
             "titulo": "Half-Life 2",
             "descricao": "A aclamada sequência de Half-Life, com física inovadora, narrativa envolvente e combate memorável.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Half-Life 2.jpg",
             "ano": 2004,
             "tags": ["FPS", "Sci-Fi", "Clássico"],
             "favorito": null
@@ -710,7 +710,7 @@
         {
             "titulo": "Just Cause 3",
             "descricao": "Ação explosiva em mundo aberto com foco em destruição, paraquedas, wingsuit e um gancho para causar o caos.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Just Cause 3.jpg",
             "ano": 2015,
             "tags": ["Ação", "Mundo Aberto", "Destruição"],
             "favorito": null
@@ -718,7 +718,7 @@
         {
             "titulo": "KinitoPET",
             "descricao": "Um jogo de terror psicológico e simulação de desktop onde você interage com uma IA de animal de estimação virtual que se torna cada vez mais perturbadora.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/KinitoPET.jpg",
             "ano": 2023,
             "tags": ["Terror", "Simulação", "Psicológico"],
             "favorito": null
@@ -726,7 +726,7 @@
         {
             "titulo": "LIMBO",
             "descricao": "Um jogo de plataforma e quebra-cabeças atmosférico com gráficos monocromáticos e uma narrativa minimalista e enigmática.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/LIMBO.jpg",
             "ano": 2010,
             "tags": ["Plataforma", "Puzzle", "Indie"],
             "favorito": null
@@ -734,7 +734,7 @@
         {
             "titulo": "Need for Speed™ Heat",
             "descricao": "Domine as ruas de Palm City durante o dia e arrisque tudo à noite em corridas ilegais enquanto foge de uma força policial corrupta.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Need for Speed™ Heat.jpg",
             "ano": 2019,
             "tags": ["Corrida", "Mundo Aberto", "Carros"],
             "favorito": null
@@ -742,7 +742,7 @@
         {
             "titulo": "Need for Speed™ Payback",
             "descricao": "Situado no submundo de Fortune Valley, você e sua equipe se reúnem em uma busca por vingança contra a 'The House', um cartel nefasto.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Need for Speed™ Payback.jpg",
             "ano": 2017,
             "tags": ["Corrida", "Ação", "Carros"],
             "favorito": null
@@ -750,7 +750,7 @@
         {
             "titulo": "Otaku's Adventure",
             "descricao": "Uma visual novel de aventura point-and-click incomum que conta a história de um otaku em busca de amor, cheia de minijogos e finais variados.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Otaku's Adventure.jpg",
             "ano": 2019,
             "tags": ["Aventura", "Comédia", "Anime"],
             "favorito": null
@@ -758,7 +758,7 @@
         {
             "titulo": "PEAK",
             "descricao": "Um jogo focado em superar limites e alcançar o topo através de desafios de plataforma ou quebra-cabeças intensos.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/PEAK.png",
             "ano": null,
             "tags": ["Indie", "Desafio"],
             "favorito": null
@@ -766,7 +766,7 @@
         {
             "titulo": "Portal 2",
             "descricao": "A sequência do inovador jogo de quebra-cabeças, expandindo as mecânicas de portais com um modo cooperativo e uma narrativa hilária.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Portal 2.jpg",
             "ano": 2011,
             "tags": ["Puzzle", "Sci-Fi", "Cooperativo"],
             "favorito": null
@@ -774,7 +774,7 @@
         {
             "titulo": "Sniper Elite 4",
             "descricao": "Combate sniper de terceira pessoa em cenários vastos da Itália durante a Segunda Guerra Mundial, focado em tática e furtividade.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Sniper Elite 4.jpg",
             "ano": 2017,
             "tags": ["Sniper", "Furtividade", "Guerra"],
             "favorito": null
@@ -782,7 +782,7 @@
         {
             "titulo": "Sniper Elite 5",
             "descricao": "Karl Fairburne retorna para desmantelar a Operação Kraken na França de 1944, oferecendo a experiência de sniper mais imersiva da série.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Sniper Elite 5.jpg",
             "ano": 2022,
             "tags": ["Sniper", "Furtividade", "Guerra"],
             "favorito": null
@@ -790,7 +790,7 @@
         {
             "titulo": "Stardew Valley",
             "descricao": "Crie a fazenda dos seus sonhos, cultive plantações, crie animais e faça amizade com os habitantes da Vila Pelicano neste simulador rural encantador.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Stardew Valley.jpg",
             "ano": 2016,
             "tags": ["Simulador", "RPG", "Fazenda"],
             "favorito": null
@@ -798,7 +798,7 @@
         {
             "titulo": "Wall World",
             "descricao": "Explore o misterioso Wall World em seu robocraft gigante. Minere recursos preciosos, melhore seu equipamento e lute contra hordas de monstros.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Wall World.jpg",
             "ano": 2023,
             "tags": ["Roguelite", "Mineração", "Ação"],
             "favorito": null
@@ -806,7 +806,7 @@
         {
             "titulo": "Zueirama",
             "descricao": "Um jogo de plataforma inspirado nos memes brasileiros e na cultura dos anos 90, cheio de referências e humor 'zueiro'.",
-            "imagem": "img/placeholder.jpg",
+            "imagem": "img/Zueirama.jpg",
             "ano": 2019,
             "tags": ["Plataforma", "Comédia", "Indie"],
             "favorito": null
@@ -1404,7 +1404,7 @@
         },
         {
             "titulo": "Isekai Maou to Shoukan Shoujo no Dorei Majutsu",
-            "descricao": "UNo MMORPG Cross Reverie, Sakamoto Takuma ostentava uma força avassaladora que foi suficiente para ele ser chamado de Rei Demônio pelos outros jogadores. Um dia, ele é invocado para outro mundo com a sua aparência do jogo. Lá, há duas pessoas que insistem que “Eu sou a verdadeira Mestra de Invocação”. As garotas utilizam Magia de Escravidão, que normalmente é usado em bestas invocadas, nele. Entretanto, a peculiar habilidade “Reflexão de Magias” é ativada! As que foram transformadas em escravas, foram as garotas!",
+            "descricao": "In the MMORPG Cross Reverie, Sakamoto Takuma ostentava uma força avassaladora que foi suficiente para ele ser chamado de Rei Demônio pelos outros jogadores. Um dia, ele é invocado para outro mundo com a sua aparência do jogo. Lá, há duas pessoas que insistem que “Eu sou a verdadeira Mestra de Invocação”. As garotas utilizam Magia de Escravidão, que normalmente é usado em bestas invocadas, nele. Entretanto, a peculiar habilidade “Reflexão de Magias” é ativada! As que foram transformadas em escravas, foram as garotas!",
             "imagem": "img/Isekai Maou to Shoukan Shoujo no Dorei Majutsu.jpg",
             "ano": null,
             "tags": ["Isekai", "Ecchi", "Fantasia"],
@@ -1420,7 +1420,7 @@
         },
         {
             "titulo": "Acchi Kocchi",
-            "descricao": "Uma grande Série de animação de televisão japonesa, Acchi Kocchi Online é totalmente baseado no grande mangá que teve o seu dia marcado no dia 05 do mês de abril e também na data de 28 de abril do ano de 2012. A Animação teve dois grandes episódios já lançadosásti e um episodio extra também foi lançado sendo ele um ova na data 16 de novembro do ano de 2012, o anime Acchi Kocchi Online, com o seu disco em blu-ray e 6 volumes já em DVD em seu país de origem no qual é o Japão",
+            "descricao": "Uma comédia romântica que acompanha o desenvolvimento de um relacionamento entre dois estudantes. A série combina momentos fofos com humor leve enquanto os personagens enfrentam os desafios do primeiro amor durante a vida escolar.",
             "imagem": "img/Acchi Kocchi.jpg",
             "ano": null,
             "tags": ["Comédia", "Romance", "Slice of Life"],
@@ -1428,7 +1428,7 @@
         },
         {
             "titulo": "Ao no Exorcist",
-            "descricao": "O mundo em Ao no Exorcist consiste em duas dimensões, adjuntas uma a outra como um espelho e seu reflexo. Uma é o mundo onde os humanos vivem, Assiah. A outra é mundo dos demônios, Gehenna. Originalmente, uma viagem entre os mundos, ou mesmo um contato entre eles, é impossível. Entretanto, qualquer demônio é capaz de passar à dimensão de Assiah atráves da possessão de um ser vivente na mesma. Blue Exorcist",
+            "descricao": "O mundo em Ao no Exorcist consiste em duas dimensões, adjuntas uma a outra como um espelho e seu reflexo. Uma é o mundo onde os humanos vivem, Assiah. A outra é mundo dos demônios, Gehenna. Originalmente, uma viagem entre os mundos, ou mesmo um contato entre eles, é impossível. Entretanto, qualquer demônio é capaz de passar à dimensão de Assiah através da possessão de um ser vivente na mesma.",
             "imagem": "img/Ao no Exorcist.jpg",
             "ano": null,
             "tags": ["Ação", "Sobrenatural", "Fantasia"],

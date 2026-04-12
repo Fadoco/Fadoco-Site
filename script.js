@@ -250,11 +250,17 @@ async function carregarPlaylistYouTube() {
 async function carregarDadosLocais() {
     try {
         const response = await fetch('dados.json?v=' + Date.now()); // Evita cache
+        if (!response.ok) throw new Error('Não foi possível carregar o arquivo dados.json');
         const data = await response.json();
         
         // Renderiza todas as categorias presentes no JSON automaticamente
         Object.keys(data).forEach(categoria => {
-            renderizarCategoria(data[categoria], `${categoria}-grid`);
+            const gridId = `${categoria}-grid`;
+            // Adiciona o nome da categoria como tag oculta para facilitar a busca
+            const listaComCategoria = (data[categoria] || []).map(item => ({...item, categoriaPai: categoria}));
+            if (document.getElementById(gridId)) {
+                renderizarCategoria(listaComCategoria, gridId);
+            }
         });
 
         inicializarComponentesDinamicos();
@@ -267,13 +273,20 @@ function renderizarCategoria(lista, gridId) {
     const grid = document.getElementById(gridId);
     if (!grid || !lista) return;
 
-    const favorites = JSON.parse(localStorage.getItem('user-favorites') || '[]');
+    let favorites = [];
+    try {
+        favorites = JSON.parse(localStorage.getItem('user-favorites') || '[]');
+    } catch (e) {
+        console.warn("Erro ao carregar favoritos, resetando...");
+        favorites = [];
+    }
 
     grid.innerHTML = lista.map(item => {
-        const tagsHtml = item.tags.map(t => `<span class="tag">${t}</span>`).join('');
+        const tags = item.tags || [];
+        const tagsHtml = tags.map(t => `<span class="tag">${t}</span>`).join('');
         
         // Prepara o texto de busca antecipadamente para performance
-        const searchStr = `${item.titulo} ${item.descricao} ${item.tags.join(' ')}`.toLowerCase();
+        const searchStr = `${item.titulo} ${item.descricao} ${tags.join(' ')} ${item.categoriaPai || ''}`.toLowerCase();
         
         const favHtml = item.favorito ? `
             <div class="favorito-tag" onclick="event.stopPropagation(); ampliarImagem(this.querySelector('img'))">
@@ -305,7 +318,35 @@ function renderizarCategoria(lista, gridId) {
 function inicializarComponentesDinamicos() {
     // Chama funções que dependem dos cards estarem no DOM
     if (typeof renderFavorites === "function") renderFavorites();
-    // Re-gera a nuvem de tags se necessário
+    
+    // --- NUVEM DE TAGS DINÂMICA ---
+    const tagCloudContainer = document.getElementById('tag-cloud');
+    const btnTagsToggle = document.getElementById('btn-tags-toggle');
+    const searchInput = document.getElementById('search-input');
+
+    if (btnTagsToggle && tagCloudContainer) {
+        btnTagsToggle.addEventListener('click', () => {
+            tagCloudContainer.classList.toggle('active');
+        });
+    }
+
+    if (tagCloudContainer) {
+        const allTags = Array.from(document.querySelectorAll('.gostos-card .tag')).map(t => t.innerText);
+        const uniqueTags = [...new Set(allTags)];
+        
+        uniqueTags.sort().forEach(tag => {
+            const tagEl = document.createElement('span');
+            tagEl.className = 'tag-cloud-item';
+            tagEl.innerText = tag;
+            tagEl.onclick = () => {
+                if (searchInput) {
+                    searchInput.value = tag.toLowerCase();
+                    searchInput.dispatchEvent(new Event('input'));
+                }
+            };
+            tagCloudContainer.appendChild(tagEl);
+        });
+    }
 }
 
 // --- 2. INICIALIZAÇÃO DE EVENTOS ---
@@ -731,32 +772,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 ampliarCard(selectedCard);
             }
-        });
-    }
-
-    // --- NUVEM DE TAGS DINÂMICA (Opção 9) ---
-    const tagCloudContainer = document.getElementById('tag-cloud');
-    const btnTagsToggle = document.getElementById('btn-tags-toggle');
-
-    if (btnTagsToggle && tagCloudContainer) {
-        btnTagsToggle.addEventListener('click', () => {
-            tagCloudContainer.classList.toggle('active');
-        });
-    }
-
-    if (tagCloudContainer) {
-        const allTags = Array.from(document.querySelectorAll('.gostos-card .tag')).map(t => t.innerText);
-        const uniqueTags = [...new Set(allTags)];
-        
-        uniqueTags.sort().forEach(tag => {
-            const tagEl = document.createElement('span');
-            tagEl.className = 'tag-cloud-item';
-            tagEl.innerText = tag;
-            tagEl.onclick = () => {
-                searchInput.value = tag.toLowerCase();
-                searchInput.dispatchEvent(new Event('input'));
-            };
-            tagCloudContainer.appendChild(tagEl);
         });
     }
 
