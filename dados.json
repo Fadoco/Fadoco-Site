@@ -454,7 +454,7 @@
         {
             "titulo": "Liar's Bar",
             "descricao": "Um jogo de dedução social e blefe ambientado em um bar, onde você tenta descobrir quem está mentindo.",
-            "imagem": "img/liar's bar.jpg",
+            "imagem": "img/Liars Bar.jpg",
             "ano": 2024,
             "tags": ["Dedução", "Social", "Multijogador"],
             "favorito": null
