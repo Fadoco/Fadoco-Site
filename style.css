@@ -30,7 +30,28 @@
 body {
     overflow-x: hidden;
     width: 100%;
-    transition: --primary-neon 0.5s, --secondary-neon 0.5s, background-color 0.5s;
+    background-color: #000; /* Fundo preto imediato */
+    transition: --primary-neon 0.5s, --secondary-neon 0.5s;
+}
+
+/* Esconde o conteúdo inicial IMEDIATAMENTE (sem transição aqui para evitar o flash) */
+header, main, .background, #btn-favoritos, #back-to-top, .home, .artes-secao, .lore {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Revela o site suavemente APÓS o carregamento */
+body.site-loaded header, 
+body.site-loaded main, 
+body.site-loaded .background,
+body.site-loaded #btn-favoritos,
+body.site-loaded #back-to-top,
+body.site-loaded .home,
+body.site-loaded .artes-secao,
+body.site-loaded .lore {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1.2s ease-in-out;
 }
 
 .background {
@@ -1503,8 +1524,9 @@ header li a {
     justify-content: center;
     align-items: center;
     pointer-events: none;
-    opacity: 1;
-    transition: opacity 1s ease, visibility 1s ease;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
     overflow: hidden;
 }
 
