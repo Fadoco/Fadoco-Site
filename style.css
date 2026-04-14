@@ -234,6 +234,47 @@ header li a {
     cursor: pointer;
 }
 
+/* --- BOTÃO DE INSTALAÇÃO PWA (TOP SIDEBAR) --- */
+.install-wrapper-top {
+    position: absolute;
+    top: 38px;
+    right: 85px;
+    z-index: 2001;
+}
+
+#btn-instalar-pwa-top {
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid var(--primary-neon);
+    color: var(--primary-neon);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+}
+
+#btn-instalar-pwa-top:hover {
+    background: var(--primary-neon);
+    color: #000;
+    box-shadow: 0 0 15px var(--primary-neon);
+    transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+    .install-wrapper-top {
+        top: 40px;
+        right: 70px;
+    }
+    #btn-instalar-pwa-top {
+        font-size: 0.55rem;
+        padding: 4px 8px;
+    }
+}
+
 /* --- 4. SEÇÃO HOME --- */
 .home {
     width: 100%;
