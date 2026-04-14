@@ -144,11 +144,7 @@ header li a {
 }
 
 /* --- 3. SIDEBAR MENU --- */
-.menu-extra {
-    width: 100px;
-    display: flex;
-    justify-content: flex-end;
-}
+.menu-extra { width: 100px; display: flex; justify-content: flex-end; }
 
 .btn-menu {
     background: transparent;
@@ -169,19 +165,23 @@ header li a {
 .side-menu {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -300px;
     width: 280px;
     height: 100vh;
     background: rgba(10, 10, 20, 0.98);
     backdrop-filter: blur(20px);
     z-index: 2000;
-    transition: right 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    transition: right 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
     padding: 100px 30px;
     border-left: 2px solid #8a2be2;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .side-menu.active {
     right: 0;
+    opacity: 1;
+    visibility: visible;
 }
 
 .side-menu ul {
@@ -211,28 +211,6 @@ header li a {
     font-size: 2.5rem;
     color: white;
     cursor: pointer;
-}
-
-.logo {
-    width: 100px;
-}
-
-.row-img {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    border: 2px solid #8a2be2;
-    overflow: hidden;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.row-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 /* --- 4. SEÇÃO HOME --- */
@@ -992,7 +970,9 @@ header li a {
     max-height: 85vh;
     overflow-y: auto;
     cursor: default;
-    background: rgba(15, 15, 30, 0.95);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border: 2px solid #00d4ff;
     box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
     transform: none;
@@ -1516,20 +1496,123 @@ header li a {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #05050f;
+    background: #000; /* Preto absoluto para camuflar o vídeo */
     z-index: 10000;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     pointer-events: none;
-    opacity: 1; /* Inicia visível para o fade-in da página */
-    transition: opacity 0.6s ease;
+    opacity: 1;
+    transition: opacity 1s ease, visibility 1s ease;
     overflow: hidden;
 }
 
 .hyperspace-overlay.active {
     opacity: 1;
     pointer-events: all;
+    visibility: visible;
+}
+
+.hyperspace-overlay.finished {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-video {
+    width: 120px; /* Tamanho ajustado para 120px */
+    height: auto;
+    margin-bottom: 15px;
+    mix-blend-mode: screen; /* Faz o preto do vídeo ficar transparente */
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 2; /* Garante que o texto fique acima das estrelas */
+}
+
+.loading-text {
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px var(--primary-neon);
+    /* animation: twinkle 2.5s ease-in-out infinite; */ /* Efeito de pulsação desativado */
+}
+
+.dots-container {
+    margin-top: 10px;
+    height: 30px;
+}
+
+.dots {
+    color: white;
+    font-size: 1.5rem;
+    display: inline-block;
+    min-width: 40px;
+    text-align: left;
+}
+
+.dots::after {
+    content: '';
+    animation: dots-anim 2s infinite;
+}
+
+.loading-star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+    box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.8); /* Torna as estrelas mais visíveis */
+    animation: twinkle ease-in-out infinite;
+}
+
+@keyframes dots-anim {
+    0%   { content: ''; }
+    25%  { content: ' .'; }
+    50%  { content: ' . .'; }
+    75%  { content: ' . . .'; }
+    100% { content: ''; }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.3); }
+    50% { opacity: 1; transform: scale(1); } /* Opacidade total para visibilidade */
+}
+
+.scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.2) 50%
+    );
+    background-size: 100% 4px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.noise {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    z-index: 4;
+    pointer-events: none;
+    mix-blend-mode: overlay;
 }
 
 .jump-line {

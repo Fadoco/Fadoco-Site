@@ -352,76 +352,8 @@ function inicializarComponentesDinamicos() {
 // --- 2. INICIALIZAÇÃO DE EVENTOS ---
 document.addEventListener('DOMContentLoaded', () => {
     carregarDadosLocais();
-    // --- TRANSIÇÃO DE HIPERESPAÇO (Opção 10) ---
-    const transitionOverlay = document.createElement('div');
-    transitionOverlay.className = 'hyperspace-overlay';
-    document.body.appendChild(transitionOverlay);
-
-    // Função para criar as linhas de salto
-    const createJumpLines = () => {
-        for(let i=0; i<20; i++) {
-            const line = document.createElement('div');
-            line.className = 'jump-line';
-            line.style.left = Math.random() * 100 + 'vw';
-            line.style.animationDelay = Math.random() * 0.5 + 's';
-            transitionOverlay.appendChild(line);
-        }
-    };
-
-    // Revela a página suavemente ao entrar (Fade-out do overlay)
-    setTimeout(() => {
-        transitionOverlay.style.opacity = '0';
-    }, 300);
-
-    // Intercepta cliques em links para o efeito de saída
-    document.querySelectorAll('a').forEach(link => {
-        if (link.hostname === window.location.hostname && !link.hash && link.target !== "_blank") {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const destination = link.href;
-                transitionOverlay.innerHTML = ''; // Limpa linhas antigas
-                createJumpLines(); // Adiciona novas linhas
-                transitionOverlay.classList.add('active');
-                setTimeout(() => {
-                    window.location.href = destination;
-                }, 500);
-            });
-        }
-    });
     
-    // --- BARRA DE PROGRESSO ---
-    const body = document.body;
-    const progressContainer = document.createElement('div');
-    progressContainer.className = 'progress-container';
-    const progressBar = document.createElement('div');
-    progressBar.className = 'progress-bar';
-    progressContainer.appendChild(progressBar);
-    document.body.prepend(progressContainer);
-
-    window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        progressBar.style.width = scrolled + "%";
-    });
     
-    // --- MENU LATERAL (SIDEBAR) ---
-    const btnMenu = document.getElementById('btn-menu');
-    const btnFechar = document.getElementById('btn-fechar');
-    const sideMenu = document.getElementById('side-menu');
-
-    if (btnMenu && sideMenu) {
-        btnMenu.addEventListener('click', (e) => {
-            e.stopPropagation();
-            sideMenu.classList.toggle('active');
-        });
-    }
-
-    if (btnFechar && sideMenu) {
-        btnFechar.addEventListener('click', () => {
-            sideMenu.classList.remove('active');
-        });
-    }
 
     // --- GRIDS EXPANSÍVEIS (TOGGLE BARS) ---
     const toggleBars = document.querySelectorAll('.toggle-bar');
@@ -447,13 +379,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- MENU MOBILE ---
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navList = document.querySelector('.nav-list');
-    if (mobileMenu && navList) {
-        mobileMenu.addEventListener('click', () => {
-            navList.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
+    // --- CONTROLE DA SIDEBAR (MENU LATERAL) ---
+    const btnMenu = document.getElementById('btn-menu');
+    const sideMenu = document.getElementById('side-menu');
+    const btnFechar = document.getElementById('btn-fechar');
+
+    if (btnMenu && sideMenu) {
+        btnMenu.addEventListener('click', () => {
+            sideMenu.classList.add('active');
+        });
+    }
+
+    if (btnFechar && sideMenu) {
+        btnFechar.addEventListener('click', () => {
+            sideMenu.classList.remove('active');
         });
     }
 
