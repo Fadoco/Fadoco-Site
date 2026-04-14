@@ -1442,6 +1442,13 @@ header li a {
     transform: scale(1.05);
 }
 
+/* Estilo específico para o botão "Carregar Mais Músicas" */
+#btn-carregar-mais-musicas {
+    margin: 20px auto; /* Centraliza horizontalmente e adiciona margem superior */
+    border-color: var(--primary-neon); /* Usa a cor neon primária para destaque */
+    color: var(--primary-neon);
+}
+
 .btn-tags-toggle {
     border-color: var(--primary-neon);
     color: var(--primary-neon);

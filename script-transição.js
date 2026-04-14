@@ -43,16 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
         transitionOverlay.appendChild(star);
     }
 
-    // --- 2. LÓGICA DE ESPERA (1.2 SEGUNDOS) ---
+    // --- 2. LÓGICA DE ESPERA (ACELERADA) ---
     const fecharLoading = () => {
-        setTimeout(() => { // Tempo que o loading fica visível antes de começar a desaparecer
+        setTimeout(() => {
             transitionOverlay.classList.add('finished');
             // Pequeno delay para garantir que o overlay começou a sumir antes de revelar o fundo
             setTimeout(() => {
                 document.body.classList.add('site-loaded');
             }, 100);
-            setTimeout(() => transitionOverlay.remove(), 900); // Remove o overlay após a transição CSS (0.8s)
-        }, 800); // Reduzido de 1200ms para 800ms
+            setTimeout(() => transitionOverlay.remove(), 700); 
+        }, 600); 
     };
 
     // Se a página já carregou (cache), fecha. Senão, espera o evento 'load'.

@@ -121,105 +121,103 @@ const YT_CONFIG = {
 };
 let ytPlaylistLoaded = false; // Controle para carregar apenas uma vez
 let isFetching = false; // Evita múltiplas requisições simultâneas
+let youtubeNextPageToken = ''; // Armazena o token da próxima página do YouTube
 
-async function carregarPlaylistYouTube() {
+async function carregarPlaylistYouTube(pageToken = '') {
     const musicasGrid = document.getElementById('musicas-grid');
+    const loadMoreBtn = document.getElementById('btn-carregar-mais-musicas');
     if (!musicasGrid || isFetching) return;
     isFetching = true;
 
     // Mensagem de feedback visual enquanto carrega
-    musicasGrid.innerHTML = `<p style="color:var(--primary-neon); grid-column: 1/-1; text-align:center; padding: 20px;">Sintonizando frequências do YouTube...</p>`;
+    if (pageToken === '') { // Apenas na carga inicial ou se a grade estiver vazia
+        musicasGrid.innerHTML = `<p style="color:var(--primary-neon); grid-column: 1/-1; text-align:center; padding: 20px;">Sintonizando frequências do YouTube...</p>`;
+    } else if (loadMoreBtn) {
+        loadMoreBtn.innerText = 'Carregando...'; // Indica que está carregando mais
+    }
 
     try {
-        let nextPageToken = '';
-        let isFirstBatch = true;
         const favorites = JSON.parse(localStorage.getItem('user-favorites') || '[]');
 
-        do {
-            const params = new URLSearchParams({
-                part: 'snippet',
-                maxResults: YT_CONFIG.MAX_RESULTS,
-                playlistId: YT_CONFIG.PLAYLIST_ID,
-                key: YT_CONFIG.KEY,
-                pageToken: nextPageToken
-            });
+        const params = new URLSearchParams({
+            part: 'snippet',
+            maxResults: YT_CONFIG.MAX_RESULTS,
+            playlistId: YT_CONFIG.PLAYLIST_ID,
+            key: YT_CONFIG.KEY,
+            pageToken: pageToken // Usa o token da página para carregar a próxima parte
+        });
+        
+        const url = `https://www.googleapis.com/youtube/v3/playlistItems?${params.toString()}`;
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error?.message || `Erro HTTP: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (pageToken === '') { // Limpa a grade apenas na carga inicial
+            musicasGrid.innerHTML = '';
+        }
+
+        if (!data.items || data.items.length === 0) {
+            if (musicasGrid.innerHTML === '') musicasGrid.innerHTML = `<p style="color:white; grid-column: 1/-1; text-align:center;">Nenhuma música encontrada.</p>`;
+            isFetching = false;
+            if (loadMoreBtn) loadMoreBtn.style.display = 'none'; // Esconde o botão se não há itens
+            return;
+        }
+
+        data.items.forEach(item => {
+            const snippet = item.snippet;
+            const titulo = snippet.title;
+            const thumbnail = snippet.thumbnails;
             
-            const url = `https://www.googleapis.com/youtube/v3/playlistItems?${params.toString()}`;
-            const response = await fetch(url);
+            if (titulo === "Deleted video" || titulo === "Private video" || !thumbnail) return;
+
+            const descCompleta = snippet.description || "";
+            const descricaoMostrada = descCompleta.substring(0, 80) + '...';
+            const capa = thumbnail.medium ? thumbnail.medium.url : (thumbnail.default ? thumbnail.default.url : 'img/mp3.jpg');
+            const searchStr = `${titulo} youtube musica`.toLowerCase();
+
+            const card = document.createElement('div');
+            card.className = 'gostos-card';
+            card.setAttribute('data-search', searchStr);
+            card.onclick = function() { ampliarCard(this); };
+
+            card.innerHTML = `
+                <div class="card-img-container">
+                    <img src="${capa}" alt="${titulo}" loading="lazy">
+                </div>
+                <h3>${titulo}</h3>
+                <p>${descricaoMostrada}</p>
+                <div class="tags-list" style="display: none;">
+                    <span class="tag">YouTube</span>
+                    <span class="tag">Música</span>
+                </div>
+            `;
+
+            const star = document.createElement('span');
+            star.className = 'fav-toggle';
+            star.innerHTML = '★';
+            star.onclick = (e) => toggleFavorite(e, star);
             
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.error?.message || `Erro HTTP: ${response.status}`);
+            if (favorites.some(f => f.title === titulo)) star.classList.add('active');
+
+            card.appendChild(star);
+            musicasGrid.appendChild(card);
+        });
+
+        // SALVA O TOKEN PARA A PRÓXIMA PÁGINA E ATUALIZA O BOTÃO
+        youtubeNextPageToken = data.nextPageToken || '';
+        if (loadMoreBtn) {
+            if (youtubeNextPageToken) {
+                loadMoreBtn.style.display = 'block';
+                loadMoreBtn.innerText = 'Carregar Mais Músicas';
+            } else {
+                loadMoreBtn.style.display = 'none';
             }
-
-            const data = await response.json();
-
-            // Limpa o "Carregando..." apenas na primeira resposta positiva
-            if (isFirstBatch) {
-                musicasGrid.innerHTML = '';
-                isFirstBatch = false;
-            }
-
-            if (!data.items || data.items.length === 0) {
-                if (musicasGrid.innerHTML === '') {
-                    musicasGrid.innerHTML = `<p style="color:white; grid-column: 1/-1; text-align:center;">Nenhuma música encontrada nesta playlist pública.</p>`;
-                }
-                break;
-            }
-
-            data.items.forEach(item => {
-                const snippet = item.snippet;
-                const titulo = snippet.title;
-                const thumbnail = snippet.thumbnails;
-                
-                // Filtro robusto: Ignora vídeos deletados, privados ou sem miniatura (comum em vídeos bloqueados)
-                if (
-                    titulo === "Deleted video" || 
-                    titulo === "Private video" || 
-                    titulo === "Vídeo excluído" || 
-                    titulo === "Vídeo privado" ||
-                    !thumbnail
-                ) return;
-
-                const descCompleta = snippet.description || "";
-                const descricaoMostrada = descCompleta.substring(0, 100) + '...';
-                const capa = thumbnail.high ? thumbnail.high.url : (thumbnail.default ? thumbnail.default.url : 'img/mp3.jpg');
-                const searchStr = `${titulo} ${descCompleta} youtube musica playlist`.toLowerCase();
-
-                const card = document.createElement('div');
-                card.className = 'gostos-card';
-                card.setAttribute('data-search', searchStr);
-                card.onclick = function() { ampliarCard(this); };
-
-                card.innerHTML = `
-                    <div class="card-img-container">
-                        <img src="${capa}" alt="${titulo}">
-                    </div>
-                    <h3>${titulo}</h3>
-                    <p>${descricaoMostrada}</p>
-                    <div class="tags-list" style="display: none;">
-                        <span class="tag">YouTube</span>
-                        <span class="tag">Música</span>
-                        <span class="tag">Playlist</span>
-                        <span class="tag">Destaque</span>
-                        <span class="tag">Vibe</span>
-                        <span class="tag">Neon</span>
-                    </div>
-                `;
-
-                const star = document.createElement('span');
-                star.className = 'fav-toggle';
-                star.innerHTML = '★';
-                star.onclick = (e) => toggleFavorite(e, star);
-                
-                if (favorites.some(f => f.title === titulo)) star.classList.add('active');
-
-                card.appendChild(star);
-                musicasGrid.appendChild(card);
-            });
-
-            nextPageToken = data.nextPageToken;
-        } while (nextPageToken);
+        }
 
         ytPlaylistLoaded = true; // Só marca como carregado se o loop terminar com sucesso
         isFetching = false;
@@ -239,6 +237,7 @@ async function carregarPlaylistYouTube() {
             mensagemErro = "Cota Esgotada: O limite diário de buscas no YouTube foi atingido.";
         }
 
+        musicasGrid.innerHTML = ''; // Limpa o loading e mostra o erro
         musicasGrid.innerHTML = `<p style="color:#ff4b2b; grid-column: 1/-1; text-align:center; padding: 20px;">
             ${mensagemErro}<br>
             <button onclick="carregarPlaylistYouTube()" style="background:none; border:1px solid #ff4b2b; color:#ff4b2b; cursor:pointer; margin-top:10px; padding:5px 10px; border-radius:5px;">Tentar Reconectar</button>
@@ -362,6 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const gridId = bar.id.replace('toggle-', '') + '-grid';
             const grid = document.getElementById(gridId);
             const seta = bar.querySelector('.seta');
+            const loadMoreBtn = document.getElementById('btn-carregar-mais-musicas');
 
             if (grid) {
                 // Carrega a playlist apenas quando abrir a seção pela primeira vez
@@ -372,8 +372,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 grid.classList.toggle('active');
                 if (grid.classList.contains('active')) {
                     seta.style.transform = 'rotate(180deg)';
+                    // Mostra o botão "Carregar Mais" se for a seção de músicas e houver mais páginas
+                    if (bar.id === 'toggle-musicas' && youtubeNextPageToken && loadMoreBtn) {
+                        loadMoreBtn.style.display = 'block';
+                    }
                 } else {
                     seta.style.transform = 'rotate(0deg)';
+                    // Esconde o botão "Carregar Mais" se a seção de músicas for fechada
+                    if (bar.id === 'toggle-musicas' && loadMoreBtn) {
+                        loadMoreBtn.style.display = 'none';
+                    }
                 }
             }
         });
@@ -710,6 +718,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 const selectedCard = cards[randomIndex];
                 
                 ampliarCard(selectedCard);
+            }
+        });
+    }
+
+    // --- BOTÃO CARREGAR MAIS MÚSICAS ---
+    const btnCarregarMaisMusicas = document.getElementById('btn-carregar-mais-musicas');
+    if (btnCarregarMaisMusicas) {
+        btnCarregarMaisMusicas.addEventListener('click', () => {
+            if (youtubeNextPageToken) {
+                carregarPlaylistYouTube(youtubeNextPageToken);
             }
         });
     }
