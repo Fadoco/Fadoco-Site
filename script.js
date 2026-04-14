@@ -1,117 +1,15 @@
 /**
- * STAR HUB - LOGICA DE INTERATIVIDADE
+ * STAR HUB - LÓGICA DE DADOS, PESQUISA E FAVORITOS
  */
 
-// --- 1. GESTÃO DE OVERLAY E LIGHTBOX ---
-function ampliarImagem(elemento) {
-    if (!elemento) return;
-
-    const overlay = document.getElementById('overlay');
-    const conteudo = document.getElementById('conteudo-expandido');
-    conteudo.innerHTML = ''; // Limpa conteúdo anterior
-
-    let midiaOriginal;
-
-    if (elemento.classList.contains('expand-btn')) {
-        midiaOriginal = elemento.parentElement.querySelector('img, video');
-    }
-    else if (elemento.tagName === 'IMG' || elemento.tagName === 'VIDEO') {
-        midiaOriginal = elemento;
-    }
-
-    if (midiaOriginal) {
-        const clone = midiaOriginal.cloneNode(true);
-
-        // Garante que a imagem seja visível mesmo se tiver a classe .mini-img
-        clone.style.display = 'block';
-        clone.classList.remove('mini-img');
-
-        if (clone.tagName === 'VIDEO') {
-            clone.controls = true;
-            clone.autoplay = true;
-        }
-        conteudo.appendChild(clone);
-        overlay.style.display = 'flex';
-    }
-}
-
-function ampliarCard(elemento) {
-    const overlay = document.getElementById('overlay');
-    const conteudo = document.getElementById('conteudo-expandido');
-    conteudo.innerHTML = '';
-
-    const card = elemento.closest('.gostos-card');
-    const h3 = card.querySelector('h3');
-    const title = h3 ? h3.innerText.trim() : "";
-
-    // --- LOGICA ESPECIAL: BOKU NO PICO ---
-    if (title === "Boku no Pico") {
-        const video = document.createElement('video');
-        video.src = 'img/esqueleto.mp4';
-        video.autoplay = true;
-        video.loop = true;
-        video.className = 'boku-video';
-        
-        const text = document.createElement('div');
-        text.className = 'shaking-text';
-        text.innerText = 'Porque você clicou?';
-
-        conteudo.appendChild(video);
-        conteudo.appendChild(text);
-        
-        // Ajusta o container para ocupar tudo no modo easter egg
-        conteudo.style.width = '100vw';
-        conteudo.style.height = '100vh';
-        
-        overlay.style.display = 'flex';
-        return; // Interrompe aqui
-    }
-
-    // --- COMPORTAMENTO: ABRIR CARD DETALHADO ---
-    const clone = card.cloneNode(true);
-    clone.removeAttribute('onclick'); // Evita recursão
-
-    // Tornar a imagem dentro do card expandido clicável para análise
-    const imgContainer = clone.querySelector('.card-img-container');
-    if (imgContainer) {
-        imgContainer.style.cursor = 'zoom-in';
-        imgContainer.onclick = function(e) {
-            e.stopPropagation();
-            analisarImagem(this);
-        };
-    }
-    
-    conteudo.appendChild(clone);
-    conteudo.style.width = ''; // Reseta tamanho caso venha do modo easter egg
-    conteudo.style.height = '';
-    overlay.style.display = 'flex';
-}
-
-function analisarImagem(imageContainer) {
-    const conteudo = document.getElementById('conteudo-expandido');
-    const originalImg = imageContainer.querySelector('img');
-    if (!originalImg) return;
-
-    const clone = originalImg.cloneNode(true);
-    clone.className = 'img-analise';
-    conteudo.innerHTML = ''; // Remove o card para focar apenas na imagem
-    conteudo.appendChild(clone);
-}
-
-function fecharAmpliacao() {
-    const overlay = document.getElementById('overlay');
-    const conteudo = document.getElementById('conteudo-expandido');
-    overlay.style.display = 'none';
-    
-    // Reset de estilos caso venha do modo easter egg
-    if (conteudo) {
-        conteudo.style.width = '';
-        conteudo.style.height = '';
-        conteudo.style.position = '';
-        conteudo.classList.remove('shaking-container');
-    }
-    conteudo.innerHTML = '';
-}
+// --- UTILITÁRIOS ---
+const debounce = (func, wait) => {
+    let timeout;
+    return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func(...args), wait);
+    };
+};
 
 // --- CONFIGURAÇÃO DA API DO YOUTUBE ---
 const YT_CONFIG = {
@@ -123,7 +21,7 @@ let ytPlaylistLoaded = false; // Controle para carregar apenas uma vez
 let isFetching = false; // Evita múltiplas requisições simultâneas
 let youtubeNextPageToken = ''; // Armazena o token da próxima página do YouTube
 
-async function carregarPlaylistYouTube(pageToken = '') {
+window.carregarPlaylistYouTube = async function(pageToken = '') {
     const musicasGrid = document.getElementById('musicas-grid');
     const loadMoreBtn = document.getElementById('btn-carregar-mais-musicas');
     if (!musicasGrid || isFetching) return;
@@ -180,8 +78,9 @@ async function carregarPlaylistYouTube(pageToken = '') {
             const capa = thumbnail.medium ? thumbnail.medium.url : (thumbnail.default ? thumbnail.default.url : 'img/mp3.jpg');
             const searchStr = `${titulo} youtube musica`.toLowerCase();
 
+            const isFavorited = favorites.some(f => f.title === titulo);
             const card = document.createElement('div');
-            card.className = 'gostos-card';
+            card.className = `gostos-card ${isFavorited ? 'is-favorite' : ''}`;
             card.setAttribute('data-search', searchStr);
             card.onclick = function() { ampliarCard(this); };
 
@@ -201,8 +100,8 @@ async function carregarPlaylistYouTube(pageToken = '') {
             star.className = 'fav-toggle';
             star.innerHTML = '★';
             star.onclick = (e) => toggleFavorite(e, star);
-            
-            if (favorites.some(f => f.title === titulo)) star.classList.add('active');
+
+            if (isFavorited) star.classList.add('active');
 
             card.appendChild(star);
             musicasGrid.appendChild(card);
@@ -287,16 +186,18 @@ function renderizarCategoria(lista, gridId) {
         // Prepara o texto de busca antecipadamente para performance
         const searchStr = `${item.titulo} ${item.descricao} ${tags.join(' ')} ${item.categoriaPai || ''}`.toLowerCase();
         
-        const favHtml = item.favorito ? `
+        const favHtml = (item.favorito && item.favorito.imagem) ? `
             <div class="favorito-tag" onclick="event.stopPropagation(); ampliarImagem(this.querySelector('img'))">
                 <span>Favorito: ${item.favorito.texto} <strong>Clique para ver</strong></span>
-                <img src="${item.favorito.imagem}" alt="${item.favorito.texto}" class="mini-img">
+                <img src="${item.favorito.imagem}" alt="${item.favorito.texto || 'Favorito'}" class="mini-img">
             </div>` : '';
 
-        const isFavorited = favorites.some(f => f.title === item.titulo) ? 'active' : '';
+        const isFavorited = favorites.some(f => f.title === item.titulo);
+        const activeClass = isFavorited ? 'active' : '';
+        const cardFavoriteClass = isFavorited ? 'is-favorite' : '';
 
         return `
-            <div class="gostos-card" 
+            <div class="gostos-card ${cardFavoriteClass}" 
                  ${item.ano ? `data-year="${item.ano}"` : ''} 
                  data-search="${searchStr}" 
                  onclick="ampliarCard(this)"
@@ -308,7 +209,7 @@ function renderizarCategoria(lista, gridId) {
                 <p>${item.descricao}</p>
                 <div class="tags-list">${tagsHtml}</div>
                 ${favHtml}
-                <span class="fav-toggle ${isFavorited}" onclick="toggleFavorite(event, this)">★</span>
+                <span class="fav-toggle ${activeClass}" onclick="toggleFavorite(event, this)">★</span>
             </div>
         `;
     }).join('');
@@ -319,15 +220,8 @@ function inicializarComponentesDinamicos() {
     if (typeof renderFavorites === "function") renderFavorites();
     
     // --- NUVEM DE TAGS DINÂMICA ---
-    const tagCloudContainer = document.getElementById('tag-cloud');
-    const btnTagsToggle = document.getElementById('btn-tags-toggle');
     const searchInput = document.getElementById('search-input');
-
-    if (btnTagsToggle && tagCloudContainer) {
-        btnTagsToggle.addEventListener('click', () => {
-            tagCloudContainer.classList.toggle('active');
-        });
-    }
+    const tagCloudContainer = document.getElementById('tag-cloud');
 
     if (tagCloudContainer) {
         const allTags = Array.from(document.querySelectorAll('.gostos-card .tag')).map(t => t.innerText);
@@ -349,100 +243,11 @@ function inicializarComponentesDinamicos() {
 }
 
 // --- 2. INICIALIZAÇÃO DE EVENTOS ---
-document.addEventListener('DOMContentLoaded', () => {
+const inicializarApp = () => {
     carregarDadosLocais();
-    
-    
-
-    // --- GRIDS EXPANSÍVEIS (TOGGLE BARS) ---
-    const toggleBars = document.querySelectorAll('.toggle-bar');
-    toggleBars.forEach(bar => {
-        bar.addEventListener('click', () => {
-            const gridId = bar.id.replace('toggle-', '') + '-grid';
-            const grid = document.getElementById(gridId);
-            const seta = bar.querySelector('.seta');
-            const loadMoreBtn = document.getElementById('btn-carregar-mais-musicas');
-
-            if (grid) {
-                // Carrega a playlist apenas quando abrir a seção pela primeira vez
-                if (bar.id === 'toggle-musicas' && !ytPlaylistLoaded) {
-                    carregarPlaylistYouTube();
-                }
-
-                grid.classList.toggle('active');
-                if (grid.classList.contains('active')) {
-                    seta.style.transform = 'rotate(180deg)';
-                    // Mostra o botão "Carregar Mais" se for a seção de músicas e houver mais páginas
-                    if (bar.id === 'toggle-musicas' && youtubeNextPageToken && loadMoreBtn) {
-                        loadMoreBtn.style.display = 'block';
-                    }
-                } else {
-                    seta.style.transform = 'rotate(0deg)';
-                    // Esconde o botão "Carregar Mais" se a seção de músicas for fechada
-                    if (bar.id === 'toggle-musicas' && loadMoreBtn) {
-                        loadMoreBtn.style.display = 'none';
-                    }
-                }
-            }
-        });
-    });
-
-    // --- CONTROLE DA SIDEBAR (MENU LATERAL) ---
-    const btnMenu = document.getElementById('btn-menu');
-    const sideMenu = document.getElementById('side-menu');
-    const btnFechar = document.getElementById('btn-fechar');
-
-    if (btnMenu && sideMenu) {
-        btnMenu.addEventListener('click', () => {
-            sideMenu.classList.add('active');
-        });
-    }
-
-    if (btnFechar && sideMenu) {
-        btnFechar.addEventListener('click', () => {
-            sideMenu.classList.remove('active');
-        });
-    }
-
-    // --- COMPORTAMENTO DO OVERLAY ---
-    const conteudoExpandido = document.getElementById('conteudo-expandido');
-    if (conteudoExpandido) {
-        conteudoExpandido.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-    }
-
-    // --- BOTÃO VOLTAR AO TOPO ---
-    const backToTopBtn = document.getElementById('back-to-top');
-    if (backToTopBtn) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
-        });
-
-        backToTopBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Evita que o clique feche overlays abertos
-            const isFavOpen = favOverlay && getComputedStyle(favOverlay).display === 'flex';
-            if (isFavOpen) {
-                favOverlay.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        });
-    }
-
-    // Adiciona o fechamento ao clicar no fundo do overlay (clicar fora)
-    const overlayPrincipal = document.getElementById('overlay');
-    if (overlayPrincipal) {
-        overlayPrincipal.addEventListener('click', fecharAmpliacao);
-    }
 
     // --- SISTEMA DE BUSCA E FILTROS OTIMIZADO ---
     const searchInput = document.getElementById('search-input');
-    const filterBtns = document.querySelectorAll('.filter-btn');
     let activeDecade = 'all';
 
     const applyFilters = () => {
@@ -484,8 +289,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (activeDecade !== 'all') checkAchievement('time-traveler');
     };
 
-    if (searchInput) searchInput.addEventListener('input', applyFilters);
+    if (searchInput) searchInput.addEventListener('input', debounce(applyFilters, 300));
     
+    const filterBtns = document.querySelectorAll('.filter-btn');
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
@@ -515,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let toastTimeout;
 
     // Função de Notificação (Toast)
-    const showNotification = (message) => {
+    window.showNotification = (message) => {
         let toast = document.querySelector('.toast-notification');
         if (!toast) {
             toast = document.createElement('div');
@@ -552,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Função para atualizar o contador visual da estrela
-    const updateFavCounter = () => {
+    window.updateFavCounter = () => {
         const favorites = JSON.parse(safeLocalStorage.get('user-favorites') || '[]');
         const counter = document.getElementById('fav-counter');
         if (counter) {
@@ -561,7 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Função para renderizar os favoritos salvos
-    const renderFavorites = () => {
+    window.renderFavorites = () => {
         if (!favGrid) return;
         const favorites = JSON.parse(safeLocalStorage.get('user-favorites') || '[]');
         favGrid.innerHTML = favorites.length ? '' : '<p style="color:white; grid-column: 1/-1; text-align:center;">Você ainda não favoritou nada na sua jornada estelar.</p>';
@@ -637,6 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (favorites.some(f => f.title === title)) {
             favorites = favorites.filter(f => f.title !== title);
             if (btn) btn.classList.remove('active');
+            if (card) card.classList.remove('is-favorite');
             showNotification(`Removido: ${title}`);
         } else {
             // Salva apenas os DADOS necessários, não o HTML
@@ -649,7 +456,8 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             favorites.push(favData);
-            btn.classList.add('active');
+            if (btn) btn.classList.add('active');
+            if (card) card.classList.add('is-favorite');
             showNotification(`Favoritado: ${title}`);
         }
 
@@ -667,46 +475,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- EVENTO DE ABERTURA DE FAVORITOS (PONTE DADOS-UI) ---
     if (btnFavoritos) {
         btnFavoritos.addEventListener('click', () => {
             renderFavorites();
-            favOverlay.style.display = 'flex';
+            if (favOverlay) favOverlay.style.display = 'flex';
         });
     }
 
-    // --- LÓGICA DE FECHAR AO CLICAR FORA ---
-    document.addEventListener('click', (e) => {
-        // Fechar Sidebar
-        const sideMenu = document.getElementById('side-menu');
-        const btnMenu = document.getElementById('btn-menu');
-        if (sideMenu && sideMenu.classList.contains('active')) {
-            if (!sideMenu.contains(e.target) && !btnMenu.contains(e.target)) {
-                sideMenu.classList.remove('active');
-            }
-        }
 
-        // Fechar Favoritos
-        if (favOverlay && btnFavoritos && (favOverlay.style.display === 'flex' || getComputedStyle(favOverlay).display === 'flex')) {
-            const favContainer = document.querySelector('.fav-content');
-            
-            // Verifica se o clique não foi no container, nem no botão de abrir, nem no botão de voltar ao topo
-            const isBackToTopClick = backToTopBtn && backToTopBtn.contains(e.target);
-            
-            if (!favContainer.contains(e.target) && !btnFavoritos.contains(e.target) && !isBackToTopClick) {
-                favOverlay.style.display = 'none';
-            }
-        }
-    });
-
-    // Tornando a função de fechar acessível ao HTML
-    window.fecharFavoritos = () => {
-        if (favOverlay) {
-            favOverlay.style.display = 'none';
-            // Re-avalia o botão para a janela principal ao fechar
-            if (window.scrollY > 400) backToTopBtn.classList.add('show');
-            else backToTopBtn.classList.remove('show');
-        }
-    };
+    
 
     // --- GERADOR DE RECOMENDAÇÃO ALEATÓRIA ---
     const btnRandom = document.getElementById('btn-random');
@@ -759,4 +537,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderFavorites();
     updateAchievementUI();
-});
+};
+
+document.addEventListener('DOMContentLoaded', inicializarApp);

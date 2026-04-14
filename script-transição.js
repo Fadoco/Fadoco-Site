@@ -1,8 +1,123 @@
 /**
- * STAR HUB - SISTEMA DE CARREGAMENTO E TRANSIÇÃO
+ * STAR HUB - SISTEMA DE CARREGAMENTO, TRANSIÇÃO E CORE UI
  */
 
+// --- 1. GESTÃO DE OVERLAY E LIGHTBOX (CORE UI) ---
+window.ampliarImagem = function(elemento) {
+    if (!elemento) return;
+    const overlay = document.getElementById('overlay');
+    const conteudo = document.getElementById('conteudo-expandido');
+    conteudo.innerHTML = '';
+
+    let midiaOriginal = elemento.classList.contains('expand-btn') 
+        ? elemento.parentElement.querySelector('img, video') 
+        : (elemento.tagName === 'IMG' || elemento.tagName === 'VIDEO' ? elemento : null);
+
+    if (midiaOriginal) {
+        const clone = midiaOriginal.cloneNode(true);
+        clone.style.display = 'block';
+        clone.classList.remove('mini-img');
+        if (clone.tagName === 'VIDEO') { clone.controls = true; clone.autoplay = true; }
+        conteudo.appendChild(clone);
+        overlay.style.display = 'flex';
+    }
+};
+
+window.ampliarCard = function(elemento) {
+    const overlay = document.getElementById('overlay');
+    const conteudo = document.getElementById('conteudo-expandido');
+    conteudo.innerHTML = '';
+    const card = elemento.closest('.gostos-card');
+    const title = card.querySelector('h3')?.innerText.trim() || "";
+
+    if (title === "Boku no Pico") {
+        const video = document.createElement('video');
+        video.src = 'img/esqueleto.mp4';
+        video.autoplay = video.loop = true;
+        video.className = 'boku-video';
+        const text = document.createElement('div');
+        text.className = 'shaking-text';
+        text.innerText = 'Porque você clicou?';
+        conteudo.append(video, text);
+        conteudo.style.width = '100vw'; conteudo.style.height = '100vh';
+        overlay.style.display = 'flex';
+        return;
+    }
+
+    const clone = card.cloneNode(true);
+    clone.removeAttribute('onclick');
+    const imgContainer = clone.querySelector('.card-img-container');
+    if (imgContainer) {
+        imgContainer.style.cursor = 'zoom-in';
+        imgContainer.onclick = (e) => { e.stopPropagation(); analisarImagem(imgContainer); };
+    }
+    conteudo.append(clone);
+    conteudo.style.width = conteudo.style.height = '';
+    overlay.style.display = 'flex';
+};
+
+window.analisarImagem = function(imageContainer) {
+    const conteudo = document.getElementById('conteudo-expandido');
+    const originalImg = imageContainer.querySelector('img');
+    if (!originalImg) return;
+    const clone = originalImg.cloneNode(true);
+    clone.className = 'img-analise';
+    conteudo.innerHTML = '';
+    conteudo.appendChild(clone);
+};
+
+window.fecharAmpliacao = function() {
+    const overlay = document.getElementById('overlay');
+    const conteudo = document.getElementById('conteudo-expandido');
+    overlay.style.display = 'none';
+    if (conteudo) { conteudo.style.width = conteudo.style.height = ''; }
+    conteudo.innerHTML = '';
+};
+
+window.fecharFavoritos = function() {
+    const favOverlay = document.getElementById('favorites-overlay');
+    if (favOverlay) favOverlay.style.display = 'none';
+    window.dispatchEvent(new Event('scroll')); // Atualiza botão back-to-top
+};
+
+// --- LOGICA DE INSTALAÇÃO PWA ---
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Previne o banner automático do navegador para usarmos o nosso
+    console.log('PWA: Evento beforeinstallprompt detectado!');
+    e.preventDefault();
+    deferredPrompt = e;
+    // Mostra o nosso container de instalação no menu lateral
+    const installContainer = document.getElementById('install-container');
+    if (installContainer) installContainer.style.display = 'block';
+});
+
 document.addEventListener('DOMContentLoaded', () => {
+    const btnInstalar = document.getElementById('btn-instalar-pwa');
+    if (btnInstalar) {
+        btnInstalar.addEventListener('click', async (e) => {
+            e.preventDefault();
+            if (!deferredPrompt) return;
+            
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                console.log('Usuário aceitou a instalação');
+            }
+            deferredPrompt = null;
+            document.getElementById('install-container').style.display = 'none';
+        });
+    }
+
+    // --- REGISTRO DO SERVICE WORKER (PWA) ---
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('Navegação Estelar: Service Worker Ativado!'))
+                .catch(err => console.log('Erro na Propulsão: ', err));
+        });
+    }
+
     // --- 1. CRIAÇÃO DA TELA DE LOADING ---
     const transitionOverlay = document.createElement('div');
     transitionOverlay.className = 'hyperspace-overlay';
@@ -28,7 +143,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- CRIAR ESTRELAS NO LOADING ---
-    for (let i = 0; i < 50; i++) {
+    const isMobile = window.innerWidth <= 768;
+    const starCount = isMobile ? 20 : 50; // Performance: Menos estrelas no mobile
+    const fragment = document.createDocumentFragment();
+
+    for (let i = 0; i < starCount; i++) {
         const star = document.createElement('div');
         star.className = 'loading-star';
         
@@ -37,11 +156,12 @@ document.addEventListener('DOMContentLoaded', () => {
         star.style.height = size;
         star.style.top = Math.random() * 100 + 'vh';
         star.style.left = Math.random() * 100 + 'vw';
-        star.style.animationDuration = (Math.random() * 3 + 2) + 's';
-        star.style.animationDelay = (Math.random() * 1.5) + 's'; // Estrelas aparecem mais rápido
+        star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        star.style.animationDelay = (Math.random() * 1) + 's'; 
         
-        transitionOverlay.appendChild(star);
+        fragment.appendChild(star);
     }
+    transitionOverlay.appendChild(fragment);
 
     // --- 2. LÓGICA DE ESPERA (ACELERADA) ---
     const fecharLoading = () => {
@@ -87,6 +207,81 @@ document.addEventListener('DOMContentLoaded', () => {
                     }, 500); // Reduzido de 600ms para 500ms
                 }
             });
+        }
+    });
+
+    // --- EVENTOS DE UI (SIDEBAR & SCROLL) ---
+    const btnMenu = document.getElementById('btn-menu');
+    const sideMenu = document.getElementById('side-menu');
+    const btnFechar = document.getElementById('btn-fechar');
+    const backToTopBtn = document.getElementById('back-to-top');
+    const overlayPrincipal = document.getElementById('overlay');
+
+    if (btnMenu) btnMenu.onclick = () => sideMenu?.classList.add('active');
+    if (btnFechar) btnFechar.onclick = () => sideMenu?.classList.remove('active');
+    if (overlayPrincipal) overlayPrincipal.onclick = fecharAmpliacao;
+
+    // --- GESTÃO DE GRIDS E TAGS (UI) ---
+    document.querySelectorAll('.toggle-bar').forEach(bar => {
+        bar.onclick = () => {
+            const gridId = bar.id.replace('toggle-', '') + '-grid';
+            const grid = document.getElementById(gridId);
+            const seta = bar.querySelector('.seta');
+
+            if (grid) {
+                const isActive = grid.classList.toggle('active');
+                if (seta) seta.style.transform = isActive ? 'rotate(180deg)' : 'rotate(0deg)';
+                
+                // Se for música e tiver a função de carregar, dispara
+                if (bar.id === 'toggle-musicas' && typeof window.carregarPlaylistYouTube === 'function') {
+                    window.carregarPlaylistYouTube();
+                }
+            }
+        };
+    });
+
+    const btnTagsToggle = document.getElementById('btn-tags-toggle');
+    if (btnTagsToggle) btnTagsToggle.onclick = () => document.getElementById('tag-cloud')?.classList.toggle('active');
+
+    window.addEventListener('scroll', () => {
+        if (backToTopBtn) {
+            window.scrollY > 400 ? backToTopBtn.classList.add('show') : backToTopBtn.classList.remove('show');
+        }
+        // Lógica da Barra de Progresso
+        const progressBar = document.querySelector('.progress-bar');
+        if (progressBar) {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            progressBar.style.width = (winScroll / height) * 100 + "%";
+        }
+    }, { passive: true });
+
+    if (backToTopBtn) {
+        backToTopBtn.onclick = (e) => {
+            e.stopPropagation();
+            const favOverlay = document.getElementById('favorites-overlay');
+            (favOverlay && getComputedStyle(favOverlay).display === 'flex') 
+                ? favOverlay.scrollTo({ top: 0, behavior: 'smooth' }) 
+                : window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    }
+
+    // --- FECHAMENTO GLOBAL AO CLICAR FORA ---
+    document.addEventListener('click', (e) => {
+        // Fechar Sidebar
+        if (sideMenu?.classList.contains('active') && !sideMenu.contains(e.target) && !btnMenu?.contains(e.target)) {
+            sideMenu.classList.remove('active');
+        }
+
+        // Fechar Favoritos
+        const favOverlay = document.getElementById('favorites-overlay');
+        const btnFavoritos = document.getElementById('btn-favoritos');
+        const favContent = document.querySelector('.fav-content');
+        
+        if (favOverlay && getComputedStyle(favOverlay).display === 'flex') {
+            if (!favContent?.contains(e.target) && !btnFavoritos?.contains(e.target) && !e.target.closest('#back-to-top')) {
+                fecharFavoritos();
+            }
         }
     });
 });
