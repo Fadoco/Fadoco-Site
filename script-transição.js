@@ -79,71 +79,7 @@ window.fecharFavoritos = function() {
     if (favOverlay) favOverlay.style.display = 'none';
     window.dispatchEvent(new Event('scroll')); // Atualiza botão back-to-top
 };
-
-// --- LÓGICA DE INSTALAÇÃO PWA EVOLUÍDA ---
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
-    console.log('PWA: Evento beforeinstallprompt detectado!');
-    e.preventDefault();
-    deferredPrompt = e;
-    
-    // Pequeno delay para não atrapalhar o loading inicial
-    setTimeout(mostrarBannerInstalacao, 3000);
-});
-
-function mostrarBannerInstalacao() {
-    const banner = document.getElementById('pwa-banner');
-    if (banner && !window.matchMedia('(display-mode: standalone)').matches) {
-        banner.classList.add('show');
-    }
-}
-
-const isIOS = () => {
-    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-};
-
 document.addEventListener('DOMContentLoaded', () => {
-    const btnConfirm = document.getElementById('btn-pwa-install');
-    const banner = document.getElementById('pwa-banner');
-
-    // Lógica para iOS (Safari não dispara beforeinstallprompt)
-    if (isIOS() && !window.matchMedia('(display-mode: standalone)').matches) {
-        const pwaText = document.querySelector('.pwa-info');
-        if (pwaText) pwaText.innerHTML = "Toque em <strong>Compartilhar</strong> e depois <strong>Tela de Início</strong> para baixar o App! ✨";
-        const pwaBtn = document.getElementById('btn-pwa-install');
-        if (pwaBtn) pwaBtn.style.display = 'none'; // iOS não tem botão de click, é manual
-        setTimeout(mostrarBannerInstalacao, 4000);
-    }
-
-    if (btnConfirm) {
-        btnConfirm.addEventListener('click', async (e) => {
-            e.preventDefault();
-            if (!deferredPrompt) return;
-            
-            deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            if (outcome === 'accepted') {
-                console.log('Usuário aceitou a instalação');
-                banner.classList.remove('show');
-            }
-            deferredPrompt = null;
-        });
-    }
-
-    // Se o evento disparou antes do script carregar, verifica agora
-    if (deferredPrompt) {
-        document.getElementById('install-container').style.display = 'block';
-    }
-
-    // --- REGISTRO DO SERVICE WORKER (PWA) ---
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js')
-                .then(reg => console.log('Navegação Estelar: Service Worker Ativado!'))
-                .catch(err => console.log('Erro na Propulsão: ', err));
-        });
-    }
-
     // --- 1. CRIAÇÃO DA TELA DE LOADING ---
     const transitionOverlay = document.createElement('div');
     transitionOverlay.className = 'hyperspace-overlay';
