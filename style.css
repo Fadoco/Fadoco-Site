@@ -165,7 +165,12 @@ header li a {
 }
 
 /* --- 3. SIDEBAR MENU --- */
-.menu-extra { width: 100px; display: flex; justify-content: flex-end; }
+.menu-extra { 
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: center;
+    gap: 15px;
+}
 
 .btn-menu {
     background: transparent;
@@ -234,12 +239,9 @@ header li a {
     cursor: pointer;
 }
 
-/* --- BOTÃO DE INSTALAÇÃO PWA (TOP SIDEBAR) --- */
-.install-wrapper-top {
-    position: absolute;
-    top: 38px;
-    right: 85px;
-    z-index: 2001;
+/* --- BOTÃO DE INSTALAÇÃO PWA (HEADER) --- */
+#install-container {
+    display: flex;
 }
 
 #btn-instalar-pwa {
@@ -265,13 +267,11 @@ header li a {
 }
 
 @media (max-width: 480px) {
-    .install-wrapper-top {
-        top: 40px;
-        right: 70px;
-    }
+    .menu-extra { gap: 8px; }
     #btn-instalar-pwa {
-        font-size: 0.55rem;
-        padding: 4px 8px;
+        font-size: 0.5rem;
+        padding: 4px 6px;
+        letter-spacing: 0;
     }
 }
 
