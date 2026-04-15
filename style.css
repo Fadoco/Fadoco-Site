@@ -239,40 +239,50 @@ header li a {
     cursor: pointer;
 }
 
-/* --- BOTÃO DE INSTALAÇÃO PWA (HEADER) --- */
-#install-container {
-    display: flex;
-}
-
-#btn-instalar-pwa {
-    background: rgba(0, 212, 255, 0.05);
+/* --- BANNER DE INSTALAÇÃO PWA (FLOATING) --- */
+.pwa-install-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(150%);
+    width: 90%;
+    max-width: 400px;
+    background: rgba(10, 10, 20, 0.95);
+    backdrop-filter: blur(15px);
     border: 1px solid var(--primary-neon);
-    color: var(--primary-neon);
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.65rem;
-    padding: 6px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: 0.3s;
-    box-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+    border-radius: 15px;
+    padding: 15px 20px;
+    z-index: 5000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-#btn-instalar-pwa:hover {
+.pwa-install-banner.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+.pwa-info {
+    color: white;
+    font-size: 0.85rem;
+}
+
+.pwa-info strong { color: var(--primary-neon); }
+
+.btn-pwa-confirm {
     background: var(--primary-neon);
     color: #000;
-    box-shadow: 0 0 15px var(--primary-neon);
-    transform: scale(1.05);
-}
-
-@media (max-width: 480px) {
-    .menu-extra { gap: 8px; }
-    #btn-instalar-pwa {
-        font-size: 0.5rem;
-        padding: 4px 6px;
-        letter-spacing: 0;
-    }
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 0.7rem;
+    cursor: pointer;
+    white-space: nowrap;
 }
 
 /* --- 4. SEÇÃO HOME --- */

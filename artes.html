@@ -29,9 +29,6 @@
         </div>
 
         <div class="menu-extra">
-            <div id="install-container" style="display: none;">
-                <button id="btn-instalar-pwa">✨ Baixar App</button>
-            </div>
             <button class="btn-menu" id="btn-menu">☰</button>
         </div>
     </header>
@@ -130,6 +127,15 @@
         </div>
 </div>
 </main>
+
+    <!-- Novo Banner de Instalação PWA -->
+    <div id="pwa-banner" class="pwa-install-banner">
+        <div class="pwa-info">
+            Deseja baixar o <strong>Star Hub</strong> para sua tela inicial?
+        </div>
+        <button id="btn-pwa-install" class="btn-pwa-confirm">INSTALAR</button>
+        <span style="color:rgba(255,255,255,0.3); cursor:pointer;" onclick="document.getElementById('pwa-banner').classList.remove('show')">&times;</span>
+    </div>
 
     <button id="back-to-top" title="Voltar ao topo">▲</button>
 

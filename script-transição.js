@@ -80,31 +80,43 @@ window.fecharFavoritos = function() {
     window.dispatchEvent(new Event('scroll')); // Atualiza botão back-to-top
 };
 
-// --- LOGICA DE INSTALAÇÃO PWA ---
+// --- LÓGICA DE INSTALAÇÃO PWA EVOLUÍDA ---
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
-    // Previne o banner automático do navegador para usarmos o nosso
     console.log('PWA: Evento beforeinstallprompt detectado!');
     e.preventDefault();
     deferredPrompt = e;
     
-    // Tenta mostrar o container. Se o DOM não estiver pronto, a lógica no DOMContentLoaded cuidará disso.
-    const mostrarBotao = () => {
-        const installContainer = document.getElementById('install-container');
-        if (installContainer) installContainer.style.display = 'block';
-    };
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', mostrarBotao);
-    } else {
-        mostrarBotao();
-    }
+    // Pequeno delay para não atrapalhar o loading inicial
+    setTimeout(mostrarBannerInstalacao, 3000);
 });
 
+function mostrarBannerInstalacao() {
+    const banner = document.getElementById('pwa-banner');
+    if (banner && !window.matchMedia('(display-mode: standalone)').matches) {
+        banner.classList.add('show');
+    }
+}
+
+const isIOS = () => {
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+};
+
 document.addEventListener('DOMContentLoaded', () => {
-    const btnInstalar = document.getElementById('btn-instalar-pwa');
-    if (btnInstalar) {
-        btnInstalar.addEventListener('click', async (e) => {
+    const btnConfirm = document.getElementById('btn-pwa-install');
+    const banner = document.getElementById('pwa-banner');
+
+    // Lógica para iOS (Safari não dispara beforeinstallprompt)
+    if (isIOS() && !window.matchMedia('(display-mode: standalone)').matches) {
+        const pwaText = document.querySelector('.pwa-info');
+        if (pwaText) pwaText.innerHTML = "Toque em <strong>Compartilhar</strong> e depois <strong>Tela de Início</strong> para baixar o App! ✨";
+        const pwaBtn = document.getElementById('btn-pwa-install');
+        if (pwaBtn) pwaBtn.style.display = 'none'; // iOS não tem botão de click, é manual
+        setTimeout(mostrarBannerInstalacao, 4000);
+    }
+
+    if (btnConfirm) {
+        btnConfirm.addEventListener('click', async (e) => {
             e.preventDefault();
             if (!deferredPrompt) return;
             
@@ -112,9 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const { outcome } = await deferredPrompt.userChoice;
             if (outcome === 'accepted') {
                 console.log('Usuário aceitou a instalação');
+                banner.classList.remove('show');
             }
             deferredPrompt = null;
-            document.getElementById('install-container').style.display = 'none';
         });
     }
 
