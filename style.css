@@ -1609,7 +1609,9 @@ header li a {
     width: 120px; /* Tamanho ajustado para 120px */
     height: auto;
     margin-bottom: 15px;
-    pointer-events: none; /* Impede interação com o vídeo */
+    pointer-events: none; /* Impede cliques no vídeo */
+    user-select: none;    /* Impede seleção */
+    -webkit-user-drag: none;
     mix-blend-mode: screen; /* Faz o preto do vídeo ficar transparente */
 }
 

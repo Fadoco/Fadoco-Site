@@ -1,4 +1,4 @@
-const CACHE_NAME = 'star-hub-v1';
+const CACHE_NAME = 'star-hub-v2';
 const ASSETS = [
   './',
   './index.html',
@@ -8,8 +8,7 @@ const ASSETS = [
   './script.js',
   './script-transição.js',
   './dados.json',
-  './img/Background (1).gif',
-  './img/logo-app.jpg'
+  './img/logo-app.jpg' // Removi o background com espaços para evitar erro de cache
 ];
 
 // Instalação e Cache Inicial

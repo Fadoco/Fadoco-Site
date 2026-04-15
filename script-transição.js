@@ -87,9 +87,18 @@ window.addEventListener('beforeinstallprompt', (e) => {
     console.log('PWA: Evento beforeinstallprompt detectado!');
     e.preventDefault();
     deferredPrompt = e;
-    // Mostra o nosso container de instalação no menu lateral
-    const installContainer = document.getElementById('install-container');
-    if (installContainer) installContainer.style.display = 'block';
+    
+    // Tenta mostrar o container. Se o DOM não estiver pronto, a lógica no DOMContentLoaded cuidará disso.
+    const mostrarBotao = () => {
+        const installContainer = document.getElementById('install-container');
+        if (installContainer) installContainer.style.display = 'block';
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', mostrarBotao);
+    } else {
+        mostrarBotao();
+    }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -107,6 +116,11 @@ document.addEventListener('DOMContentLoaded', () => {
             deferredPrompt = null;
             document.getElementById('install-container').style.display = 'none';
         });
+    }
+
+    // Se o evento disparou antes do script carregar, verifica agora
+    if (deferredPrompt) {
+        document.getElementById('install-container').style.display = 'block';
     }
 
     // --- REGISTRO DO SERVICE WORKER (PWA) ---
