@@ -1,0 +1,86 @@
+{
+    "series": [
+        {
+            "titulo": "Murder Drones",
+            "descricao": "Murder Drones é uma websérie de animação independente criada por Liam Vickers e produzida pelo estúdio australiano GLITCH Productions. A série estreou em 2021 no YouTube e mistura elementos de ficção científica, comédia de humor negro e terror.",
+            "imagem": "img/Murder Drones.png",
+            "ano": null,
+            "tags": ["Sci-Fi", "Terror", "Indie"],
+            "favorito": {
+                "texto": "Uzi Doorman",
+                "imagem": "img/uzi_drones_fav.jpg"
+            }
+        },
+        {
+            "titulo": "Owari no Seraph",
+            "descricao": "",
+            "imagem": "img/Owari no Seraph.png",
+            "ano": null,
+            "tags": [],
+            "favorito": null
+        },
+        {
+            "titulo": "Owari no Seraph",
+            "descricao": "",
+            "imagem": "img/Owari no Seraph.png",
+            "ano": null,
+            "tags": [],
+            "favorito": null
+        },
+        {
+            "titulo": "Owari no Seraph",
+            "descricao": "",
+            "imagem": "img/Owari no Seraph.png",
+            "ano": null,
+            "tags": [],
+            "favorito": null
+        },
+        {
+            "titulo": "Owari no Seraph",
+            "descricao": "",
+            "imagem": "img/Owari no Seraph.png",
+            "ano": null,
+            "tags": [],
+            "favorito": null
+        },
+        {
+            "titulo": "Owari no Seraph",
+            "descricao": "",
+            "imagem": "img/Owari no Seraph.png",
+            "ano": null,
+            "tags": [],
+            "favorito": null
+        },
+         {
+            "titulo": "Owari no Seraph",
+            "descricao": "",
+            "imagem": "img/Owari no Seraph.png",
+            "ano": null,
+            "tags": [],
+            "favorito": null
+        },
+         {
+            "titulo": "Owari no Seraph",
+            "descricao": "",
+            "imagem": "img/Owari no Seraph.png",
+            "ano": null,
+            "tags": [],
+            "favorito": null
+        },
+         {
+            "titulo": "Owari no Seraph",
+            "descricao": "",
+            "imagem": "img/Owari no Seraph.png",
+            "ano": null,
+            "tags": [],
+            "favorito": null
+        },
+         {
+            "titulo": "Owari no Seraph",
+            "descricao": "",
+            "imagem": "img/Owari no Seraph.png",
+            "ano": null,
+            "tags": [],
+            "favorito": null
+        }
+    ]

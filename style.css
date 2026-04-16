@@ -1469,6 +1469,7 @@ header li a {
     margin: 20px auto; /* Centraliza horizontalmente e adiciona margem superior */
     border-color: var(--primary-neon); /* Usa a cor neon primária para destaque */
     color: var(--primary-neon);
+    animation: fadeInUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
 .btn-tags-toggle {
@@ -1730,4 +1731,17 @@ header li a {
     50% { transform: translate(-50%, -50%) translate(-2px, 2px) rotate(1deg); }
     75% { transform: translate(-50%, -50%) translate(2px, -2px) rotate(0deg); }
     100% { transform: translate(-50%, -50%) translate(0, 0); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
 }

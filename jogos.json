@@ -1,0 +1,815 @@
+{
+    "jogos": [
+        {
+            "titulo": "Minecraft",
+            "descricao": "Um jogo de construção onde os jogadores podem criar e destruir diferentes tipos de blocos em um mundo tridimensional gerado proceduralmente.",
+            "imagem": "img/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a.jpg",
+            "ano": 2011,
+            "tags": ["Sandbox", "Criativo", "Mundo Aberto"],
+            "favorito": null
+        },
+        {
+            "titulo": "Black Ops 2",
+            "descricao": "FPS aclamado que mistura combates na Guerra Fria e um futuro tecnológico. Famoso por sua campanha ramificada e o icônico modo Zombies.",
+            "imagem": "img/447007.jpg",
+            "ano": 2012,
+            "tags": ["FPS", "Tiro", "Zombies"],
+            "favorito": null
+        },
+        {
+            "titulo": "Undertale",
+            "descricao": "RPG indie onde suas escolhas morais definem o destino dos monstros. Destaca-se por permitir terminar a aventura sem matar ninguém.",
+            "imagem": "img/798682.png",
+            "ano": 2015,
+            "tags": ["RPG", "Indie", "Escolhas"],
+            "favorito": {
+                "texto": "Asgore O Rei dos Monstros",
+                "imagem": "img/Asgore the King by YAMsgarden on DeviantArt.jfif"
+            }
+        },
+        {
+            "titulo": "Terraria",
+            "descricao": "Aventura 2D épica focada em exploração, construção e combate contra chefes colossais em um mundo procedural.",
+            "imagem": "img/terraria.jpg",
+            "ano": 2011,
+            "tags": ["Sobrenatural", "Aventura", "Exploração"],
+            "favorito": null
+        },
+        {
+            "titulo": "I Wani Hug That Gator",
+            "descricao": "Visual novel de romance e comédia sobre amadurecimento e escolhas em uma escola de répteis antropomórficos.",
+            "imagem": "img/capsule_616x353.jpg",
+            "ano": 2024,
+            "tags": ["Visual Novel", "Romance"],
+            "favorito": null
+        },
+        {
+            "titulo": "Jalopy",
+            "descricao": "Simulador de direção pelo Leste Europeu. Manter seu carro Laika funcionando é o maior desafio desta jornada nostálgica.",
+            "imagem": "img/1246845511_preview_jalopy.jpg",
+            "ano": 2016,
+            "tags": ["Simulador", "Carros", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Ultrakill",
+            "descricao": "FPS frenético com estética retrô onde o sangue é combustível. Combina movimentação veloz e combate técnico de alto estilo.",
+            "imagem": "img/thumb-1920-1168976.png",
+            "ano": 2020,
+            "tags": ["FPS", "Fast-paced", "Retrô"],
+            "favorito": null
+        },
+        {
+            "titulo": "Dead Cells",
+            "descricao": "Roguevania 2D de ação intensa estilo Souls-like. Aprenda com a morte em um castelo que muda a cada tentativa.",
+            "imagem": "img/833257.jpg",
+            "ano": 2018,
+            "tags": ["Roguelike", "Ação", "Metroidvania"],
+            "favorito": null
+        },
+        {
+            "titulo": "Counter-Strike",
+            "descricao": "O FPS competitivo mais icônico do mundo, focado em estratégia de equipe e precisão tática entre terroristas e contra-terroristas.",
+            "imagem": "img/Counter-Strike.jpg",
+            "ano": null,
+            "tags": ["FPS", "Competitivo", "Tiro"],
+            "favorito": null
+        },
+        {
+            "titulo": "Farlight 84",
+            "descricao": "Um Battle Royale futurista e frenético com veículos armados, heróis com habilidades únicas e muita mobilidade no campo de batalha.",
+            "imagem": "img/Farlight 84.png",
+            "ano": null,
+            "tags": ["Battle Royale", "FPS", "Sci-Fi"],
+            "favorito": null
+        },
+        {
+            "titulo": "BattleBit Remastered",
+            "descricao": "FPS massivo de baixo polígono que suporta até 254 jogadores por servidor, com foco em jogabilidade tática e destruição de ambiente.",
+            "imagem": "img/BattleBit Remastered.jpg",
+            "ano": null,
+            "tags": ["FPS", "Guerra", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "Grand Theft Auto V",
+            "descricao": "Explore o vasto mundo de Los Santos neste épico de mundo aberto que segue as vidas entrelaçadas de três criminosos muito diferentes.",
+            "imagem": "img/Grand Theft Auto V.jpg",
+            "ano": 2013,
+            "tags": ["Mundo Aberto", "Ação", "Crime"],
+            "favorito": null
+        },
+        {
+            "titulo": "Garry's Mod",
+            "descricao": "Um sandbox físico sem objetivos definidos. Crie suas próprias experiências, modos de jogo e construções malucas com ferramentas de física.",
+            "imagem": "img/Garry's Mod.jpg",
+            "ano": 2006,
+            "tags": ["Sandbox", "Física", "Multiplayer"],
+            "favorito": null
+        },
+        {
+            "titulo": "Euro Truck Simulator 2",
+            "descricao": "Viaje pela Europa como o rei da estrada, um caminhoneiro que entrega cargas importantes através de distâncias impressionantes.",
+            "imagem": "img/Euro Truck Simulator 2.jpg",
+            "ano": 2012,
+            "tags": ["Simulador", "Direção", "Relaxante"],
+            "favorito": null
+        },
+        {
+            "titulo": "Forager",
+            "descricao": "Um jogo de mundo aberto 2D inspirado em títulos de exploração, farming e crafting. Explore, crie, colete e evolua sua base.",
+            "imagem": "img/Forager.jpg",
+            "ano": 2019,
+            "tags": ["Crafting", "Sandbox", "Exploração"],
+            "favorito": null
+        },
+        {
+            "titulo": "Ori And The Blind Forest",
+            "descricao": "Um metroidvania visualmente deslumbrante que conta a história de um jovem órfão destinado ao heroísmo através de uma jornada emocional.",
+            "imagem": "img/Ori And The Blind Forest.jpg",
+            "ano": 2015,
+            "tags": ["Metroidvania", "Plataforma", "Atmosférico"],
+            "favorito": null
+        },
+        {
+            "titulo": "Left 4 Dead 2",
+            "descricao": "O apocalipse zumbi nunca foi tão cooperativo. Enfrente hordas de infectados e zumbis especiais em uma corrida pela sobrevivência.",
+            "imagem": "img/Left 4 Dead 2.jpg",
+            "ano": 2009,
+            "tags": ["FPS", "Zombies", "Cooperativo"],
+            "favorito": null
+        },
+        {
+            "titulo": "Celeste",
+            "descricao": "Ajude Madeline a enfrentar seus demônios internos em sua jornada até o topo da Montanha Celeste neste jogo de plataforma super preciso.",
+            "imagem": "img/Celeste.png",
+            "ano": 2018,
+            "tags": ["Plataforma", "Difícil", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Ultimate Marvel VS Capcom 3",
+            "descricao": "O crossover definitivo de luta em 3vs3, reunindo os maiores heróis da Marvel e os ícones lendários da Capcom.",
+            "imagem": "img/Ultimate Marvel VS Capcom 3.jpg",
+            "ano": 2011,
+            "tags": ["Luta", "Arcade", "2D"],
+            "favorito": null
+        },
+        {
+            "titulo": "SUPER CHICKEN JUMPER",
+            "descricao": "Um jogo de corrida e plataforma frenético onde você controla um frango em uma missão para salvar o mundo.",
+            "imagem": "img/SUPER CHICKEN JUMPER.jpg",
+            "ano": 2021,
+            "tags": ["Ação", "Runner", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Trailmakers",
+            "descricao": "Construa veículos incríveis a partir de blocos e explore um mundo aberto cheio de desafios e corridas.",
+            "imagem": "img/Trailmakers.jpg",
+            "ano": 2019,
+            "tags": ["Sandbox", "Construção", "Veículos"],
+            "favorito": null
+        },
+        {
+            "titulo": "Sniper Elite 3",
+            "descricao": "Um jogo de tiro tático em terceira pessoa focado em infiltração e precisão durante a Segunda Guerra Mundial.",
+            "imagem": "img/Sniper Elite 3.jpg",
+            "ano": 2014,
+            "tags": ["Sniper", "Furtividade", "Guerra"],
+            "favorito": null
+        },
+        {
+            "titulo": "SpiderHeck",
+            "descricao": "Brawler baseado em física onde aranhas lutam até a morte com sabres de luz e granadas.",
+            "imagem": "img/SpiderHeck.jpg",
+            "ano": 2022,
+            "tags": ["Combate", "Física", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "Game Dev Tycoon",
+            "descricao": "Simulador de negócios onde você gerencia sua própria empresa de desenvolvimento de jogos desde a garagem.",
+            "imagem": "img/Game Dev Tycoon.jpg",
+            "ano": 2012,
+            "tags": ["Simulação", "Estratégia", "Tycoon"],
+            "favorito": null
+        },
+        {
+            "titulo": "Hollow Knight",
+            "descricao": "Um metroidvania desafiador e atmosférico ambientado em um vasto reino de insetos em ruínas.",
+            "imagem": "img/Hollow Knight.jpg",
+            "ano": 2017,
+            "tags": ["Metroidvania", "Souls-like", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Haste",
+            "descricao": "Um jogo focado em velocidade e reflexos rápidos em ambientes de plataforma desafiadores.",
+            "imagem": "img/Haste.jpg",
+            "ano": null,
+            "tags": ["Plataforma", "Velocidade"],
+            "favorito": null
+        },
+        {
+            "titulo": "Just Cause 2",
+            "descricao": "Ação em mundo aberto com foco em destruição total, saltos de paraquedas e o uso criativo de um gancho.",
+            "imagem": "img/Just Cause 2.jpg",
+            "ano": 2010,
+            "tags": ["Ação", "Mundo Aberto", "Destruição"],
+            "favorito": null
+        },
+        {
+            "titulo": "Human Fall Flat",
+            "descricao": "Um jogo de quebra-cabeça baseado em física hilário onde você controla personagens desajeitados em cenários surreais.",
+            "imagem": "img/Human Fall Flat.jpg",
+            "ano": 2016,
+            "tags": ["Física", "Puzzle", "Cooperativo"],
+            "favorito": null
+        },
+        {
+            "titulo": "Brotato",
+            "descricao": "Um roguelite de tiro de arena onde você controla uma batata empunhando até 6 armas ao mesmo tempo.",
+            "imagem": "img/Brotato.jpeg",
+            "ano": 2023,
+            "tags": ["Roguelite", "Ação", "Sobrevivência"],
+            "favorito": null
+        },
+        {
+            "titulo": "Slime Rancher",
+            "descricao": "Explore um planeta alienígena, colete slimes fofos e gerencie sua fazenda nesta aventura relaxante.",
+            "imagem": "img/Slime Rancher.jpg",
+            "ano": 2017,
+            "tags": ["Aventura", "Simulação", "Exploração"],
+            "favorito": null
+        },
+        {
+            "titulo": "VRChat",
+            "descricao": "Uma plataforma social massiva onde você pode criar avatares, mundos e interagir com pessoas de todo o mundo em VR.",
+            "imagem": "img/VRChat.jpg",
+            "ano": 2014,
+            "tags": ["Social", "VR", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "Need for Speed™ Rivals",
+            "descricao": "Escolha entre ser um piloto de rua ou um policial em perseguições de alta velocidade em um mundo aberto dinâmico.",
+            "imagem": "img/Need for Speed™ Rivals.jpg",
+            "ano": 2013,
+            "tags": ["Corrida", "Ação", "Carros"],
+            "favorito": null
+        },
+        {
+            "titulo": "Muse Dash",
+            "descricao": "Um jogo de ritmo vibrante que mistura jogabilidade de parkour com música e estética de anime.",
+            "imagem": "img/Muse Dash.jpg",
+            "ano": 2019,
+            "tags": ["Ritmo", "Anime", "Ação"],
+            "favorito": null
+        },
+        {
+            "titulo": "HOT WHEELS UNLEASHED™",
+            "descricao": "Colecione os carros mais icônicos da Hot Wheels, construa pistas malucas e participe de corridas épicas.",
+            "imagem": "img/HOT WHEELS UNLEASHED™.jpg",
+            "ano": 2021,
+            "tags": ["Corrida", "Arcade", "Colecionismo"],
+            "favorito": null
+        },
+        {
+            "titulo": "Your Only Move Is HUSTLE",
+            "descricao": "Um simulador de luta tático por turnos onde você planeja cada movimento para criar sequências de combate épicas.",
+            "imagem": "img/Your Only Move Is HUSTLE.jpg",
+            "ano": 2023,
+            "tags": ["Luta", "Estratégia", "Turnos"],
+            "favorito": null
+        },
+        {
+            "titulo": "My Summer Car",
+            "descricao": "O simulador definitivo de posse, construção e manutenção de carros em uma área rural da Finlândia nos anos 90.",
+            "imagem": "img/My Summer Car.jpg",
+            "ano": 2016,
+            "tags": ["Simulação", "Sobrevivência", "Carros"],
+            "favorito": null
+        },
+        {
+            "titulo": "Hotshot Racing",
+            "descricao": "Um jogo de corrida arcade com visual retrô inspirado nos clássicos dos anos 90, focado em drift e velocidade.",
+            "imagem": "img/Hotshot Racing.jpg",
+            "ano": 2020,
+            "tags": ["Corrida", "Arcade", "Retrô"],
+            "favorito": null
+        },
+        {
+            "titulo": "Gatekeeper: Eclipse",
+            "descricao": "Um prólogo de ação roguelite acelerado onde você deve proteger o Coração do Universo contra hordas de inimigos.",
+            "imagem": "img/Gatekeeper Eclipse.jpg",
+            "ano": 2024,
+            "tags": ["Ação", "Roguelite", "Shooter"],
+            "favorito": null
+        },
+        {
+            "titulo": "Friends vs Friends",
+            "descricao": "Um shooter online frenético que combina combate 1v1 ou 2v2 com mecânicas de construção de baralho.",
+            "imagem": "img/Friends vs Friends.jpg",
+            "ano": 2023,
+            "tags": ["FPS", "Cartas", "PvP"],
+            "favorito": null
+        },
+        {
+            "titulo": "Clone Drone in the Danger Zone",
+            "descricao": "Um jogo de luta de espadas baseado em voxel onde sua mente é transferida para um gladiador robô.",
+            "imagem": "img/Clone Drone in the Danger Zone.jpg",
+            "ano": 2021,
+            "tags": ["Ação", "Robôs", "Voxel"],
+            "favorito": null
+        },
+        {
+            "titulo": "Umamusume: Pretty Derby",
+            "descricao": "Treine garotas-cavalo inspiradas em cavalos de corrida reais para vencer competições e se tornarem idols.",
+            "imagem": "img/Umamusume Pretty Derby.jpg",
+            "ano": 2021,
+            "tags": ["Simulação", "Esporte", "Anime"],
+            "favorito": null
+        },
+        {
+            "titulo": "Party Animals",
+            "descricao": "Lute com seus amigos como filhotes, gatinhos e outros animais fofos neste brawler baseado em física.",
+            "imagem": "img/Party Animals.jpg",
+            "ano": 2023,
+            "tags": ["Física", "Party", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "Deducto 2",
+            "descricao": "Um jogo de dedução social em primeira pessoa onde o caos e a traição reinam em um ambiente de escritório.",
+            "imagem": "img/Deducto 2.jpg",
+            "ano": 2024,
+            "tags": ["Dedução", "Social", "FPS"],
+            "favorito": null
+        },
+        {
+            "titulo": "Ultimate Chicken Horse",
+            "descricao": "Um jogo de plataforma onde você e seus amigos constroem o nível enquanto jogam, tentando criar armadilhas para os outros.",
+            "imagem": "img/Ultimate Chicken Horse.jpg",
+            "ano": 2016,
+            "tags": ["Plataforma", "Party", "Criativo"],
+            "favorito": null
+        },
+        {
+            "titulo": "Stray",
+            "descricao": "Controle um gato perdido em uma cidade cibernética habitada por robôs, resolvendo mistérios para encontrar o caminho de volta.",
+            "imagem": "img/Stray.jpg",
+            "ano": 2022,
+            "tags": ["Aventura", "Gato", "Cyberpunk"],
+            "favorito": null
+        },
+        {
+            "titulo": "Unrailed!",
+            "descricao": "Um jogo cooperativo caótico onde você deve construir trilhos para um trem que nunca para através de mundos procedurais.",
+            "imagem": "img/Unrailed.jpg",
+            "ano": 2020,
+            "tags": ["Cooperativo", "Estratégia", "Caos"],
+            "favorito": null
+        },
+        {
+            "titulo": "Helltaker",
+            "descricao": "Um jogo curto de quebra-cabeças sobre um homem que viaja ao inferno para formar um harém de demônios.",
+            "imagem": "img/Helltaker.jpg",
+            "ano": 2020,
+            "tags": ["Puzzle", "Indie", "Curto"],
+            "favorito": null
+        },
+        {
+            "titulo": "Stick Fight: The Game",
+            "descricao": "Um jogo de luta baseado em física onde bonecos de palito combatem em arenas perigosas com armas malucas.",
+            "imagem": "img/Stick Fight The Game.jpg",
+            "ano": 2017,
+            "tags": ["Física", "Luta", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "POSTAL 2",
+            "descricao": "Um simulador de vida cotidiana absurdamente violento e politicamente incorreto que se passa durante uma semana.",
+            "imagem": "img/POSTAL 2.jpg",
+            "ano": 2003,
+            "tags": ["FPS", "Sátira", "Mundo Aberto"],
+            "favorito": null
+        },
+        {
+            "titulo": "Unturned",
+            "descricao": "Sobreviva ao apocalipse zumbi em um mundo aberto massivo, construindo bases e interagindo com outros jogadores.",
+            "imagem": "img/Unturned.jpg",
+            "ano": 2014,
+            "tags": ["Sobrevivência", "Zombies", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "Castle Story",
+            "descricao": "Um jogo de estratégia baseado em voxel onde você comanda criaturas fofas para construir castelos e defendê-los.",
+            "imagem": "img/Castle Story.jpg",
+            "ano": 2017,
+            "tags": ["Estratégia", "Construção", "Voxel"],
+            "favorito": null
+        },
+        {
+            "titulo": "Donut County",
+            "descricao": "Um jogo de quebra-cabeça baseado em física onde você controla um buraco no chão que cresce à medida que engole coisas.",
+            "imagem": "img/Donut County.jpg",
+            "ano": 2018,
+            "tags": ["Puzzle", "Física", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Subnautica",
+            "descricao": "Mergulhe em um mundo oceânico alienígena, explore as profundezas e sobreviva aos perigos do mar desconhecido.",
+            "imagem": "img/Subnautica.jpg",
+            "ano": 2018,
+            "tags": ["Sobrevivência", "Exploração", "Ficção Científica"],
+            "favorito": null
+        },
+        {
+            "titulo": "Buckshot Roulette",
+            "descricao": "Um jogo de terror psicológico e roleta russa com uma atmosfera sombria e decisões de vida ou morte.",
+            "imagem": "img/Buckshot Roulette.jpg",
+            "ano": 2023,
+            "tags": ["Terror", "Indie", "Estratégia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Dark Deception",
+            "descricao": "Um jogo de terror em primeira pessoa onde você deve coletar fragmentos de alma em labirintos infestados por monstros.",
+            "imagem": "img/Dark Deception.jpg",
+            "ano": 2018,
+            "tags": ["Terror", "Arcade", "Ação"],
+            "favorito": null
+        },
+        {
+            "titulo": "Lethal Company",
+            "descricao": "Um jogo de terror cooperativo onde você e sua equipe exploram luas abandonadas para coletar sucata e cumprir cotas.",
+            "imagem": "img/Lethal Company.jpg",
+            "ano": 2023,
+            "tags": ["Terror", "Cooperativo", "Sobrevivência"],
+            "favorito": null
+        },
+        {
+            "titulo": "Liar's Bar",
+            "descricao": "Um jogo de dedução social e blefe ambientado em um bar, onde você tenta descobrir quem está mentindo.",
+            "imagem": "img/Liars Bar.jpg",
+            "ano": 2024,
+            "tags": ["Dedução", "Social", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "Wreckfest",
+            "descricao": "Corridas de demolição com física realista e danos detalhados. Muita destruição e diversão caótica.",
+            "imagem": "img/Wreckfest.jpg",
+            "ano": 2018,
+            "tags": ["Corrida", "Destruição", "Simulação"],
+            "favorito": null
+        },
+        {
+            "titulo": "Goat Simulator",
+            "descricao": "Um simulador de cabra hilário e cheio de bugs, onde você causa o máximo de caos possível em um mundo aberto.",
+            "imagem": "img/Goat Simulator.jpg",
+            "ano": 2014,
+            "tags": ["Simulador", "Comédia", "Sandbox"],
+            "favorito": null
+        },
+        {
+            "titulo": "Zumbi Blocks 2 Open Alpha",
+            "descricao": "Um jogo de sobrevivência a zumbis em mundo aberto com gráficos voxel, focado em construção e combate.",
+            "imagem": "img/Zumbi Blocks 2 Open Alpha.jpg",
+            "ano": null,
+            "tags": ["Sobrevivência", "Zombies", "Voxel"],
+            "favorito": null
+        },
+        {
+            "titulo": "Emily Wants To Play",
+            "descricao": "Um jogo de terror de sobrevivência onde um entregador de pizza fica preso em uma casa com bonecas assustadoras.",
+            "imagem": "img/Emily Wants To Play.jpg",
+            "ano": 2015,
+            "tags": ["Terror", "Indie", "Sobrevivência"],
+            "favorito": null
+        },
+        {
+            "titulo": "Pacify",
+            "descricao": "Um jogo de terror cooperativo onde você e seus amigos investigam uma casa assombrada por uma garota demoníaca.",
+            "imagem": "img/Pacify.jpg",
+            "ano": 2019,
+            "tags": ["Terror", "Cooperativo", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Skullgirls 2nd Encore",
+            "descricao": "Um jogo de luta 2D com personagens únicos, animações fluidas e um sistema de combate profundo.",
+            "imagem": "img/Skullgirls 2nd Encore.jpg",
+            "ano": 2015,
+            "tags": ["Luta", "2D", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "OneShot",
+            "descricao": "Uma aventura de quebra-cabeças com elementos meta-ficcionais, onde o jogo interage diretamente com o jogador.",
+            "imagem": "img/OneShot.jpg",
+            "ano": 2016,
+            "tags": ["Puzzle", "Aventura", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Lost Ruins",
+            "descricao": "Um jogo de plataforma 2D de sobrevivência e ação com elementos de metroidvania e um estilo de arte pixelado.",
+            "imagem": "img/Lost Ruins.jpg",
+            "ano": 2022,
+            "tags": ["Plataforma", "Metroidvania", "Ação"],
+            "favorito": null
+        },
+        {
+            "titulo": "Move or Die",
+            "descricao": "Um jogo de festa multiplayer de ritmo acelerado onde as regras mudam a cada 20 segundos, garantindo caos e diversão.",
+            "imagem": "img/Move or Die.jpg",
+            "ano": 2016,
+            "tags": ["Party", "Multijogador", "Ação"],
+            "favorito": null
+        },
+        {
+            "titulo": "Need for Speed™ Most Wanted",
+            "descricao": "Corridas de rua intensas, perseguições policiais e uma lista de carros exóticos para dominar a cidade de Fairhaven.",
+            "imagem": "img/Need for Speed™ Most Wanted.jpg",
+            "ano": 2012,
+            "tags": ["Corrida", "Mundo Aberto", "Ação"],
+            "favorito": null
+        },
+        {
+            "titulo": "Content Warning",
+            "descricao": "Um jogo de terror cooperativo onde você e seus amigos filmam coisas assustadoras para se tornarem virais na SpookTube.",
+            "imagem": "img/Content Warning.jpg",
+            "ano": 2024,
+            "tags": ["Terror", "Cooperativo", "Comédia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Thief Simulator",
+            "descricao": "Simulador de ladrão em primeira pessoa onde você planeja e executa roubos, aprimora suas habilidades e vende o saque.",
+            "imagem": "img/Thief Simulator.jpg",
+            "ano": 2018,
+            "tags": ["Simulador", "Furtividade", "Mundo Aberto"],
+            "favorito": null
+        },
+        {
+            "titulo": "Bum Simulator",
+            "descricao": "Um simulador de vida de mendigo com humor negro e elementos de sandbox, onde você sobrevive e causa problemas na cidade.",
+            "imagem": "img/Bum Simulator.jpg",
+            "ano": 2021,
+            "tags": ["Simulador", "Comédia", "Sandbox"],
+            "favorito": null
+        },
+        {
+            "titulo": "Resident Evil 4 (2005)",
+            "descricao": "O clássico de terror de sobrevivência que redefiniu o gênero, com Leon S. Kennedy resgatando a filha do presidente em uma vila rural.",
+            "imagem": "img/Resident Evil 4 (2005).jpg",
+            "ano": 2005,
+            "tags": ["Terror", "Ação", "Sobrevivência"],
+            "favorito": null
+        },
+        {
+            "titulo": "Rock of Ages 2",
+            "descricao": "Um jogo de defesa de torre e corrida com uma bola gigante, combinando humor, arte e estratégia.",
+            "imagem": "img/Rock of Ages 2.jpg",
+            "ano": 2017,
+            "tags": ["Estratégia", "Tower Defense", "Comédia"],
+            "favorito": null
+        },
+        {
+            "titulo": "Witch It",
+            "descricao": "Um jogo de esconde-esconde multiplayer onde caçadores procuram bruxas que se transformam em objetos.",
+            "imagem": "img/Witch It.jpg",
+            "ano": 2017,
+            "tags": ["Multijogador", "Esconde-esconde", "Casual"],
+            "favorito": null
+        },
+        {
+            "titulo": "Choo-Choo Charles",
+            "descricao": "Um jogo de terror de sobrevivência em mundo aberto onde você é caçado por um trem-aranha demoníaco.",
+            "imagem": "img/Choo-Choo Charles.png",
+            "ano": 2022,
+            "tags": ["Terror", "Sobrevivência", "Mundo Aberto"],
+            "favorito": null
+        },
+        {
+            "titulo": "Portal",
+            "descricao": "Um inovador jogo de quebra-cabeças em primeira pessoa que utiliza um dispositivo de portal para resolver desafios de física.",
+            "imagem": "img/Portal.jpg",
+            "ano": 2007,
+            "tags": ["Puzzle", "FPS", "Física"],
+            "favorito": null
+        },
+        {
+            "titulo": "Battlefield 4™",
+            "descricao": "Um FPS militar com batalhas em larga escala, veículos e ambientes destrutíveis, conhecido por seu multiplayer intenso.",
+            "imagem": "img/Battlefield 4™.jpg",
+            "ano": 2013,
+            "tags": ["FPS", "Guerra", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "Bendy and the Ink Machine",
+            "descricao": "Um jogo de terror de sobrevivência em primeira pessoa com um estilo de arte de desenho animado vintage e uma atmosfera sombria.",
+            "imagem": "img/Bendy and the Ink Machine.jpg",
+            "ano": 2017,
+            "tags": ["Terror", "Indie", "Puzzle"],
+            "favorito": null
+        },
+        {
+            "titulo": "Black Mesa",
+            "descricao": "Um remake aclamado pelos fãs do clássico Half-Life, com gráficos atualizados e jogabilidade aprimorada.",
+            "imagem": "img/Black Mesa.jpg",
+            "ano": 2020,
+            "tags": ["FPS", "Sci-Fi", "Ação"],
+            "favorito": null
+        },
+        {
+            "titulo": "The Binding of Isaac: Rebirth",
+            "descricao": "Um roguelike de tiro com elementos de RPG, onde você explora masmorras geradas proceduralmente e enfrenta chefes bizarros.",
+            "imagem": "img/The Binding of Isaac Rebirth.jpg",
+            "ano": 2014,
+            "tags": ["Roguelike", "Ação", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Blasphemous",
+            "descricao": "Um metroidvania de ação e plataforma com uma atmosfera sombria e gótica, combate desafiador e um mundo rico em lore.",
+            "imagem": "img/Blasphemous.png",
+            "ano": 2019,
+            "tags": ["Metroidvania", "Souls-like", "Plataforma"],
+            "favorito": null
+        },
+        {
+            "titulo": "Children of the Sun",
+            "descricao": "Um jogo de tiro tático e puzzle onde você controla uma única bala para eliminar múltiplos inimigos.",
+            "imagem": "img/Children of the Sun.jpg",
+            "ano": 2024,
+            "tags": ["Puzzle", "Tático", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "The Crew 2",
+            "descricao": "Um jogo de corrida em mundo aberto que permite alternar instantaneamente entre carros, barcos e aviões nos EUA.",
+            "imagem": "img/The Crew 2.jpg",
+            "ano": 2018,
+            "tags": ["Corrida", "Mundo Aberto", "Veículos"],
+            "favorito": null
+        },
+        {
+            "titulo": "Far Cry 4",
+            "descricao": "Um FPS de mundo aberto ambientado no Himalaia, onde você luta contra um regime tirânico em uma paisagem deslumbrante.",
+            "imagem": "img/Far Cry 4.jpg",
+            "ano": 2014,
+            "tags": ["FPS", "Mundo Aberto", "Ação"],
+            "favorito": null
+        },
+        {
+            "titulo": "Gang Beasts",
+            "descricao": "Um hilário jogo de luta multiplayer com personagens gelatinosos e ambientes perigosos, focado em física e diversão.",
+            "imagem": "img/Gang Beasts.jpg",
+            "ano": 2017,
+            "tags": ["Party", "Física", "Multijogador"],
+            "favorito": null
+        },
+        {
+            "titulo": "The Forest",
+            "descricao": "Um jogo de terror de sobrevivência em mundo aberto onde você deve sobreviver em uma ilha infestada por canibais mutantes.",
+            "imagem": "img/The Forest.jpg",
+            "ano": 2018,
+            "tags": ["Sobrevivência", "Terror", "Mundo Aberto"],
+            "favorito": null
+        },
+        {
+            "titulo": "GRIS",
+            "descricao": "Uma experiência de plataforma e quebra-cabeças visualmente deslumbrante, com uma narrativa emocional contada sem palavras.",
+            "imagem": "img/GRIS.jpg",
+            "ano": 2018,
+            "tags": ["Plataforma", "Indie", "Atmosférico"],
+            "favorito": null
+        },
+        {
+            "titulo": "Half-Life",
+            "descricao": "O FPS revolucionário que estabeleceu novos padrões para narrativa e imersão em jogos de tiro em primeira pessoa.",
+            "imagem": "img/Half-Life.jpg",
+            "ano": 1998,
+            "tags": ["FPS", "Sci-Fi", "Clássico"],
+            "favorito": null
+        },
+        {
+            "titulo": "Half-Life 2",
+            "descricao": "A aclamada sequência de Half-Life, com física inovadora, narrativa envolvente e combate memorável.",
+            "imagem": "img/Half-Life 2.jpg",
+            "ano": 2004,
+            "tags": ["FPS", "Sci-Fi", "Clássico"],
+            "favorito": null
+        },
+        {
+            "titulo": "Just Cause 3",
+            "descricao": "Ação explosiva em mundo aberto com foco em destruição, paraquedas, wingsuit e um gancho para causar o caos.",
+            "imagem": "img/Just Cause 3.jpg",
+            "ano": 2015,
+            "tags": ["Ação", "Mundo Aberto", "Destruição"],
+            "favorito": null
+        },
+        {
+            "titulo": "KinitoPET",
+            "descricao": "Um jogo de terror psicológico e simulação de desktop onde você interage com uma IA de animal de estimação virtual que se torna cada vez mais perturbadora.",
+            "imagem": "img/KinitoPET.jpg",
+            "ano": 2023,
+            "tags": ["Terror", "Simulação", "Psicológico"],
+            "favorito": null
+        },
+        {
+            "titulo": "LIMBO",
+            "descricao": "Um jogo de plataforma e quebra-cabeças atmosférico com gráficos monocromáticos e uma narrativa minimalista e enigmática.",
+            "imagem": "img/LIMBO.jpg",
+            "ano": 2010,
+            "tags": ["Plataforma", "Puzzle", "Indie"],
+            "favorito": null
+        },
+        {
+            "titulo": "Need for Speed™ Heat",
+            "descricao": "Domine as ruas de Palm City durante o dia e arrisque tudo à noite em corridas ilegais enquanto foge de uma força policial corrupta.",
+            "imagem": "img/Need for Speed™ Heat.jpg",
+            "ano": 2019,
+            "tags": ["Corrida", "Mundo Aberto", "Carros"],
+            "favorito": null
+        },
+        {
+            "titulo": "Need for Speed™ Payback",
+            "descricao": "Situado no submundo de Fortune Valley, você e sua equipe se reúnem em uma busca por vingança contra a 'The House', um cartel nefasto.",
+            "imagem": "img/Need for Speed™ Payback.jpg",
+            "ano": 2017,
+            "tags": ["Corrida", "Ação", "Carros"],
+            "favorito": null
+        },
+        {
+            "titulo": "Otaku's Adventure",
+            "descricao": "Uma visual novel de aventura point-and-click incomum que conta a história de um otaku em busca de amor, cheia de minijogos e finais variados.",
+            "imagem": "img/Otaku's Adventure.jpg",
+            "ano": 2019,
+            "tags": ["Aventura", "Comédia", "Anime"],
+            "favorito": null
+        },
+        {
+            "titulo": "PEAK",
+            "descricao": "Um jogo focado em superar limites e alcançar o topo através de desafios de plataforma ou quebra-cabeças intensos.",
+            "imagem": "img/PEAK.png",
+            "ano": null,
+            "tags": ["Indie", "Desafio"],
+            "favorito": null
+        },
+        {
+            "titulo": "Portal 2",
+            "descricao": "A sequência do inovador jogo de quebra-cabeças, expandindo as mecânicas de portais com um modo cooperativo e uma narrativa hilária.",
+            "imagem": "img/Portal 2.jpg",
+            "ano": 2011,
+            "tags": ["Puzzle", "Sci-Fi", "Cooperativo"],
+            "favorito": null
+        },
+        {
+            "titulo": "Sniper Elite 4",
+            "descricao": "Combate sniper de terceira pessoa em cenários vastos da Itália durante a Segunda Guerra Mundial, focado em tática e furtividade.",
+            "imagem": "img/Sniper Elite 4.jpg",
+            "ano": 2017,
+            "tags": ["Sniper", "Furtividade", "Guerra"],
+            "favorito": null
+        },
+        {
+            "titulo": "Sniper Elite 5",
+            "descricao": "Karl Fairburne retorna para desmantelar a Operação Kraken na França de 1944, oferecendo a experiência de sniper mais imersiva da série.",
+            "imagem": "img/Sniper Elite 5.jpg",
+            "ano": 2022,
+            "tags": ["Sniper", "Furtividade", "Guerra"],
+            "favorito": null
+        },
+        {
+            "titulo": "Stardew Valley",
+            "descricao": "Crie a fazenda dos seus sonhos, cultive plantações, crie animais e faça amizade com os habitantes da Vila Pelicano neste simulador rural encantador.",
+            "imagem": "img/Stardew Valley.jpg",
+            "ano": 2016,
+            "tags": ["Simulador", "RPG", "Fazenda"],
+            "favorito": null
+        },
+        {
+            "titulo": "Wall World",
+            "descricao": "Explore o misterioso Wall World em seu robocraft gigante. Minere recursos preciosos, melhore seu equipamento e lute contra hordas de monstros.",
+            "imagem": "img/Wall World.jpg",
+            "ano": 2023,
+            "tags": ["Roguelite", "Mineração", "Ação"],
+            "favorito": null
+        },
+        {
+            "titulo": "Zueirama",
+            "descricao": "Um jogo de plataforma inspirado nos memes brasileiros e na cultura dos anos 90, cheio de referências e humor 'zueiro'.",
+            "imagem": "img/Zueirama.jpg",
+            "ano": 2019,
+            "tags": ["Plataforma", "Comédia", "Indie"],
+            "favorito": null
+        }
+    ]
+}

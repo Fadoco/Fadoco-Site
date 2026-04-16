@@ -1,0 +1,62 @@
+{
+    "filmes": [{
+            "titulo": "Hot Wheels: Via 35 - Corrida Mundial",
+            "descricao": "Hot Wheels: Via 35 - Corrida Mundial (2003) é uma minissérie e filme de animação 3D comemorativo dos 35 anos da Mattel, focada em uma corrida interdimensional. O Dr. Peter Tezla recruta pilotos de elite para superar pistas perigosas na Via 35 contra robôs, buscando o Anel do Poder.",
+            "imagem": "img/Hot Wheels Via 35 - Corrida Mundial.png",
+            "ano": null,
+            "tags": ["Corrida", "Animação", "Hot Wheels"],
+            "favorito": {
+                "texto": "Deora II",
+                "imagem": "img/deora_ii_fav.jpg"
+            }
+        },
+        {
+            "titulo": "Owari no Seraph",
+            "descricao": "",
+            "imagem": "img/Owari no Seraph.png",
+            "ano": null,
+            "tags": [],
+            "favorito": null
+        },
+        {
+            "titulo": "Owari no Seraph",
+            "descricao": "",
+            "imagem": "img/Owari no Seraph.png",
+            "ano": null,
+            "tags": [],
+            "favorito": null
+        },
+        {
+            "titulo": "Owari no Seraph",
+            "descricao": "",
+            "imagem": "img/Owari no Seraph.png",
+            "ano": null,
+            "tags": [],
+            "favorito": null
+        },
+        {
+            "titulo": "Owari no Seraph",
+            "descricao": "",
+            "imagem": "img/Owari no Seraph.png",
+            "ano": null,
+            "tags": [],
+            "favorito": null
+        },
+        {
+            "titulo": "Owari no Seraph",
+            "descricao": "",
+            "imagem": "img/Owari no Seraph.png",
+            "ano": null,
+            "tags": [],
+            "favorito": null
+        },
+        {
+            "titulo": "Owari no Seraph",
+            "descricao": "",
+            "imagem": "img/Owari no Seraph.png",
+            "ano": null,
+            "tags": [],
+            "favorito": null
+        }
+    ]
+}

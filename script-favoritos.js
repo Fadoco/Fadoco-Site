@@ -124,8 +124,9 @@ window.toggleFavorite = (e, btn, directTitle = null) => {
     let title, card;
     if (directTitle) {
         title = directTitle;
+        card = null;
     } else {
-        card = btn.closest('.gostos-card');
+        card = btn ? btn.closest('.gostos-card') : null;
         title = card.querySelector('h3')?.innerText;
     }
 
@@ -136,6 +137,8 @@ window.toggleFavorite = (e, btn, directTitle = null) => {
         favorites = favorites.filter(f => f.title !== title);
         showNotification(`Removido: ${title}`);
     } else {
+        if (!card) return; // Segurança: só adiciona se houver contexto do card
+        
         const favData = {
             title: title,
             desc: card.querySelector('p')?.innerText || '',

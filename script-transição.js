@@ -183,27 +183,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnFechar) btnFechar.onclick = () => sideMenu?.classList.remove('active');
     if (overlayPrincipal) overlayPrincipal.onclick = fecharAmpliacao;
 
-    // --- GESTÃO DE GRIDS E TAGS (UI) ---
-    document.querySelectorAll('.toggle-bar').forEach(bar => {
-        bar.onclick = () => {
-            const gridId = bar.id.replace('toggle-', '') + '-grid';
-            const grid = document.getElementById(gridId);
-            const seta = bar.querySelector('.seta');
+    /**
+     * NOTA: Os event listeners dos botões de 'Gostos' (toggle-bar, btn-tags-toggle, etc)
+     * foram movidos para o script-gostos.js para melhor organização.
+     */
 
-            if (grid) {
-                const isActive = grid.classList.toggle('active');
-                if (seta) seta.style.transform = isActive ? 'rotate(180deg)' : 'rotate(0deg)';
-                
-                // Se for música e tiver a função de carregar, dispara
-                if (bar.id === 'toggle-musicas' && typeof window.carregarPlaylistYouTube === 'function') {
-                    window.carregarPlaylistYouTube();
-                }
-            }
-        };
-    });
-
-    const btnTagsToggle = document.getElementById('btn-tags-toggle');
-    if (btnTagsToggle) btnTagsToggle.onclick = () => document.getElementById('tag-cloud')?.classList.toggle('active');
 
     window.addEventListener('scroll', () => {
         if (backToTopBtn) {
