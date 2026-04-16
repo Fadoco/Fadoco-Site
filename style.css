@@ -916,7 +916,7 @@ header li a {
 
 /* --- SISTEMA DE TAGS --- */
 .tags-list {
-    display: none; /* Escondido por padrão na grid */
+    display: flex; 
     flex-wrap: wrap;
     gap: 8px;
     margin-top: 12px;

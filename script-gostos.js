@@ -57,7 +57,7 @@ window.carregarPlaylistYouTube = async function(pageToken = '') {
                 <div class="card-img-container"><img src="${capa}" alt="${titulo}" loading="lazy"></div>
                 <h3>${titulo}</h3>
                 <p>${(snippet.description || "").substring(0, 80)}...</p>
-                <div class="tags-list" style="display: none;"><span class="tag">YouTube</span><span class="tag">Música</span></div>
+                <div class="tags-list"><span class="tag">YouTube</span><span class="tag">Música</span></div>
                 <span class="fav-toggle ${isFavorited ? 'active' : ''}" onclick="toggleFavorite(event, this)">★</span>
             `;
             musicasGrid.appendChild(card);
@@ -107,7 +107,6 @@ function renderizarCategoria(lista, gridId) {
     grid.innerHTML = lista.map(item => {
         const isFavorited = favorites.some(f => f.title === item.titulo);
         const validTags = (item.tags || []).filter(t => t.trim() !== "");
-        const validTags = (item.tags || []).filter(t => t.trim() !== "");
         const searchStr = `${item.titulo} ${item.descricao} ${validTags.join(' ')} ${item.categoriaPai || ''}`.toLowerCase();
         
         const favTag = (item.favorito && item.favorito.imagem && item.favorito.texto) ? `
@@ -133,7 +132,7 @@ function inicializarComponentesGostos() {
     const tagCloudContainer = document.getElementById('tag-cloud');
     if (tagCloudContainer) {
         tagCloudContainer.innerHTML = '';
-        const uniqueTags = [...new Set(Array.from(document.querySelectorAll('.gostos-grid.active .tag')).map(t => t.innerText))];
+        const uniqueTags = [...new Set(Array.from(document.querySelectorAll('.tag')).map(t => t.innerText))];
         uniqueTags.sort().forEach(tag => {
             const tagEl = document.createElement('span');
             tagEl.className = 'tag-cloud-item';
