@@ -4,7 +4,7 @@
             "titulo": "Knight's & Magic",
             "descricao": "Knight's & Magic (Naitsu to Majikku) é um isekai mecha sobre Ernesti Echevalier, um programador gênio e fã de robôs que reencarna em um mundo de fantasia com cavaleiros e magia. Ele usa seu conhecimento para pilotar e aprimorar os Silhouette Knights (robôs gigantes), buscando realizar seu sonho de construir o mecha supremo.",
             "imagem": "img/Knight's & Magic.png",
-            "ano": null,
+            "ano": 2017,
             "tags": ["Mecha", "Isekai", "Fantasia"],
             "favorito": {
                 "texto": "Ikaruga",
@@ -16,7 +16,7 @@
             "titulo": "Seihantai na Kimi to Boku",
             "descricao": "Suzuki é uma colegial apaixonada, mas o rapaz que ela ama não é nadinha parecido com ela! Enquanto ela é alegre, extrovertida e está sempre tentando se enturmar, seu colega de classe Yusuke Tani é estoico, quieto e parece não se importar com o que as pessoas pensam dele. Será que Suzuki conseguirá superar suas ansiedades e convidá-lo para um encontro, ou descobrirá que os opostos realmente não se atraem?",
             "imagem": "img/Seihantai na Kimi to Boku.apng.png",
-            "ano": null,
+            "ano": 2022,
             "tags": ["Romance", "Escolar"],
             "favorito": null
         },
@@ -24,7 +24,7 @@
             "titulo": "Kaya-chan wa Kowakunai",
             "descricao": "Kaya-chan é conhecida como uma criança problemática no jardim de infância, mas nenhum adulto sabe o seu segredo — até Chie-sensei assumir a turma e descobrir a habilidade oculta de Kaya-chan de ver espíritos malignos e derrotá-los com um soco! O que será que vai acontecer com essa garotinha de cinco anos que vive se metendo em confusão quando tudo o que ela quer é ajudar?",
             "imagem": "img/Kaya-chan wa Kowakunai.png",
-            "ano": null,
+            "ano": 2022,
             "tags": ["Sobrenatural", "Comédia"],
             "favorito": null
         },
@@ -32,7 +32,7 @@
             "titulo": "Hell Mode: Yarikomizuki no Gamer",
             "descricao": "Kenichi é atraído pelo jogo sem título que promete um desafio incomparável e um potencial nunca antes visto. Sem hesitar, ele escolhe a dificuldade “Modo Infernal”. Eis que ele reencarna em outro mundo como um servo! Agora chamado Allen, ele começa a explorar os segredos de sua classe, um Invocador. Sem a ajuda de detonadas, guias e fóruns online, ele precisa moldar seu caminho em busca do topo desse novo mundo!",
             "imagem": "img/Hell Mode Yarikomizuki no Gamer.jpg",
-            "ano": null,
+            "ano": 2021,
             "tags": ["Isekai", "RPG", "Fantasia"],
             "favorito": null
         },
@@ -40,7 +40,7 @@
             "titulo": "Kimi to Koete Koi ni Naru",
             "descricao": "Quando Mari, uma estudante do ensino médio, esbarra em um colega atrasado, ela fica surpresa ao descobrir que ele é um homem-fera que vai estudar na mesma escola que ela! Afinal, não é raro homens-fera conviverem com humanos, mas ainda é algo incomum, especialmente devido aos preconceitos que existem. Inicialmente nervosa, Mari logo percebe que há muito mais nele do que sua aparência peluda. Na verdade, quanto mais ela o conhece, mais ela se sente atraída por ele: por sua determinação, sua gentileza e… seu corpo.",
             "imagem": "img/Kimi to Koete Koi ni Naru.jpg",
-            "ano": null,
+            "ano": 2021,
             "tags": ["Romance", "Fantasia"],
             "favorito": null
         },
@@ -48,7 +48,7 @@
             "titulo": "Silent Witch",
             "descricao": "Monica Everett, a Bruxa Silenciosa, é a única maga do mundo que consegue usar magia sem pronunciar encantamentos, uma verdadeira heroína que derrotou sozinha um dragão negro lendário. No entanto, a jovem prodígio, na verdade, é incrivelmente tímida! É isso mesmo: ela aprendeu a invocar feitiços silenciosamente apenas para não falar em público e, apesar de seu poder, não tem um pingo de confiança em si mesma. Agora, Monica recebeu a missão de secretamente proteger o segundo príncipe.",
             "imagem": "img/Silent Witch.jpg",
-            "ano": null,
+            "ano": 2021,
             "tags": ["Fantasia", "Magia", "Comédia"],
             "favorito": null
         },
@@ -56,7 +56,7 @@
             "titulo": "Umamusume Cinderella Gray",
             "descricao": "Esta é a história de Oguri Cap, uma jovem umamusume que inicia sua jornada na Academia Tracen de Kasamatsu, situada numa região rural. Ela corre de forma avassaladora, desafiando o senso comum. Essa garota que chega a ser chamada de “Monstro” escreve sua lenda na história. Foi dada a largada desta história de uma Cinderela corredora!",
             "imagem": "img/Umamusume Cinderella Gray.png",
-            "ano": null,
+            "ano": 2020,
             "tags": ["Esporte", "Drama"],
             "favorito": null
         },
@@ -64,7 +64,7 @@
             "titulo": "Sentai Red Isekai",
             "descricao": "Asagaki Togo era o Ranger Vermelho em um heroico esquadrão de Rangers. Durante a batalha final contra a última organização do mal, ele sofre uma derrota esmagadora e se resigna à morte. Isto é, até que ele renasce em um mundo totalmente diferente!",
             "imagem": "img/Sentai Red Isekai.jpg",
-            "ano": null,
+            "ano": 2021,
             "tags": ["Isekai", "Ação", "Sentai"],
             "favorito": null
         },
@@ -72,7 +72,7 @@
             "titulo": "Shikanoko Nokonoko Koshitantan",
             "descricao": "Torako acreditava ter deixado para trás seu passado turbulento como delinquente nos tempos de ensino fundamental, reinventando-se como uma estudante exemplar no ensino médio, sem que ninguém suspeitasse de suas raízes criminosas. No entanto, sua vida dá uma guinada inesperada com a chegada de Nokotan, uma misteriosa aluna transferida com chifres e uma aura inquietante.",
             "imagem": "img/Shikanoko Nokonoko Koshitantan.jpg",
-            "ano": null,
+            "ano": 2024,
             "tags": ["Comédia", "Escolar", "Surreal"],
             "favorito": null
         },
@@ -80,7 +80,7 @@
             "titulo": "Dereru Tonari no Alya-san",
             "descricao": "Alya é uma aluna transferida bastante popular em sua nova escola, frequentemente exibindo uma atitude fria enquanto tira notas altas. Ela ignora seu colega nerd, Kuze Masachika, exceto quando solta algumas frases de flerte em russo para ele. Mal sabe ela que Kuze entende russo, embora finja que não. Vamos ver até onde essa história de amor maluca os levará!",
             "imagem": "img/Dereru Tonari no Alya-san.jpg",
-            "ano": null,
+            "ano": 2024,
             "tags": ["Romance", "Escolar"],
             "favorito": null
         },
@@ -88,7 +88,7 @@
             "titulo": "Boku no Tsuma wa Kanjou ga Nai",
             "descricao": "Takuma é um cara solteiro que não faz nada além de ir trabalhar e voltar para casa. Cansado demais para fazer tarefas domésticas, ele decide contratar um robô para cozinhar e cuidar da casa. “Mina-chan” é uma governanta tão boa que Takuma brinca que ela deveria se tornar sua esposa.",
             "imagem": "img/Boku no Tsuma wa Kanjou ga Nai.jpg",
-            "ano": null,
+            "ano": 2024,
             "tags": ["Sci-Fi", "Romance", "Slice of Life"],
             "favorito": null
         },
@@ -96,7 +96,7 @@
             "titulo": "Lv2 kara Cheat datta",
             "descricao": "O Reino Mágico de Klyrode convoca centenas de heróis de outros mundos todos os anos para lutar na guerra contra a Escuridão e seu exército de demônios poderosos. Banaza é um desses heróis, convocado da Royal Capital Paluma, mas algo não está certo – Banaza é apenas um comerciante comum.",
             "imagem": "img/Lv2 kara Cheat datta.jpg",
-            "ano": null,
+            "ano": 2024,
             "tags": ["Isekai", "Fantasia", "Romance"],
             "favorito": null
         },

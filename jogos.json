@@ -71,7 +71,7 @@
             "titulo": "Counter-Strike",
             "descricao": "O FPS competitivo mais icônico do mundo, focado em estratégia de equipe e precisão tática entre terroristas e contra-terroristas.",
             "imagem": "img/Counter-Strike.jpg",
-            "ano": null,
+            "ano": 2000,
             "tags": ["FPS", "Competitivo", "Tiro"],
             "favorito": null
         },
@@ -79,7 +79,7 @@
             "titulo": "Farlight 84",
             "descricao": "Um Battle Royale futurista e frenético com veículos armados, heróis com habilidades únicas e muita mobilidade no campo de batalha.",
             "imagem": "img/Farlight 84.png",
-            "ano": null,
+            "ano": 2023,
             "tags": ["Battle Royale", "FPS", "Sci-Fi"],
             "favorito": null
         },
@@ -87,7 +87,7 @@
             "titulo": "BattleBit Remastered",
             "descricao": "FPS massivo de baixo polígono que suporta até 254 jogadores por servidor, com foco em jogabilidade tática e destruição de ambiente.",
             "imagem": "img/BattleBit Remastered.jpg",
-            "ano": null,
+            "ano": 2023,
             "tags": ["FPS", "Guerra", "Multijogador"],
             "favorito": null
         },
@@ -207,7 +207,7 @@
             "titulo": "Haste",
             "descricao": "Um jogo focado em velocidade e reflexos rápidos em ambientes de plataforma desafiadores.",
             "imagem": "img/Haste.jpg",
-            "ano": null,
+            "ano": 2021,
             "tags": ["Plataforma", "Velocidade"],
             "favorito": null
         },
@@ -479,7 +479,7 @@
             "titulo": "Zumbi Blocks 2 Open Alpha",
             "descricao": "Um jogo de sobrevivência a zumbis em mundo aberto com gráficos voxel, focado em construção e combate.",
             "imagem": "img/Zumbi Blocks 2 Open Alpha.jpg",
-            "ano": null,
+            "ano": 2023,
             "tags": ["Sobrevivência", "Zombies", "Voxel"],
             "favorito": null
         },
@@ -519,7 +519,7 @@
             "titulo": "Lost Ruins",
             "descricao": "Um jogo de plataforma 2D de sobrevivência e ação com elementos de metroidvania e um estilo de arte pixelado.",
             "imagem": "img/Lost Ruins.jpg",
-            "ano": 2022,
+            "ano": 2021,
             "tags": ["Plataforma", "Metroidvania", "Ação"],
             "favorito": null
         },
@@ -719,7 +719,7 @@
             "titulo": "KinitoPET",
             "descricao": "Um jogo de terror psicológico e simulação de desktop onde você interage com uma IA de animal de estimação virtual que se torna cada vez mais perturbadora.",
             "imagem": "img/KinitoPET.jpg",
-            "ano": 2023,
+            "ano": 2024,
             "tags": ["Terror", "Simulação", "Psicológico"],
             "favorito": null
         },
@@ -759,7 +759,7 @@
             "titulo": "PEAK",
             "descricao": "Um jogo focado em superar limites e alcançar o topo através de desafios de plataforma ou quebra-cabeças intensos.",
             "imagem": "img/PEAK.png",
-            "ano": null,
+            "ano": 2022,
             "tags": ["Indie", "Desafio"],
             "favorito": null
         },
