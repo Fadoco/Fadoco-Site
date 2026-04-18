@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.googleapis.com">
-    <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -152,9 +151,20 @@
 </article>
     </main>
 
+    <!-- Containers para o funcionamento do Lightbox e Favoritos -->
+    <div id="overlay" class="overlay">
+        <span class="close-overlay" onclick="fecharAmpliacao()">&times;</span>
+        <div id="conteudo-expandido"></div>
+    </div>
+
+    <div id="favorites-overlay" class="fav-overlay">
+        <div id="favorites-grid" class="fav-content"></div>
+    </div>
+
     <button id="back-to-top" title="Voltar ao topo">▲</button>
 
-    <script src="script-transição.js"></script>
-    <script src="script.js"></script>
+    <script src="script-favoritos.js" defer></script>
+    <script src="script-transição.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
