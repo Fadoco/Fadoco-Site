@@ -132,6 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Pequeno delay para garantir que o overlay começou a sumir antes de revelar o fundo
             setTimeout(() => {
                 document.body.classList.add('site-loaded');
+                updateProgressBar(); // Garante o cálculo inicial da barra
             }, 100);
             setTimeout(() => transitionOverlay.remove(), 700); 
         }, 600); 
@@ -188,18 +189,19 @@ document.addEventListener('DOMContentLoaded', () => {
      * foram movidos para o script-gostos.js para melhor organização.
      */
 
+    function updateProgressBar() {
+        const progressBar = document.querySelector('.progress-bar');
+        if (!progressBar) return;
+        const winScroll = document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        progressBar.style.width = height > 0 ? (winScroll / height) * 100 + "%" : "0%";
+    }
 
     window.addEventListener('scroll', () => {
         if (backToTopBtn) {
             window.scrollY > 400 ? backToTopBtn.classList.add('show') : backToTopBtn.classList.remove('show');
         }
-        // Lógica da Barra de Progresso
-        const progressBar = document.querySelector('.progress-bar');
-        if (progressBar) {
-            const winScroll = document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            progressBar.style.width = (winScroll / height) * 100 + "%";
-        }
+        updateProgressBar();
     }, { passive: true });
 
     if (backToTopBtn) {

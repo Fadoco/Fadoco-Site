@@ -15,7 +15,7 @@ let youtubeNextPageToken = '';
 window.carregarPlaylistYouTube = async function(pageToken = '') {
     const musicasGrid = document.getElementById('musicas-grid');
     const loadMoreBtn = document.getElementById('btn-carregar-mais-musicas');
-    if (!musicasGrid || isFetching) return;
+    if (!musicasGrid || isFetching || (pageToken === '' && ytPlaylistLoaded)) return;
     isFetching = true;
 
     if (pageToken === '') {
@@ -64,8 +64,13 @@ window.carregarPlaylistYouTube = async function(pageToken = '') {
         });
 
         youtubeNextPageToken = data.nextPageToken || '';
-        if (loadMoreBtn) loadMoreBtn.style.display = youtubeNextPageToken ? 'block' : 'none';
+        // Só exibe o botão se houver próxima página E a seção estiver aberta (ativa)
+        if (loadMoreBtn) {
+            const isGridActive = musicasGrid.classList.contains('active');
+            loadMoreBtn.style.display = (youtubeNextPageToken && isGridActive) ? 'block' : 'none';
+        }
         ytPlaylistLoaded = true;
+        inicializarComponentesGostos();
     } catch (error) {
         console.error('Erro YouTube API:', error);
         musicasGrid.innerHTML = `<p style="color:#ff4b2b; grid-column: 1/-1; text-align:center; padding: 20px;">Falha na conexão YouTube.</p>`;
@@ -128,11 +133,12 @@ function renderizarCategoria(lista, gridId) {
 }
 
 function inicializarComponentesGostos() {
-    if (typeof renderFavorites === "function") renderFavorites();
     const tagCloudContainer = document.getElementById('tag-cloud');
     if (tagCloudContainer) {
-        tagCloudContainer.innerHTML = '';
         const uniqueTags = [...new Set(Array.from(document.querySelectorAll('.tag')).map(t => t.innerText))];
+        
+        // Otimização: Criar todos os elementos em memória antes de injetar no DOM
+        const fragment = document.createDocumentFragment();
         uniqueTags.sort().forEach(tag => {
             const tagEl = document.createElement('span');
             tagEl.className = 'tag-cloud-item';
@@ -141,8 +147,11 @@ function inicializarComponentesGostos() {
                 const input = document.getElementById('search-input');
                 if (input) { input.value = tag.toLowerCase(); input.dispatchEvent(new Event('input')); }
             };
-            tagCloudContainer.appendChild(tagEl);
+            fragment.appendChild(tagEl);
         });
+        
+        tagCloudContainer.innerHTML = '';
+        tagCloudContainer.appendChild(fragment);
     }
 }
 
@@ -182,7 +191,11 @@ const inicializarEventosGostos = () => {
                 const isActive = grid.classList.toggle('active');
                 if (seta) seta.style.transform = isActive ? 'rotate(180deg)' : 'rotate(0deg)';
                 if (isActive) {
-                    if (categoria === 'musicas') window.carregarPlaylistYouTube();
+                    if (categoria === 'musicas') {
+                        window.carregarPlaylistYouTube();
+                        const loadMoreBtn = document.getElementById('btn-carregar-mais-musicas');
+                        if (loadMoreBtn && youtubeNextPageToken) loadMoreBtn.style.display = 'block';
+                    }
                     else window.carregarCategoriaJSON(categoria);
                 } else if (categoria === 'musicas') {
                     // Esconde o botão se a seção de músicas for fechada
@@ -227,6 +240,10 @@ const inicializarEventosGostos = () => {
     }
     
     if (typeof updateFavCounter === 'function') updateFavCounter();
+
+    // Pre-carrega os dados silenciosamente para que as tags e a busca funcionem desde o início
+    ['animes', 'jogos'].forEach(cat => window.carregarCategoriaJSON(cat));
+    window.carregarPlaylistYouTube();
 };
 
 document.addEventListener('DOMContentLoaded', inicializarEventosGostos);
