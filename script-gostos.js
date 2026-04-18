@@ -12,6 +12,17 @@ let ytPlaylistLoaded = false;
 let isFetching = false;
 let youtubeNextPageToken = '';
 
+// Função global para filtrar por tag
+window.filterByTag = (tag) => {
+    const input = document.getElementById('search-input');
+    if (input) {
+        input.value = tag.toLowerCase();
+        input.dispatchEvent(new Event('input'));
+        if (typeof fecharFavoritos === 'function') fecharFavoritos();
+        if (typeof fecharAmpliacao === 'function') fecharAmpliacao();
+    }
+};
+
 window.carregarPlaylistYouTube = async function(pageToken = '') {
     const musicasGrid = document.getElementById('musicas-grid');
     const loadMoreBtn = document.getElementById('btn-carregar-mais-musicas');
@@ -50,14 +61,17 @@ window.carregarPlaylistYouTube = async function(pageToken = '') {
             const isFavorited = favorites.some(f => f.title === titulo);
             
             const card = document.createElement('div');
-            card.className = `gostos-card ${isFavorited ? 'is-favorite' : ''}`;
+            card.className = `gostos-card card-musicas ${isFavorited ? 'is-favorite' : ''}`;
             card.setAttribute('data-search', `${titulo} youtube musica`.toLowerCase());
             card.onclick = function() { ampliarCard(this); };
             card.innerHTML = `
                 <div class="card-img-container"><img src="${capa}" alt="${titulo}" loading="lazy"></div>
                 <h3>${titulo}</h3>
-                <p>${(snippet.description || "").substring(0, 80)}...</p>
-                <div class="tags-list"><span class="tag">YouTube</span><span class="tag">Música</span></div>
+                <p>${(snippet.description || "").substring(0, 160)}...</p>
+                <div class="tags-list">
+                    <span class="tag" onclick="event.stopPropagation(); filterByTag('YouTube')">YouTube</span>
+                    <span class="tag" onclick="event.stopPropagation(); filterByTag('Música')">Música</span>
+                </div>
                 <span class="fav-toggle ${isFavorited ? 'active' : ''}" onclick="toggleFavorite(event, this)">★</span>
             `;
             musicasGrid.appendChild(card);
@@ -121,11 +135,11 @@ function renderizarCategoria(lista, gridId) {
             </div>` : '';
 
         return `
-            <div class="gostos-card ${isFavorited ? 'is-favorite' : ''}" data-search="${searchStr}" onclick="ampliarCard(this)">
+            <div class="gostos-card card-${item.categoriaPai} ${isFavorited ? 'is-favorite' : ''}" data-search="${searchStr}" onclick="ampliarCard(this)">
                 <div class="card-img-container"><img src="${item.imagem}" alt="${item.titulo}"></div>
                 <h3>${item.titulo}</h3>
                 <p>${item.descricao}</p>
-                <div class="tags-list">${validTags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                <div class="tags-list">${validTags.map(t => `<span class="tag" onclick="event.stopPropagation(); filterByTag('${t}')">${t}</span>`).join('')}</div>
                 ${favTag}
                 <span class="fav-toggle ${isFavorited ? 'active' : ''}" onclick="toggleFavorite(event, this)">★</span>
             </div>`;
@@ -143,10 +157,7 @@ function inicializarComponentesGostos() {
             const tagEl = document.createElement('span');
             tagEl.className = 'tag-cloud-item';
             tagEl.innerText = tag;
-            tagEl.onclick = () => {
-                const input = document.getElementById('search-input');
-                if (input) { input.value = tag.toLowerCase(); input.dispatchEvent(new Event('input')); }
-            };
+            tagEl.onclick = () => filterByTag(tag);
             fragment.appendChild(tagEl);
         });
         
@@ -162,7 +173,7 @@ const inicializarEventosGostos = () => {
         const term = searchInput?.value.toLowerCase().trim() || '';
         document.querySelectorAll('.gostos-card').forEach(card => {
             const matches = (card.getAttribute('data-search') || '').includes(term);
-            card.style.display = matches ? 'flex' : 'none';
+            card.style.display = matches ? '' : 'none'; // Usa o valor padrão do CSS (grid)
         });
 
         document.querySelectorAll('.toggle-container').forEach(container => {
@@ -242,7 +253,7 @@ const inicializarEventosGostos = () => {
     if (typeof updateFavCounter === 'function') updateFavCounter();
 
     // Pre-carrega os dados silenciosamente para que as tags e a busca funcionem desde o início
-    ['animes', 'jogos'].forEach(cat => window.carregarCategoriaJSON(cat));
+    ['animes', 'jogos', 'filmes', 'series'].forEach(cat => window.carregarCategoriaJSON(cat));
     window.carregarPlaylistYouTube();
 };
 

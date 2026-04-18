@@ -70,10 +70,11 @@ window.renderFavorites = () => {
 
     favorites.forEach(fav => {
         const card = document.createElement('div');
-        card.className = 'gostos-card';
+        // Adiciona a classe da categoria salva para manter o estilo neon
+        card.className = `gostos-card ${fav.categoryClass || ''}`;
         card.style.position = 'relative';
 
-        const tagsHtml = fav.tags ? fav.tags.map(t => `<span class="tag">${t}</span>`).join('') : '';
+        const tagsHtml = fav.tags ? fav.tags.map(t => `<span class="tag" onclick="event.stopPropagation(); filterByTag('${t}')">${t}</span>`).join('') : '';
         
         card.innerHTML = `
             <div class="card-img-container">
@@ -86,7 +87,12 @@ window.renderFavorites = () => {
 
         // Correção da imagem secundária (favorito) dentro do overlay de favoritos
         if (fav.favoritoTag) {
-            card.innerHTML += `<div class="favorito-tag" style="display: flex;" onclick="event.stopPropagation(); ampliarImagem(this.querySelector('img'))">${fav.favoritoTag}</div>`;
+            const favTagDiv = document.createElement('div');
+            favTagDiv.className = 'favorito-tag';
+            favTagDiv.style.display = 'flex';
+            favTagDiv.onclick = (e) => { e.stopPropagation(); ampliarImagem(favTagDiv.querySelector('img')); };
+            favTagDiv.innerHTML = fav.favoritoTag;
+            card.appendChild(favTagDiv);
         }
 
         const removeBtn = document.createElement('span');
@@ -144,7 +150,8 @@ window.toggleFavorite = (e, btn, directTitle = null) => {
             desc: card.querySelector('p')?.innerText || '',
             img: card.querySelector('.card-img-container img')?.src || '',
             tags: Array.from(card.querySelectorAll('.tag')).map(t => t.innerText),
-            favoritoTag: card.querySelector('.favorito-tag')?.innerHTML || null
+            favoritoTag: card.querySelector('.favorito-tag')?.innerHTML || null,
+            categoryClass: Array.from(card.classList).find(c => c.startsWith('card-')) // Salva a categoria
         };
         favorites.push(favData);
         showNotification(`Favoritado: ${title}`);

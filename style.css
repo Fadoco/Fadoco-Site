@@ -88,15 +88,15 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    height:  1001;
+    height: 4px;
+    z-index: 2001;
 }
 
 .progress-bar {
     height: 100%;
-    background: 
+    background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
     width: 0%;
     box-shadow: 0 0 15px var(--primary-neon), 0 0 5px var(--secondary-neon);
-    animationiza o movimento da barra */
 }
 
 @keyframes progressGlow {
@@ -826,7 +826,7 @@ header li a {
 
 .gostos-grid {
     display: none; /* Escondido por padrão */
-    grid-template-columns: repeat(3, 1fr); /* Força 3 colunas no desktop */
+    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr)); /* Grid ainda mais larga para o efeito esticado */
     gap: 25px;
     width: 100%;
     max-width: 1200px;
@@ -877,9 +877,14 @@ header li a {
     border-radius: 20px;
     padding: clamp(15px, 3vw, 25px);
     transition: 0.4s;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 180px 1fr; /* Imagem fixa na esquerda, texto flexível na direita */
+    grid-template-rows: auto 1fr auto auto; /* Adicionada quarta linha para o favorito */
+    gap: 0 20px;
     cursor: pointer;
+    height: 250px; /* Card bem mais baixo e achatado */
+    position: relative;
+    overflow: hidden;
 }
 
 .gostos-card:hover {
@@ -888,13 +893,42 @@ header li a {
     box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
 }
 
+/* Cores de Contexto por Categoria (Hover e Estado Expandido) */
+.gostos-card.card-musicas:hover,
+#conteudo-expandido .gostos-card.card-musicas {
+    border-color: #ff0000; 
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.4); 
+}
+.gostos-card.card-animes:hover,
+#conteudo-expandido .gostos-card.card-animes {
+    border-color: #ff00ff; 
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.4); 
+}
+.gostos-card.card-jogos:hover,
+#conteudo-expandido .gostos-card.card-jogos {
+    border-color: #39ff14; 
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.4); 
+}
+.gostos-card.card-filmes:hover,
+#conteudo-expandido .gostos-card.card-filmes {
+    border-color: #ffaa00; 
+    box-shadow: 0 0 25px rgba(255, 170, 0, 0.4); 
+}
+.gostos-card.card-series:hover,
+#conteudo-expandido .gostos-card.card-series {
+    border-color: #00d4ff; 
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.4); 
+}
+
 .card-img-container {
-    width: 100%;
-    height: 200px;
+    grid-row: 1 / 5; /* Imagem agora ocupa as 4 linhas do card esticado */
+    width: 180px;
+    height: 100%;
     border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     background: #000;
+    flex-shrink: 0; /* Impede que a imagem diminua para dar espaço ao texto */
 }
 
 .card-img-container img {
@@ -905,23 +939,47 @@ header li a {
 }
 
 .gostos-card h3 {
+    grid-column: 2;
     font-family: 'Orbitron', sans-serif;
     color: #00d4ff;
     font-size: clamp(0.9rem, 2.5vw, 1.2rem);
-    margin-bottom: 12px;
-    letter-spacing: 1px;
+    margin-bottom: 5px;
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 2 linhas é o ideal para o formato esticado */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .gostos-card p {
+    grid-column: 2;
     color: rgba(255, 255, 255, 0.7);
     font-size: clamp(0.8rem, 2vw, 0.95rem);
-    line-height: 1.5;
+    line-height: 1.6;
     word-wrap: break-word;
-    display: none; /* Esconde a descrição por padrão na grid */
+    overflow-y: auto; /* Permite scroll se o texto for grande demais para o card baixo */
+    max-height: 80px;
+    padding-right: 5px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-neon) transparent;
+}
+
+/* Estilização da Scrollbar Neon para as descrições (Chrome/Edge/Safari) */
+.gostos-card p::-webkit-scrollbar {
+    width: 4px;
+}
+.gostos-card p::-webkit-scrollbar-track {
+    background: transparent;
+}
+.gostos-card p::-webkit-scrollbar-thumb {
+    background: var(--primary-neon);
+    border-radius: 10px;
+    box-shadow: 0 0 5px var(--primary-neon);
 }
 
 /* --- SISTEMA DE TAGS --- */
 .tags-list {
+    grid-column: 2;
     display: flex; 
     flex-wrap: wrap;
     gap: 8px;
@@ -941,41 +999,37 @@ header li a {
     transition: 0.3s;
 }
 
-/* Variedade de cores neon ao passar o mouse */
-.tag:nth-child(5n+1):hover {
-    border-color: #00d4ff; /* Ciano */
-    color: #00d4ff;
-    background: rgba(0, 212, 255, 0.15);
-    box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+/* Tags harmonizadas com a cor da categoria no hover */
+.card-musicas .tag:hover {
+    border-color: #ff0000;
+    color: #ff0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 }
-.tag:nth-child(5n+2):hover {
-    border-color: #ff00ff; /* Magenta */
+.card-animes .tag:hover {
+    border-color: #ff00ff;
     color: #ff00ff;
-    background: rgba(255, 0, 255, 0.15);
-    box-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
 }
-.tag:nth-child(5n+3):hover {
-    border-color: #39ff14; /* Verde Neon */
+.card-jogos .tag:hover {
+    border-color: #39ff14;
     color: #39ff14;
-    background: rgba(57, 255, 20, 0.15);
-    box-shadow: 0 0 10px rgba(57, 255, 20, 0.4);
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
 }
-.tag:nth-child(5n+4):hover {
-    border-color: #ffaa00; /* Ouro/Laranja */
+.card-filmes .tag:hover {
+    border-color: #ffaa00;
     color: #ffaa00;
-    background: rgba(255, 170, 0, 0.15);
-    box-shadow: 0 0 10px rgba(255, 170, 0, 0.4);
+    box-shadow: 0 0 10px rgba(255, 170, 0, 0.5);
 }
-.tag:nth-child(5n+5):hover {
-    border-color: #ff4b2b; /* Vermelho */
-    color: #ff4b2b;
-    background: rgba(255, 75, 43, 0.15);
-    box-shadow: 0 0 10px rgba(255, 75, 43, 0.4);
+.card-series .tag:hover {
+    border-color: #00d4ff;
+    color: #00d4ff;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
 }
 
 .favorito-tag {
+    grid-column: 2;
     margin-top: 15px;
-    display: none; /* Esconde a tag de favorito por padrão na grid */
+    display: flex; /* Tornando visível na grid conforme solicitado */
     align-items: center;
     gap: 10px;
     background: rgba(138, 43, 226, 0.2);
@@ -993,15 +1047,22 @@ header li a {
 }
 
 .mini-img {
-    display: none !important;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--primary-neon);
 }
 
 /* Estilo do Card quando ampliado no Overlay */
 #conteudo-expandido .gostos-card {
     max-width: min(500px, 95vw);
     width: 95%;
-    max-height: 85vh;
-    overflow-y: auto;
+    height: auto;
+    min-height: 400px;
+    display: flex; /* Volta para vertical no overlay para melhor leitura */
+    flex-direction: column;
     cursor: default;
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(15px);
@@ -1016,6 +1077,12 @@ header li a {
 #conteudo-expandido .gostos-card p {
     display: block;
     margin-top: 15px;
+    max-height: 250px; /* Mais espaço para leitura no modo expandido */
+    overflow-y: auto;   /* Adiciona scroll se o texto for grande */
+    padding-right: 10px;
+    text-align: justify;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-neon) transparent;
 }
 
 #conteudo-expandido .gostos-card .tags-list {
@@ -1025,10 +1092,17 @@ header li a {
 
 #conteudo-expandido .gostos-card .favorito-tag {
     display: flex;
+    margin-top: auto; /* Empurra a tag de favorito para o fim do card */
 }
 
 #conteudo-expandido .gostos-card .card-img-container {
-    height: clamp(180px, 30vw, 250px);
+    height: 220px; /* Tamanho reduzido conforme solicitado */
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
 /* Garante que a imagem ocupe 100% do container dentro do card expandido */
@@ -1036,14 +1110,16 @@ header li a {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover;
+    border: none !important; /* Remove bordas internas para não conflitar com o neon do card */
+    box-shadow: none !important;
 }
 
 /* Estilo para análise de imagem (foco apenas na imagem) */
 .img-analise {
-    max-width: 90vw;
-    max-height: 90vh;
-    width: 100% !important; /* Garante que a imagem preencha a largura do container */
-    height: 100% !important; /* Garante que a imagem preencha a altura do container */
+    max-width: 80vw;
+    max-height: 80vh;
+    width: auto !important;
+    height: auto !important;
     object-fit: contain;
     border: 2px solid var(--primary-neon);
     box-shadow: 0 0 30px var(--primary-neon);
@@ -1130,17 +1206,13 @@ header li a {
 
 #conteudo-expandido img, 
 #conteudo-expandido video {
-    max-width: 100%;
+    max-width: 95vw;
+    max-height: 85vh;
     display: block;
-    width: auto;
-    height: auto;
-    max-height: 90vh;
-    /* Removido width: auto; height: auto; e max-height: 90vh; */
-    /* Agora, as classes específicas (.img-analise ou .boku-video) ou o object-fit gerenciam o tamanho */
-    /* Isso permite que .img-analise e .boku-video preencham o espaço de forma mais eficaz */
-    border: 2px solid #00d4ff !important;
+    /* Mantém o estilo apenas para mídias "soltas" (como na Galeria ou modo Analisar) */
+    border: 2px solid var(--primary-neon);
     box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
-    border-radius: 10px !important;
+    border-radius: 10px;
 }
 
 /* --- 10. ANIMAÇÕES & RESPONSIVIDADE FINAL --- */
@@ -1316,7 +1388,7 @@ header li a {
     width: 100%;
     max-width: 1200px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* Mantém o formato largo nos favoritos */
     gap: 25px;
 }
 
