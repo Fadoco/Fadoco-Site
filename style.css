@@ -1137,6 +1137,34 @@ header li a {
     .gostos-grid.active {
         grid-template-columns: 1fr; /* Linha reta (1 coluna) no telefone */
     }
+
+    /* --- VARIANTE MOBILE PARA CARDS (LAYOUT VERTICAL) --- */
+    .gostos-card {
+        grid-template-columns: 1fr; /* Muda de horizontal para vertical */
+        grid-template-rows: auto auto auto auto auto;
+        height: auto; /* Deixa a altura se ajustar ao conteúdo */
+        min-height: 480px; 
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .card-img-container {
+        grid-row: 1; /* Move a imagem para o topo */
+        width: 100%;
+        height: 220px; /* Altura fixa para manter o padrão visual no mobile */
+    }
+
+    .gostos-card h3, 
+    .gostos-card p, 
+    .tags-list, 
+    .favorito-tag {
+        grid-column: 1; /* Todos os elementos ocupam a largura total da coluna */
+    }
+
+    .gostos-card p {
+        max-height: 150px; /* Mais espaço para texto no mobile antes do scroll interno */
+        overflow-y: auto;
+    }
 }
 
 /* Animação suave de revelação estelar */
@@ -1227,6 +1255,13 @@ header li a {
     .artes-secao { padding-top: 130px; }
     .galeria-grid { grid-template-columns: 1fr; } 
     .close-overlay { right: 20px; top: 20px; font-size: 40px; }
+
+    /* Ajuste para o Overlay no Mobile */
+    .overlay {
+        align-items: flex-start; /* Garante que cards longos comecem do topo */
+        padding: 80px 0; /* Espaço para não bater no botão de fechar */
+        overflow-y: auto; /* Permite rolar se o card expandido for maior que a tela */
+    }
 }
 
 @media (max-width: 1024px) {

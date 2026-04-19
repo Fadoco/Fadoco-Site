@@ -36,7 +36,13 @@ window.carregarPlaylistYouTube = async function(pageToken = '') {
     }
 
     try {
-        const favorites = JSON.parse(localStorage.getItem('user-favorites') || '[]');
+        // Acesso seguro ao localStorage para evitar erros em navegadores mobile restritos
+        let favorites = [];
+        try {
+            const stored = localStorage.getItem('user-favorites');
+            if (stored) favorites = JSON.parse(stored);
+        } catch (e) { console.warn("Acesso ao localStorage limitado."); }
+
         const params = new URLSearchParams({
             part: 'snippet',
             maxResults: YT_CONFIG.MAX_RESULTS,
@@ -108,7 +114,7 @@ window.carregarCategoriaJSON = async function(categoria) {
     grid.appendChild(loadingMsg);
 
     try {
-        const response = await fetch(`${categoria}.json?v=${Date.now()}`);
+        const response = await fetch(`./${categoria}.json`);
         if (!response.ok) throw new Error(`Erro ao carregar ${categoria}.json`);
         const data = await response.json();
         const lista = data[categoria] || [];
@@ -116,17 +122,36 @@ window.carregarCategoriaJSON = async function(categoria) {
         categoriasCarregadas.add(categoria);
         inicializarComponentesGostos();
     } catch (error) {
-        grid.innerHTML = `<p style="color:#ff4b2b; grid-column: 1/-1; text-align:center;">Erro ao baixar dados.</p>`;
+        console.error(`Erro detalhado na categoria [${categoria}]:`, error);
+        
+        let mensagemCustom = "Erro ao carregar dados.";
+        if (window.location.protocol === 'file:') {
+            mensagemCustom = "O navegador bloqueia arquivos locais por segurança. Use a extensão 'Live Server' no VS Code para abrir o site.";
+        } else if (error instanceof SyntaxError) {
+            mensagemCustom = `Erro de digitação no arquivo ${categoria}.json (verifique vírgulas ou aspas).`;
+        }
+
+        grid.innerHTML = `
+            <div style="color:#ff4b2b; grid-column: 1/-1; text-align:center; padding: 30px; background: rgba(255,0,0,0.05); border-radius: 15px; border: 1px dashed #ff4b2b; margin: 20px 0;">
+                <p style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; margin-bottom: 5px;">${mensagemCustom}</p>
+                <p style="font-size: 0.6rem; opacity: 0.7;">Detalhe: ${error.message}</p>
+            </div>`;
     }
 };
 
 function renderizarCategoria(lista, gridId) {
     const grid = document.getElementById(gridId);
-    const favorites = JSON.parse(localStorage.getItem('user-favorites') || '[]');
+    
+    let favorites = [];
+    try {
+        const stored = localStorage.getItem('user-favorites');
+        if (stored) favorites = JSON.parse(stored);
+    } catch (e) { favorites = []; }
+
     grid.innerHTML = lista.map(item => {
-        const isFavorited = favorites.some(f => f.title === item.titulo);
+        const isFavorited = Array.isArray(favorites) && favorites.some(f => f.title === item.titulo);
         const validTags = (item.tags || []).filter(t => t.trim() !== "");
-        const searchStr = `${item.titulo} ${item.descricao} ${validTags.join(' ')} ${item.categoriaPai || ''}`.toLowerCase();
+        const searchStr = `${item.titulo || ''} ${item.descricao || ''} ${validTags.join(' ')} ${item.categoriaPai || ''}`.toLowerCase();
         
         const favTag = (item.favorito && item.favorito.imagem && item.favorito.texto) ? `
             <div class="favorito-tag" onclick="event.stopPropagation(); ampliarImagem(this.querySelector('img'))">
@@ -253,7 +278,7 @@ const inicializarEventosGostos = () => {
     if (typeof updateFavCounter === 'function') updateFavCounter();
 
     // Pre-carrega os dados silenciosamente para que as tags e a busca funcionem desde o início
-    ['animes', 'jogos', 'filmes', 'series'].forEach(cat => window.carregarCategoriaJSON(cat));
+    ['animes', 'jogos', 'filmes', 'series', 'desenhos'].forEach(cat => window.carregarCategoriaJSON(cat));
     window.carregarPlaylistYouTube();
 };
 
