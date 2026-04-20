@@ -229,9 +229,12 @@ const inicializarEventosGostos = () => {
     const searchInput = document.getElementById('search-input');
     const applyFilters = () => {
         const term = searchInput?.value.toLowerCase().trim() || '';
+        let globalVisibleCount = 0;
+
         document.querySelectorAll('.gostos-card').forEach(card => {
             const matches = (card.getAttribute('data-search') || '').includes(term);
             card.style.display = matches ? '' : 'none'; // Usa o valor padrão do CSS (grid)
+            if (matches) globalVisibleCount++;
         });
 
         document.querySelectorAll('.toggle-container').forEach(container => {
@@ -244,6 +247,20 @@ const inicializarEventosGostos = () => {
                 container.style.display = 'block';
             }
         });
+
+        // Gerencia a mensagem de "Nenhum resultado"
+        let emptyMsg = document.getElementById('search-empty-msg');
+        if (globalVisibleCount === 0 && term !== '') {
+            if (!emptyMsg) {
+                emptyMsg = document.createElement('div');
+                emptyMsg.id = 'search-empty-msg';
+                emptyMsg.className = 'search-empty-msg';
+                emptyMsg.innerText = 'SINAL PERDIDO: NENHUM RESULTADO NESTA FREQUÊNCIA.';
+                document.querySelector('.gostos-secao').appendChild(emptyMsg);
+            }
+        } else if (emptyMsg) {
+            emptyMsg.remove();
+        }
     };
 
     if (searchInput && typeof window.debounce === 'function') {
@@ -299,6 +316,7 @@ const inicializarEventosGostos = () => {
     document.getElementById('btn-favoritos')?.addEventListener('click', () => {
         if (typeof renderFavorites === "function") renderFavorites();
         document.getElementById('favorites-overlay').style.display = 'flex';
+        document.body.classList.add('no-scroll');
     });
 
     // Busca via URL
@@ -310,9 +328,19 @@ const inicializarEventosGostos = () => {
     
     if (typeof updateFavCounter === 'function') updateFavCounter();
 
-    // Pre-carrega os dados silenciosamente para que as tags e a busca funcionem desde o início
-    ['animes', 'jogos', 'filmes', 'series', 'desenhos'].forEach(cat => window.carregarCategoriaJSON(cat));
-    window.carregarPlaylistYouTube();
+    // --- CARREGAMENTO OTIMIZADO (ESCALONADO) ---
+    // Carrega os dados em sequência para evitar lag no mobile
+    const preCarregarDados = async () => {
+        const categorias = ['animes', 'jogos', 'filmes', 'series', 'desenhos'];
+        for (const cat of categorias) {
+            await window.carregarCategoriaJSON(cat);
+            // Pequena pausa entre carregamentos para liberar a Main Thread
+            await new Promise(r => setTimeout(r, 100));
+        }
+        window.carregarPlaylistYouTube();
+    };
+
+    preCarregarDados();
 };
 
 document.addEventListener('DOMContentLoaded', inicializarEventosGostos);

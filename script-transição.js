@@ -89,6 +89,7 @@ window.fecharAmpliacao = function() {
     const overlay = document.getElementById('overlay');
     const conteudo = document.getElementById('conteudo-expandido');
     overlay.style.display = 'none';
+    document.body.classList.remove('no-scroll');
     if (conteudo) { conteudo.style.width = conteudo.style.height = ''; }
     conteudo.innerHTML = '';
 };
@@ -96,6 +97,7 @@ window.fecharAmpliacao = function() {
 window.fecharFavoritos = function() {
     const favOverlay = document.getElementById('favorites-overlay');
     if (favOverlay) favOverlay.style.display = 'none';
+    document.body.classList.remove('no-scroll');
     window.dispatchEvent(new Event('scroll')); // Atualiza botão back-to-top
 };
 document.addEventListener('DOMContentLoaded', () => {
@@ -186,6 +188,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Delegação de eventos para suportar elementos dinâmicos
     document.body.addEventListener('mouseenter', (e) => {
+        // Ignora se for um dispositivo touch para evitar balões "presos"
+        if (window.matchMedia("(pointer: coarse)").matches) return;
+
         const el = e.target.closest('[data-tooltip]');
         if (!el) return;
         tooltip.innerText = el.getAttribute('data-tooltip');
@@ -262,15 +267,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTopBtn = document.getElementById('back-to-top');
     const overlayPrincipal = document.getElementById('overlay');
 
+    // Cria o overlay do menu dinamicamente se não existir
+    let menuOverlay = document.querySelector('.menu-overlay');
+    if (!menuOverlay) {
+        menuOverlay = document.createElement('div');
+        menuOverlay.className = 'menu-overlay';
+        document.body.appendChild(menuOverlay);
+    }
+
     if (btnMenu) btnMenu.onclick = () => {
         sideMenu?.classList.add('active');
+        menuOverlay.classList.add('active');
+        document.body.classList.add('no-scroll');
         btnMenu.setAttribute('aria-expanded', 'true');
     };
-    if (btnFechar) btnFechar.onclick = () => {
+
+    const closeSideMenu = () => {
         sideMenu?.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.classList.remove('no-scroll');
         btnMenu?.setAttribute('aria-expanded', 'false');
     };
-    if (overlayPrincipal) overlayPrincipal.onclick = fecharAmpliacao;
+
+    if (btnFechar) btnFechar.onclick = closeSideMenu;
+    if (menuOverlay) menuOverlay.onclick = closeSideMenu;
+    if (overlayPrincipal) {
+        overlayPrincipal.onclick = fecharAmpliacao;
+    }
+
+    // Intercepta a abertura de imagens/cards para travar o scroll
+    const observer = new MutationObserver(() => {
+        if (overlayPrincipal?.style.display === 'flex') {
+            document.body.classList.add('no-scroll');
+        }
+    });
+    if (overlayPrincipal) observer.observe(overlayPrincipal, { attributes: true, attributeFilter: ['style'] });
 
     /**
      * NOTA: Os event listeners dos botões de 'Gostos' (toggle-bar, btn-tags-toggle, etc)

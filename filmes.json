@@ -9,54 +9,6 @@
                 "texto": "Deora II",
                 "imagem": "img/deora_ii_fav.jpg"
             }
-        },
-        {
-            "titulo": "Owari no Seraph",
-            "descricao": "",
-            "imagem": "img/Owari no Seraph.png",
-            "ano": null,
-            "tags": [],
-            "favorito": null
-        },
-        {
-            "titulo": "Owari no Seraph",
-            "descricao": "",
-            "imagem": "img/Owari no Seraph.png",
-            "ano": null,
-            "tags": [],
-            "favorito": null
-        },
-        {
-            "titulo": "Owari no Seraph",
-            "descricao": "",
-            "imagem": "img/Owari no Seraph.png",
-            "ano": null,
-            "tags": [],
-            "favorito": null
-        },
-        {
-            "titulo": "Owari no Seraph",
-            "descricao": "",
-            "imagem": "img/Owari no Seraph.png",
-            "ano": null,
-            "tags": [],
-            "favorito": null
-        },
-        {
-            "titulo": "Owari no Seraph",
-            "descricao": "",
-            "imagem": "img/Owari no Seraph.png",
-            "ano": null,
-            "tags": [],
-            "favorito": null
-        },
-        {
-            "titulo": "Owari no Seraph",
-            "descricao": "",
-            "imagem": "img/Owari no Seraph.png",
-            "ano": null,
-            "tags": [],
-            "favorito": null
         }
     ]
 }

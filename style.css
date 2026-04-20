@@ -46,6 +46,13 @@
     letter-spacing: 1px;
 }
 
+/* Remove tooltips em dispositivos que não usam mouse (Touch) */
+@media (hover: none) and (pointer: coarse) {
+    .hud-tooltip {
+        display: none !important;
+    }
+}
+
 /* 
     STAR HUB - ESTRUTURA DE ESTILOS
     1. GLOBAL & RESET
@@ -116,6 +123,11 @@ body.site-loaded .progress-container {
     opacity: 1;
     visibility: visible;
     transition: opacity 1.2s ease-in-out;
+}
+
+/* Trava o scroll quando menus/overlays estão abertos */
+.no-scroll {
+    overflow: hidden !important;
 }
 
 .background {
@@ -261,7 +273,7 @@ header li a {
     position: fixed;
     top: 0;
     right: -300px;
-    width: 280px;
+    width: min(280px, 85vw);
     height: 100vh;
     background: rgba(10, 10, 20, 0.98);
     backdrop-filter: blur(20px);
@@ -306,6 +318,27 @@ header li a {
     font-size: 2.5rem;
     color: white;
     cursor: pointer;
+}
+
+/* Overlay de fundo para quando o menu lateral está aberto */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 
@@ -771,6 +804,17 @@ header li a {
     background: #00d4ff;
     transform: scale(1.1);
     box-shadow: 0 0 15px #00d4ff;
+}
+
+/* Ajuste para telas Touch: Garante que botões e legendas fiquem visíveis sem hover */
+@media (hover: none) {
+    .expand-btn {
+        opacity: 1;
+    }
+    .legenda-arte {
+        transform: translateY(0);
+        background: rgba(5, 5, 15, 0.9);
+    }
 }
 
 .legenda-arte {
@@ -1494,6 +1538,16 @@ header li a {
     border-color: #00d4ff;
     box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
     background: rgba(255, 255, 255, 0.1);
+}
+
+.search-empty-msg {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
 }
 
 #back-to-top {

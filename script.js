@@ -3,10 +3,5 @@
  */
 
 // --- UTILITÁRIOS ---
-window.debounce = (func, wait) => {
-    let timeout;
-    return (...args) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func(...args), wait);
-    };
-};
+// A função debounce foi movida para o script-gostos.js para evitar duplicidade.
+// Este arquivo agora pode ser usado para lógicas globais compartilhadas.
