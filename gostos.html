@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="gostos.css">
 </head>
 <body>
-     <img class="background" src="img/Background (1).gif" alt="">
+     <img class="background" src="img/Background (1).gif" alt="" loading="lazy">
     
     <!-- Barra de Progresso de Leitura -->
     <div class="progress-container">
@@ -29,23 +29,23 @@
 
     <header>
         <div class="centro">
-            <h1 class="titulo">Star Hub</h1>
+            <span class="titulo">Star Hub</span>
             <nav class="nav-principal">
                 <ul class="nav-list">
-                    <li><a href="index.html">Hub</a></li>
-                    <li><a href="lore.html">Lore</a></li>
-                    <li><a href="redes_sociais.html">Contato</a></li>
+                    <li><a href="index.html" data-tooltip="Início">Hub</a></li>
+                    <li><a href="lore.html" data-tooltip="Minha História">Lore</a></li>
+                    <li><a href="redes_sociais.html" data-tooltip="Sinal de Rádio">Contato</a></li>
                 </ul>
             </nav>
         </div>
 
         <div class="menu-extra">
-            <button class="btn-menu" id="btn-menu">☰</button>
+            <button class="btn-menu" id="btn-menu" data-tooltip="Outros Sistemas" aria-label="Abrir Menu Lateral" aria-expanded="false" aria-controls="side-menu">☰</button>
         </div>
     </header>
 
     <div id="side-menu" class="side-menu">
-        <span class="btn-fechar" id="btn-fechar">&times;</span>
+        <span class="btn-fechar" id="btn-fechar" data-tooltip="Fechar Menu" role="button" aria-label="Fechar Menu Lateral" tabindex="0">&times;</span>
         <ul class="nav-secundaria">
             <li><a href="artes.html">Artes</a></li>
             <li><a href="gostos.html">Gostos</a></li>
@@ -59,14 +59,14 @@
         </div>
 
         <!-- Gatilho de Favoritos -->
-        <button id="btn-favoritos" data-tooltip="Baú de Tesouros">
+        <button id="btn-favoritos" data-tooltip="Baú de Tesouros" aria-label="Ver favoritos">
             ★
             <span id="fav-counter">0</span>
         </button>
 
         <!-- Overlay de Favoritos -->
         <div id="favorites-overlay" class="fav-overlay">
-            <span class="close-overlay" onclick="fecharFavoritos()">&times;</span>
+            <span class="close-overlay" onclick="fecharFavoritos()" data-tooltip="Fechar Baú" role="button" aria-label="Fechar favoritos" tabindex="0">&times;</span>
             <h1 class="titulo" style="margin-bottom: 40px;">Tesouros Estelares</h1>
             <div id="favorites-grid" class="fav-content">
                 <!-- Favoritos serão injetados aqui via JS -->
@@ -89,7 +89,7 @@
         <div class="toggle-container">
             <div class="toggle-bar" id="toggle-jogos">
                 <span>Jogos que eu recomendo</span>
-                <span class="seta">▼</span>
+                <span class="seta" data-tooltip="Expandir Categoria">▼</span>
             </div>
             
             <div class="gostos-grid" id="jogos-grid">
@@ -100,7 +100,7 @@
         <div class="toggle-container">
             <div class="toggle-bar" id="toggle-animes">
                 <span>Animes que eu recomendo</span>
-                <span class="seta">▼</span>
+                <span class="seta" data-tooltip="Expandir Categoria">▼</span>
             </div>
             
             <div class="gostos-grid" id="animes-grid">
@@ -113,18 +113,18 @@
         <div class="toggle-container">
             <div class="toggle-bar" id="toggle-musicas">
                 <span>Músicas que eu recomendo</span>
-                <span class="seta">▼</span>
+                <span class="seta" data-tooltip="Expandir Categoria">▼</span>
             </div>
             <div class="gostos-grid" id="musicas-grid">
             </div>
-            <button id="btn-carregar-mais-musicas" class="btn-action" style="display: none; margin-top: 20px;">Carregar Mais Músicas</button>
+            <button id="btn-carregar-mais-musicas" class="btn-action" style="display: none; margin-top: 20px;" data-tooltip="Sincronizar mais faixas">Carregar Mais Músicas</button>
         </div>
 
         <!-- SEÇÃO: FILMES -->
         <div class="toggle-container">
             <div class="toggle-bar" id="toggle-filmes">
                 <span>Filmes que eu recomendo</span>
-                <span class="seta">▼</span>
+                <span class="seta" data-tooltip="Expandir Categoria">▼</span>
             </div>
             <div class="gostos-grid" id="filmes-grid">
             </div>
@@ -134,7 +134,7 @@
         <div class="toggle-container">
             <div class="toggle-bar" id="toggle-series">
                 <span>Séries que eu recomendo</span>
-                <span class="seta">▼</span>
+                <span class="seta" data-tooltip="Expandir Categoria">▼</span>
             </div>
             <div class="gostos-grid" id="series-grid">
             </div>
@@ -144,7 +144,7 @@
         <div class="toggle-container">
             <div class="toggle-bar" id="toggle-desenhos">
                 <span>Desenhos que eu recomendo</span>
-                <span class="seta">▼</span>
+                <span class="seta" data-tooltip="Expandir Categoria">▼</span>
             </div>
             <div class="gostos-grid" id="desenhos-grid">
             </div>
@@ -159,12 +159,12 @@
         </div>
     </footer>
 
-    <div id="overlay" class="overlay" onclick="fecharAmpliacao()">
-        <span class="close-overlay">&times;</span>
+    <div id="overlay" class="overlay">
+        <span class="close-overlay" onclick="fecharAmpliacao()" role="button" aria-label="Fechar ampliação" tabindex="0">&times;</span>
         <div id="conteudo-expandido"></div>
     </div>
 
-    <button id="back-to-top" title="Voltar ao topo">▲</button>
+    <button id="back-to-top" data-tooltip="Órbita Inicial" aria-label="Voltar ao topo">▲</button>
 
     <script src="script-favoritos.js" defer></script>
     <script src="script-transição.js" defer></script>

@@ -2,6 +2,19 @@
  * STAR HUB - LÓGICA ESPECÍFICA DA PÁGINA DE GOSTOS
  */
 
+// --- FUNÇÕES UTILITÁRIAS ---
+window.debounce = (func, wait) => {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+};
+
 // --- CONFIGURAÇÃO DA API DO YOUTUBE ---
 const YT_CONFIG = {
     KEY: 'AIzaSyDaPbh2ZDKB3Gq16K68V8xatYZ4ZTy2hlQ',
@@ -67,8 +80,9 @@ window.carregarPlaylistYouTube = async function(pageToken = '') {
             const isFavorited = favorites.some(f => f.title === titulo);
             
             const card = document.createElement('div');
-            card.className = `gostos-card card-musicas ${isFavorited ? 'is-favorite' : ''}`;
+            card.className = `gostos-card card-musicas reveal-section ${isFavorited ? 'is-favorite' : ''}`;
             card.setAttribute('data-search', `${titulo} youtube musica`.toLowerCase());
+            card.setAttribute('data-tooltip', 'Ver Detalhes');
             card.onclick = function() { ampliarCard(this); };
             card.innerHTML = `
                 <div class="card-img-container"><img src="${capa}" alt="${titulo}" loading="lazy"></div>
@@ -78,9 +92,14 @@ window.carregarPlaylistYouTube = async function(pageToken = '') {
                     <span class="tag" onclick="event.stopPropagation(); filterByTag('YouTube')">YouTube</span>
                     <span class="tag" onclick="event.stopPropagation(); filterByTag('Música')">Música</span>
                 </div>
-                <span class="fav-toggle ${isFavorited ? 'active' : ''}" onclick="toggleFavorite(event, this)">★</span>
+                <span class="fav-toggle ${isFavorited ? 'active' : ''}" onclick="toggleFavorite(event, this)" data-tooltip="Favoritar">★</span>
             `;
             musicasGrid.appendChild(card);
+
+            // Ativa o efeito de reveal para o novo card do YouTube
+            if (window.revealObserver) {
+                window.revealObserver.observe(card);
+            }
         });
 
         youtubeNextPageToken = data.nextPageToken || '';
@@ -140,6 +159,7 @@ window.carregarCategoriaJSON = async function(categoria) {
 };
 
 function renderizarCategoria(lista, gridId) {
+    const currentTags = new Set(); // Para coletar tags desta renderização
     const grid = document.getElementById(gridId);
     
     let favorites = [];
@@ -160,30 +180,38 @@ function renderizarCategoria(lista, gridId) {
             </div>` : '';
 
         return `
-            <div class="gostos-card reveal-section card-${item.categoriaPai} ${isFavorited ? 'is-favorite' : ''}" data-search="${searchStr}" onclick="ampliarCard(this)">
+            <div class="gostos-card reveal-section card-${item.categoriaPai} ${isFavorited ? 'is-favorite' : ''}" data-search="${searchStr}" data-tooltip="Ver Detalhes" onclick="ampliarCard(this)">
                 <div class="card-img-container"><img src="${item.imagem}" alt="${item.titulo}"></div>
                 <h3>${item.titulo}</h3>
                 <p>${item.descricao}</p>
                 <div class="tags-list">${validTags.map(t => `<span class="tag" onclick="event.stopPropagation(); filterByTag('${t}')">${t}</span>`).join('')}</div>
                 ${favTag}
-                <span class="fav-toggle ${isFavorited ? 'active' : ''}" onclick="toggleFavorite(event, this)">★</span>
+                <span class="fav-toggle ${isFavorited ? 'active' : ''}" onclick="toggleFavorite(event, this)" data-tooltip="Salvar nos Tesouros">★</span>
             </div>`;
     }).join('');
 
     // Observa os novos cards para o efeito de Scroll Reveal
+    // E coleta as tags para a nuvem
     if (window.revealObserver) {
-        grid.querySelectorAll('.reveal-section').forEach(el => window.revealObserver.observe(el));
+        grid.querySelectorAll('.reveal-section').forEach(el => {
+            window.revealObserver.observe(el);
+            el.querySelectorAll('.tag').forEach(tagEl => currentTags.add(tagEl.innerText));
+        });
     }
+
+    // Atualiza a nuvem de tags após cada renderização de categoria
+    inicializarComponentesGostos(currentTags);
 }
 
-function inicializarComponentesGostos() {
+const allUniqueTags = new Set(); // Conjunto global para todas as tags
+
+function inicializarComponentesGostos(newTags = new Set()) {
     const tagCloudContainer = document.getElementById('tag-cloud');
     if (tagCloudContainer) {
-        const uniqueTags = [...new Set(Array.from(document.querySelectorAll('.tag')).map(t => t.innerText))];
-        
-        // Otimização: Criar todos os elementos em memória antes de injetar no DOM
+        newTags.forEach(tag => allUniqueTags.add(tag)); // Adiciona novas tags ao conjunto global
+
         const fragment = document.createDocumentFragment();
-        uniqueTags.sort().forEach(tag => {
+        Array.from(allUniqueTags).sort().forEach(tag => { // Usa o conjunto global e o ordena
             const tagEl = document.createElement('span');
             tagEl.className = 'tag-cloud-item';
             tagEl.innerText = tag;
@@ -258,7 +286,7 @@ const inicializarEventosGostos = () => {
         const cloud = document.getElementById('tag-cloud');
         if (cloud) {
             cloud.classList.toggle('active');
-            if (cloud.classList.contains('active')) inicializarComponentesGostos();
+            if (cloud.classList.contains('active')) inicializarComponentesGostos(); // Re-renderiza a nuvem com todas as tags coletadas
         }
     });
 

@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <img class="background" src="img/Background (1).gif" alt="">
+    <img class="background" src="img/Background (1).gif" alt="" loading="lazy">
 <!-- a -->
     <!-- Barra de Progresso de Leitura -->
     <div class="progress-container">
@@ -28,23 +28,23 @@
 
     <header>
         <div class="centro">
-            <h1 class="titulo">Star Hub</h1>
+            <span class="titulo">Star Hub</span>
             <nav class="nav-principal">
                 <ul>
-                    <li><a href="index.html">Hub</a></li>
-                    <li><a href="lore.html">Lore</a></li>
-                    <li><a href="redes_sociais.html">Contato</a></li>
+                    <li><a href="index.html" data-tooltip="Início">Hub</a></li>
+                    <li><a href="lore.html" data-tooltip="Minha História">Lore</a></li>
+                    <li><a href="redes_sociais.html" data-tooltip="Frequências de Rádio">Contato</a></li>
                 </ul>
             </nav>
         </div>
 
         <div class="menu-extra">
-            <button class="btn-menu" id="btn-menu">☰</button>
+            <button class="btn-menu" id="btn-menu" data-tooltip="Outros Sistemas">☰</button>
         </div>
     </header>
 
     <div id="side-menu" class="side-menu">
-        <span class="btn-fechar" id="btn-fechar">&times;</span>
+        <span class="btn-fechar" id="btn-fechar" data-tooltip="Fechar Menu">&times;</span>
         <ul class="nav-secundaria">
             <li><a href="artes.html">Artes</a></li>
             <li><a href="gostos.html">Gostos</a></li>
@@ -69,7 +69,7 @@
         <div class="video-preview-container">
             <iframe src="https://www.youtube.com/embed/9ycveKlQUtA?autoplay=1&mute=1&loop=1&playlist=9ycveKlQUtA&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Fadoco Edits"></iframe>
         </div>
-        <a href="https://www.youtube.com/channel/UCbGVdb1UueHEUBH7efKDRtw" target="_blank" class="btn-visitar">Visitar Canal</a>
+        <a href="https://www.youtube.com/channel/UCbGVdb1UueHEUBH7efKDRtw" target="_blank" class="btn-visitar" data-tooltip="Ir para o YouTube">Visitar Canal</a>
     </div>
 
    <div class="card-social tiktok reveal-section">
@@ -83,7 +83,7 @@
             Seu navegador não suporta vídeos.
         </video>
     </div>
-    <a href="https://www.tiktok.com/@fadoco_edits" target="_blank" class="btn-visitar">Seguir no TikTok</a>
+    <a href="https://www.tiktok.com/@fadoco_edits" target="_blank" class="btn-visitar" data-tooltip="Seguir no TikTok">Seguir no TikTok</a>
 </div>
 
     <div class="card-social instagram reveal-section">
@@ -94,7 +94,7 @@
         <div class="stories-placeholder">
             <p>CONFIRA OS STORIES</p>
         </div>
-        <a href="https://www.instagram.com/fadoco_oficial/" target="_blank" class="btn-visitar">Visitar Perfil</a>
+        <a href="https://www.instagram.com/fadoco_oficial/" target="_blank" class="btn-visitar" data-tooltip="Seguir no Instagram">Visitar Perfil</a>
     </div>
 
     <div class="card-social gameplay reveal-section">
@@ -105,7 +105,7 @@
         <div class="video-preview-container">
             <iframe src="https://www.youtube.com/embed/oC8zxGMloFI?autoplay=1&mute=1&loop=1&playlist=oC8zxGMloFI&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
-        <a href="https://www.youtube.com/channel/UC2Stl2EtlKYqtWnsKOhL3kA" target="_blank" class="btn-visitar">Inscrever-se</a>
+        <a href="https://www.youtube.com/channel/UC2Stl2EtlKYqtWnsKOhL3kA" target="_blank" class="btn-visitar" data-tooltip="Ir para o Canal">Inscrever-se</a>
     </div>
         </div>
     </section>
@@ -120,7 +120,7 @@
 
 <!-- Containers para o funcionamento do Lightbox e Favoritos -->
 <div id="overlay" class="overlay">
-    <span class="close-overlay" onclick="fecharAmpliacao()">&times;</span>
+    <span class="close-overlay" onclick="fecharAmpliacao()" data-tooltip="Fechar">&times;</span>
     <div id="conteudo-expandido"></div>
 </div>
 
@@ -128,7 +128,7 @@
     <div id="favorites-grid" class="fav-content"></div>
 </div>
 
-    <button id="back-to-top" title="Voltar ao topo">▲</button>
+    <button id="back-to-top" data-tooltip="Órbita Inicial">▲</button>
 
     <script src="script-favoritos.js" defer></script>
     <script src="script-transição.js" defer></script>

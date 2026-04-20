@@ -152,6 +152,15 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 document.body.classList.add('site-loaded');
                 updateProgressBar(); // Garante o cálculo inicial da barra
+
+                // Força a revelação das seções que já estão visíveis no viewport assim que o loading acaba
+                document.querySelectorAll('.reveal-section').forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top < window.innerHeight * 0.85) { // 0.85 para alinhar com o threshold de 15%
+                        section.classList.add('revealed');
+                        if (window.revealObserver) window.revealObserver.unobserve(section);
+                    }
+                });
             }, 100);
             setTimeout(() => transitionOverlay.remove(), 700); 
         }, 600); 
@@ -159,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 4. SISTEMA DE SCROLL REVEAL ---
     window.revealObserver = new IntersectionObserver((entries) => {
+        if (!document.body.classList.contains('site-loaded')) return; // Impede a revelação antes do loading acabar
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('revealed');
@@ -174,35 +184,33 @@ document.addEventListener('DOMContentLoaded', () => {
     tooltip.className = 'hud-tooltip';
     document.body.appendChild(tooltip);
 
-    document.querySelectorAll('[data-tooltip]').forEach(el => {
-        el.addEventListener('mouseenter', (e) => {
-            tooltip.innerText = el.getAttribute('data-tooltip');
-            tooltip.style.opacity = '1';
-        });
+    // Delegação de eventos para suportar elementos dinâmicos
+    document.body.addEventListener('mouseenter', (e) => {
+        const el = e.target.closest('[data-tooltip]');
+        if (!el) return;
+        tooltip.innerText = el.getAttribute('data-tooltip');
+        tooltip.style.opacity = '1';
+    }, true);
 
-        el.addEventListener('mousemove', (e) => {
-            let x = e.clientX + 15;
-            let y = e.clientY - 35;
+    document.body.addEventListener('mousemove', (e) => {
+        if (tooltip.style.opacity === '0') return;
+        let x = e.clientX + 15;
+        let y = e.clientY - 35;
 
-            // Verifica colisão com a borda direita
-            const tooltipWidth = tooltip.offsetWidth;
-            if (x + tooltipWidth > window.innerWidth - 10) {
-                x = e.clientX - tooltipWidth - 15;
-            }
+        const tooltipWidth = tooltip.offsetWidth;
+        if (x + tooltipWidth > window.innerWidth - 10) {
+            x = e.clientX - tooltipWidth - 15;
+        }
+        if (y < 10) {
+            y = e.clientY + 25;
+        }
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
+    }, true);
 
-            // Verifica colisão com o topo
-            if (y < 10) {
-                y = e.clientY + 25;
-            }
-
-            tooltip.style.left = x + 'px';
-            tooltip.style.top = y + 'px';
-        });
-
-        el.addEventListener('mouseleave', () => {
-            tooltip.style.opacity = '0';
-        });
-    });
+    document.body.addEventListener('mouseleave', (e) => {
+        if (e.target.closest('[data-tooltip]')) tooltip.style.opacity = '0';
+    }, true);
 
     // --- ATUALIZAÇÃO DO ANO NO RODAPÉ ---
     const yearEl = document.getElementById('year');
@@ -235,9 +243,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         exitOverlay.classList.add('active');
                     });
 
-                    setTimeout(() => {
+                    // Navega quando a transição terminar
+                    exitOverlay.addEventListener('transitionend', () => {
                         window.location.href = destination;
-                    }, 500); // Reduzido de 600ms para 500ms
+                    }, { once: true }); // Garante que o listener seja removido após a primeira execução
+
+                    // Fallback de segurança: navega após 800ms caso a transição falhe
+                    setTimeout(() => { window.location.href = destination; }, 800);
                 }
             });
         }
@@ -250,8 +262,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTopBtn = document.getElementById('back-to-top');
     const overlayPrincipal = document.getElementById('overlay');
 
-    if (btnMenu) btnMenu.onclick = () => sideMenu?.classList.add('active');
-    if (btnFechar) btnFechar.onclick = () => sideMenu?.classList.remove('active');
+    if (btnMenu) btnMenu.onclick = () => {
+        sideMenu?.classList.add('active');
+        btnMenu.setAttribute('aria-expanded', 'true');
+    };
+    if (btnFechar) btnFechar.onclick = () => {
+        sideMenu?.classList.remove('active');
+        btnMenu?.setAttribute('aria-expanded', 'false');
+    };
     if (overlayPrincipal) overlayPrincipal.onclick = fecharAmpliacao;
 
     /**

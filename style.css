@@ -5,18 +5,24 @@
     --secondary-neon: #8a2be2;
     --bg-dark: rgba(10, 10, 20, 0.6);
     --bg-overlay: rgba(5, 5, 15, 0.95);
+    --text-shadow-glow: 0 0 10px rgba(0, 212, 255, 0.8);
+    --glitch-1: #ff00ff;
+    --glitch-2: #00ffff;
+}
 
 /* --- 13. SCROLL REVEAL & HUD TOOLTIPS --- */
 .reveal-section {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, visibility 0.8s;
     will-change: opacity, transform;
+    visibility: hidden;
 }
 
 .reveal-section.revealed {
     opacity: 1;
     transform: translateY(0);
+    visibility: visible;
 }
 
 .hud-tooltip {
@@ -38,10 +44,6 @@
     text-transform: uppercase;
     box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
     letter-spacing: 1px;
-}
-    --text-shadow-glow: 0 0 10px rgba(0, 212, 255, 0.8);
-    --glitch-1: #ff00ff;
-    --glitch-2: #00ffff;
 }
 
 /* 
@@ -95,11 +97,11 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 
 body {
     background-color: #000; /* Fundo preto imediato */
-    transition: --primary-neon 0.5s, --secondary-neon 0.5s;
+    /* Removido: Transição de variáveis CSS não é suportada diretamente */
 }
 
 /* Esconde o conteúdo inicial IMEDIATAMENTE (sem transição aqui para evitar o flash) */
-header, main, .background, #btn-favoritos, #back-to-top, .home, .artes-secao, .lore, .progress-container {
+header, main, .background, #btn-favoritos, #back-to-top, .progress-container, .reveal-section {
     opacity: 0;
     visibility: hidden;
 }
@@ -109,10 +111,7 @@ body.site-loaded header,
 body.site-loaded main, 
 body.site-loaded .background,
 body.site-loaded #btn-favoritos,
-body.site-loaded #back-to-top,
-body.site-loaded .home,
-body.site-loaded .artes-secao,
-body.site-loaded .lore, 
+body.site-loaded #back-to-top, 
 body.site-loaded .progress-container {
     opacity: 1;
     visibility: visible;

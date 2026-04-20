@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-     <img class="background" src="img/Background (1).gif" alt="">
+     <img class="background" src="img/Background (1).gif" alt="Fundo Estrelado" loading="lazy">
     
     <!-- Barra de Progresso de Leitura -->
     <div class="progress-container">
@@ -25,84 +25,86 @@
 
     <header>
         <div class="centro">
-            <h1 class="titulo glitch" data-text="Star Hub">Star Hub</h1>
+            <span class="titulo glitch" data-text="Star Hub">Star Hub</span>
             <nav class="nav-principal">
                 <ul>
-                    <li><a href="index.html">Hub</a></li>
+                    <li><a href="index.html" data-tooltip="Início">Hub</a></li>
                     <li><a href="lore.html" data-tooltip="Minha História">Lore</a></li>
-                    <li><a href="redes_sociais.html">Contato</a></li>
+                    <li><a href="redes_sociais.html" data-tooltip="Frequências de Rádio">Contato</a></li>
                 </ul>
             </nav>
         </div>
  
         <div class="menu-extra">
-            <button class="btn-menu" id="btn-menu" data-tooltip="Outros Sistemas">☰</button>
+            <button class="btn-menu" id="btn-menu" data-tooltip="Outros Sistemas" aria-label="Abrir Menu Lateral" aria-expanded="false" aria-controls="side-menu">☰</button>
         </div>
     </header>
 
     <div id="side-menu" class="side-menu">
-        <span class="btn-fechar" id="btn-fechar">&times;</span>
+        <span class="btn-fechar" id="btn-fechar" data-tooltip="Fechar Menu" role="button" aria-label="Fechar Menu Lateral" tabindex="0">&times;</span>
         <ul class="nav-secundaria">
             <li><a href="artes.html">Artes</a></li>
             <li><a href="gostos.html">Gostos</a></li>
         </ul>
     </div>
 
-    <section class="home reveal-section">
-        <div class="container-home">
-            <div class="home-text">
-                <h5>Bem-vindo ao</h5>
-                <h1>Star Hub</h1>
-                <p>Aqui contarei um pouco sobre mim e sobre meu personagem 
-                    <strong>Fadoco</strong>. 
-                    Espero que você goste de sua estadia nessa viagem interestelar.
-                </p>
-                <a href="lore.html" class="btn">Conhecer Fadoco</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="home home-invert reveal-section">
-        <div class="container-home home-right">
-            <div class="home-text">
-                <h5>Exploração</h5>
-                <h1>O Universo</h1>
-                <p>Navegue pelos meus <strong>Gostos</strong> pessoais: uma curadoria estelar de animes, jogos, filmes e músicas que moldaram meu universo.
-                </p>
-                <div class="home-btns">
-                    <a href="gostos.html" class="btn">Ver Gostos</a>
+    <main>
+        <section class="home reveal-section">
+            <div class="container-home">
+                <div class="home-text">
+                    <h5>Bem-vindo ao</h5>
+                    <h1>O Coração do Universo</h1>
+                    <p>Aqui contarei um pouco sobre mim e sobre meu personagem 
+                        <strong>Fadoco</strong>. 
+                        Espero que você goste de sua estadia nessa viagem interestelar.
+                    </p>
+                    <a href="lore.html" class="btn" data-tooltip="Iniciar Jornada">Conhecer Fadoco</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="home reveal-section">
-        <div class="container-home">
-            <div class="home-text">
-                <h5>Criatividade</h5>
-                <h1>Galeria de Artes</h1>
-                <p>Veja as representações visuais do meu personagem e outras criações artísticas que dão vida a este universo.
-                </p>
-                <div class="home-btns">
-                    <a href="artes.html" class="btn">Ver Artes</a>
+        <section class="home home-invert reveal-section">
+            <div class="container-home home-right">
+                <div class="home-text">
+                    <h5>Explorando</h5>
+                    <h1>O Universo</h1>
+                    <p>Navegue pelos meus <strong>Gostos</strong> pessoais: uma curadoria estelar de animes, jogos, filmes e músicas que moldaram meu universo.
+                    </p>
+                    <div class="home-btns">
+                        <a href="gostos.html" class="btn" data-tooltip="Explorar Tesouros">Ver Gostos</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="home home-invert reveal-section">
-        <div class="container-home home-right">
-            <div class="home-text">
-                <h5>Comunicação</h5>
-                <h1>Conexão Estelar</h1>
-                <p>Acompanhe meu trabalho de perto ou entre em contato através das minhas principais redes sociais e canais oficiais.
-                </p>
-                <div class="home-btns">
-                    <a href="redes_sociais.html" class="btn">Ver Contato</a>
+        <section class="home reveal-section">
+            <div class="container-home">
+                <div class="home-text">
+                    <h5>Criatividade</h5>
+                    <h1>Galeria de Artes</h1>
+                    <p>Veja as representações visuais do meu personagem e outras criações artísticas que dão vida a este universo.
+                    </p>
+                    <div class="home-btns">
+                        <a href="artes.html" class="btn" data-tooltip="Ver Galeria">Ver Artes</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="home home-invert reveal-section">
+            <div class="container-home home-right">
+                <div class="home-text">
+                    <h5>Comunicação</h5>
+                    <h1>Conexão Estelar</h1>
+                    <p>Acompanhe meu trabalho de perto ou entre em contato através das minhas principais redes sociais e canais oficiais.
+                    </p>
+                    <div class="home-btns">
+                        <a href="redes_sociais.html" class="btn" data-tooltip="Sinal de Rádio">Ver Contato</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="main-footer">
         <div class="footer-content">
@@ -113,7 +115,7 @@
 
     <!-- Containers para o funcionamento do Lightbox e Favoritos -->
     <div id="overlay" class="overlay">
-        <span class="close-overlay" onclick="fecharAmpliacao()">&times;</span>
+        <span class="close-overlay" onclick="fecharAmpliacao()" data-tooltip="Fechar Visualização" role="button" aria-label="Fechar ampliação" tabindex="0">&times;</span>
         <div id="conteudo-expandido"></div>
     </div>
 
@@ -121,7 +123,7 @@
         <div id="favorites-grid" class="fav-content"></div>
     </div>
 
-    <button id="back-to-top" data-tooltip="Órbita Inicial">▲</button>
+    <button id="back-to-top" data-tooltip="Órbita Inicial" aria-label="Voltar ao topo">▲</button>
 
     <script src="script-favoritos.js" defer></script>
     <script src="script-transição.js" defer></script>
