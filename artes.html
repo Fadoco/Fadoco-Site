@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artes | Star Hub</title>
+    <meta name="description" content="Explore a galeria de artes e edições de Fadoco.">
+    <meta property="og:title" content="Galeria de Artes | Star Hub">
+    <meta property="og:description" content="Veja as representações visuais e animações do universo de Fadoco.">
+    <meta property="og:image" content="img/logo-app.jpg">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#8a2be2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.googleapis.com">
@@ -50,18 +56,17 @@
             <p>
                 Aqui <strong>você</strong> vai ver um pouco desse meu universo megalomaníaco :)
             </p>
-          <div class="artista-registro">
-    <h5>Colaboração Interestelar</h5>
-    <a href="https://www.instagram.com/fluidpersona/" target="_blank" class="artista-link">
-        <div class="artista-avatar">
-            <img src="img/645775339_18163325734416806_3588454288708994256_n.jpg" alt="Fluidpersona">
-        </div>
-        <div class="artista-info">
-            <span class="cargo">Artista Parceira</span>
-            <span class="handle">@fluidpersona</span>
-        </div>
-    </a>
-</div>
+            <div class="artista-registro">
+                <a href="https://www.instagram.com/fluidpersona/" target="_blank" class="artista-link">
+                    <div class="artista-avatar">
+                        <img src="img/645775339_18163325734416806_3588454288708994256_n.jpg" alt="Fluidpersona">
+                    </div>
+                    <div class="artista-info">
+                        <span class="cargo">Artista Parceira</span>
+                        <span class="handle">@fluidpersona</span>
+                    </div>
+                </a>
+            </div>
         </div>
 
         <div class="galeria-grid">
@@ -112,7 +117,7 @@
 
     
     <div class="arte-card">
-        <video src="img/Novo projeto 11 [3079EBD].mp4" loop></video>
+        <video src="img/Novo projeto 11 [3079EBD].mp4" loop muted autoplay playsinline></video>
         <button class="expand-btn" onclick="ampliarImagem(this)">⛶</button>
         <div class="legenda-arte">
             <h4>Tentativa de animação</h4>
@@ -120,7 +125,15 @@
         </div>
     </div>
 
-</div>
+        </div>
+    </section>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        <p>© <span id="year"></span> STAR HUB - FADOCO UNIVERSE</p>
+        <p style="font-size: 0.6rem; margin-top: 10px; opacity: 0.5;">SINAL TRANSMITIDO VIA DEEP SPACE NETWORK</p>
+    </div>
+</footer>
 
 <div id="overlay" class="overlay">
     <span class="close-overlay" onclick="fecharAmpliacao()">&times;</span>

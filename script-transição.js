@@ -17,7 +17,26 @@ window.ampliarImagem = function(elemento) {
         const clone = midiaOriginal.cloneNode(true);
         clone.style.display = 'block';
         clone.classList.remove('mini-img');
-        if (clone.tagName === 'VIDEO') { clone.controls = true; clone.autoplay = true; }
+
+        // Esconde a mídia e remove o brilho inicial
+        clone.style.opacity = '0';
+        clone.style.transition = 'opacity 0.3s ease-in-out';
+
+        if (clone.tagName === 'VIDEO') {
+            clone.autoplay = true;
+            // Só revela o vídeo e o neon quando o primeiro frame for carregado
+            clone.onloadeddata = () => {
+                clone.style.opacity = '1';
+            };
+        } else {
+            // Para imagens, verifica se já está no cache ou aguarda o load
+            if (clone.complete) {
+                clone.style.opacity = '1';
+            } else {
+                clone.onload = () => { clone.style.opacity = '1'; };
+            }
+        }
+
         conteudo.appendChild(clone);
         overlay.style.display = 'flex';
     }
@@ -137,6 +156,10 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => transitionOverlay.remove(), 700); 
         }, 600); 
     };
+
+    // --- ATUALIZAÇÃO DO ANO NO RODAPÉ ---
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
     // Se a página já carregou (cache), fecha. Senão, espera o evento 'load'.
     if (document.readyState === 'complete') {
