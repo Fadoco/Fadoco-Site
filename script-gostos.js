@@ -160,7 +160,7 @@ function renderizarCategoria(lista, gridId) {
             </div>` : '';
 
         return `
-            <div class="gostos-card card-${item.categoriaPai} ${isFavorited ? 'is-favorite' : ''}" data-search="${searchStr}" onclick="ampliarCard(this)">
+            <div class="gostos-card reveal-section card-${item.categoriaPai} ${isFavorited ? 'is-favorite' : ''}" data-search="${searchStr}" onclick="ampliarCard(this)">
                 <div class="card-img-container"><img src="${item.imagem}" alt="${item.titulo}"></div>
                 <h3>${item.titulo}</h3>
                 <p>${item.descricao}</p>
@@ -169,6 +169,11 @@ function renderizarCategoria(lista, gridId) {
                 <span class="fav-toggle ${isFavorited ? 'active' : ''}" onclick="toggleFavorite(event, this)">★</span>
             </div>`;
     }).join('');
+
+    // Observa os novos cards para o efeito de Scroll Reveal
+    if (window.revealObserver) {
+        grid.querySelectorAll('.reveal-section').forEach(el => window.revealObserver.observe(el));
+    }
 }
 
 function inicializarComponentesGostos() {

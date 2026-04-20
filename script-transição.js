@@ -157,6 +157,53 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 600); 
     };
 
+    // --- 4. SISTEMA DE SCROLL REVEAL ---
+    window.revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                window.revealObserver.unobserve(entry.target); // Para de observar após revelar
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal-section').forEach(section => window.revealObserver.observe(section));
+
+    // --- 5. HUD DYNAMIC TOOLTIPS ---
+    const tooltip = document.createElement('div');
+    tooltip.className = 'hud-tooltip';
+    document.body.appendChild(tooltip);
+
+    document.querySelectorAll('[data-tooltip]').forEach(el => {
+        el.addEventListener('mouseenter', (e) => {
+            tooltip.innerText = el.getAttribute('data-tooltip');
+            tooltip.style.opacity = '1';
+        });
+
+        el.addEventListener('mousemove', (e) => {
+            let x = e.clientX + 15;
+            let y = e.clientY - 35;
+
+            // Verifica colisão com a borda direita
+            const tooltipWidth = tooltip.offsetWidth;
+            if (x + tooltipWidth > window.innerWidth - 10) {
+                x = e.clientX - tooltipWidth - 15;
+            }
+
+            // Verifica colisão com o topo
+            if (y < 10) {
+                y = e.clientY + 25;
+            }
+
+            tooltip.style.left = x + 'px';
+            tooltip.style.top = y + 'px';
+        });
+
+        el.addEventListener('mouseleave', () => {
+            tooltip.style.opacity = '0';
+        });
+    });
+
     // --- ATUALIZAÇÃO DO ANO NO RODAPÉ ---
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
