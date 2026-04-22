@@ -16,6 +16,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Overlay de Transição Direto no HTML para evitar flash do site -->
+    <div id="hyperspace" class="hyperspace-overlay">
+        <div class="scanlines"></div>
+        <div class="noise"></div>
+        <video class="loading-video" autoplay loop muted playsinline style="background: #000;">
+            <source src="img/personagem de carregamento.mp4" type="video/mp4">
+        </video>
+        <div class="loading-content">
+            <p class="loading-text">Sincronizando Arquivos</p>
+            <div class="dots-container"><span class="dots"></span></div>
+        </div>
+    </div>
+
      <img class="background" src="img/Background (1).gif" alt="Fundo Estrelado" loading="lazy">
     
     <!-- Barra de Progresso de Leitura -->
@@ -25,7 +38,7 @@
 
     <header>
         <div class="centro">
-            <span class="titulo glitch" data-text="Star Hub">Star Hub</span>
+            <span class="titulo">Star Hub</span>
             <nav class="nav-principal">
                 <ul>
                     <li><a href="index.html" data-tooltip="Início">Hub</a></li>
@@ -45,6 +58,7 @@
         <ul class="nav-secundaria">
             <li><a href="artes.html" data-tooltip="Galeria de Obras">Artes</a></li>
             <li><a href="gostos.html" data-tooltip="Meus Tesouros">Gostos</a></li>
+            <li><a href="personagem.html" data-tooltip="História do Personagem">Light Novel</a></li>
         </ul>
     </div>
 
@@ -53,12 +67,26 @@
             <div class="container-home">
                 <div class="home-text">
                     <h5>Bem-vindo ao</h5>
-                    <h1>O Coração do Universo</h1>
+                    <h1>Coração do Universo</h1>
                     <p>Aqui contarei um pouco sobre mim e sobre meu personagem 
                         <strong>Fadoco</strong>. 
                         Espero que você goste de sua estadia nessa viagem interestelar.
                     </p>
                     <a href="lore.html" class="btn" data-tooltip="Iniciar Jornada">Conhecer Fadoco</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="home home-invert reveal-section">
+            <div class="container-home home-right">
+                <div class="home-text">
+                    <h5>Leia a</h5>
+                    <h1>Light Novel</h1>
+                    <p>Aprofunde-se na narrativa oficial, explorando os capítulos e segredos do universo de Fadoco.
+                    </p>
+                    <div class="home-btns">
+                        <a href="personagem.html" class="btn" data-tooltip="História do Personagem">Ler Capítulos</a>
+                    </div>
                 </div>
             </div>
         </section>

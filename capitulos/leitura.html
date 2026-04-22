@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lendo Capítulo | Star Hub</title>
+    <link rel="stylesheet" href="personagem.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .container-leitura { max-width: 850px; margin: 40px auto; padding: 0 25px; }
+        .btn-navegacao { margin-top: 60px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    </style>
+</head>
+<body>
+    <div id="hyperspace" class="hyperspace-overlay">
+        <div class="loading-content">
+            <video src="../img/loading-space.mp4" autoplay loop muted playsinline class="loading-video"></video>
+            <div class="loading-text">Abrindo Transmissão</div>
+            <div class="dots-container"><span class="dots"></span></div>
+        </div>
+        <div class="scanlines"></div>
+        <div class="noise"></div>
+    </div>
+
+    <div class="background-estrelado"></div>
+    <div class="scanlines"></div>
+
+    <header class="header-personagem">
+        <a href="../personagem.html" class="btn-voltar">← VOLTAR AO MENU</a>
+        <h1 id="cap-titulo" class="capitulo-titulo-exibido" style="text-align: center; margin-top: 25px;">Carregando...</h1>
+    </header>
+
+    <main class="container-leitura">
+        <div class="leitor-container" id="conteudo-capitulo">
+            <!-- Texto injetado aqui -->
+        </div>
+        <div class="btn-navegacao">
+            <a href="../personagem.html" class="btn-voltar" style="border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5);">CONCLUIR TRANSMISSÃO</a>
+        </div>
+    </main>
+
+    <script src="../script-transição.js"></script>
+    <script src="../script.js"></script>
+    <script src="leitura.js"></script>
+</body>
+</html>

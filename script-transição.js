@@ -101,29 +101,27 @@ window.fecharFavoritos = function() {
     window.dispatchEvent(new Event('scroll')); // Atualiza botão back-to-top
 };
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. CRIAÇÃO DA TELA DE LOADING ---
-    const transitionOverlay = document.createElement('div');
-    transitionOverlay.className = 'hyperspace-overlay';
+    // --- 1. GESTÃO DA TELA DE LOADING ---
+    let transitionOverlay = document.getElementById('hyperspace');
     
-    // Injeta o vídeo do personagem e o texto com os pontos animados
-    transitionOverlay.innerHTML = `
-        <div class="scanlines"></div>
-        <div class="noise"></div>
-        <video class="loading-video" autoplay loop muted playsinline preload="auto" poster="img/personagem-poster.jpg" style="background: #000;">
-            <source src="img/personagem de carregamento.webm" type="video/webm">
-            <source src="img/personagem de carregamento.mp4" type="video/mp4">
-        </video>
-        <div class="loading-content">
-            <p class="loading-text">Carregando Universo</p>
-            <div class="dots-container"><span class="dots"></span></div>
-        </div>
-    `;
-    document.body.prepend(transitionOverlay);
-
-    // --- GATILHO PARA O EFEITO DE SURGIR (FADE-IN) ---
-    requestAnimationFrame(() => {
-        transitionOverlay.classList.add('active');
-    });
+    // Se não existir no HTML, cria dinamicamente (fallback)
+    if (!transitionOverlay) {
+        transitionOverlay = document.createElement('div');
+        transitionOverlay.id = 'hyperspace';
+        transitionOverlay.className = 'hyperspace-overlay';
+        transitionOverlay.innerHTML = `
+            <div class="scanlines"></div>
+            <div class="noise"></div>
+            <video class="loading-video" autoplay loop muted playsinline style="background: #000;">
+                <source src="img/personagem de carregamento.mp4" type="video/mp4">
+            </video>
+            <div class="loading-content">
+                <p class="loading-text">Carregando Universo</p>
+                <div class="dots-container"><span class="dots"></span></div>
+            </div>
+        `;
+        document.body.prepend(transitionOverlay);
+    }
 
     // --- CRIAR ESTRELAS NO LOADING ---
     const isMobile = window.innerWidth <= 768;
@@ -165,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }, 100);
             setTimeout(() => transitionOverlay.remove(), 700); 
-        }, 600); 
+        }, 1500); 
     };
 
     // --- 4. SISTEMA DE SCROLL REVEAL ---
@@ -254,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }, { once: true }); // Garante que o listener seja removido após a primeira execução
 
                     // Fallback de segurança: navega após 800ms caso a transição falhe
-                    setTimeout(() => { window.location.href = destination; }, 800);
+                    setTimeout(() => { window.location.href = destination; }, 1500);
                 }
             });
         }

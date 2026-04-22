@@ -1,0 +1,20 @@
+{
+    "capitulos": [
+        {
+            "id": 1,
+            "titulo": "Capítulo I: O Vácuo",
+            "conteudo": [
+                "No princípio, não havia nada além do silêncio absoluto. Uma escuridão que não era vazia, mas sim uma tela esperando pela primeira pincelada de existência.",
+                "Dessa quietude, surgiu a primeira consciência, fragmentada em luz e sombras que moldariam o que hoje chamamos de universo."
+            ]
+        },
+        {
+            "id": 2,
+            "titulo": "Capítulo II: O Despertar",
+            "conteudo": [
+                "A consciência tomou forma. Não era humana, nem divina no sentido comum, era uma frequência vibrando em sintonia com o nascimento das estrelas.",
+                "O personagem abriu os olhos pela primeira vez em um setor esquecido da galáxia, onde o tempo flui de maneira diferente."
+            ]
+        }
+    ]
+}
