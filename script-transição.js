@@ -104,6 +104,40 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. GESTÃO DA TELA DE LOADING ---
     let transitionOverlay = document.getElementById('hyperspace');
     
+    // Detecta se a página está na pasta 'capitulos'
+    const path = window.location.pathname.toLowerCase();
+    const isInSubfolder = path.includes('/capitulos/') || path.includes('\\capitulos\\');
+    const prefix = isInSubfolder ? '../' : '';
+
+    // Como você moveu o vídeo para a pasta 'capitulos', o caminho muda:
+    const videoSrc = isInSubfolder ? 'personagem%20de%20carregamento.mp4' : 'capitulos/personagem%20de%20carregamento.mp4';
+
+    // --- CORREÇÃO AUTOMÁTICA DE CAMINHOS PARA CAPÍTULOS ---
+    const ajustarCaminhosMídia = () => {
+        document.querySelectorAll('img, video, source').forEach(el => {
+            const src = el.getAttribute('src');
+            if (!src) return;
+
+            // Se for o vídeo de carregamento (agora na pasta capítulos)
+            if (src.includes('personagem de carregamento')) {
+                el.setAttribute('src', videoSrc);
+                if (el.tagName === 'SOURCE') el.parentElement.load();
+                if (el.tagName === 'VIDEO') el.load();
+            } 
+            // Se forem as imagens (que continuam na pasta img)
+            else if (src.startsWith('img/') || src.startsWith('./img/')) {
+                let nomeArquivo = src.replace('./', '');
+                let novoCaminho = prefix + nomeArquivo.replace(/ /g, '%20');
+                el.setAttribute('src', novoCaminho);
+                if (el.tagName === 'SOURCE') el.parentElement.load();
+                if (el.tagName === 'VIDEO') el.load();
+            }
+        });
+    };
+
+    // Executa o ajuste de caminhos para garantir que tudo seja encontrado
+    ajustarCaminhosMídia();
+
     // Se não existir no HTML, cria dinamicamente (fallback)
     if (!transitionOverlay) {
         transitionOverlay = document.createElement('div');
@@ -113,10 +147,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="scanlines"></div>
             <div class="noise"></div>
             <video class="loading-video" autoplay loop muted playsinline style="background: #000;">
-                <source src="img/personagem de carregamento.mp4" type="video/mp4">
+                <source src="${videoSrc}" type="video/mp4">
             </video>
             <div class="loading-content">
-                <p class="loading-text">Carregando Universo</p>
+                <p class="loading-text">Sincronizando Arquivos</p>
                 <div class="dots-container"><span class="dots"></span></div>
             </div>
         `;
@@ -238,115 +272,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Se o link for para uma página diferente, mostra o overlay de saída
                 if (destination !== window.location.href) {
                     e.preventDefault();
-                    const exitOverlay = document.createElement('div');
-                    exitOverlay.className = 'hyperspace-overlay';
-                    document.body.appendChild(exitOverlay);
-                    
-                    requestAnimationFrame(() => {
-                        exitOverlay.classList.add('active');
-                    });
-
-                    // Navega quando a transição terminar
-                    exitOverlay.addEventListener('transitionend', () => {
+                    transitionOverlay.classList.remove('finished');
+                    setTimeout(() => {
                         window.location.href = destination;
-                    }, { once: true }); // Garante que o listener seja removido após a primeira execução
-
-                    // Fallback de segurança: navega após 800ms caso a transição falhe
-                    setTimeout(() => { window.location.href = destination; }, 1500);
+                    }, 600);
                 }
             });
         }
     });
-
-    // --- EVENTOS DE UI (SIDEBAR & SCROLL) ---
-    const btnMenu = document.getElementById('btn-menu');
-    const sideMenu = document.getElementById('side-menu');
-    const btnFechar = document.getElementById('btn-fechar');
-    const backToTopBtn = document.getElementById('back-to-top');
-    const overlayPrincipal = document.getElementById('overlay');
-
-    // Cria o overlay do menu dinamicamente se não existir
-    let menuOverlay = document.querySelector('.menu-overlay');
-    if (!menuOverlay) {
-        menuOverlay = document.createElement('div');
-        menuOverlay.className = 'menu-overlay';
-        document.body.appendChild(menuOverlay);
-    }
-
-    if (btnMenu) btnMenu.onclick = () => {
-        sideMenu?.classList.add('active');
-        menuOverlay.classList.add('active');
-        document.body.classList.add('no-scroll');
-        btnMenu.setAttribute('aria-expanded', 'true');
-    };
-
-    const closeSideMenu = () => {
-        sideMenu?.classList.remove('active');
-        menuOverlay.classList.remove('active');
-        document.body.classList.remove('no-scroll');
-        btnMenu?.setAttribute('aria-expanded', 'false');
-    };
-
-    if (btnFechar) btnFechar.onclick = closeSideMenu;
-    if (menuOverlay) menuOverlay.onclick = closeSideMenu;
-    if (overlayPrincipal) {
-        overlayPrincipal.onclick = fecharAmpliacao;
-    }
-
-    // Intercepta a abertura de imagens/cards para travar o scroll
-    const observer = new MutationObserver(() => {
-        if (overlayPrincipal?.style.display === 'flex') {
-            document.body.classList.add('no-scroll');
-        }
-    });
-    if (overlayPrincipal) observer.observe(overlayPrincipal, { attributes: true, attributeFilter: ['style'] });
-
-    /**
-     * NOTA: Os event listeners dos botões de 'Gostos' (toggle-bar, btn-tags-toggle, etc)
-     * foram movidos para o script-gostos.js para melhor organização.
-     */
-
-    function updateProgressBar() {
-        const progressBar = document.querySelector('.progress-bar');
-        if (!progressBar) return;
-        const winScroll = document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        progressBar.style.width = height > 0 ? (winScroll / height) * 100 + "%" : "0%";
-    }
-
-    window.addEventListener('scroll', () => {
-        if (backToTopBtn) {
-            window.scrollY > 400 ? backToTopBtn.classList.add('show') : backToTopBtn.classList.remove('show');
-        }
-        updateProgressBar();
-    }, { passive: true });
-
-    if (backToTopBtn) {
-        backToTopBtn.onclick = (e) => {
-            e.stopPropagation();
-            const favOverlay = document.getElementById('favorites-overlay');
-            (favOverlay && getComputedStyle(favOverlay).display === 'flex') 
-                ? favOverlay.scrollTo({ top: 0, behavior: 'smooth' }) 
-                : window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
-    }
-
-    // --- FECHAMENTO GLOBAL AO CLICAR FORA ---
-    document.addEventListener('click', (e) => {
-        // Fechar Sidebar
-        if (sideMenu?.classList.contains('active') && !sideMenu.contains(e.target) && !btnMenu?.contains(e.target)) {
-            sideMenu.classList.remove('active');
-        }
-
-        // Fechar Favoritos
-        const favOverlay = document.getElementById('favorites-overlay');
-        const btnFavoritos = document.getElementById('btn-favoritos');
-        const favContent = document.querySelector('.fav-content');
-        
-        if (favOverlay && getComputedStyle(favOverlay).display === 'flex') {
-            if (!favContent?.contains(e.target) && !btnFavoritos?.contains(e.target) && !e.target.closest('#back-to-top')) {
-                fecharFavoritos();
-            }
-        }
-    });
 });
+      

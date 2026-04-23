@@ -252,10 +252,10 @@ const inicializarEventosGostos = () => {
         let emptyMsg = document.getElementById('search-empty-msg');
         if (globalVisibleCount === 0 && term !== '') {
             if (!emptyMsg) {
-                emptyMsg = document.createElement('div');
+                emptyMsg = document.createElement('p');
                 emptyMsg.id = 'search-empty-msg';
                 emptyMsg.className = 'search-empty-msg';
-                emptyMsg.innerText = 'SINAL PERDIDO: NENHUM RESULTADO NESTA FREQUÊNCIA.';
+                emptyMsg.innerText = 'Nenhum tesouro encontrado nestas coordenadas.';
                 document.querySelector('.gostos-secao').appendChild(emptyMsg);
             }
         } else if (emptyMsg) {
@@ -263,84 +263,7 @@ const inicializarEventosGostos = () => {
         }
     };
 
-    if (searchInput && typeof window.debounce === 'function') {
-        searchInput.addEventListener('input', window.debounce(applyFilters, 300));
-    }
-
-    // Toggle das barras de categoria
-    document.querySelectorAll('.toggle-bar').forEach(bar => {
-        bar.onclick = () => {
-            const categoria = bar.id.replace('toggle-', '');
-            const grid = document.getElementById(`${categoria}-grid`);
-            const seta = bar.querySelector('.seta');
-            if (grid) {
-                const isActive = grid.classList.toggle('active');
-                if (seta) seta.style.transform = isActive ? 'rotate(180deg)' : 'rotate(0deg)';
-                if (isActive) {
-                    if (categoria === 'musicas') {
-                        window.carregarPlaylistYouTube();
-                        const loadMoreBtn = document.getElementById('btn-carregar-mais-musicas');
-                        if (loadMoreBtn && youtubeNextPageToken) loadMoreBtn.style.display = 'block';
-                    }
-                    else window.carregarCategoriaJSON(categoria);
-                } else if (categoria === 'musicas') {
-                    // Esconde o botão se a seção de músicas for fechada
-                    const loadMoreBtn = document.getElementById('btn-carregar-mais-musicas');
-                    if (loadMoreBtn) loadMoreBtn.style.display = 'none';
-                }
-            }
-        };
-    });
-
-    // Botão Aleatório
-    document.getElementById('btn-random')?.addEventListener('click', () => {
-        const cards = Array.from(document.querySelectorAll('.gostos-card')).filter(c => c.style.display !== 'none');
-        if (cards.length) ampliarCard(cards[Math.floor(Math.random() * cards.length)]);
-    });
-
-    // Botão Tags
-    document.getElementById('btn-tags-toggle')?.addEventListener('click', () => {
-        const cloud = document.getElementById('tag-cloud');
-        if (cloud) {
-            cloud.classList.toggle('active');
-            if (cloud.classList.contains('active')) inicializarComponentesGostos(); // Re-renderiza a nuvem com todas as tags coletadas
-        }
-    });
-
-    // Botão Carregar Mais Músicas
-    document.getElementById('btn-carregar-mais-musicas')?.addEventListener('click', () => {
-        if (youtubeNextPageToken) window.carregarPlaylistYouTube(youtubeNextPageToken);
-    });
-
-    // Botão Favoritos
-    document.getElementById('btn-favoritos')?.addEventListener('click', () => {
-        if (typeof renderFavorites === "function") renderFavorites();
-        document.getElementById('favorites-overlay').style.display = 'flex';
-        document.body.classList.add('no-scroll');
-    });
-
-    // Busca via URL
-    const urlSearch = new URLSearchParams(window.location.search).get('search');
-    if (urlSearch && searchInput) {
-        searchInput.value = urlSearch;
-        setTimeout(() => searchInput.dispatchEvent(new Event('input')), 600);
-    }
-    
-    if (typeof updateFavCounter === 'function') updateFavCounter();
-
-    // --- CARREGAMENTO OTIMIZADO (ESCALONADO) ---
-    // Carrega os dados em sequência para evitar lag no mobile
-    const preCarregarDados = async () => {
-        const categorias = ['animes', 'jogos', 'filmes', 'series', 'desenhos'];
-        for (const cat of categorias) {
-            await window.carregarCategoriaJSON(cat);
-            // Pequena pausa entre carregamentos para liberar a Main Thread
-            await new Promise(r => setTimeout(r, 100));
-        }
-        window.carregarPlaylistYouTube();
-    };
-
-    preCarregarDados();
+    searchInput?.addEventListener('input', debounce(applyFilters, 300));
 };
 
 document.addEventListener('DOMContentLoaded', inicializarEventosGostos);

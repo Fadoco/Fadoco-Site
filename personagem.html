@@ -9,13 +9,15 @@
 </head>
 <body>
     <div id="hyperspace" class="hyperspace-overlay">
-        <div class="loading-content">
-            <video src="img/loading-space.mp4" autoplay loop muted playsinline class="loading-video"></video>
-            <div class="loading-text">Sincronizando Arquivos</div>
-            <div class="dots-container"><span class="dots"></span></div>
-        </div>
         <div class="scanlines"></div>
         <div class="noise"></div>
+        <video class="loading-video" autoplay loop muted playsinline style="background: #000;">
+            <source src="capitulos/personagem de carregamento.mp4" type="video/mp4">
+        </video>
+        <div class="loading-content">
+            <p class="loading-text">Sincronizando Arquivos</p>
+            <div class="dots-container"><span class="dots"></span></div>
+        </div>
     </div>
 
     <div class="background-estrelado"></div>
@@ -29,7 +31,7 @@
     <main class="container-personagem">
         <section class="perfil-topo">
             <div class="foto-container">
-                <img src="img/seu-personagem.jpg" alt="Personagem" class="foto-principal">
+                <img src="img/Logo.jpg" alt="Personagem" class="foto-principal">
                 <div class="frame-neon"></div>
             </div>
             

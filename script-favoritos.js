@@ -150,13 +150,19 @@ window.toggleFavorite = (e, btn, directTitle = null) => {
             desc: card.querySelector('p')?.innerText || '',
             img: card.querySelector('.card-img-container img')?.src || '',
             tags: Array.from(card.querySelectorAll('.tag')).map(t => t.innerText),
-            favoritoTag: card.querySelector('.favorito-tag')?.innerHTML || null,
-            categoryClass: Array.from(card.classList).find(c => c.startsWith('card-')) // Salva a categoria
+            categoryClass: Array.from(card.classList).find(c => c.startsWith('card-')),
+            favoritoTag: card.querySelector('.favorito-tag')?.innerHTML || null
         };
+
         favorites.push(favData);
-        showNotification(`Favoritado: ${title}`);
+        showNotification(`Adicionado aos Tesouros: ${title}`);
+        if (btn) btn.classList.add('active');
+        if (card) card.classList.add('is-favorite');
     }
 
     safeLocalStorage.set('user-favorites', JSON.stringify(favorites));
-    renderFavorites();
+    updateFavCounter();
+    if (document.getElementById('favorites-overlay')?.style.display === 'flex') {
+        renderFavorites();
+    }
 };
