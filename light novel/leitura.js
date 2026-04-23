@@ -4,10 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const leitor = document.getElementById('conteudo-capitulo');
     const titulo = document.getElementById('cap-titulo');
 
-    // Primeiro carrega a lista para saber qual o próximo capítulo
-    fetch('lista.json')
+    // Carrega os dados da pasta capítulos (subindo um nível)
+    fetch('../capitulos/historia.json')
         .then(res => res.json())
         .then(data => {
+            const capitulo = data.capitulos.find(c => c.id === capId);
+            if (!capitulo) return;
+
+            localStorage.setItem('fadoco_lightnovel_lastcap', capId);
+            titulo.innerText = capitulo.titulo;
+            leitor.innerHTML = capitulo.conteudo.map(p => `<p class="reveal-text">${p}</p>`).join('');
+
             const currentIndex = data.capitulos.findIndex(c => c.id === capId);
             const proximo = data.capitulos[currentIndex + 1];
             if (proximo) {
@@ -15,16 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const btnProximo = `<a href="leitura.html?cap=${proximo.id}" class="btn-voltar next-btn">PRÓXIMO CAPÍTULO →</a>`;
                 nav.insertAdjacentHTML('afterbegin', btnProximo);
             }
-        });
 
-    // Carrega o arquivo específico do capítulo
-    fetch(`capitulo_${capId}.json`)
-        .then(res => res.json())
-        .then(capitulo => {
-            localStorage.setItem('fadoco_lightnovel_lastcap', capId);
-            titulo.innerText = capitulo.titulo;
-            leitor.innerHTML = capitulo.conteudo.map(p => `<p class="reveal-text">${p}</p>`).join('');
-            
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) entry.target.classList.add('show');
@@ -33,7 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
         })
         .catch(err => {
-            titulo.innerText = "ERRO NA TRANSMISSÃO";
-            leitor.innerHTML = "<p>Arquivo do capítulo não encontrado ou corrompido.</p>";
+            console.error(err);
+            if (titulo) titulo.innerText = "ERRO NA TRANSMISSÃO";
+            if (leitor) leitor.innerHTML = "<p>Arquivo do capítulo não encontrado ou corrompido.</p>";
         });
 });

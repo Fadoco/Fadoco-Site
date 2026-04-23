@@ -106,11 +106,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Detecta se a página está na pasta 'capitulos'
     const path = window.location.pathname.toLowerCase();
-    const isInSubfolder = path.includes('/capitulos/') || path.includes('\\capitulos\\');
+    const isInSubfolder = path.includes('/capitulos/') || path.includes('/light novel/') || path.includes('\\capitulos\\') || path.includes('\\light novel\\');
     const prefix = isInSubfolder ? '../' : '';
 
     // Como você moveu o vídeo para a pasta 'capitulos', o caminho muda:
-    const videoSrc = isInSubfolder ? 'personagem%20de%20carregamento.mp4' : 'capitulos/personagem%20de%20carregamento.mp4';
+    const videoSrc = isInSubfolder ? '../capitulos/personagem%20de%20carregamento.mp4' : 'capitulos/personagem%20de%20carregamento.mp4';
 
     // --- CORREÇÃO AUTOMÁTICA DE CAMINHOS PARA CAPÍTULOS ---
     const ajustarCaminhosMídia = () => {

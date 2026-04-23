@@ -4,8 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Light Novel | Star Hub</title>
-    <link rel="stylesheet" href="capitulos/personagem.css">
+    <link rel="stylesheet" href="light novel/personagem.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos básicos para o Footer e Tela de Carregamento sem depender do style.css externo */
+        .main-footer { width: 100%; padding: 30px 10% 20px; background: rgba(5, 5, 15, 0.8); backdrop-filter: blur(10px); border-top: 1px solid rgba(0, 212, 255, 0.1); text-align: center; margin-top: 50px; }
+        .footer-content p { color: rgba(255, 255, 255, 0.4); font-family: 'Orbitron', sans-serif; font-size: 0.75rem; letter-spacing: 2px; }
+        .hyperspace-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 10000; display: flex; flex-direction: column; justify-content: center; align-items: center; pointer-events: none; opacity: 1; visibility: visible; transition: opacity 1s ease, visibility 1s ease; overflow: hidden; }
+        .hyperspace-overlay.finished { opacity: 0; visibility: hidden; }
+        .loading-video { width: 120px; height: auto; margin-bottom: 15px; mix-blend-mode: screen; }
+        .loading-text { color: white; font-family: 'Orbitron', sans-serif; font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase; text-shadow: 0 0 10px #00d4ff; }
+        .dots-container { margin-top: 10px; height: 30px; }
+        .dots { color: white; font-size: 1.5rem; display: inline-block; min-width: 40px; }
+        .dots::after { content: ''; animation: dots-anim 2s infinite; }
+        @keyframes dots-anim { 0% { content: ''; } 25% { content: ' .'; } 50% { content: ' . .'; } 75% { content: ' . . .'; } 100% { content: ''; } }
+    </style>
 </head>
 <body>
     <div id="hyperspace" class="hyperspace-overlay">
@@ -36,8 +49,8 @@
             </div>
             
             <div class="info-rapida">
-                <div class="status-item"><span>CLASSE:</span> <p>Andarilho Estelar</p></div>
-                <div class="status-item"><span>ORIGEM:</span> <p>Setor 7-B</p></div>
+                <div class="status-item"><span>CLASSE:</span> <p>Guardião</p></div>
+                <div class="status-item"><span>ORIGEM:</span> <p>? ? ?</p></div>
                 <div class="status-item"><span>STATUS:</span> <p class="online">ATIVO</p></div>
             </div>
         </section>
@@ -54,12 +67,15 @@
         </section>
     </main>
 
-    <footer class="footer-simples">
-        <p>&copy; 2024 Star Hub - Registro Galáctico</p>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>© <span id="year"></span> STAR HUB - Registro Galáctico</p>
+            <p style="font-size: 0.6rem; margin-top: 10px; opacity: 0.5;">SINAL TRANSMITIDO VIA DEEP SPACE NETWORK</p>
+        </div>
     </footer>
 
     <script src="script-transição.js"></script>
     <script src="script.js"></script>
-    <script src="capitulos/personagem.js"></script>
+    <script src="light novel/personagem.js"></script>
 </body>
 </html>

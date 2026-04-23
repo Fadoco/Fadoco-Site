@@ -106,7 +106,7 @@ body {
 }
 
 /* Esconde o conteúdo inicial IMEDIATAMENTE (sem transição aqui para evitar o flash) */
-header, main, .background, #btn-favoritos, #back-to-top, .progress-container, .reveal-section {
+header, main, footer, .background, #btn-favoritos, #back-to-top, .progress-container, .reveal-section {
     opacity: 0;
     visibility: hidden;
 }
@@ -114,6 +114,7 @@ header, main, .background, #btn-favoritos, #back-to-top, .progress-container, .r
 /* Revela o site suavemente APÓS o carregamento */
 body.site-loaded header, 
 body.site-loaded main, 
+body.site-loaded footer, 
 body.site-loaded .background,
 body.site-loaded #btn-favoritos,
 body.site-loaded #back-to-top, 
@@ -2128,4 +2129,48 @@ header li a {
     font-family: 'Orbitron', sans-serif;
     font-size: 0.75rem;
     letter-spacing: 2px;
+}
+
+/* --- 14. PÁGINA LIGHT NOVEL (PERSONAGEM) --- */
+.container-personagem {
+    padding-top: 150px; /* Compensa o header fixo no topo */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.perfil-topo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.foto-container {
+    position: relative;
+    width: 180px;
+    height: 180px;
+}
+
+.foto-principal {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-neon);
+    box-shadow: 0 0 25px var(--primary-neon);
+}
+
+.capitulos-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
 }
