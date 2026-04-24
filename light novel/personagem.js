@@ -1,43 +1,54 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const menuContainer = document.getElementById('capitulos-menu');
+    const menuCapitulos = document.getElementById('capitulos-menu');
     const resumeContainer = document.getElementById('resume-container');
 
-    // Busca a história (caminho corrigido para o arquivo existente, relativo a light novel/personagem.js)
-    fetch('../capitulos/historia.json')
-        .then(response => response.json())
-        .then(data => {
-            const lastCapId = localStorage.getItem('fadoco_lightnovel_lastcap');
-            if (lastCapId) {
-                const lastCap = data.capitulos.find(c => c.id === parseInt(lastCapId));
-                if (lastCap) {
-                    const resumeBtn = document.createElement('a');
-                    resumeBtn.href = `light novel/leitura.html?cap=${lastCap.id}`;
-                    resumeBtn.className = 'btn-capitulo active resume-btn';
-                    resumeBtn.setAttribute('data-tooltip', 'História do Personagem');
-                    resumeBtn.innerText = `CONTINUAR LENDO: ${lastCap.titulo}`;
-                    resumeContainer.appendChild(resumeBtn);
-                }
-            }
-
-            data.capitulos.forEach((cap) => {
-                const btn = document.createElement('a');
-                btn.className = 'btn-capitulo';
-                btn.href = `light novel/leitura.html?cap=${cap.id}`;
-                btn.setAttribute('data-tooltip', 'História do Personagem');
-                btn.innerText = `CAP. 0${cap.id}`;
-                menuContainer.appendChild(btn);
-            });
-        });
-
-    function aplicarReveal() {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
+    // Função para carregar a lista de capítulos do JSON
+    async function carregarMenu() {
+        try {
+            const response = await fetch('capitulos/lista_capitulos.json');
+            if (!response.ok) throw new Error('Não foi possível carregar a lista de capítulos.');
+            
+            const data = await response.json();
+            renderizarMenu(data.capitulos);
+            verificarProgresso(data.capitulos);
+        } catch (error) {
+            console.error('Erro:', error);
+            menuCapitulos.innerHTML = `<p style="color: var(--primary-neon); text-align: center; grid-column: 1/-1;">Erro ao sintonizar capítulos. Tente novamente mais tarde.</p>`;
+        }
     }
-    aplicarReveal();
+
+    function renderizarMenu(capitulos) {
+        menuCapitulos.innerHTML = '';
+        capitulos.forEach(cap => {
+            const link = document.createElement('a');
+            link.href = `leitura.html?id=${cap.id}`;
+            link.className = 'btn-capitulo reveal-section'; 
+            link.innerHTML = `
+                <div class="cap-info">
+                    <span class="cap-numero">REGISTRO ${cap.id}</span>
+                    <h3 class="cap-titulo">${cap.titulo}</h3>
+                </div>
+                <div class="cap-status">INICIAR TRANSMISSÃO</div>
+            `;
+            menuCapitulos.appendChild(link);
+            
+            // Integração com o Scroll Reveal do script-transição.js
+            if (window.revealObserver) window.revealObserver.observe(link);
+        });
+    }
+
+    function verificarProgresso(capitulos) {
+        const ultimoCapId = localStorage.getItem('starhub_ultimo_capitulo');
+        if (ultimoCapId !== null) {
+            const cap = capitulos.find(c => c.id == ultimoCapId);
+            if (cap) {
+                resumeContainer.innerHTML = `
+                    <a href="leitura.html?id=${cap.id}" class="btn-voltar" style="background: rgba(0, 212, 255, 0.1); border-color: var(--primary-neon);">
+                        CONTINUAR TRANSMISSÃO: ${cap.titulo}
+                    </a>`;
+            }
+        }
+    }
+
+    carregarMenu();
 });

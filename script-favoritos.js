@@ -2,6 +2,20 @@
  * STAR HUB - SISTEMA DE FAVORITOS, CONQUISTAS E NOTIFICAÇÕES
  */
 
+document.addEventListener('DOMContentLoaded', () => {
+    const btnFavoritos = document.getElementById('btn-favoritos');
+    const favOverlay = document.getElementById('favorites-overlay');
+
+    if (btnFavoritos && favOverlay) {
+        btnFavoritos.addEventListener('click', () => {
+            renderFavorites();
+            favOverlay.style.display = 'flex';
+            document.body.classList.add('no-scroll');
+        });
+    }
+    updateFavCounter();
+});
+
 // Utilitário para localStorage seguro
 const safeLocalStorage = {
     get: (key) => {

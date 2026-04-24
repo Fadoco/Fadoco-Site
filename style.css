@@ -142,8 +142,9 @@ body.site-loaded .progress-container {
 
 /* --- 2. HEADER & NAVIGATION --- */
 header {
-    position: fixed;
+    position: absolute;
     top: 0;
+    left: 0;
     width: 100%;
     display: flex;
     align-items: center;
@@ -158,7 +159,7 @@ header {
 
 /* Barra de Progresso de Leitura */
 .progress-container {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -1810,6 +1811,8 @@ header li a {
     justify-content: center;
     gap: 15px; /* Espaço entre os botões */
     margin-bottom: 40px;
+    position: relative;
+    z-index: 10;
 }
 
 .btn-action {

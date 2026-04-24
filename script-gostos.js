@@ -79,6 +79,15 @@ window.carregarPlaylistYouTube = async function(pageToken = '') {
             const capa = snippet.thumbnails.medium?.url || 'img/mp3.jpg';
             const isFavorited = favorites.some(f => f.title === titulo);
             
+            // Adiciona ao pool global para que o botão Random (Sorteio) funcione com músicas
+            poolGlobalGostos.push({
+                titulo: titulo,
+                descricao: snippet.description || "",
+                imagem: capa,
+                tags: ['YouTube', 'Música'],
+                categoriaPai: 'musicas'
+            });
+
             const card = document.createElement('div');
             card.className = `gostos-card card-musicas reveal-section ${isFavorited ? 'is-favorite' : ''}`;
             card.setAttribute('data-search', `${titulo} youtube musica`.toLowerCase());
@@ -109,7 +118,7 @@ window.carregarPlaylistYouTube = async function(pageToken = '') {
             loadMoreBtn.style.display = (youtubeNextPageToken && isGridActive) ? 'block' : 'none';
         }
         ytPlaylistLoaded = true;
-        inicializarComponentesGostos();
+        atualizarInterfaceTags();
     } catch (error) {
         console.error('Erro YouTube API:', error);
         musicasGrid.innerHTML = `<p style="color:#ff4b2b; grid-column: 1/-1; text-align:center; padding: 20px;">Falha na conexão YouTube.</p>`;
@@ -121,6 +130,33 @@ window.carregarPlaylistYouTube = async function(pageToken = '') {
 
 // --- CARREGAMENTO DE JSON LOCAL ---
 const categoriasCarregadas = new Set();
+const poolGlobalGostos = [];
+const categoriasParaPrefetch = ['animes', 'jogos', 'filmes', 'series', 'desenhos'];
+
+async function prefetchGostos() {
+    const tagCloud = document.getElementById('tag-cloud');
+    if (tagCloud) tagCloud.innerHTML = '<p style="color:var(--primary-neon); font-size:0.7rem; text-align:center; width:100%;">Sintonizando frequências das tags...</p>';
+
+    for (const cat of categoriasParaPrefetch) {
+        try {
+            const response = await fetch(`./${cat}.json`);
+            if (!response.ok) continue;
+            const data = await response.json();
+            const lista = data[cat] || [];
+            lista.forEach(item => {
+                const itemCompleto = { ...item, categoriaPai: cat };
+                poolGlobalGostos.push(itemCompleto);
+                (item.tags || []).forEach(t => allUniqueTags.add(t));
+            });
+        } catch (e) {
+            console.warn(`Erro no prefetch da categoria ${cat}:`, e);
+        }
+    }
+    atualizarInterfaceTags();
+    
+    // Sincroniza a primeira leva de músicas do YouTube para o pool de sorteio
+    carregarPlaylistYouTube();
+}
 
 window.carregarCategoriaJSON = async function(categoria) {
     const gridId = `${categoria}-grid`;
@@ -139,7 +175,7 @@ window.carregarCategoriaJSON = async function(categoria) {
         const lista = data[categoria] || [];
         renderizarCategoria(lista.map(item => ({...item, categoriaPai: categoria})), gridId);
         categoriasCarregadas.add(categoria);
-        inicializarComponentesGostos();
+        atualizarInterfaceTags();
     } catch (error) {
         console.error(`Erro detalhado na categoria [${categoria}]:`, error);
         
@@ -159,7 +195,6 @@ window.carregarCategoriaJSON = async function(categoria) {
 };
 
 function renderizarCategoria(lista, gridId) {
-    const currentTags = new Set(); // Para coletar tags desta renderização
     const grid = document.getElementById(gridId);
     
     let favorites = [];
@@ -173,6 +208,9 @@ function renderizarCategoria(lista, gridId) {
         const validTags = (item.tags || []).filter(t => t.trim() !== "");
         const searchStr = `${item.titulo || ''} ${item.descricao || ''} ${validTags.join(' ')} ${item.categoriaPai || ''}`.toLowerCase();
         
+        // Coleta tags diretamente dos dados para a nuvem global
+        validTags.forEach(t => allUniqueTags.add(t));
+
         const favTag = (item.favorito && item.favorito.imagem && item.favorito.texto) ? `
             <div class="favorito-tag" onclick="event.stopPropagation(); ampliarImagem(this.querySelector('img'))">
                 <span>Favorito: ${item.favorito.texto}</span>
@@ -195,38 +233,111 @@ function renderizarCategoria(lista, gridId) {
     if (window.revealObserver) {
         grid.querySelectorAll('.reveal-section').forEach(el => {
             window.revealObserver.observe(el);
-            el.querySelectorAll('.tag').forEach(tagEl => currentTags.add(tagEl.innerText));
         });
     }
 
-    // Atualiza a nuvem de tags após cada renderização de categoria
-    inicializarComponentesGostos(currentTags);
+    // Atualiza a interface da nuvem de tags
+    atualizarInterfaceTags();
 }
 
 const allUniqueTags = new Set(); // Conjunto global para todas as tags
 
-function inicializarComponentesGostos(newTags = new Set()) {
+function atualizarInterfaceTags() {
     const tagCloudContainer = document.getElementById('tag-cloud');
-    if (tagCloudContainer) {
-        newTags.forEach(tag => allUniqueTags.add(tag)); // Adiciona novas tags ao conjunto global
+    if (!tagCloudContainer || allUniqueTags.size === 0) return;
 
-        const fragment = document.createDocumentFragment();
-        Array.from(allUniqueTags).sort().forEach(tag => { // Usa o conjunto global e o ordena
-            const tagEl = document.createElement('span');
-            tagEl.className = 'tag-cloud-item';
-            tagEl.innerText = tag;
-            tagEl.onclick = () => filterByTag(tag);
-            fragment.appendChild(tagEl);
-        });
-        
-        tagCloudContainer.innerHTML = '';
-        tagCloudContainer.appendChild(fragment);
-    }
+    const fragment = document.createDocumentFragment();
+    Array.from(allUniqueTags).sort().forEach(tag => {
+        const tagEl = document.createElement('span');
+        tagEl.className = 'tag-cloud-item';
+        tagEl.innerText = tag;
+        tagEl.onclick = () => filterByTag(tag);
+        fragment.appendChild(tagEl);
+    });
+    
+    tagCloudContainer.innerHTML = '';
+    tagCloudContainer.appendChild(fragment);
 }
 
 // --- SISTEMA DE FILTROS E BUSCA ---
 const inicializarEventosGostos = () => {
     const searchInput = document.getElementById('search-input');
+    
+    // --- 1. LÓGICA DE EXPANSÃO DE CATEGORIAS ---
+    document.querySelectorAll('.toggle-bar').forEach(bar => {
+        bar.addEventListener('click', () => {
+            const categoria = bar.id.replace('toggle-', '');
+            const grid = document.getElementById(`${categoria}-grid`);
+            const seta = bar.querySelector('.seta');
+            
+            if (!grid) return;
+
+            const isOpening = !grid.classList.contains('active');
+            
+            if (isOpening) {
+                grid.classList.add('active');
+                if (seta) seta.style.transform = 'rotate(180deg)';
+                
+                // Carrega os dados se ainda não foram carregados
+                if (categoria === 'musicas') {
+                    carregarPlaylistYouTube();
+                } else {
+                    carregarCategoriaJSON(categoria);
+                }
+            } else {
+                grid.classList.remove('active');
+                if (seta) seta.style.transform = 'rotate(0deg)';
+            }
+        });
+    });
+
+    // --- 2. LÓGICA DO BOTÃO RANDOM (SORTEIO) ---
+    const btnRandom = document.getElementById('btn-random');
+    if (btnRandom) {
+        btnRandom.addEventListener('click', () => {
+            if (poolGlobalGostos.length > 0) {
+                const randomItem = poolGlobalGostos[Math.floor(Math.random() * poolGlobalGostos.length)];
+                
+                // Cria um elemento temporário para o ampliarCard processar
+                const tempCard = document.createElement('div');
+                tempCard.className = `gostos-card card-${randomItem.categoriaPai}`;
+                const validTags = (randomItem.tags || []).filter(t => t.trim() !== "");
+                
+                tempCard.innerHTML = `
+                    <div class="card-img-container"><img src="${randomItem.imagem}" alt="${randomItem.titulo}"></div>
+                    <h3>${randomItem.titulo}</h3>
+                    <p>${randomItem.descricao}</p>
+                    <div class="tags-list">${validTags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                `;
+                
+                // Adiciona informações de favorito se existirem para o modal expandido
+                if (randomItem.favorito) {
+                    const favTag = document.createElement('div');
+                    favTag.className = 'favorito-tag';
+                    favTag.innerHTML = `
+                        <span>Favorito: ${randomItem.favorito.texto}</span>
+                        <img src="${randomItem.favorito.imagem}" class="mini-img">
+                    `;
+                    tempCard.appendChild(favTag);
+                }
+
+                ampliarCard(tempCard);
+            } else {
+                showNotification("Aguarde a sincronização dos dados estelares...");
+            }
+        });
+    }
+
+    // --- 3. LÓGICA DE EXIBIR/ESCONDER NUVEM DE TAGS ---
+    const btnTags = document.getElementById('btn-tags-toggle');
+    const tagCloud = document.getElementById('tag-cloud');
+    if (btnTags && tagCloud) {
+        btnTags.addEventListener('click', () => {
+            tagCloud.classList.toggle('active');
+            btnTags.classList.toggle('active');
+        });
+    }
+
     const applyFilters = () => {
         const term = searchInput?.value.toLowerCase().trim() || '';
         let globalVisibleCount = 0;
@@ -264,6 +375,9 @@ const inicializarEventosGostos = () => {
     };
 
     searchInput?.addEventListener('input', debounce(applyFilters, 300));
+
+    // Inicia a coleta de dados de todos os JSONs para alimentar as tags e o sorteio
+    prefetchGostos();
 };
 
 document.addEventListener('DOMContentLoaded', inicializarEventosGostos);

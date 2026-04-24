@@ -106,11 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Detecta se a página está na pasta 'capitulos'
     const path = window.location.pathname.toLowerCase();
-    const isInSubfolder = path.includes('/capitulos/') || path.includes('/light novel/') || path.includes('\\capitulos\\') || path.includes('\\light novel\\');
-    const prefix = isInSubfolder ? '../' : '';
+    const isInSubfolder = path.includes('/light novel/') || path.includes('\\light novel\\');
 
-    // Como você moveu o vídeo para a pasta 'capitulos', o caminho muda:
-    const videoSrc = isInSubfolder ? '../capitulos/personagem%20de%20carregamento.mp4' : 'capitulos/personagem%20de%20carregamento.mp4';
+    // O vídeo está sempre em: root/light novel/capitulos/
+    const videoSrc = isInSubfolder ? 'capitulos/personagem%20de%20carregamento.mp4' : 'light%20novel/capitulos/personagem%20de%20carregamento.mp4';
 
     // --- CORREÇÃO AUTOMÁTICA DE CAMINHOS PARA CAPÍTULOS ---
     const ajustarCaminhosMídia = () => {
@@ -126,10 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
             } 
             // Se forem as imagens (que continuam na pasta img)
             else if (src.startsWith('img/') || src.startsWith('./img/')) {
+                const prefix = isInSubfolder ? '../' : '';
                 let nomeArquivo = src.replace('./', '');
                 let novoCaminho = prefix + nomeArquivo.replace(/ /g, '%20');
                 el.setAttribute('src', novoCaminho);
-                if (el.tagName === 'SOURCE') el.parentElement.load();
+                if (el.tagName === 'SOURCE' && el.parentElement) el.parentElement.load();
                 if (el.tagName === 'VIDEO') el.load();
             }
         });
@@ -185,7 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Pequeno delay para garantir que o overlay começou a sumir antes de revelar o fundo
             setTimeout(() => {
                 document.body.classList.add('site-loaded');
-                updateProgressBar(); // Garante o cálculo inicial da barra
+                // Verifica se a função existe antes de chamar para não travar o script
+                if (typeof updateProgressBar === 'function') updateProgressBar(); 
 
                 // Força a revelação das seções que já estão visíveis no viewport assim que o loading acaba
                 document.querySelectorAll('.reveal-section').forEach(section => {
@@ -196,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
             }, 100);
-            setTimeout(() => transitionOverlay.remove(), 700); 
+            // Mantemos no DOM para transições de saída, apenas escondemos
         }, 1500); 
     };
 
@@ -253,6 +254,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+    // --- FECHAR OVERLAY AO CLICAR NO FUNDO ---
+    const overlay = document.getElementById('overlay');
+    if (overlay) {
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) fecharAmpliacao();
+        });
+    }
+
     // Se a página já carregou (cache), fecha. Senão, espera o evento 'load'.
     if (document.readyState === 'complete') {
         fecharLoading();
@@ -263,21 +272,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- 3. TRANSIÇÃO AO CLICAR EM LINKS ---
-    document.querySelectorAll('a').forEach(link => {
-        // Aplica apenas em links internos que não abrem em nova aba
-        if (link.hostname === window.location.hostname && !link.hash && link.target !== "_blank") {
-            link.addEventListener('click', (e) => {
-                const destination = link.href;
-                
-                // Se o link for para uma página diferente, mostra o overlay de saída
-                if (destination !== window.location.href) {
-                    e.preventDefault();
-                    transitionOverlay.classList.remove('finished');
-                    setTimeout(() => {
-                        window.location.href = destination;
-                    }, 600);
-                }
-            });
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (link && link.hostname === window.location.hostname && !link.hash && link.target !== "_blank") {
+            const destination = link.href;
+            
+            // Evita disparar se for o link da própria página ou possuir evento onclick
+            if (destination !== window.location.href && !link.hasAttribute('onclick')) {
+                e.preventDefault();
+                transitionOverlay.classList.remove('finished');
+                setTimeout(() => {
+                    window.location.href = destination;
+                }, 600);
+            }
         }
     });
 });
