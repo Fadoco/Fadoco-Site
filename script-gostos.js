@@ -269,6 +269,7 @@ const inicializarEventosGostos = () => {
             const categoria = bar.id.replace('toggle-', '');
             const grid = document.getElementById(`${categoria}-grid`);
             const seta = bar.querySelector('.seta');
+            const loadMoreBtn = document.getElementById('btn-carregar-mais-musicas');
             
             if (!grid) return;
 
@@ -281,12 +282,18 @@ const inicializarEventosGostos = () => {
                 // Carrega os dados se ainda não foram carregados
                 if (categoria === 'musicas') {
                     carregarPlaylistYouTube();
+                    // Se já estiver carregado e houver próxima página, garante que o botão apareça
+                    if (ytPlaylistLoaded && youtubeNextPageToken && loadMoreBtn) {
+                        loadMoreBtn.style.display = 'block';
+                    }
                 } else {
                     carregarCategoriaJSON(categoria);
                 }
             } else {
                 grid.classList.remove('active');
                 if (seta) seta.style.transform = 'rotate(0deg)';
+                // Esconde o botão ao fechar a categoria
+                if (categoria === 'musicas' && loadMoreBtn) loadMoreBtn.style.display = 'none';
             }
         });
     });
@@ -335,6 +342,16 @@ const inicializarEventosGostos = () => {
         btnTags.addEventListener('click', () => {
             tagCloud.classList.toggle('active');
             btnTags.classList.toggle('active');
+        });
+    }
+
+    // --- 4. LÓGICA DO BOTÃO CARREGAR MAIS (YOUTUBE) ---
+    const loadMoreBtn = document.getElementById('btn-carregar-mais-musicas');
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+            if (youtubeNextPageToken && !isFetching) {
+                carregarPlaylistYouTube(youtubeNextPageToken);
+            }
         });
     }
 

@@ -108,8 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname.toLowerCase();
     const isInSubfolder = path.includes('/light novel/') || path.includes('\\light novel\\');
 
-    // O vídeo está sempre em: root/light novel/capitulos/
-    const videoSrc = isInSubfolder ? 'capitulos/personagem%20de%20carregamento.mp4' : 'light%20novel/capitulos/personagem%20de%20carregamento.mp4';
+    // O vídeo está na pasta img na raiz
+    const videoSrc = isInSubfolder ? '../img/personagem%20de%20carregamento.mp4' : 'img/personagem%20de%20carregamento.mp4';
 
     // --- CORREÇÃO AUTOMÁTICA DE CAMINHOS PARA CAPÍTULOS ---
     const ajustarCaminhosMídia = () => {
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const src = el.getAttribute('src');
             if (!src) return;
 
-            // Se for o vídeo de carregamento (agora na pasta capítulos)
+            // Se for o vídeo de carregamento (pasta img)
             if (src.includes('personagem de carregamento')) {
                 el.setAttribute('src', videoSrc);
                 if (el.tagName === 'SOURCE') el.parentElement.load();
@@ -138,23 +138,34 @@ document.addEventListener('DOMContentLoaded', () => {
     // Executa o ajuste de caminhos para garantir que tudo seja encontrado
     ajustarCaminhosMídia();
 
-    // Se não existir no HTML, cria dinamicamente (fallback)
+    const innerHTMLContent = `
+        <div class="scanlines"></div>
+        <div class="noise"></div>
+        <video class="loading-video" autoplay loop muted playsinline style="background: #000; display: block;">
+            <source src="${videoSrc}" type="video/mp4">
+        </video>
+        <div class="loading-content">
+            <p class="loading-text">Sintonizando com o universo</p>
+            <div class="dots-container"><span class="dots"></span></div>
+        </div>
+    `;
+
     if (!transitionOverlay) {
         transitionOverlay = document.createElement('div');
         transitionOverlay.id = 'hyperspace';
         transitionOverlay.className = 'hyperspace-overlay';
-        transitionOverlay.innerHTML = `
-            <div class="scanlines"></div>
-            <div class="noise"></div>
-            <video class="loading-video" autoplay loop muted playsinline style="background: #000;">
-                <source src="${videoSrc}" type="video/mp4">
-            </video>
-            <div class="loading-content">
-                <p class="loading-text">Sincronizando Arquivos</p>
-                <div class="dots-container"><span class="dots"></span></div>
-            </div>
-        `;
+        transitionOverlay.innerHTML = innerHTMLContent;
         document.body.prepend(transitionOverlay);
+    } else {
+        // Se já existir no HTML (como no index), força a atualização do texto e do vídeo
+        transitionOverlay.innerHTML = innerHTMLContent;
+    }
+
+    // Garante que o vídeo tente tocar e carregar corretamente
+    const vid = transitionOverlay.querySelector('video');
+    if (vid) {
+        vid.load();
+        vid.play().catch(e => console.warn("Autoplay bloqueado ou erro no vídeo:", e));
     }
 
     // --- CRIAR ESTRELAS NO LOADING ---

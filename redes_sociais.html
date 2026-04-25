@@ -19,8 +19,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Overlay de Transição Direto no HTML para evitar flash do site -->
+    <div id="hyperspace" class="hyperspace-overlay">
+        <div class="scanlines"></div>
+        <div class="noise"></div>
+        <video class="loading-video" autoplay loop muted playsinline style="background: #000;">
+            <source src="img/personagem de carregamento.mp4" type="video/mp4">
+        </video>
+        <div class="loading-content">
+            <p class="loading-text">Sintonizando com o universo</p>
+            <div class="dots-container"><span class="dots"></span></div>
+        </div>
+    </div>
+
     <img class="background" src="img/Background (1).gif" alt="" loading="lazy">
-<!-- a -->
     <!-- Barra de Progresso de Leitura -->
     <div class="progress-container">
         <div class="progress-bar"></div>
