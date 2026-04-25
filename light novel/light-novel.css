@@ -1,0 +1,568 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Roboto:wght@300;400;700&display=swap');
+
+/* Variáveis CSS globais para consistência */
+:root {
+    --primary-neon: #00d4ff;
+    --secondary-neon: #8a2be2;
+    --bg-dark: rgba(5, 5, 10, 0.9);
+    --bg-overlay: rgba(5, 5, 15, 0.95);
+    --text-shadow-glow: 0 0 10px rgba(0, 212, 255, 0.8);
+    --border-neon: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+/* --- 1. GLOBAL & RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    /* Ocultar barra de rolagem padrão para Firefox */
+    scrollbar-width: none; 
+    /* Ocultar para Internet Explorer e Edge antigo */
+    -ms-overflow-style: none; 
+}
+
+/* Ocultar apenas a barra de rolagem principal do HTML/BODY */
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background: #000;
+    color: white;
+    /* Fundo Estrelado Procedural (Leve) */
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 1px at 50px 160px, #fff, rgba(0,0,0,0));
+    background-size: 550px 550px, 350px 350px, 250px 250px;
+    background-position: 0 0;
+    animation: spaceMove 100s linear infinite;
+}
+
+/* Esconde o conteúdo inicial IMEDIATAMENTE (sem transição aqui para evitar o flash) */
+header, main, footer, .background, #back-to-top, .progress-container, .reveal-section {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Revela o site suavemente APÓS o carregamento */
+body.site-loaded header, 
+body.site-loaded main, 
+body.site-loaded footer, 
+body.site-loaded .background,
+body.site-loaded #back-to-top, 
+body.site-loaded .progress-container {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1.2s ease-in-out;
+}
+
+/* Trava o scroll quando menus/overlays estão abertos */
+.no-scroll {
+    overflow: hidden !important;
+}
+
+/* --- HYPERSPACE OVERLAY (TELA DE LOADING) --- */
+.hyperspace-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000; /* Preto absoluto para camuflar o vídeo */
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 1; /* Visível por padrão para evitar o flash do site */
+    visibility: visible;
+    transition: opacity 1s ease, visibility 1s ease;
+    overflow: hidden;
+}
+
+.hyperspace-overlay.finished {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-video {
+    width: 120px; /* Tamanho ajustado para 120px */
+    height: auto;
+    margin-bottom: 15px;
+    pointer-events: none; /* Impede cliques no vídeo */
+    user-select: none;    /* Impede seleção */
+    -webkit-user-drag: none;
+    mix-blend-mode: screen; /* Faz o preto do vídeo ficar transparente */
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 2; /* Garante que o texto fique acima das estrelas */
+}
+
+.loading-text {
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px var(--primary-neon);
+}
+
+.dots-container {
+    margin-top: 10px;
+    height: 30px;
+}
+
+.dots {
+    color: white;
+    font-size: 1.5rem;
+    display: inline-block;
+    min-width: 40px;
+    text-align: left;
+}
+
+.dots::after {
+    content: '';
+    animation: dots-anim 2s infinite;
+}
+
+.loading-star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+    box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.8); /* Torna as estrelas mais visíveis */
+    animation: twinkle ease-in-out infinite;
+}
+
+@keyframes dots-anim {
+    0%   { content: ''; }
+    25%  { content: ' .'; }
+    50%  { content: ' . .'; }
+    75%  { content: ' . . .'; }
+    100% { content: ''; }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.3); }
+    50% { opacity: 1; transform: scale(1); } /* Opacidade total para visibilidade */
+}
+
+@keyframes spaceMove {
+    from { background-position: 0 0; }
+    to { background-position: 550px 1100px; }
+}
+
+/* Estilizar barras de rolagem internas */
+*::-webkit-scrollbar {
+    width: 6px;
+}
+*::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+*::-webkit-scrollbar-thumb {
+    background: var(--secondary-neon);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--secondary-neon);
+}
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-neon);
+}
+
+/* --- 2. SCROLL REVEAL & HUD TOOLTIPS (Copied from style.css) --- */
+.reveal-section {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out, visibility 0.4s;
+    will-change: opacity, transform;
+    visibility: hidden;
+}
+
+.reveal-section.revealed {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.hud-tooltip {
+    position: fixed;
+    background: rgba(5, 5, 15, 0.9);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid var(--primary-neon);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    pointer-events: none;
+    z-index: 100000;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+    text-transform: uppercase;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+    letter-spacing: 1px;
+}
+
+/* Remove tooltips em dispositivos que não usam mouse (Touch) */
+@media (hover: none) and (pointer: coarse) {
+    .hud-tooltip {
+        display: none !important;
+    }
+}
+
+/* STAR HUB - LIGHT NOVEL SYSTEM */
+
+.container-personagem {
+    padding: 160px 5% 80px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Perfil do Personagem (HUD) */
+.perfil-topo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-dark);
+    padding: 40px;
+    border-radius: 20px;
+    border: var(--border-neon);
+    backdrop-filter: blur(10px);
+    margin-bottom: 60px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.foto-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.foto-principal {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    border: 2px solid var(--primary-neon);
+}
+
+.frame-neon {
+    position: absolute;
+    top: -10px; left: -10px; right: -10px; bottom: -10px;
+    border: 1px solid var(--secondary-neon);
+    border-radius: 20px;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.info-rapida {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.status-item span {
+    color: var(--primary-neon);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+.status-item p {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Menu de Capítulos */
+.capitulos-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.btn-capitulo {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 30px;
+    border-radius: 15px;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-capitulo:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: var(--primary-neon);
+    transform: translateX(10px);
+}
+
+.cap-numero {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    color: var(--primary-neon);
+    display: block;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.cap-titulo {
+    color: #fff;
+    font-size: 1.1rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Cabeçalho da Página */
+.header-personagem {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: var(--border-neon);
+}
+
+.header-personagem h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+}
+.cap-status {
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+/* Interface de Leitura */
+.leitura-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.conteudo-capitulo {
+    max-width: 800px;
+    width: 90%;
+    margin: 0 auto 40px auto; /* Adiciona margem inferior para separar do botão de navegação */
+    background: var(--bg-dark); /* Usando variável */
+    backdrop-filter: blur(10px);
+    padding: clamp(20px, 5vw, 60px);
+    border-radius: 20px;
+    border: 1px solid rgba(var(--primary-neon), 0.1); /* Neon sutil */
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85); /* Mantido para legibilidade */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.conteudo-capitulo p {
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+.btn-navegacao {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    gap: 20px;
+}
+
+/* Botão de navegação (Voltar/Próximo) */
+.btn-voltar {
+    display: inline-block;
+    padding: 12px 25px;
+    border: 2px solid var(--primary-neon);
+    color: var(--primary-neon);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    border-radius: 50px;
+    transition: 0.4s;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.btn-voltar:hover {
+    background: var(--primary-neon);
+    color: #000;
+    box-shadow: 0 0 20px var(--primary-neon);
+    transform: translateY(-3px);
+}
+
+/* Responsividade para a seção de leitura */
+@media (max-width: 768px) {
+    .container-leitura {
+        padding: 20px;
+    }
+    .conteudo-capitulo {
+        padding: 20px;
+    }
+}
+
+/* --- RODAPÉ (FOOTER) --- */
+.main-footer {
+    width: 100%;
+    padding: 30px 10% 20px;
+    background: rgba(5, 5, 15, 0.8);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 212, 255, 0.1);
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-content p {
+    color: rgba(255, 255, 255, 0.4);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+}
+
+/* --- COMPONENTES UI (OVERLAY, BACK TO TOP) --- */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 5, 15, 0.95); 
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(15px);
+    cursor: zoom-out;
+}
+
+.overlay img {
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 10px;
+    border: 3px solid #00d4ff;
+    box-shadow: 0 0 50px rgba(0, 212, 255, 0.4);
+    animation: zoomIn 0.3s ease-out;
+}
+
+.close-overlay {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 11000; /* Garante que o X fique acima de tudo */
+}
+
+.close-overlay:hover {
+    color: #ff4b2b;
+    transform: rotate(90deg);
+}
+
+#conteudo-expandido {
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#conteudo-expandido img, 
+#conteudo-expandido video {
+    max-width: 95vw;
+    max-height: 85vh;
+    display: block;
+    border: 2px solid var(--primary-neon);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    border-radius: 10px;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: rgba(138, 43, 226, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid #00d4ff;
+    color: white;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4000; /* Acima do overlay de favoritos (3000) */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#back-to-top:hover {
+    background: var(--primary-neon);
+    color: #000;
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 0 25px var(--primary-neon);
+}
+
+/* Responsividade para o Overlay no Mobile */
+@media (max-width: 768px) {
+    .close-overlay { right: 20px; top: 20px; font-size: 40px; }
+    .overlay {
+        align-items: flex-start; /* Garante que cards longos comecem do topo */
+        padding: 80px 0; /* Espaço para não bater no botão de fechar */
+        overflow-y: auto; /* Permite rolar se o card expandido for maior que a tela */
+    }
+}

@@ -108,39 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname.toLowerCase();
     const isInSubfolder = path.includes('/light novel/') || path.includes('\\light novel\\');
 
-    // O vídeo está na pasta img na raiz
+    // O vídeo de carregamento está sempre na pasta img na raiz do site
     const videoSrc = isInSubfolder ? '../img/personagem%20de%20carregamento.mp4' : 'img/personagem%20de%20carregamento.mp4';
 
-    // --- CORREÇÃO AUTOMÁTICA DE CAMINHOS PARA CAPÍTULOS ---
-    const ajustarCaminhosMídia = () => {
-        document.querySelectorAll('img, video, source').forEach(el => {
-            const src = el.getAttribute('src');
-            if (!src) return;
-
-            // Se for o vídeo de carregamento (pasta img)
-            if (src.includes('personagem de carregamento')) {
-                el.setAttribute('src', videoSrc);
-                if (el.tagName === 'SOURCE') el.parentElement.load();
-                if (el.tagName === 'VIDEO') el.load();
-            } 
-            // Se forem as imagens (que continuam na pasta img)
-            else if (src.startsWith('img/') || src.startsWith('./img/')) {
-                const prefix = isInSubfolder ? '../' : '';
-                let nomeArquivo = src.replace('./', '');
-                let novoCaminho = prefix + nomeArquivo.replace(/ /g, '%20');
-                el.setAttribute('src', novoCaminho);
-                if (el.tagName === 'SOURCE' && el.parentElement) el.parentElement.load();
-                if (el.tagName === 'VIDEO') el.load();
-            }
-        });
-    };
-
-    // Executa o ajuste de caminhos para garantir que tudo seja encontrado
-    ajustarCaminhosMídia();
-
     const innerHTMLContent = `
-        <div class="scanlines"></div>
-        <div class="noise"></div>
         <video class="loading-video" autoplay loop muted playsinline style="background: #000; display: block;">
             <source src="${videoSrc}" type="video/mp4">
         </video>
@@ -209,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }, 100);
             // Mantemos no DOM para transições de saída, apenas escondemos
-        }, 1500); 
+        }, 800); 
     };
 
     // --- 4. SISTEMA DE SCROLL REVEAL ---

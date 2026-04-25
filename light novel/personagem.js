@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const menuCapitulos = document.getElementById('capitulos-menu');
     const resumeContainer = document.getElementById('resume-container');
-
     // Função para carregar a lista de capítulos do JSON
     async function carregarMenu() {
         try {
@@ -42,11 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (ultimoCapId !== null) {
             const cap = capitulos.find(c => c.id == ultimoCapId);
             if (cap) {
+                if (resumeContainer) {
                 resumeContainer.innerHTML = `
-                    <a href="leitura.html?id=${cap.id}" class="btn-voltar" style="background: rgba(0, 212, 255, 0.1); border-color: var(--primary-neon);">
+                    <a href="leitura.html?id=${cap.id}" class="btn-voltar">
                         CONTINUAR TRANSMISSÃO: ${cap.titulo}
                     </a>`;
             }
+        }
         }
     }
 
