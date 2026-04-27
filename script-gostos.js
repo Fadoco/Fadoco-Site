@@ -212,9 +212,9 @@ function renderizarCategoria(lista, gridId) {
         validTags.forEach(t => allUniqueTags.add(t));
 
         const favTag = (item.favorito && item.favorito.imagem && item.favorito.texto) ? `
-            <div class="favorito-tag" onclick="event.stopPropagation(); ampliarImagem(this.querySelector('img'))">
+            <div class="favorito-tag" onclick="event.stopPropagation(); ampliarImagem(this.querySelector('.mini-img'))">
                 <span>Favorito: ${item.favorito.texto}</span>
-                <img src="${item.favorito.imagem}" class="mini-img">
+                <img src="${item.favorito.imagem}" class="mini-img" onclick="event.stopPropagation(); ampliarImagem(this)">
             </div>` : '';
 
         return `
@@ -321,9 +321,11 @@ const inicializarEventosGostos = () => {
                 if (randomItem.favorito) {
                     const favTag = document.createElement('div');
                     favTag.className = 'favorito-tag';
+                    favTag.style.display = 'flex';
+                    favTag.setAttribute('onclick', "event.stopPropagation(); ampliarImagem(this.querySelector('.mini-img'))");
                     favTag.innerHTML = `
                         <span>Favorito: ${randomItem.favorito.texto}</span>
-                        <img src="${randomItem.favorito.imagem}" class="mini-img">
+                        <img src="${randomItem.favorito.imagem}" class="mini-img" onclick="event.stopPropagation(); ampliarImagem(this)">
                     `;
                     tempCard.appendChild(favTag);
                 }

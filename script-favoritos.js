@@ -104,7 +104,7 @@ window.renderFavorites = () => {
             const favTagDiv = document.createElement('div');
             favTagDiv.className = 'favorito-tag';
             favTagDiv.style.display = 'flex';
-            favTagDiv.onclick = (e) => { e.stopPropagation(); ampliarImagem(favTagDiv.querySelector('img')); };
+            favTagDiv.setAttribute('onclick', "event.stopPropagation(); ampliarImagem(this.querySelector('.mini-img'))");
             favTagDiv.innerHTML = fav.favoritoTag;
             card.appendChild(favTagDiv);
         }
