@@ -8,6 +8,7 @@
     --bg-overlay: rgba(5, 5, 15, 0.95);
     --text-shadow-glow: 0 0 10px rgba(0, 212, 255, 0.8);
     --border-neon: 1px solid rgba(0, 212, 255, 0.3);
+    --secondary-glow: 0 0 15px rgba(138, 43, 226, 0.5);
 }
 
 /* --- 1. GLOBAL & RESET --- */
@@ -45,25 +46,35 @@ body {
     animation: spaceMove 100s linear infinite;
 }
 
-/* Esconde o conteúdo inicial IMEDIATAMENTE (sem transição aqui para evitar o flash) */
+/* --- 2. PROGRESS BAR & CORE REVEAL --- */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    z-index: 2001;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
+    width: 0%;
+    box-shadow: 0 0 20px var(--primary-neon), 0 0 8px var(--secondary-neon);
+    transition: width 0.1s ease-out;
+}
+
 header, main, footer, .background, #back-to-top, .progress-container, .reveal-section {
     opacity: 0;
     visibility: hidden;
 }
 
-/* Revela o site suavemente APÓS o carregamento */
-body.site-loaded header, 
-body.site-loaded main, 
-body.site-loaded footer, 
-body.site-loaded .background,
-body.site-loaded #back-to-top, 
-body.site-loaded .progress-container {
+body.site-loaded :is(header, main, footer, .background, #back-to-top, .progress-container) {
     opacity: 1;
     visibility: visible;
     transition: opacity 1.2s ease-in-out;
 }
 
-/* Trava o scroll quando menus/overlays estão abertos */
 .no-scroll {
     overflow: hidden !important;
 }
@@ -183,7 +194,6 @@ body.site-loaded .progress-container {
     background: var(--primary-neon);
 }
 
-/* --- 2. SCROLL REVEAL & HUD TOOLTIPS (Copied from style.css) --- */
 .reveal-section {
     opacity: 0;
     transform: translateY(15px);
@@ -226,8 +236,6 @@ body.site-loaded .progress-container {
     }
 }
 
-/* STAR HUB - LIGHT NOVEL SYSTEM */
-
 .container-personagem {
     padding: 160px 5% 80px;
     min-height: 100vh;
@@ -267,15 +275,6 @@ body.site-loaded .progress-container {
     border-radius: 15px;
     object-fit: cover;
     border: 2px solid var(--primary-neon);
-}
-
-.frame-neon {
-    position: absolute;
-    top: -10px; left: -10px; right: -10px; bottom: -10px;
-    border: 1px solid var(--secondary-neon);
-    border-radius: 20px;
-    opacity: 0.5;
-    pointer-events: none;
 }
 
 .info-rapida {
@@ -341,16 +340,17 @@ body.site-loaded .progress-container {
     font-family: 'Orbitron', sans-serif;
 }
 
-/* Cabeçalho da Página */
+/* --- 3. HUD & NAVIGATION (Header / Sidebar) --- */
 .header-personagem {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    height: 80px;
     padding: 20px 5%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     z-index: 1000;
     background: rgba(0,0,0,0.8);
@@ -358,11 +358,132 @@ body.site-loaded .progress-container {
     border-bottom: var(--border-neon);
 }
 
+/* --- FONTE DE LUZ ADICIONAL (Efeito Aurora/Nebulosa) --- */
+.leitura-page::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.18) 0%, transparent 75%);
+    pointer-events: none;
+    z-index: -1;
+}
+
 .header-personagem h1 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 4px;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    letter-spacing: 2px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
 }
+
+.header-personagem .btn-voltar {
+    padding: 8px 20px !important;
+    font-size: 0.7rem !important;
+    min-width: auto !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-menu {
+    background: rgba(138, 43, 226, 0.1);
+    border: 1px solid var(--secondary-neon);
+    color: var(--secondary-neon);
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-menu::before {
+    content: "◈";
+    font-size: 1rem;
+    animation: blink 2s infinite;
+}
+
+.btn-menu:hover {
+    background: var(--secondary-neon);
+    color: white;
+    box-shadow: var(--secondary-glow);
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: min(280px, 85vw);
+    height: 100vh;
+    background: rgba(8, 8, 20, 0.98);
+    backdrop-filter: blur(25px);
+    z-index: 2000;
+    transition: right 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+    padding: 100px 30px;
+    border-left: 1px solid var(--primary-neon);
+    box-shadow: -10px 0 50px rgba(0, 212, 255, 0.15);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.side-menu.active {
+    right: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.side-menu::before {
+    content: "ARQUIVOS DO NEXUS";
+    position: absolute;
+    top: 40px;
+    left: 30px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    color: var(--primary-neon);
+    letter-spacing: 3px;
+    opacity: 0.6;
+}
+
+.side-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.side-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.side-menu ul li a:hover {
+    color: var(--primary-neon);
+    padding-left: 15px;
+    text-shadow: 0 0 15px var(--primary-neon);
+}
+
+/* Botão de Fechar da Sidebar */
+.btn-fechar {
+    position: absolute;
+    top: 30px;
+    right: 25px;
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    text-shadow: 0 0 15px var(--primary-neon);
+    z-index: 2001;
+}
+.btn-fechar:hover { color: white; text-shadow: 0 0 20px white; transform: rotate(90deg); }
+
 .cap-status {
     font-size: 0.6rem;
     color: rgba(255, 255, 255, 0.5);
@@ -372,7 +493,16 @@ body.site-loaded .progress-container {
     text-transform: uppercase;
 }
 
-/* Interface de Leitura */
+/* --- 4. READING SYSTEM (Leitura) --- */
+.container-leitura {
+    padding-top: 130px; /* Espaço para o header fixo */
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
 .leitura-header {
     text-align: center;
     margin-bottom: 50px;
@@ -381,16 +511,17 @@ body.site-loaded .progress-container {
 .conteudo-capitulo {
     max-width: 800px;
     width: 90%;
-    margin: 0 auto 40px auto; /* Adiciona margem inferior para separar do botão de navegação */
-    background: var(--bg-dark); /* Usando variável */
-    backdrop-filter: blur(10px);
+    margin: 0 auto 40px auto;
+    background: rgba(20, 20, 35, 0.75); /* Fundo um pouco mais claro e translúcido */
+    backdrop-filter: blur(20px);
     padding: clamp(20px, 5vw, 60px);
     border-radius: 20px;
-    border: 1px solid rgba(var(--primary-neon), 0.1); /* Neon sutil */
-    line-height: 1.8;
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.85); /* Mantido para legibilidade */
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 212, 255, 0.3); /* Borda neon mais presente */
+    line-height: 1.9;
+    font-size: 1.15rem;
+    color: #ffffff;
+    box-shadow: 0 0 50px rgba(0, 212, 255, 0.08), inset 0 0 30px rgba(0, 212, 255, 0.05);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
 .conteudo-capitulo p {
@@ -398,15 +529,18 @@ body.site-loaded .progress-container {
     text-align: justify;
 }
 
-.btn-navegacao {
+.nav-leitura-container {
     display: flex;
-    justify-content: space-between;
-    margin-top: 40px;
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin: 60px auto 30px auto; /* Ajusta margem inferior */
+    width: 100%;
+    max-width: 800px;
+    padding: 0 20px;
 }
 
-/* Botão de navegação (Voltar/Próximo) */
-.btn-voltar {
+.btn-voltar, .btn-proximo {
     display: inline-block;
     padding: 12px 25px;
     border: 2px solid var(--primary-neon);
@@ -419,44 +553,41 @@ body.site-loaded .progress-container {
     text-transform: uppercase;
     letter-spacing: 1px;
     text-align: center;
+    min-width: 280px; /* Aumenta um pouco a largura mínima */
 }
 
 .btn-voltar:hover {
     background: var(--primary-neon);
     color: #000;
-    box-shadow: 0 0 20px var(--primary-neon);
+    box-shadow: 0 0 30px var(--primary-neon);
     transform: translateY(-3px);
 }
 
-/* Responsividade para a seção de leitura */
-@media (max-width: 768px) {
-    .container-leitura {
-        padding: 20px;
-    }
-    .conteudo-capitulo {
-        padding: 20px;
-    }
-}
-
-/* --- RODAPÉ (FOOTER) --- */
-.main-footer {
-    width: 100%;
-    padding: 30px 10% 20px;
-    background: rgba(5, 5, 15, 0.8);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(0, 212, 255, 0.1);
-    text-align: center;
-    margin-top: 50px;
-}
-
-.footer-content p {
-    color: rgba(255, 255, 255, 0.4);
+.btn-concluir {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 2px solid var(--secondary-neon);
+    color: var(--secondary-neon);
+    text-decoration: none;
     font-family: 'Orbitron', sans-serif;
-    font-size: 0.75rem;
+    border-radius: 50px;
+    transition: 0.4s;
+    font-size: 0.7rem;
+    text-transform: uppercase;
     letter-spacing: 2px;
+    text-align: center;
+    min-width: 280px;
+    margin-top: 15px;
 }
 
-/* --- COMPONENTES UI (OVERLAY, BACK TO TOP) --- */
+.btn-concluir:hover {
+    background: var(--secondary-neon);
+    color: white;
+    box-shadow: 0 0 25px var(--secondary-neon);
+    transform: translateY(-3px);
+}
+
+/* --- 5. GLOBAL UI COMPONENTS --- */
 .overlay {
     position: fixed;
     top: 0;
@@ -470,32 +601,6 @@ body.site-loaded .progress-container {
     z-index: 9999;
     backdrop-filter: blur(15px);
     cursor: zoom-out;
-}
-
-.overlay img {
-    max-width: 85%;
-    max-height: 85%;
-    border-radius: 10px;
-    border: 3px solid #00d4ff;
-    box-shadow: 0 0 50px rgba(0, 212, 255, 0.4);
-    animation: zoomIn 0.3s ease-out;
-}
-
-.close-overlay {
-    position: absolute;
-    top: 40px;
-    right: 60px;
-    color: white;
-    font-size: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    z-index: 11000; /* Garante que o X fique acima de tudo */
-}
-
-.close-overlay:hover {
-    color: #ff4b2b;
-    transform: rotate(90deg);
 }
 
 #conteudo-expandido {
@@ -521,7 +626,7 @@ body.site-loaded .progress-container {
     to { transform: scale(1); opacity: 1; }
 }
 
-#back-to-top {
+#back-to-top { /* Mantém os estilos existentes, eles parecem bons */
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -538,7 +643,7 @@ body.site-loaded .progress-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 4000; /* Acima do overlay de favoritos (3000) */
+    z-index: 4000;
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -557,8 +662,33 @@ body.site-loaded .progress-container {
     box-shadow: 0 0 25px var(--primary-neon);
 }
 
-/* Responsividade para o Overlay no Mobile */
+.main-footer { /* Mantém os estilos existentes, eles parecem bons */
+    width: 100%;
+    padding: 30px 10% 20px;
+    background: rgba(5, 5, 15, 0.8);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 212, 255, 0.1);
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-content p { /* Mantém os estilos existentes, eles parecem bons */
+    color: rgba(255, 255, 255, 0.4);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+}
+
+/* --- 6. RESPONSIVITY --- */
+/* Responsividade para a seção de leitura */
 @media (max-width: 768px) {
+    .container-leitura {
+        padding: 20px;
+    }
+    .conteudo-capitulo {
+        padding: 20px;
+        width: 95%; /* Ajusta a largura para telas menores */
+    }
     .close-overlay { right: 20px; top: 20px; font-size: 40px; }
     .overlay {
         align-items: flex-start; /* Garante que cards longos comecem do topo */

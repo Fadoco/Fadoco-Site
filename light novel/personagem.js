@@ -1,55 +1,44 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const menuCapitulos = document.getElementById('capitulos-menu');
-    const resumeContainer = document.getElementById('resume-container');
-    // Função para carregar a lista de capítulos do JSON
-    async function carregarMenu() {
-        try {
-            const response = await fetch('capitulos/lista_capitulos.json');
-            if (!response.ok) throw new Error('Não foi possível carregar a lista de capítulos.');
-            
-            const data = await response.json();
-            renderizarMenu(data.capitulos);
-            verificarProgresso(data.capitulos);
-        } catch (error) {
-            console.error('Erro:', error);
-            menuCapitulos.innerHTML = `<p style="color: var(--primary-neon); text-align: center; grid-column: 1/-1;">Erro ao sintonizar capítulos. Tente novamente mais tarde.</p>`;
-        }
-    }
+// Gerenciamento da página do personagem e lista de capítulos
+let listaCapitulos = [];
 
-    function renderizarMenu(capitulos) {
-        menuCapitulos.innerHTML = '';
-        capitulos.forEach(cap => {
-            const link = document.createElement('a');
-            link.href = `leitura.html?id=${cap.id}`;
-            link.className = 'btn-capitulo reveal-section'; 
-            link.innerHTML = `
-                <div class="cap-info">
-                    <span class="cap-numero">REGISTRO ${cap.id}</span>
-                    <h3 class="cap-titulo">${cap.titulo}</h3>
-                </div>
-                <div class="cap-status">INICIAR TRANSMISSÃO</div>
-            `;
-            menuCapitulos.appendChild(link);
-            
-            // Integração com o Scroll Reveal do script-transição.js
-            if (window.revealObserver) window.revealObserver.observe(link);
-        });
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const response = await fetch('capitulos/lista_capitulos.json');
+        const data = await response.json();
+        listaCapitulos = data.capitulos;
+        
+        renderizarResume();
+        renderizarCapitulos();
+    } catch (error) {
+        console.error("Erro ao carregar lista de capítulos:", error);
     }
-
-    function verificarProgresso(capitulos) {
-        const ultimoCapId = localStorage.getItem('starhub_ultimo_capitulo');
-        if (ultimoCapId !== null) {
-            const cap = capitulos.find(c => c.id == ultimoCapId);
-            if (cap) {
-                if (resumeContainer) {
-                resumeContainer.innerHTML = `
-                    <a href="leitura.html?id=${cap.id}" class="btn-voltar">
-                        CONTINUAR TRANSMISSÃO: ${cap.titulo}
-                    </a>`;
-            }
-        }
-        }
-    }
-
-    carregarMenu();
 });
+
+function renderizarResume() {
+    const lastCapId = localStorage.getItem('starhub_last_chapter');
+    const container = document.getElementById('resume-container');
+    
+    if (lastCapId !== null && container && listaCapitulos.length > 0) {
+        const cap = listaCapitulos.find(c => c.id == lastCapId) || { titulo: `Registro #${lastCapId}` };
+        container.innerHTML = `
+            <a href="leitura.html?id=${lastCapId}" class="btn-voltar" style="border-color: var(--secondary-neon); color: var(--secondary-neon); background: rgba(138, 43, 226, 0.05);">
+                ▶ RETOMAR SESSÃO: ${cap.titulo.toUpperCase()}
+            </a>
+        `;
+    }
+}
+
+function renderizarCapitulos() {
+    const menu = document.getElementById('capitulos-menu');
+    if (!menu) return;
+
+    menu.innerHTML = listaCapitulos.map(cap => `
+        <a href="leitura.html?id=${cap.id}" class="btn-capitulo" data-tooltip="Acessar Dados">
+            <div class="cap-info">
+                <span class="cap-numero">REGISTRO #${cap.id}</span>
+                <span class="cap-titulo">${cap.titulo}</span>
+            </div>
+            <span class="cap-status">DISPONÍVEL</span>
+        </a>
+    `).join('');
+}
