@@ -139,7 +139,7 @@ async function prefetchGostos() {
 
     for (const cat of categoriasParaPrefetch) {
         try {
-            const response = await fetch(`./${cat}.json`);
+            const response = await fetch(`./pagina gostos/${cat}.json`);
             if (!response.ok) continue;
             const data = await response.json();
             const lista = data[cat] || [];
@@ -169,8 +169,8 @@ window.carregarCategoriaJSON = async function(categoria) {
     grid.appendChild(loadingMsg);
 
     try {
-        const response = await fetch(`./${categoria}.json`);
-        if (!response.ok) throw new Error(`Erro ao carregar ${categoria}.json`);
+        const response = await fetch(`./pagina gostos/${categoria}.json`);
+        if (!response.ok) throw new Error(`Erro ao carregar pagina gostos/${categoria}.json`);
         const data = await response.json();
         const lista = data[categoria] || [];
         renderizarCategoria(lista.map(item => ({...item, categoriaPai: categoria})), gridId);
@@ -183,7 +183,7 @@ window.carregarCategoriaJSON = async function(categoria) {
         if (window.location.protocol === 'file:') {
             mensagemCustom = "O navegador bloqueia arquivos locais por segurança. Use a extensão 'Live Server' no VS Code para abrir o site.";
         } else if (error instanceof SyntaxError) {
-            mensagemCustom = `Erro de digitação no arquivo ${categoria}.json (verifique vírgulas ou aspas).`;
+            mensagemCustom = `Erro de digitação no arquivo pagina gostos/${categoria}.json (verifique vírgulas ou aspas).`;
         }
 
         grid.innerHTML = `
