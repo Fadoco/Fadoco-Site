@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lendo Capítulo | Star Hub</title>    
-    <link rel="stylesheet" href="light-novel.css">
+    <link rel="stylesheet" href="../css/light-novel.css">
     <!-- As fontes agora são importadas diretamente em light-novel.css -->
 </head>
 <body class="leitura-page">
     <div id="hyperspace" class="hyperspace-overlay">
+        <video class="loading-video" autoplay loop muted playsinline style="background: #000;">
+            <source src="../img/personagem%25de%25carregamento.mp4" type="video/mp4">
+        </video>
         <div class="loading-content">
-            <!-- O caminho do vídeo será ajustado pelo script-transição.js -->
-            <video src="personagem de carregamento.mp4" autoplay loop muted playsinline class="loading-video"></video>
             <div class="loading-text">Sintonizando com o universo</div>
             <div class="dots-container"><span class="dots"></span></div>
         </div>
@@ -35,6 +36,7 @@
         <span id="btn-fechar" class="btn-fechar">&times;</span>
         <ul>
             <li><a href="../index.html">INÍCIO</a></li>
+            <li><a href="personagem.html">LIGHT NOVEL</a></li>
             <li><a href="../lore.html">LORE</a></li>
             <li><a href="../artes.html">ARTES</a></li>
             <li><a href="../gostos.html">GOSTOS</a></li>
@@ -54,14 +56,19 @@
         </div>
     </footer>
 
-    <script src="../script-transição.js"></script>
-    <script src="../script.js"></script>
-    <script src="leitura.js"></script>
+    <script src="../js/script-favoritos.js" defer></script>
+    <script src="../js/script-transição.js" defer></script>
+    <script src="../js/script.js" defer></script>
+    <script src="../js/leitura.js" defer></script>
 
     <!-- Containers para o funcionamento do Lightbox -->
     <div id="overlay" class="overlay">
         <span class="close-overlay" onclick="fecharAmpliacao()" data-tooltip="Fechar">&times;</span>
         <div id="conteudo-expandido"></div>
+    </div>
+
+    <div id="favorites-overlay" class="fav-overlay">
+        <div id="favorites-grid" class="fav-content"></div>
     </div>
 
     <button id="back-to-top" data-tooltip="Órbita Inicial">▲</button>

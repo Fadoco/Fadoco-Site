@@ -106,30 +106,33 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Detecta se a página está na pasta 'capitulos'
     const path = window.location.pathname.toLowerCase();
-    const isInSubfolder = path.includes('/light novel/') || path.includes('\\light novel\\');
+    const isInSubfolder = path.includes('/light-novel/') || path.includes('\\light-novel\\');
 
     // O vídeo de carregamento está sempre na pasta img na raiz do site
-    const videoSrc = isInSubfolder ? '../img/personagem%20de%20carregamento.mp4' : 'img/personagem%20de%20carregamento.mp4';
-
-    const innerHTMLContent = `
-        <video class="loading-video" autoplay loop muted playsinline style="background: #000; display: block;">
-            <source src="${videoSrc}" type="video/mp4">
-        </video>
-        <div class="loading-content">
-            <p class="loading-text">Sintonizando com o universo</p>
-            <div class="dots-container"><span class="dots"></span></div>
-        </div>
-    `;
+    const videoSrc = isInSubfolder ? '../img/personagem%25de%25carregamento.mp4' : 'img/personagem%25de%25carregamento.mp4';
 
     if (!transitionOverlay) {
         transitionOverlay = document.createElement('div');
         transitionOverlay.id = 'hyperspace';
         transitionOverlay.className = 'hyperspace-overlay';
-        transitionOverlay.innerHTML = innerHTMLContent;
+        transitionOverlay.innerHTML = `
+            <video class="loading-video" autoplay loop muted playsinline style="background: #000; display: block;">
+                <source src="${videoSrc}" type="video/mp4">
+            </video>
+            <div class="loading-content">
+                <p class="loading-text">Sintonizando com o universo</p>
+                <div class="dots-container"><span class="dots"></span></div>
+            </div>
+        `;
         document.body.prepend(transitionOverlay);
     } else {
-        // Se já existir no HTML (como no index), força a atualização do texto e do vídeo
-        transitionOverlay.innerHTML = innerHTMLContent;
+        // Se já existir, apenas atualiza o vídeo se necessário, sem apagar scanlines/noise
+        const existingVideo = transitionOverlay.querySelector('video source');
+        if (existingVideo && !existingVideo.src.includes(videoSrc)) {
+            existingVideo.src = videoSrc;
+            const videoTag = transitionOverlay.querySelector('video');
+            if (videoTag) videoTag.load();
+        }
     }
 
     // Garante que o vídeo tente tocar e carregar corretamente

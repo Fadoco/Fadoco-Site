@@ -106,7 +106,7 @@ body {
 }
 
 /* Esconde o conteúdo inicial IMEDIATAMENTE (sem transição aqui para evitar o flash) */
-header, main, footer, .background, #btn-favoritos, #back-to-top, .progress-container, .reveal-section {
+header, main, footer, .background, #btn-favoritos, #back-to-top, .progress-container {
     opacity: 0;
     visibility: hidden;
 }
@@ -117,7 +117,7 @@ body.site-loaded main,
 body.site-loaded footer, 
 body.site-loaded .background,
 body.site-loaded #btn-favoritos,
-body.site-loaded #back-to-top, 
+body.site-loaded #back-to-top,
 body.site-loaded .progress-container {
     opacity: 1;
     visibility: visible;
@@ -159,7 +159,7 @@ header {
 
 /* Barra de Progresso de Leitura */
 .progress-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -172,6 +172,8 @@ header {
     background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
     width: 0%;
     box-shadow: 0 0 15px var(--primary-neon), 0 0 5px var(--secondary-neon);
+    animation: progressGlow 2s linear infinite;
+    background-size: 200% 100%;
 }
 
 @keyframes progressGlow {

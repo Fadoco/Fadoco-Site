@@ -62,9 +62,16 @@ body {
     width: 0%;
     box-shadow: 0 0 20px var(--primary-neon), 0 0 8px var(--secondary-neon);
     transition: width 0.1s ease-out;
+    animation: progressGlow 2s linear infinite;
+    background-size: 200% 100%;
 }
 
-header, main, footer, .background, #back-to-top, .progress-container, .reveal-section {
+@keyframes progressGlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+header, main, footer, .background, #back-to-top, .progress-container {
     opacity: 0;
     visibility: hidden;
 }
