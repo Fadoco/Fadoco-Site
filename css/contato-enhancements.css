@@ -1,0 +1,462 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   CONTATO PAGE ENHANCEMENTS - PINK THEME (#ff006e)
+   Performance-optimized social media contact page
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Performance: Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── 
+   MAIN PAGE STYLING
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.pagina-contato {
+    position: relative;
+    z-index: 1;
+}
+
+.pagina-contato .titulo {
+    font-size: 3rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    background: linear-gradient(135deg, #ff006e 0%, #00d4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    animation: glowPulse 3s ease-in-out infinite;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 20px rgba(255, 0, 110, 0.4);
+    filter: drop-shadow(0 0 10px rgba(255, 0, 110, 0.2));
+}
+
+.pagina-contato > p {
+    color: rgba(255, 212, 255, 0.95);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 8px rgba(255, 0, 110, 0.2);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── 
+   SOCIAL CARDS GRID
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.contato-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.card-social {
+    background: linear-gradient(135deg, rgba(255, 0, 110, 0.08), rgba(0, 212, 255, 0.04));
+    border: 2px solid rgba(255, 0, 110, 0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    will-change: transform, box-shadow, border-color;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.card-social::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 0, 110, 0.05), rgba(0, 212, 255, 0.02));
+    opacity: 0;
+    transition: opacity 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 0;
+}
+
+.card-social:hover {
+    border-color: rgba(255, 0, 110, 0.7);
+    box-shadow: 0 0 25px rgba(255, 0, 110, 0.35), inset 0 0 12px rgba(255, 0, 110, 0.08);
+    transform: translateY(-6px) translateZ(0);
+}
+
+.card-social:hover::before {
+    opacity: 1;
+}
+
+.card-social * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Network-specific colors */
+.card-social.youtube { border-color: rgba(255, 0, 0, 0.4); }
+.card-social.youtube:hover { border-color: rgba(255, 0, 0, 0.8); box-shadow: 0 0 25px rgba(255, 0, 0, 0.35), inset 0 0 12px rgba(255, 0, 0, 0.08); }
+
+.card-social.tiktok { border-color: rgba(255, 255, 255, 0.3); }
+.card-social.tiktok:hover { border-color: rgba(255, 255, 255, 0.8); box-shadow: 0 0 25px rgba(255, 255, 255, 0.25), inset 0 0 12px rgba(255, 255, 255, 0.05); }
+
+.card-social.instagram { border-color: rgba(225, 48, 108, 0.4); }
+.card-social.instagram:hover { border-color: rgba(225, 48, 108, 0.8); box-shadow: 0 0 25px rgba(225, 48, 108, 0.35), inset 0 0 12px rgba(225, 48, 108, 0.08); }
+
+.card-social.gameplay { border-color: rgba(138, 43, 226, 0.4); }
+.card-social.gameplay:hover { border-color: rgba(138, 43, 226, 0.8); box-shadow: 0 0 25px rgba(138, 43, 226, 0.35), inset 0 0 12px rgba(138, 43, 226, 0.08); }
+
+/* ─────────────────────────────────────────────────────────────────────────── 
+   AVATAR RINGS WITH FLOATING ANIMATION
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.avatar-ring {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: floatAvatarPulse 3s ease-in-out infinite;
+}
+
+.card-social.youtube .avatar-ring { 
+    border: 3px solid rgba(255, 0, 0, 0.6);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.card-social.tiktok .avatar-ring { 
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.card-social.instagram .avatar-ring { 
+    border: 3px solid rgba(225, 48, 108, 0.6);
+    box-shadow: 0 0 20px rgba(225, 48, 108, 0.3);
+}
+
+.card-social.gameplay .avatar-ring { 
+    border: 3px solid rgba(138, 43, 226, 0.6);
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── 
+   SOCIAL NAMES
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.social-name {
+    display: inline-block;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.95rem;
+}
+
+.social-name.youtube {
+    color: #ff0000;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.social-name.tiktok {
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.social-name.instagram {
+    color: #e1306c;
+    text-shadow: 0 0 10px rgba(225, 48, 108, 0.5);
+}
+
+.social-name.gameplay {
+    color: #8a2be2;
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── 
+   QUOTE BLOCKS - Social Networks
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.social-quote-block {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left: 4px solid currentColor;
+    background: linear-gradient(90deg, rgba(255, 0, 110, 0.06), transparent);
+    border-radius: 4px;
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 212, 255, 0.85);
+    animation: quoteGlow 3s ease-in-out infinite;
+    animation-delay: 0.1s;
+}
+
+.social-quote-block.youtube {
+    border-left-color: #ff0000;
+    background: linear-gradient(90deg, rgba(255, 0, 0, 0.06), transparent);
+    color: rgba(255, 100, 100, 0.9);
+}
+
+.social-quote-block.tiktok {
+    border-left-color: rgba(255, 255, 255, 0.7);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), transparent);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.social-quote-block.instagram {
+    border-left-color: #e1306c;
+    background: linear-gradient(90deg, rgba(225, 48, 108, 0.06), transparent);
+    color: rgba(225, 100, 150, 0.9);
+}
+
+.social-quote-block.gameplay {
+    border-left-color: #8a2be2;
+    background: linear-gradient(90deg, rgba(138, 43, 226, 0.06), transparent);
+    color: rgba(138, 100, 226, 0.9);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── 
+   VIDEO CONTAINERS
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.video-preview-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: 1rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+    border: 1px solid rgba(255, 0, 110, 0.2);
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.video-preview-container iframe,
+.video-preview-container video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── 
+   BUTTONS
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.btn-visitar {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, rgba(255, 0, 110, 0.2), rgba(0, 212, 255, 0.1));
+    border: 2px solid rgba(255, 0, 110, 0.5);
+    border-radius: 6px;
+    color: rgba(255, 212, 255, 0.9);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: pulseButton 2s ease-in-out infinite;
+    will-change: transform, box-shadow, background;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    margin-top: auto;
+}
+
+.btn-visitar:hover {
+    transform: scale(1.05) translateZ(0);
+    border-color: #ff006e;
+    background: linear-gradient(135deg, rgba(255, 0, 110, 0.35), rgba(0, 212, 255, 0.15));
+    box-shadow: 0 0 20px rgba(255, 0, 110, 0.4);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── 
+   STORIES PLACEHOLDER
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.stories-placeholder {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(225, 48, 108, 0.4);
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(225, 48, 108, 0.05), transparent);
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+}
+
+.stories-placeholder:hover {
+    border-color: rgba(225, 48, 108, 0.7);
+    background: linear-gradient(135deg, rgba(225, 48, 108, 0.1), transparent);
+    box-shadow: 0 0 15px rgba(225, 48, 108, 0.2);
+}
+
+.stories-placeholder p {
+    color: rgba(225, 48, 108, 0.7);
+    font-style: italic;
+    font-size: 1rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── 
+   FOOTER ENHANCEMENTS
+   ─────────────────────────────────────────────────────────────────────────── */
+
+.footer-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.footer-link {
+    color: rgba(255, 212, 255, 0.75);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.footer-link:hover {
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.footer-divider {
+    color: rgba(255, 212, 255, 0.4);
+}
+
+.footer-socials {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 212, 255, 0.75);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.social-icon:hover {
+    color: #00d4ff;
+    transform: scale(1.2);
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.footer-main {
+    font-size: 0.9rem;
+    color: rgba(255, 212, 255, 0.8);
+    margin-bottom: 0.5rem;
+}
+
+.footer-sub {
+    font-size: 0.7rem;
+    color: rgba(255, 212, 255, 0.5);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── 
+   ANIMATIONS (optimized for performance)
+   ─────────────────────────────────────────────────────────────────────────── */
+
+@keyframes quoteGlow {
+    0%, 100% {
+        opacity: 0.9;
+        box-shadow: inset 0 0 0 rgba(255, 0, 110, 0);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: inset 0 0 10px rgba(255, 0, 110, 0.1);
+    }
+}
+
+@keyframes pulseButton {
+    0%, 100% {
+        box-shadow: 0 0 0 rgba(255, 0, 110, 0);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(255, 0, 110, 0.3);
+    }
+}
+
+@keyframes floatAvatarPulse {
+    0%, 100% {
+        transform: translateY(0px) translateZ(0);
+    }
+    50% {
+        transform: translateY(-8px) translateZ(0);
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── 
+   RESPONSIVE DESIGN
+   ─────────────────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+    .contato-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .pagina-contato .titulo {
+        font-size: 2rem;
+    }
+
+    .video-preview-container {
+        aspect-ratio: 16 / 9;
+    }
+
+    .btn-visitar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagina-contato .titulo {
+        font-size: 1.5rem;
+        letter-spacing: 0.15rem;
+    }
+
+    .card-social {
+        padding: 1rem;
+    }
+
+    .social-name {
+        font-size: 0.8rem;
+    }
+
+    .social-quote-block {
+        padding: 0.8rem;
+        font-size: 0.8rem;
+    }
+}

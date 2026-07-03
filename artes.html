@@ -17,14 +17,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.googleapis.com">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/artes.css">
 </head>
 <body>
     <!-- Overlay de Transição Direto no HTML para evitar flash do site -->
     <div id="hyperspace" class="hyperspace-overlay">
         <div class="scanlines"></div>
         <div class="noise"></div>
-        <video class="loading-video" autoplay loop muted playsinline style="background: #000;">
-            <source src="img/personagem%25de%25carregamento.mp4" type="video/mp4">
+        <video class="loading-video" autoplay loop muted playsinline preload="metadata" style="background: #000;">
+            <source src="img/personagem-carregamento.mp4" type="video/mp4">
         </video>
         <div class="loading-content">
             <p class="loading-text">Sintonizando com o universo</p>
@@ -32,7 +33,9 @@
         </div>
     </div>
 
-    <img class="background" src="img/Background (1).gif" alt="" loading="lazy">
+    <video class="background" autoplay loop muted playsinline preload="metadata" style="width: 100%; height: 100%; position: fixed; top: 0; left: 0; z-index: -1; object-fit: cover;">
+        <source src="img/Background.mp4" type="video/mp4">
+    </video>
     <!-- Barra de Progresso de Leitura -->
     <div class="progress-container">
         <div class="progress-bar"></div>
@@ -64,7 +67,9 @@
         </ul>
     </div>
 
-    <main>
+    <a href="#main-content" class="skip-to-content">Pular para conteúdo principal</a>
+
+    <main id="main-content" role="main">
     <section class="artes-secao">
         
         <div class="artes-cabecalho">
@@ -85,11 +90,15 @@
             </div>
         </div>
 
+        <blockquote class="artes-quote-block">"Cada criação é um reflexo do meu universo. Veja através dos meus olhos e experimente o caos organizado da minha imaginação."</blockquote>
+
+        <div class="section-divider"></div>
+
         <div class="galeria-grid">
             
-           <div class="arte-card reveal-section">
+           <div class="arte-card reveal-section" onclick="ampliarImagem(this.querySelector('img, video'))">
             <img src="img/1000351967.jpg" alt="Nome da Obra">
-            <button class="expand-btn" onclick="ampliarImagem(this)" data-tooltip="Ampliar Arte">⛶</button>
+            <button class="expand-btn" onclick="event.stopPropagation(); ampliarImagem(this)" data-tooltip="Ampliar Arte">⛶</button>
             <div class="legenda-arte"> 
             <h4>Fadoco: Forma Guardião</h4>
             <p>Essa é a primeira versão do meu personagem</p>
@@ -99,9 +108,9 @@
 
 
             
-           <div class="arte-card reveal-section">
+           <div class="arte-card reveal-section" onclick="ampliarImagem(this.querySelector('img, video'))">
             <img src="img/1000312743.png" alt="Nome da Obra">
-            <button class="expand-btn" onclick="ampliarImagem(this)" data-tooltip="Ampliar Arte">⛶</button>
+            <button class="expand-btn" onclick="event.stopPropagation(); ampliarImagem(this)" data-tooltip="Ampliar Arte">⛶</button>
             <div class="legenda-arte"> 
             <h4>Fadoco Totem</h4>
             <p>Essa é uma arte de um totem de RPG que eu tinha pedido para fazer para minha artista</p>
@@ -110,9 +119,9 @@
 
 
             
-           <div class="arte-card reveal-section">
+           <div class="arte-card reveal-section" onclick="ampliarImagem(this.querySelector('img, video'))">
             <img src="img/1000329522 (1).png" alt="Nome da Obra">
-            <button class="expand-btn" onclick="ampliarImagem(this)" data-tooltip="Ampliar Arte">⛶</button>
+            <button class="expand-btn" onclick="event.stopPropagation(); ampliarImagem(this)" data-tooltip="Ampliar Arte">⛶</button>
             <div class="legenda-arte"> 
             <h4>Fadoco Totem Armadura</h4>
             <p>Essa é uma arte de um totem de RPG que eu tinha pedido para fazer para minha artista, só que na versão de armadura</p>
@@ -121,9 +130,9 @@
 
 
             
-           <div class="arte-card reveal-section">
+           <div class="arte-card reveal-section" onclick="ampliarImagem(this.querySelector('img, video'))">
             <img src="img/ChatGPT Image 9 de jan. de 2026, 11_24_10.png" alt="Nome da Obra">
-            <button class="expand-btn" onclick="ampliarImagem(this)" data-tooltip="Ampliar Arte">⛶</button>
+            <button class="expand-btn" onclick="event.stopPropagation(); ampliarImagem(this)" data-tooltip="Ampliar Arte">⛶</button>
             <div class="legenda-arte"> 
             <h4>Fadoco Steam</h4>
             <p>Essa foi uma trend do TikTok de artes feitas no GPT, nesse estilo</p>
@@ -132,9 +141,9 @@
 
 
     
-    <div class="arte-card reveal-section">
+    <div class="arte-card reveal-section" onclick="ampliarImagem(this.querySelector('img, video'))">
         <video src="img/Novo projeto 11 [3079EBD].mp4" loop muted autoplay playsinline></video>
-        <button class="expand-btn" onclick="ampliarImagem(this)" data-tooltip="Ampliar Animação">⛶</button>
+        <button class="expand-btn" onclick="event.stopPropagation(); ampliarImagem(this)" data-tooltip="Ampliar Animação">⛶</button>
         <div class="legenda-arte">
             <h4>Tentativa de animação</h4>
             <p>Essa foi uma tentativa de fazer uma animação com uma edição que fiz na época</p>
@@ -147,8 +156,22 @@
 
 <footer class="main-footer">
     <div class="footer-content">
-        <p>© <span id="year"></span> STAR HUB - FADOCO UNIVERSE</p>
-        <p style="font-size: 0.6rem; margin-top: 10px; opacity: 0.5;">SINAL TRANSMITIDO VIA DEEP SPACE NETWORK</p>
+        <div class="footer-links">
+            <a href="lore.html" class="footer-link">Lore</a>
+            <span class="footer-divider">•</span>
+            <a href="gostos.html" class="footer-link">Gostos</a>
+            <span class="footer-divider">•</span>
+            <a href="artes.html" class="footer-link">Artes</a>
+            <span class="footer-divider">•</span>
+            <a href="redes_sociais.html" class="footer-link">Contato</a>
+        </div>
+        <div class="footer-socials">
+            <a href="https://www.youtube.com/channel/UCbGVdb1UueHEUBH7efKDRtw" target="_blank" class="social-icon" aria-label="YouTube">▶</a>
+            <a href="https://www.tiktok.com/@fadoco_edits" target="_blank" class="social-icon" aria-label="TikTok">♪</a>
+            <a href="https://www.instagram.com/fluidpersona/" target="_blank" class="social-icon" aria-label="Instagram">📷</a>
+        </div>
+        <p class="footer-main">© <span id="year"></span> STAR HUB - FADOCO UNIVERSE</p>
+        <p class="footer-sub">SINAL TRANSMITIDO VIA DEEP SPACE NETWORK</p>
     </div>
 </footer>
 
@@ -166,5 +189,29 @@
     <script src="js/script-favoritos.js" defer></script>
     <script src="js/script-transição.js" defer></script>
     <script src="js/script.js" defer></script>
+    
+    <script>
+        // Disable card expansion on mobile - only allow expand button
+        function disableCardClickOnMobile() {
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+            const cards = document.querySelectorAll('.arte-card');
+            
+            if (isMobile) {
+                cards.forEach(card => {
+                    card.onclick = null;
+                    card.style.cursor = 'default';
+                });
+            } else {
+                cards.forEach(card => {
+                    card.onclick = function() { ampliarImagem(this.querySelector('img, video')); };
+                    card.style.cursor = 'pointer';
+                });
+            }
+        }
+        
+        // Run on load and on resize
+        document.addEventListener('DOMContentLoaded', disableCardClickOnMobile);
+        window.addEventListener('resize', disableCardClickOnMobile);
+    </script>
 </body>
 </html>

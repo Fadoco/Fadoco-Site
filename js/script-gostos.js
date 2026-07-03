@@ -397,6 +397,18 @@ const inicializarEventosGostos = () => {
 
     // Inicia a coleta de dados de todos os JSONs para alimentar as tags e o sorteio
     prefetchGostos();
+    
+    // Carrega automaticamente a primeira categoria (Jogos) para melhor UX
+    setTimeout(() => {
+        carregarCategoriaJSON('jogos');
+        const jogosGrid = document.getElementById('jogos-grid');
+        if (jogosGrid) jogosGrid.classList.add('active');
+        const toggleJogos = document.getElementById('toggle-jogos');
+        if (toggleJogos) {
+            const seta = toggleJogos.querySelector('.seta');
+            if (seta) seta.style.transform = 'rotate(180deg)';
+        }
+    }, 500);
 };
 
 document.addEventListener('DOMContentLoaded', inicializarEventosGostos);

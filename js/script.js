@@ -3,6 +3,12 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // --- 0. PREENCHIMENTO DINÂMICO ---
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+    
     // --- 1. GESTÃO DO MENU LATERAL (SIDEBAR) ---
     const btnMenu = document.getElementById('btn-menu');
     const btnFechar = document.getElementById('btn-fechar');

@@ -17,14 +17,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.googleapis.com">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contato-enhancements.css">
 </head>
 <body>
     <!-- Overlay de Transição Direto no HTML para evitar flash do site -->
     <div id="hyperspace" class="hyperspace-overlay">
         <div class="scanlines"></div>
         <div class="noise"></div>
-        <video class="loading-video" autoplay loop muted playsinline style="background: #000;">
-            <source src="img/personagem%25de%25carregamento.mp4" type="video/mp4">
+        <video class="loading-video" autoplay loop muted playsinline style="background: #000;" aria-hidden="true" preload="none" decoding="async">
+            <source src="img/personagem-carregamento.mp4" type="video/mp4">
         </video>
         <div class="loading-content">
             <p class="loading-text">Sintonizando com o universo</p>
@@ -32,13 +33,19 @@
         </div>
     </div>
 
-    <img class="background" src="img/Background (1).gif" alt="" loading="lazy">
+    <video class="background" autoplay loop muted playsinline preload="metadata" decoding="async" style="background: #000;" aria-hidden="true">
+        <source src="img/Background.mp4" type="video/mp4">
+        <img src="img/Background (1).gif" alt="" loading="lazy" decoding="async" aria-hidden="true">
+    </video>
     <!-- Barra de Progresso de Leitura -->
-    <div class="progress-container">
+    <div class="progress-container" aria-hidden="true">
         <div class="progress-bar"></div>
     </div>
 
-    <header>
+    <!-- Acessibilidade: Skip to content link -->
+    <a href="#main-content" class="skip-to-content">Ir para conteúdo principal</a>
+
+    <header role="banner">
         <div class="centro">
             <span class="titulo">Star Hub</span>
             <nav class="nav-principal">
@@ -56,7 +63,7 @@
     </header>
 
     <div id="side-menu" class="side-menu">
-        <span class="btn-fechar" id="btn-fechar" data-tooltip="Fechar Menu">&times;</span>
+        <span class="btn-fechar" id="btn-fechar" data-tooltip="Fechar Menu" role="button" aria-label="Fechar Menu Lateral" tabindex="0">&times;</span>
         <ul class="nav-secundaria">
             <li><a href="artes.html" data-tooltip="Galeria de Obras">Artes</a></li>
             <li><a href="gostos.html" data-tooltip="Meus Tesouros">Gostos</a></li>
@@ -64,11 +71,11 @@
         </ul>
     </div>
 
-    <main>
+    <main id="main-content" role="main">
     <section class="pagina-contato">
         <div class="contato-cabecalho">
             <h1 class="titulo">Conexão Estelar</h1>
-            <p style="color: rgba(255,255,255,0.7); margin-top: 15px;">
+            <p style="color: rgba(255, 212, 255, 0.95); margin-top: 1rem;">
                 Sintonize nas minhas frequências e acompanhe minha jornada em outras galáxias digitais.
             </p>
         </div>
@@ -76,49 +83,53 @@
         <div class="contato-grid">
     <div class="card-social youtube reveal-section">
         <div class="avatar-ring">
-            <img src="img/Logo.jpg" alt="Fadoco" class="avatar-img">
+            <img src="img/Logo.jpg" alt="Fadoco" class="avatar-img" decoding="async" loading="lazy">
         </div>
-        <h2 class="subtitulo-card">Fadoco_Edits <br> YOUTUBE</h2>
+        <h2 class="subtitulo-card"><span class="social-name youtube">Fadoco_Edits</span> <br> <span class="social-name youtube">YOUTUBE</span></h2>
+        <div class="social-quote-block youtube">Onde minhas edições ganham vida e histórias se desdobram em movimento...</div>
         <div class="video-preview-container">
-            <iframe src="https://www.youtube.com/embed/9ycveKlQUtA?autoplay=1&mute=1&loop=1&playlist=9ycveKlQUtA&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Fadoco Edits"></iframe>
+            <iframe src="https://www.youtube.com/embed/9ycveKlQUtA?autoplay=1&mute=1&loop=1&playlist=9ycveKlQUtA&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Fadoco Edits" loading="lazy" decoding="async"></iframe>
         </div>
-        <a href="https://www.youtube.com/channel/UCbGVdb1UueHEUBH7efKDRtw" target="_blank" class="btn-visitar" data-tooltip="Ir para o YouTube">Visitar Canal</a>
+        <a href="https://www.youtube.com/channel/UCbGVdb1UueHEUBH7efKDRtw" target="_blank" rel="noopener noreferrer" class="btn-visitar" data-tooltip="Ir para o YouTube">Visitar Canal</a>
     </div>
 
    <div class="card-social tiktok reveal-section">
     <div class="avatar-ring">
-        <img src="img/Logo.jpg" alt="Fadoco" class="avatar-img">
+        <img src="img/Logo.jpg" alt="Fadoco" class="avatar-img" decoding="async" loading="lazy">
     </div>
-    <h2 class="subtitulo-card">Fadoco_Edits <br> TikTok</h2>
+    <h2 class="subtitulo-card"><span class="social-name tiktok">Fadoco_Edits</span> <br> <span class="social-name tiktok">TikTok</span></h2>
+    <div class="social-quote-block tiktok">Sons, movimento e criatividade condensados em 60 segundos de pura energia...</div>
     <div class="video-preview-container">
-        <video autoplay muted loop playsinline class="video-local">
+        <video autoplay muted loop playsinline class="video-local" decoding="async" preload="metadata">
             <source src="img/SnapVid.Net_7364363821319818501-hd.mp4" type="video/mp4">
             Seu navegador não suporta vídeos.
         </video>
     </div>
-    <a href="https://www.tiktok.com/@fadoco_edits" target="_blank" class="btn-visitar" data-tooltip="Seguir no TikTok">Seguir no TikTok</a>
+    <a href="https://www.tiktok.com/@fadoco_edits" target="_blank" rel="noopener noreferrer" class="btn-visitar" data-tooltip="Seguir no TikTok">Seguir no TikTok</a>
 </div>
 
     <div class="card-social instagram reveal-section">
         <div class="avatar-ring">
-            <img src="img/Logo.jpg" alt="Fadoco" class="avatar-img">
+            <img src="img/Logo.jpg" alt="Fadoco" class="avatar-img" decoding="async" loading="lazy">
         </div>
-        <h2 class="subtitulo-card">Fadoco_Oficial <br> INSTAGRAM</h2>
+        <h2 class="subtitulo-card"><span class="social-name instagram">Fadoco_Oficial</span> <br> <span class="social-name instagram">INSTAGRAM</span></h2>
+        <div class="social-quote-block instagram">Momentos capturados na frequência visual, histórias que ecoam através das imagens...</div>
         <div class="stories-placeholder">
-            <p>CONFIRA OS STORIES</p>
+            <p>Confira os Stories</p>
         </div>
-        <a href="https://www.instagram.com/fadoco_oficial/" target="_blank" class="btn-visitar" data-tooltip="Seguir no Instagram">Visitar Perfil</a>
+        <a href="https://www.instagram.com/fadoco_oficial/" target="_blank" rel="noopener noreferrer" class="btn-visitar" data-tooltip="Seguir no Instagram">Visitar Perfil</a>
     </div>
 
     <div class="card-social gameplay reveal-section">
         <div class="avatar-ring">
-            <img src="img/Logo.jpg" alt="Fadoco" class="avatar-img">
+            <img src="img/Logo.jpg" alt="Fadoco" class="avatar-img" decoding="async" loading="lazy">
         </div>
-        <h2 class="subtitulo-card">Fadoco <br> CANAL DE GAMEPLAY</h2>
+        <h2 class="subtitulo-card"><span class="social-name gameplay">Fadoco</span> <br> <span class="social-name gameplay">GAMEPLAY</span></h2>
+        <div class="social-quote-block gameplay">Aventuras digitais ao vivo, onde cada sessão é uma jornada através de mundos desconhecidos...</div>
         <div class="video-preview-container">
-            <iframe src="https://www.youtube.com/embed/oC8zxGMloFI?autoplay=1&mute=1&loop=1&playlist=oC8zxGMloFI&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/oC8zxGMloFI?autoplay=1&mute=1&loop=1&playlist=oC8zxGMloFI&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" decoding="async"></iframe>
         </div>
-        <a href="https://www.youtube.com/channel/UC2Stl2EtlKYqtWnsKOhL3kA" target="_blank" class="btn-visitar" data-tooltip="Ir para o Canal">Inscrever-se</a>
+        <a href="https://www.youtube.com/channel/UC2Stl2EtlKYqtWnsKOhL3kA" target="_blank" rel="noopener noreferrer" class="btn-visitar" data-tooltip="Ir para o Canal">Inscrever-se</a>
     </div>
         </div>
     </section>
@@ -126,8 +137,22 @@
 
     <footer class="main-footer">
         <div class="footer-content">
-            <p>© <span id="year"></span> STAR HUB - FADOCO UNIVERSE</p>
-            <p style="font-size: 0.6rem; margin-top: 10px; opacity: 0.5;">SINAL TRANSMITIDO VIA DEEP SPACE NETWORK</p>
+            <div class="footer-links">
+                <a href="lore.html" class="footer-link">Lore</a>
+                <span class="footer-divider">•</span>
+                <a href="gostos.html" class="footer-link">Gostos</a>
+                <span class="footer-divider">•</span>
+                <a href="artes.html" class="footer-link">Artes</a>
+                <span class="footer-divider">•</span>
+                <a href="redes_sociais.html" class="footer-link">Contato</a>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.youtube.com/channel/UCbGVdb1UueHEUBH7efKDRtw" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">▶</a>
+                <a href="https://www.tiktok.com/@fadoco_edits" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok">♪</a>
+                <a href="https://www.instagram.com/fluidpersona/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">📷</a>
+            </div>
+            <p class="footer-main">© <span id="year"></span> STAR HUB - FADOCO UNIVERSE</p>
+            <p class="footer-sub">SINAL TRANSMITIDO VIA DEEP SPACE NETWORK</p>
         </div>
     </footer>
 

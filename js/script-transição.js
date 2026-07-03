@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isInSubfolder = path.includes('/light-novel/') || path.includes('\\light-novel\\');
 
     // O vídeo de carregamento está sempre na pasta img na raiz do site
-    const videoSrc = isInSubfolder ? '../img/personagem%25de%25carregamento.mp4' : 'img/personagem%25de%25carregamento.mp4';
+    const videoSrc = isInSubfolder ? '../img/personagem-carregamento.mp4' : 'img/personagem-carregamento.mp4';
 
     if (!transitionOverlay) {
         transitionOverlay = document.createElement('div');
@@ -204,13 +204,17 @@ document.addEventListener('DOMContentLoaded', () => {
     tooltip.className = 'hud-tooltip';
     document.body.appendChild(tooltip);
 
+    let currentElement = null;
+
     // Delegação de eventos para suportar elementos dinâmicos
-    document.body.addEventListener('mouseenter', (e) => {
+    document.body.addEventListener('mouseover', (e) => {
         // Ignora se for um dispositivo touch para evitar balões "presos"
         if (window.matchMedia("(pointer: coarse)").matches) return;
 
         const el = e.target.closest('[data-tooltip]');
         if (!el) return;
+        
+        currentElement = el;
         tooltip.innerText = el.getAttribute('data-tooltip');
         tooltip.style.opacity = '1';
     }, true);
@@ -231,8 +235,12 @@ document.addEventListener('DOMContentLoaded', () => {
         tooltip.style.top = y + 'px';
     }, true);
 
-    document.body.addEventListener('mouseleave', (e) => {
-        if (e.target.closest('[data-tooltip]')) tooltip.style.opacity = '0';
+    document.body.addEventListener('mouseout', (e) => {
+        const el = e.target.closest('[data-tooltip]');
+        if (el && currentElement === el) {
+            tooltip.style.opacity = '0';
+            currentElement = null;
+        }
     }, true);
 
     // --- ATUALIZAÇÃO DO ANO NO RODAPÉ ---

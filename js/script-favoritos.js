@@ -156,6 +156,8 @@ window.toggleFavorite = (e, btn, directTitle = null) => {
     if (favorites.some(f => f.title === title)) {
         favorites = favorites.filter(f => f.title !== title);
         showNotification(`Removido: ${title}`);
+        if (btn) btn.classList.remove('active');
+        if (card) card.classList.remove('is-favorite');
     } else {
         if (!card) return; // Segurança: só adiciona se houver contexto do card
         

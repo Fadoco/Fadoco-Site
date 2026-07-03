@@ -264,10 +264,15 @@ body.site-loaded :is(header, main, footer, .background, #back-to-top, .progress-
     background: rgba(35, 35, 60, 0.95); /* Container mais claro para destacar o texto */
     padding: 40px;
     border-radius: 20px;
-    border: var(--border-neon);
+    border: 2px solid rgba(0, 212, 255, 0.5);
     backdrop-filter: blur(10px);
     margin-bottom: 60px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.2), inset 0 0 20px rgba(0, 212, 255, 0.05);
+    transition: all 0.4s ease;
+}
+
+.perfil-topo:hover {
+    box-shadow: 0 0 40px rgba(138, 43, 226, 0.3), inset 0 0 30px rgba(138, 43, 226, 0.08);
 }
 @media (max-width: 768px) {
     .perfil-topo { flex-direction: column; text-align: center; padding: 25px; }
@@ -409,9 +414,11 @@ body.site-loaded :is(header, main, footer, .background, #back-to-top, .progress-
 }
 
 .btn-capitulo:hover {
-    background: rgba(0, 212, 255, 0.1);
+    background: rgba(0, 212, 255, 0.15);
     border-color: var(--primary-neon);
-    transform: translateX(10px);
+    border-width: 2px;
+    transform: translateX(10px) translateY(-3px);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4), 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .cap-numero {
@@ -466,6 +473,16 @@ body.site-loaded :is(header, main, footer, .background, #back-to-top, .progress-
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap;
+    background: linear-gradient(135deg, #00d4ff 0%, #8a2be2 50%, #00ffaa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.4)); }
+    50% { filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.6)); }
 }
 
 .header-personagem .btn-voltar {
@@ -619,6 +636,18 @@ body.site-loaded :is(header, main, footer, .background, #back-to-top, .progress-
     text-align: justify;
 }
 
+.conteudo-capitulo p:first-of-type::first-letter {
+    font-size: 2em;
+    font-weight: 900;
+    float: left;
+    line-height: 0.8;
+    margin-right: 8px;
+    margin-top: 5px;
+    color: #00d4ff;
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+    font-family: 'Orbitron', sans-serif;
+}
+
 .nav-leitura-container {
     display: flex;
     flex-direction: column;
@@ -649,8 +678,15 @@ body.site-loaded :is(header, main, footer, .background, #back-to-top, .progress-
 .btn-voltar:hover {
     background: var(--primary-neon);
     color: #000;
-    box-shadow: 0 0 30px var(--primary-neon);
-    transform: translateY(-3px);
+    box-shadow: 0 0 30px var(--primary-neon), 0 0 60px rgba(0, 212, 255, 0.3);
+    transform: translateY(-5px) scaleX(1.05);
+}
+
+.btn-proximo:hover {
+    background: var(--primary-neon);
+    color: #000;
+    box-shadow: 0 0 30px var(--primary-neon), 0 0 60px rgba(0, 212, 255, 0.3);
+    transform: translateY(-5px) scaleX(1.05);
 }
 
 .btn-concluir {
@@ -673,8 +709,8 @@ body.site-loaded :is(header, main, footer, .background, #back-to-top, .progress-
 .btn-concluir:hover {
     background: var(--secondary-neon);
     color: white;
-    box-shadow: 0 0 25px var(--secondary-neon);
-    transform: translateY(-3px);
+    box-shadow: 0 0 25px var(--secondary-neon), 0 0 50px rgba(138, 43, 226, 0.3);
+    transform: translateY(-5px) scaleX(1.05);
 }
 
 /* --- 5. GLOBAL UI COMPONENTS --- */
@@ -752,21 +788,88 @@ body.site-loaded :is(header, main, footer, .background, #back-to-top, .progress-
     box-shadow: 0 0 25px var(--primary-neon);
 }
 
-.main-footer { /* Mantém os estilos existentes, eles parecem bons */
+.main-footer {
     width: 100%;
-    padding: 30px 10% 20px;
-    background: rgba(5, 5, 15, 0.8);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(0, 212, 255, 0.1);
-    text-align: center;
-    margin-top: 50px;
+    padding: 40px 10% 30px;
+    background: linear-gradient(180deg, rgba(5, 5, 15, 0), rgba(0, 212, 255, 0.05));
+    border-top: 1px solid rgba(0, 212, 255, 0.2);
+    margin-top: 60px;
+    animation: fadeInUp 0.8s ease-out;
 }
 
-.footer-content p { /* Mantém os estilos existentes, eles parecem bons */
-    color: rgba(255, 255, 255, 0.4);
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
     font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+}
+
+.footer-divider {
+    color: rgba(0, 212, 255, 0.4);
+    font-size: 0.8rem;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.social-icon {
+    color: rgba(0, 212, 255, 0.7);
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.social-icon:hover {
+    color: #00d4ff;
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
+    transform: scale(1.15);
+}
+
+.footer-main {
+    color: rgba(0, 212, 255, 0.8);
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-shadow: 0 0 8px rgba(0, 212, 255, 0.2);
+}
+
+.footer-sub {
+    color: rgba(0, 212, 255, 0.4);
     font-size: 0.75rem;
-    letter-spacing: 2px;
+    margin: 8px 0 0;
 }
 
 /* --- 6. RESPONSIVITY --- */

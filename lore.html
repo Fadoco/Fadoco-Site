@@ -15,16 +15,19 @@
     <meta name="theme-color" content="#8a2be2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://www.googleapis.com">
+    <link rel="dns-prefetch" href="https://www.youtube.com">
+    <link rel="dns-prefetch" href="https://www.tiktok.com">
+    <link rel="dns-prefetch" href="https://www.instagram.com">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lore-enhancements.css">
 </head>
 <body>
     <!-- Overlay de Transição Direto no HTML para evitar flash do site -->
     <div id="hyperspace" class="hyperspace-overlay">
         <div class="scanlines"></div>
         <div class="noise"></div>
-        <video class="loading-video" autoplay loop muted playsinline style="background: #000;">
-            <source src="img/personagem%25de%25carregamento.mp4" type="video/mp4">
+        <video class="loading-video" autoplay loop muted playsinline style="background: #000;" aria-hidden="true">
+            <source src="img/personagem-carregamento.mp4" type="video/mp4">
         </video>
         <div class="loading-content">
             <p class="loading-text">Sintonizando com o universo</p>
@@ -32,13 +35,19 @@
         </div>
     </div>
 
-    <img class="background" src="img/Background (1).gif" alt="" loading="lazy">
+    <video class="background" autoplay loop muted playsinline preload="metadata" decoding="async" style="background: #000;" aria-hidden="true">
+        <source src="img/Background.mp4" type="video/mp4">
+        <img src="img/Background (1).gif" alt="" loading="lazy" decoding="async" aria-hidden="true">
+    </video>
+    <!-- Acessibilidade: Skip to content link -->
+    <a href="#main-content" class="skip-to-content">Ir para conteúdo principal</a>
+
     <!-- Barra de Progresso de Leitura -->
-    <div class="progress-container">
+    <div class="progress-container" aria-hidden="true">
         <div class="progress-bar"></div>
     </div>
 
-    <header>
+    <header role="banner">
         <div class="centro">
             <span class="titulo">Star Hub</span>
             <nav class="nav-principal">
@@ -51,12 +60,12 @@
         </div>
 
         <div class="menu-extra">
-            <button class="btn-menu" id="btn-menu" data-tooltip="Outros Sistemas">☰</button>
+            <button class="btn-menu" id="btn-menu" data-tooltip="Outros Sistemas" aria-label="Abrir Menu Lateral" aria-expanded="false" aria-controls="side-menu">☰</button>
         </div>
     </header>
 
     <div id="side-menu" class="side-menu">
-        <span class="btn-fechar" id="btn-fechar" data-tooltip="Fechar Menu">&times;</span>
+        <span class="btn-fechar" id="btn-fechar" data-tooltip="Fechar Menu" role="button" aria-label="Fechar Menu Lateral" tabindex="0">&times;</span>
         <ul class="nav-secundaria">
             <li><a href="artes.html" data-tooltip="Galeria de Obras">Artes</a></li>
             <li><a href="gostos.html" data-tooltip="Meus Tesouros">Gostos</a></li>
@@ -64,8 +73,8 @@
         </ul>
     </div>
 
-    <main>
-        <section class="lore reveal-section">
+    <main id="main-content" role="main">
+        <section class="lore lore-home reveal-section" id="lore-intro">
             <div class="container-lore">
                 <article class="sobre-mim">
                     <h1 class="subtitulo-estelar">Minha Lore</h1>
@@ -74,6 +83,7 @@
                             Sou alguém bem comum, na verdade, gosto de animes, filmes antigos e séries. 
                             Faço algumas edits como hobby e gosto de colecionar mídias como memes e filmes que encontro pelo caminho.
                         </p>
+                        <div class="quote-block">Um criador, um coletor de histórias, um explorador do universo da mídia...</div>
                         <p>
                             Curto vários tipos de jogos como Minecraft, CoD (Black Ops 2 é meu favorito) e Terraria. 
                             A lista vai longe!
@@ -87,7 +97,7 @@
                 </article>
             </div>
         </section>
-        <section class="lore lore-invert reveal-section">
+        <section class="lore lore-invert lore-featured reveal-section" id="lore-fadoco">
             <div class="container-lore lore-right">
                 <article class="sobre-mim">
                     <h2 class="subtitulo-estelar">Fadoco Lore</h2>
@@ -95,12 +105,14 @@
                         <p>
                             Fadoco surgiu como apenas um apelido de brincadeira em uma chamada aleatória no Discord, mas acabou que de tanto zombarem, acabei adotando o nome para mim, o que acabou evoluindo tanto que hoje em dia sou reconhecido apenas pelo meu apelido e muitos nem sabem meu nome verdadeiro. Depois de muito tempo, acabei fazendo anotações estando entediado, o que ocasionou a criação de uma história (lore) tanto para o meu apelido quanto para um personagem que o representasse.
                         </p>
+                        <div class="quote-block">Um apelido de brincadeira que evoluiu para uma identidade, uma história, uma existência...</div>
                         <p>Ele é alguém que me representa no mundo virtual, mas, ao mesmo tempo, ele não sou eu?... Pois eu também sou um fragmento dele... É difícil de explicar, mas eu vou tentar :)</p>
                     </div>
                 </article>
 
                 <article class="chamada-lore">
                     <h3 class="destaque">Parece um pouco confuso, mas vocês vão entender, eu garanto... <br>eu acho kkk</h3>
+                    <div class="quote-block">Somos reflexos um do outro, duas faces da mesma moeda, duas existências que se completam...</div>
                     <p>Se você quer saber mais, arrasta para cima!</p>
                 </article>
             </div>
@@ -117,11 +129,14 @@
     </div>
 
     <div class="scroll-vazio">
+        <div class="quote-block">Antes de tudo: apenas o vazio infinito, até que um ser divino trouxe luz à escuridão...</div>
+
         <p>
             ?? - Antes dos humanos, dos animais, dos planetas, das estrelas, das galáxias, e até mesmo antes de os universos existirem, não existia nada, não se via nada e não se sentia nada. O que se podia ver era o completo e imensurável vazio, até que um ser divino pairou sobre aquele completo nada, com uma energia calma e calorosa, adorado e clamado por muitos como aquele que trouxe luz à escuridão e trouxe esperança aonde nem mesmo a vida poderia existir. Essa existência benevolente, com um simples passar de suas mãos, foi trazendo luz, cor e vida a este plano vazio, criando estrelas, planetas, galáxias e tudo o que conhecemos hoje...
          </p>
+
         <p>
-            ??? - O Criador, como os que sabem de sua existência o chamam, após ter feito este milagre (A Criação), ficou maravilhado com ela. Com o quão vasto e belo era o que havia acabado de criar, pensou que poderia fazer algo para melhorar ainda mais...
+            ??? - <span class="transcendental-name">O Criador</span>, como os que sabem de sua existência o chamam, após ter feito este milagre (A Criação), ficou maravilhado com ela. Com o quão vasto e belo era o que havia acabado de criar, pensou que poderia fazer algo para melhorar ainda mais...
         </p>
         <p>
             ??? - Ele decidiu criar dez irmãos para cuidar e proteger sua criação: <br>
@@ -138,59 +153,92 @@
             Corvus <br>
             </p>
             <p>
-            ??? - Os Transcendentais são um grupo de seres encarregados pelo Criador
+            ??? - Os <span class="transcendental-name">Transcendentais</span> são um grupo de seres encarregados pelo Criador
             para manter toda a criação organizada e em equilíbrio, então
             ele se absteve, deixando seus filhos aos cuidados de tudo o que havia criado. <br>
             </p>
+
+            <div class="quote-block">Dez irmãos escolhidos para guardião do universo criado...</div>
+
             <p>
             ??? - Os dez irmãos decidiram criar um vínculo para a
             prosperidade da Criação, então cada um deu um pouco de si para o vínculo.
             </p>
+
+            <div class="quote-block">Cada um oferece uma parte de sua própria essência para o bem maior...</div>
+
             <p>
             
-            Andrômeda lhe deu sua beleza <br>
-            Apus o abençoou com velocidade <br>
-            Canes lhe ensinou seu senso de caça <br>
-            Centauros lhe concedeu uma força avassaladora <br>
-            Dourado o banhou em sua luz <br>
-            Draco o contagiou com sua coragem e orgulho <br>
-            Delphinos deu-lhe um senso de bondade <br>
-            Hércules cedeu seu heroísmo <br>
-            Libra lhe ensinou a verdadeira justiça <br>
+            <span class="transcendental-name">Andrômeda</span> lhe deu sua beleza <br>
+            <span class="transcendental-name">Apus</span> o abençoou com velocidade <br>
+            <span class="transcendental-name">Canes</span> lhe ensinou seu senso de caça <br>
+            <span class="transcendental-name">Centauros</span> lhe concedeu uma força avassaladora <br>
+            <span class="transcendental-name">Dourado</span> o banhou em sua luz <br>
+            <span class="transcendental-name">Draco</span> o contagiou com sua coragem e orgulho <br>
+            <span class="transcendental-name">Delphinos</span> deu-lhe um senso de bondade <br>
+            <span class="transcendental-name">Hércules</span> cedeu seu heroísmo <br>
+            <span class="transcendental-name">Libra</span> lhe ensinou a verdadeira justiça <br>
            </p>
 
             <p>
-            ??? - Mas apenas Corvus, o mais sombrio dos irmãos, via aquele vínculo como uma ameaça a si e à Criação. <br> 
+            ??? - Mas apenas <span class="transcendental-name corvus">Corvus</span>, o mais sombrio dos irmãos, via aquele vínculo como uma ameaça a si e à Criação. <br> 
             </p>
+
+            <div class="quote-block">Um único irmão, corrompido pela escuridão, vê destruição onde outros veem harmonia...</div>
 
             <p>
             ??? - Então o décimo irmão imbuiu o vínculo com a mais severa escuridão no intuito de destruí-lo
             e antes que seus irmãos pudessem fazer algo, ele abriu uma fenda mandando o vínculo para um lugar afastado onde nenhum deles poderia ver, onde somente o Criador poderia achá-lo. 
             </p>
 
+            <div class="quote-block">O vínculo foi mandado para um lugar distante, onde apenas o Criador poderia alcançá-lo...</div>
+
             <p>
-            ??? - Ele o mandou para o Universo Principal, mas devido à energia divina do Universo Principal, algo que nenhum dos irmãos haviam pensado,
+            ??? - Ele o mandou para o <span class="transcendental-name">Universo Principal</span>, mas devido à energia divina do Universo Principal, algo que nenhum dos irmãos haviam pensado,
             aconteceu: o vínculo se fortaleceu e criou vida.
             </p>
+
+            <div class="quote-block">Destinado a ser destruído, o vínculo renasce como vida em um lugar inesperado...</div>
 
             <p>
             ??? - Um ser, sem saber como e de onde veio, banhado em luz, capaz de controlar a energia divina,
             carregando as nove características dos irmãos e a terrível escuridão de Corvus.
             </p>
 
+            <div class="quote-block">Um ser sem passado, carregando a luz dos nove irmãos e a escuridão de Corvus dentro de si...</div>
+
             <p>
             ??? - Uma pequena e inocente criança vagando pelo vasto e frio Universo Principal, tendo que se proteger de tudo e de todos, sozinho, devido à sua luz que muitos seres da escuridão cobiçam, apenas procurando um lugar para chamar de lar, para haver um motivo para existir e deixar de vagar pela imensidão, sem ao menos ter um nome para se chamar...
-        </p>
+            </p>
+
+            <div class="quote-block">Uma criança solitária, procurando um lar, um motivo para existir, um nome para se chamar... Talvez você seja essa criança ouvindo essa história agora...</div>
         </div>
 </article>
     </main>
 
     <footer class="main-footer">
         <div class="footer-content">
-            <p>© <span id="year"></span> STAR HUB - FADOCO UNIVERSE</p>
-            <p style="font-size: 0.6rem; margin-top: 10px; opacity: 0.5;">SINAL TRANSMITIDO VIA DEEP SPACE NETWORK</p>
+            <div class="footer-links">
+                <a href="lore.html" class="footer-link">Lore</a>
+                <span class="footer-divider">•</span>
+                <a href="gostos.html" class="footer-link">Gostos</a>
+                <span class="footer-divider">•</span>
+                <a href="artes.html" class="footer-link">Artes</a>
+                <span class="footer-divider">•</span>
+                <a href="redes_sociais.html" class="footer-link">Contato</a>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.youtube.com/channel/UCbGVdb1UueHEUBH7efKDRtw" target="_blank" class="social-icon" aria-label="YouTube">▶</a>
+                <a href="https://www.tiktok.com/@fadoco_edits" target="_blank" class="social-icon" aria-label="TikTok">♪</a>
+                <a href="https://www.instagram.com/fluidpersona/" target="_blank" class="social-icon" aria-label="Instagram">📷</a>
+            </div>
+            <p class="footer-main">© <span id="year"></span> STAR HUB - FADOCO UNIVERSE</p>
+            <p class="footer-sub">SINAL TRANSMITIDO VIA DEEP SPACE NETWORK</p>
         </div>
     </footer>
+
+    <script defer src="js/script.js"></script>
+    <script defer src="js/script-transição.js"></script>
 
     <!-- Containers para o funcionamento do Lightbox e Favoritos -->
     <div id="overlay" class="overlay">

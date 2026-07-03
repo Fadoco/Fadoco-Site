@@ -13,15 +13,48 @@
     <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#00d4ff">
+    
+    <!-- Performance: Preconnect para Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Performance: DNS Prefetch para externos -->
+    <link rel="dns-prefetch" href="https://www.youtube.com">
+    <link rel="dns-prefetch" href="https://www.tiktok.com">
+    <link rel="dns-prefetch" href="https://www.instagram.com">
+    
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Performance: Optimize image loading strategy -->
+    <script>
+        // Lazy load background image only when site is ready
+        window.addEventListener('load', () => {
+            const bgImg = document.querySelector('.background');
+            if (bgImg && bgImg.dataset.src) {
+                bgImg.src = bgImg.dataset.src;
+                bgImg.removeAttribute('data-src');
+            }
+        });
+    </script>
 </head>
 <body>
+    <!-- 
+        PERFORMANCE NOTES:
+        1. Background GIF (89MB) - CRITICAL ISSUE: Considerar conversão para MP4 ou WebP animado
+        2. Preconnect for Google Fonts adicionado ✓
+        3. DNS prefetch para domínios externos adicionado ✓
+        4. Image decoding async ✓
+        5. Scripts com defer para não bloquear renderização ✓
+        
+        TODO: Comprimir/converter Background.gif para melhorar Core Web Vitals
+    -->
+    
     <!-- Overlay de Transição Direto no HTML para evitar flash do site -->
     <div id="hyperspace" class="hyperspace-overlay">
         <div class="scanlines"></div>
         <div class="noise"></div>
         <video class="loading-video" autoplay loop muted playsinline style="background: #000;">
-            <source src="img/personagem%25de%25carregamento.mp4" type="video/mp4">
+            <source src="img/personagem-carregamento.mp4" type="video/mp4">
         </video>
         <div class="loading-content">
             <p class="loading-text">Sintonizando com o universo</p>
@@ -29,14 +62,21 @@
         </div>
     </div>
 
-     <img class="background" src="img/Background (1).gif" alt="Fundo Estrelado" loading="lazy">
+    <!-- Acessibilidade: Skip to content link -->
+    <a href="#main-content" class="skip-to-content">Ir para conteúdo principal</a>
+
+    <video class="background" autoplay loop muted playsinline preload="metadata" decoding="async" style="background: #000;" aria-hidden="true">
+        <source src="img/Background.mp4" type="video/mp4">
+        <!-- Fallback para navegadores antigos -->
+        <img src="img/Background (1).gif" alt="" loading="lazy" decoding="async" aria-hidden="true">
+    </video>
     
     <!-- Barra de Progresso de Leitura -->
-    <div class="progress-container">
+    <div class="progress-container" aria-hidden="true"></div>
         <div class="progress-bar"></div>
     </div>
 
-    <header>
+    <header role="banner">
         <div class="centro">
             <span class="titulo">Star Hub</span>
             <nav class="nav-principal">
@@ -62,37 +102,42 @@
         </ul>
     </div>
 
-    <main>
-        <section class="home reveal-section">
-            <div class="container-home">
+    <main id="main-content" role="main">
+        <section class="home home-hero reveal-section" id="hero">
+            <div class="hero-container">
+                <div class="hero-avatar">
+                    <img src="img/Logo.jpg" alt="Avatar de Fadoco" class="avatar-img" decoding="async">
+                </div>
                 <div class="home-text">
                     <h5>Bem-vindo ao</h5>
-                    <h1>Coração do Universo</h1>
+                    <h1 class="hero-title">Coração do Universo</h1>
                     <p>Aqui contarei um pouco sobre mim e sobre meu personagem 
                         <strong>Fadoco</strong>. 
-                        Espero que você goste de sua estadia nessa viagem interestelar.
+                        Espero que você goste de sua viagem interestelar.
                     </p>
-                    <a href="lore.html" class="btn" data-tooltip="Iniciar Jornada">Conhecer Fadoco</a>
+                    <a href="lore.html" class="btn btn-primary btn-hero" data-tooltip="Iniciar Jornada">Começar Jornada</a>
                 </div>
             </div>
         </section>
 
-        <section class="home home-invert reveal-section">
-            <div class="container-home home-right">
+        <section class="home home-invert home-ln reveal-section" id="light-novel">
+            <div class="container-home home-right home-right-featured">
+                <div class="section-icon">📖</div>
                 <div class="home-text">
                     <h5>Leia a</h5>
-                    <h1>Light Novel</h1>
+                    <h1 class="featured-title">Light Novel</h1>
                     <p>Aprofunde-se na narrativa oficial, explorando os capítulos e segredos do universo de Fadoco.
                     </p>
                     <div class="home-btns">
-                        <a href="light novel/personagem.html" class="btn" data-tooltip="História do Personagem">Ler Capítulos</a>
+                        <a href="light novel/personagem.html" class="btn btn-secondary" data-tooltip="História do Personagem">Ler Capítulos</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="home home-invert reveal-section">
+        <section class="home home-invert reveal-section" id="gostos">
             <div class="container-home home-right">
+                <div class="section-icon">🎮</div>
                 <div class="home-text">
                     <h5>Explorando</h5>
                     <h1>O Universo</h1>
@@ -105,8 +150,9 @@
             </div>
         </section>
 
-        <section class="home reveal-section">
+        <section class="home reveal-section" id="artes">
             <div class="container-home">
+                <div class="section-icon">🎨</div>
                 <div class="home-text">
                     <h5>Criatividade</h5>
                     <h1>Galeria de Artes</h1>
@@ -119,8 +165,9 @@
             </div>
         </section>
 
-        <section class="home home-invert reveal-section">
+        <section class="home home-invert reveal-section" id="contato">
             <div class="container-home home-right">
+                <div class="section-icon">📡</div>
                 <div class="home-text">
                     <h5>Comunicação</h5>
                     <h1>Conexão Estelar</h1>
@@ -136,8 +183,22 @@
 
     <footer class="main-footer">
         <div class="footer-content">
-            <p>© <span id="year"></span> STAR HUB - FADOCO UNIVERSE</p>
-            <p style="font-size: 0.6rem; margin-top: 10px; opacity: 0.5;">SINAL TRANSMITIDO VIA DEEP SPACE NETWORK</p>
+            <div class="footer-links">
+                <a href="lore.html" class="footer-link">Lore</a>
+                <span class="footer-divider">•</span>
+                <a href="gostos.html" class="footer-link">Gostos</a>
+                <span class="footer-divider">•</span>
+                <a href="artes.html" class="footer-link">Artes</a>
+                <span class="footer-divider">•</span>
+                <a href="redes_sociais.html" class="footer-link">Contato</a>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.youtube.com/channel/UCbGVdb1UueHEUBH7efKDRtw" target="_blank" class="social-icon" aria-label="YouTube">▶</a>
+                <a href="https://www.tiktok.com/@fadoco_edits" target="_blank" class="social-icon" aria-label="TikTok">♪</a>
+                <a href="https://www.instagram.com/fluidpersona/" target="_blank" class="social-icon" aria-label="Instagram">📷</a>
+            </div>
+            <p class="footer-main">© <span id="year"></span> STAR HUB - FADOCO UNIVERSE</p>
+            <p class="footer-sub">SINAL TRANSMITIDO VIA DEEP SPACE NETWORK</p>
         </div>
     </footer>
 
