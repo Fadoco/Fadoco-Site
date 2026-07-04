@@ -78,9 +78,9 @@ const sanitizeTags = (tags) => {
 // --- CONFIGURAÇÃO DA API DO YOUTUBE ---
 // Chamada direta à API do YouTube (chave visível no código)
 const YT_CONFIG = {
+    KEY: 'AIzaSyDaPbh2ZDKB3Gq16K68V8xatYZ4ZTy2hlQ',
     PLAYLIST_ID: 'PLKQ_ZTvlL-M-XEn1Biw7iMalaIGxl3IBg',
     MAX_RESULTS: 50,
-    API_KEY: 'AIzaSyDpd3zy6K0MXW-UUhKwmRPcJfvCF-Yq0fg', // ⚠️ Chave pública para YouTube Data API
     API_URL: 'https://www.googleapis.com/youtube/v3/playlistItems'
 };
 let ytPlaylistLoaded = false;
@@ -126,7 +126,7 @@ window.carregarPlaylistYouTube = async function(pageToken = '') {
 
         // Chamar YouTube API diretamente
         const params = new URLSearchParams({
-            key: YT_CONFIG.API_KEY,
+            key: YT_CONFIG.KEY,
             playlistId: YT_CONFIG.PLAYLIST_ID,
             part: 'snippet,contentDetails',
             maxResults: YT_CONFIG.MAX_RESULTS,
