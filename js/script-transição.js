@@ -293,5 +293,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+    // --- 6. HANDLER PARA BACK-FORWARD CACHE (BFCACHE) ---
+    // Detecta quando a página é restaurada do cache (usar botão voltar)
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            console.log('📖 Página restaurada do Back-Forward Cache - reiniciando loading');
+            
+            // Reset do estado
+            document.body.classList.remove('site-loaded');
+            transitionOverlay.classList.remove('finished');
+            
+            // Reinicia o loading automático
+            setTimeout(() => {
+                console.log('✅ Fechando loading após 1.2s (restaurado do cache)');
+                transitionOverlay.classList.add('finished');
+                setTimeout(() => {
+                    document.body.classList.add('site-loaded');
+                    if (typeof updateProgressBar === 'function') updateProgressBar();
+                }, 100);
+            }, 1200);
+        }
+    });
 });
       
