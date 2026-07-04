@@ -202,14 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.15 });
 
     document.querySelectorAll('.reveal-section').forEach(section => window.revealObserver.observe(section));
-    
-    // Limpar observers ao sair da página (evitar memory leak)
-    window.addEventListener('beforeunload', () => {
-        if (window.revealObserver) {
-            window.revealObserver.disconnect();
-            window.revealObserver = null;
-        }
-    });
 
     // --- 5. HUD DYNAMIC TOOLTIPS ---
     const tooltip = document.createElement('div');
