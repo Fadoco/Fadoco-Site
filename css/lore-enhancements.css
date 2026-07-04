@@ -72,9 +72,6 @@
     border-radius: 4px;
     font-style: italic;
     color: rgba(255, 255, 255, 0.95);
-    animation: quoteGlow 3s ease-in-out infinite;
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
 }
 
 .quote-block::before {
@@ -100,8 +97,7 @@
 .transcendental-name:hover {
     color: var(--secondary-neon);
     background: rgba(138, 43, 226, 0.15);
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.4), inset 0 0 10px rgba(138, 43, 226, 0.2);
-    animation: characterHover 1.5s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
     text-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
 }
 
@@ -113,6 +109,6 @@
 .transcendental-name.corvus:hover {
     color: #ff1744;
     background: rgba(255, 23, 68, 0.15);
-    box-shadow: 0 0 15px rgba(255, 23, 68, 0.5), inset 0 0 10px rgba(255, 23, 68, 0.2);
+    box-shadow: 0 0 15px rgba(255, 23, 68, 0.5);
     text-shadow: 0 0 10px rgba(255, 23, 68, 0.8);
 }

@@ -842,8 +842,6 @@ header li a {
 
 .historia-personagem {
     background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(10, 10, 20, 0.7) 100%);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
     border: 2px solid rgba(138, 43, 226, 0.4);
     border-left: 5px solid var(--secondary-neon);
     padding: 40px;
@@ -854,16 +852,13 @@ header li a {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    transition: 0.4s ease;
-    box-shadow: 0 10px 60px rgba(138, 43, 226, 0.2), inset 0 0 40px rgba(138, 43, 226, 0.12);
-    animation: glowBorderPulse 4s ease-in-out infinite;
+    box-shadow: 0 5px 20px rgba(138, 43, 226, 0.1);
 }
 
 .historia-personagem:hover {
     border-left-color: var(--primary-neon);
-    border-color: rgba(138, 43, 226, 0.7);
-    box-shadow: 0 0 50px rgba(138, 43, 226, 0.3), inset 0 0 50px rgba(138, 43, 226, 0.18);
-    transform: translateY(-5px);
+    border-color: rgba(138, 43, 226, 0.6);
+    box-shadow: 0 5px 25px rgba(138, 43, 226, 0.15);
 }
 
 .historia-personagem.lore-transcendental {
@@ -877,7 +872,6 @@ header li a {
 
 /* Metadados estilizados */
 .historia-personagem > div[style] {
-    animation: metadataGlow 3s ease-in-out infinite;
     border-radius: 8px !important;
     border: 1px solid rgba(0, 212, 255, 0.2) !important;
 }
