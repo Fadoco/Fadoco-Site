@@ -1,7 +1,7 @@
 {
   "buildCommand": "echo 'Site estático'",
   "outputDirectory": ".",
-  "framework": "vanilla",
+  "framework": "other",
   "env": {
     "YOUTUBE_API_KEY": "@youtube_api_key"
   }
