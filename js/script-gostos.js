@@ -318,7 +318,12 @@ window.carregarCategoriaJSON = async function(categoria) {
     }
 };
 
-function renderizarCategoria(lista, gridId) {\n    /**\n     * Renderizar itens de uma categoria no grid\n     * @param {Array} lista - Lista de itens da categoria\n     * @param {string} gridId - ID do elemento grid para renderizar\n     */
+function renderizarCategoria(lista, gridId) {
+    /**
+     * Renderizar itens de uma categoria no grid
+     * @param {Array} lista - Lista de itens da categoria
+     * @param {string} gridId - ID do elemento grid para renderizar
+     */
     const grid = document.getElementById(gridId);
     
     let favorites = [];
