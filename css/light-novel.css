@@ -797,6 +797,14 @@ body.site-loaded :is(header, main, footer, .background, #back-to-top, .progress-
     animation: fadeInUp 0.8s ease-out;
 }
 
+/* MOBILE PERFORMANCE OPTIMIZATION */
+@media (max-width: 768px) {
+    * {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+}
+
 .footer-content {
     max-width: 800px;
     margin: 0 auto;
