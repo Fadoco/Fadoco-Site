@@ -164,7 +164,7 @@
 
 .gostos-grid {
     display: none;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 25px;
     width: 100%;
     max-width: 1200px;
@@ -178,7 +178,7 @@
 /* Responsivo: Tablet */
 @media (max-width: 1024px) {
     .gostos-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 }
 
@@ -246,22 +246,7 @@
     line-height: 1.4;
 }
 
-.card-img-container {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.3);
-}
-
 .gostos-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     border-radius: 8px;
     transition: transform 0.35s ease;
     decoding: async;
