@@ -3,6 +3,10 @@
  */
 
 // --- 1. GESTÃO DE OVERLAY E LIGHTBOX (CORE UI) ---
+/**
+ * Ampliar imagem ou vídeo em overlay expandido
+ * @param {Element} elemento - Elemento (img, video, ou button com expand-btn)
+ */
 window.ampliarImagem = function(elemento) {
     if (!elemento) return;
     const overlay = document.getElementById('overlay');
@@ -42,7 +46,7 @@ window.ampliarImagem = function(elemento) {
     }
 };
 
-window.ampliarCard = function(elemento) {
+/**\n * Ampliar card de gosstos em overlay\n * @param {Element} elemento - Card element\n */\nwindow.ampliarCard = function(elemento) {
     const overlay = document.getElementById('overlay');
     const conteudo = document.getElementById('conteudo-expandido');
     conteudo.innerHTML = '';
@@ -75,7 +79,7 @@ window.ampliarCard = function(elemento) {
     overlay.style.display = 'flex';
 };
 
-window.analisarImagem = function(imageContainer) {
+/**\n * Analisar imagem em modo zoom\n * @param {Element} imageContainer - Container com a imagem\n */\nwindow.analisarImagem = function(imageContainer) {
     const conteudo = document.getElementById('conteudo-expandido');
     const originalImg = imageContainer.querySelector('img');
     if (!originalImg) return;
@@ -85,7 +89,7 @@ window.analisarImagem = function(imageContainer) {
     conteudo.appendChild(clone);
 };
 
-window.fecharAmpliacao = function() {
+/**\n * Fechar overlay de ampliação\n */\nwindow.fecharAmpliacao = function() {
     const overlay = document.getElementById('overlay');
     const conteudo = document.getElementById('conteudo-expandido');
     overlay.style.display = 'none';
@@ -94,7 +98,7 @@ window.fecharAmpliacao = function() {
     conteudo.innerHTML = '';
 };
 
-window.fecharFavoritos = function() {
+/**\n * Fechar overlay de favoritos\n */\nwindow.fecharFavoritos = function() {
     const favOverlay = document.getElementById('favorites-overlay');
     if (favOverlay) favOverlay.style.display = 'none';
     document.body.classList.remove('no-scroll');
@@ -198,6 +202,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.15 });
 
     document.querySelectorAll('.reveal-section').forEach(section => window.revealObserver.observe(section));
+    
+    // Limpar observers ao sair da página (evitar memory leak)
+    window.addEventListener('beforeunload', () => {
+        if (window.revealObserver) {
+            window.revealObserver.disconnect();
+            window.revealObserver = null;
+        }
+    });
 
     // --- 5. HUD DYNAMIC TOOLTIPS ---
     const tooltip = document.createElement('div');

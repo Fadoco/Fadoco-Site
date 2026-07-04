@@ -28,6 +28,13 @@ const safeLocalStorage = {
     }
 };
 
+// Sanitizar HTML - escapa tags perigosas
+const sanitizeHTML = (text) => {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+};
+
 // --- 1. NOTIFICAÇÕES (TOAST) ---
 let toastTimeout;
 window.showNotification = (message) => {
@@ -80,38 +87,80 @@ window.renderFavorites = () => {
     if (!favGrid) return;
     
     const favorites = JSON.parse(safeLocalStorage.get('user-favorites') || '[]');
-    favGrid.innerHTML = favorites.length ? '' : '<p style="color:white; grid-column: 1/-1; text-align:center;">Você ainda não favoritou nada na sua jornada estelar.</p>';
+    favGrid.innerHTML = '';
+    
+    if (favorites.length === 0) {
+        const emptyMsg = document.createElement('p');
+        emptyMsg.style.cssText = 'color:white; grid-column: 1/-1; text-align:center;';
+        emptyMsg.textContent = 'Você ainda não favoritou nada na sua jornada estelar.';
+        favGrid.appendChild(emptyMsg);
+        return;
+    }
 
     favorites.forEach(fav => {
         const card = document.createElement('div');
-        // Adiciona a classe da categoria salva para manter o estilo neon
         card.className = `gostos-card ${fav.categoryClass || ''}`;
         card.style.position = 'relative';
 
-        const tagsHtml = fav.tags ? fav.tags.map(t => `<span class="tag" onclick="event.stopPropagation(); filterByTag('${t}')">${t}</span>`).join('') : '';
-        
-        card.innerHTML = `
-            <div class="card-img-container">
-                <img src="${fav.img}" alt="${fav.title}">
-            </div>
-            <h3>${fav.title}</h3>
-            <p>${fav.desc}</p>
-            <div class="tags-list" style="display: flex;">${tagsHtml}</div>
-        `;
+        // Criar container da imagem de forma segura
+        const imgContainer = document.createElement('div');
+        imgContainer.className = 'card-img-container';
+        const img = document.createElement('img');
+        img.src = typeof fav.img === 'string' && fav.img.length > 0 ? fav.img : 'img/default.jpg';
+        img.alt = typeof fav.title === 'string' ? fav.title : 'Item';
+        imgContainer.appendChild(img);
+        card.appendChild(imgContainer);
 
-        // Correção da imagem secundária (favorito) dentro do overlay de favoritos
-        if (fav.favoritoTag) {
+        // Título de forma segura
+        const title = document.createElement('h3');
+        title.textContent = typeof fav.title === 'string' ? fav.title : 'Sem título';
+        card.appendChild(title);
+
+        // Descrição de forma segura
+        const desc = document.createElement('p');
+        desc.textContent = typeof fav.desc === 'string' ? fav.desc : 'Sem descrição';
+        card.appendChild(desc);
+
+        // Tags de forma segura
+        if (Array.isArray(fav.tags) && fav.tags.length > 0) {
+            const tagsList = document.createElement('div');
+            tagsList.className = 'tags-list';
+            tagsList.style.display = 'flex';
+
+            fav.tags.forEach(tag => {
+                if (typeof tag === 'string' && tag.length > 0) {
+                    const tagSpan = document.createElement('span');
+                    tagSpan.className = 'tag';
+                    tagSpan.textContent = tag;
+                    tagSpan.onclick = (e) => {
+                        e.stopPropagation();
+                        filterByTag(tag);
+                    };
+                    tagsList.appendChild(tagSpan);
+                }
+            });
+
+            card.appendChild(tagsList);
+        }
+
+        // Favorito tag (imagem secundária) de forma segura
+        if (fav.favoritoTag && typeof fav.favoritoTag === 'string' && fav.favoritoTag.length > 0) {
             const favTagDiv = document.createElement('div');
             favTagDiv.className = 'favorito-tag';
             favTagDiv.style.display = 'flex';
-            favTagDiv.setAttribute('onclick', "event.stopPropagation(); ampliarImagem(this.querySelector('.mini-img'))");
-            favTagDiv.innerHTML = fav.favoritoTag;
+            favTagDiv.textContent = fav.favoritoTag;
+            favTagDiv.onclick = (e) => {
+                e.stopPropagation();
+                const miniImg = favTagDiv.querySelector('.mini-img');
+                if (miniImg) ampliarImagem(miniImg);
+            };
             card.appendChild(favTagDiv);
         }
 
+        // Botão de remover
         const removeBtn = document.createElement('span');
         removeBtn.className = 'remove-fav-btn';
-        removeBtn.innerHTML = '&times;';
+        removeBtn.textContent = '×';
         removeBtn.title = 'Remover dos favoritos';
         removeBtn.onclick = (e) => {
             e.stopPropagation();

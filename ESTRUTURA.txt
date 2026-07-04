@@ -1,0 +1,26 @@
+📁 Estrutura Organizada do Projeto
+=====================================
+
+Fadoco Site/
+├── 📂 .config/              ← PASTA DE CONFIGURAÇÃO
+│   ├── .env.local           ← Chave API (desenvolvimento local)
+│   ├── DEPLOY_VERCEL.md     ← Guia de deploy
+│   └── README.md            ← Info da pasta .config
+│
+├── 📂 api/                  ← Vercel Serverless Function
+│   └── youtube.js           ← Backend proxy da API
+│
+├── 📂 css/                  ← Estilos
+├── 📂 js/                   ← JavaScript
+├── 📂 img/                  ← Imagens
+├── 📂 light novel/          ← Seção especial
+├── 📂 pagina-gostos/        ← Dados JSON
+│
+├── .gitignore              ← Ignora .config/ e node_modules/
+├── package.json            ← Info do projeto (Vercel)
+├── vercel.json             ← Config do Vercel (deve ficar na raiz)
+│
+├── index.html
+├── gostos.html
+├── artes.html
+└── ... outros arquivos HTML

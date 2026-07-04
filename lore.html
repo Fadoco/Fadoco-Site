@@ -13,6 +13,7 @@
     <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#8a2be2">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; media-src 'self' https:; font-src 'self' https://fonts.gstatic.com; frame-src https://www.youtube.com https://www.tiktok.com; connect-src 'self' https:;">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.youtube.com">
@@ -228,9 +229,9 @@
                 <a href="redes_sociais.html" class="footer-link">Contato</a>
             </div>
             <div class="footer-socials">
-                <a href="https://www.youtube.com/channel/UCbGVdb1UueHEUBH7efKDRtw" target="_blank" class="social-icon" aria-label="YouTube">▶</a>
-                <a href="https://www.tiktok.com/@fadoco_edits" target="_blank" class="social-icon" aria-label="TikTok">♪</a>
-                <a href="https://www.instagram.com/fluidpersona/" target="_blank" class="social-icon" aria-label="Instagram">📷</a>
+                <a href="https://www.youtube.com/channel/UCbGVdb1UueHEUBH7efKDRtw" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">▶</a>
+                <a href="https://www.tiktok.com/@fadoco_edits" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok">♪</a>
+                <a href="https://www.instagram.com/fluidpersona/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">📷</a>
             </div>
             <p class="footer-main">© <span id="year"></span> STAR HUB - FADOCO UNIVERSE</p>
             <p class="footer-sub">SINAL TRANSMITIDO VIA DEEP SPACE NETWORK</p>
@@ -240,20 +241,5 @@
     <script defer src="js/script.js"></script>
     <script defer src="js/script-transição.js"></script>
 
-    <!-- Containers para o funcionamento do Lightbox e Favoritos -->
-    <div id="overlay" class="overlay">
-        <span class="close-overlay" onclick="fecharAmpliacao()" data-tooltip="Fechar">&times;</span>
-        <div id="conteudo-expandido"></div>
-    </div>
-
-    <div id="favorites-overlay" class="fav-overlay">
-        <div id="favorites-grid" class="fav-content"></div>
-    </div>
-
-    <button id="back-to-top" data-tooltip="Órbita Inicial">▲</button>
-
-    <script src="js/script-favoritos.js" defer></script>
-    <script src="js/script-transição.js" defer></script>
-    <script src="js/script.js" defer></script>
 </body>
 </html>

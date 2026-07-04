@@ -1,0 +1,17 @@
+# Variáveis de ambiente
+.env.local
+.env
+.env.*.local
+
+# Node modules
+node_modules/
+package-lock.json
+
+# IDE
+.vscode/
+.DS_Store
+*.swp
+
+# Build
+dist/
+build/

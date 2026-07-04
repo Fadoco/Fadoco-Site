@@ -13,9 +13,9 @@
     <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#00d4ff">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; media-src 'self' https:; font-src 'self' https://fonts.gstatic.com; frame-src https://www.youtube.com https://www.tiktok.com; connect-src 'self' https:;">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://www.googleapis.com">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/contato-enhancements.css">
 </head>
@@ -24,7 +24,7 @@
     <div id="hyperspace" class="hyperspace-overlay">
         <div class="scanlines"></div>
         <div class="noise"></div>
-        <video class="loading-video" autoplay loop muted playsinline style="background: #000;" aria-hidden="true" preload="none" decoding="async">
+        <video class="loading-video" autoplay loop muted playsinline style="background: #000;" aria-hidden="true" preload="metadata" decoding="async">
             <source src="img/personagem-carregamento.mp4" type="video/mp4">
         </video>
         <div class="loading-content">
@@ -58,7 +58,7 @@
         </div>
 
         <div class="menu-extra">
-            <button class="btn-menu" id="btn-menu" data-tooltip="Outros Sistemas">☰</button>
+            <button class="btn-menu" id="btn-menu" data-tooltip="Outros Sistemas" aria-label="Abrir Menu Lateral" aria-expanded="false" aria-controls="side-menu">☰</button>
         </div>
     </header>
 

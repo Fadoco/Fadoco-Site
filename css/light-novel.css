@@ -553,7 +553,7 @@ body.site-loaded :is(header, main, footer, .background, #back-to-top, .progress-
     font-size: 0.7rem;
     color: var(--primary-neon);
     letter-spacing: 3px;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 .side-menu ul {

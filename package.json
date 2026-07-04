@@ -1,0 +1,13 @@
+{
+  "name": "fadoco-site",
+  "version": "1.0.0",
+  "description": "Fadoco - Site pessoal",
+  "type": "module",
+  "scripts": {
+    "dev": "echo 'Abrir com Live Server no VS Code'",
+    "build": "echo 'Site estático, nenhum build necessário'"
+  },
+  "keywords": ["fadoco", "portfolio"],
+  "author": "",
+  "license": "MIT"
+}

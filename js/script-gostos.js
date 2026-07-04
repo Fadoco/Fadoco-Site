@@ -3,6 +3,12 @@
  */
 
 // --- FUNÇÕES UTILITÁRIAS ---
+/**
+ * Debounce function to delay function execution
+ * @param {Function} func - Function to debounce
+ * @param {number} wait - Delay in milliseconds
+ * @returns {Function} Debounced function
+ */
 window.debounce = (func, wait) => {
     let timeout;
     return function executedFunction(...args) {
@@ -15,17 +21,90 @@ window.debounce = (func, wait) => {
     };
 };
 
+// --- ARMAZENAMENTO SEGURO EM LOCALSTORAGE ---
+/**
+ * Safe localStorage accessor with error handling
+ */
+const safeStorageGostos = {
+    get: (key) => {
+        try { 
+            const data = localStorage.getItem(key);
+            return data ? JSON.parse(data) : null;
+        } catch (e) { 
+            console.warn(`Erro ao ler localStorage (${key}):`, e.message);
+            return null;
+        }
+    },
+    set: (key, data) => {
+        try { 
+            localStorage.setItem(key, JSON.stringify(data));
+            return true;
+        } catch (e) { 
+            if (e.name === 'QuotaExceededError') {
+                console.error('localStorage cheio - limpe alguns dados', e);
+                alert('⚠️ Espaço de armazenamento cheio! Limpe alguns favoritos.');
+            } else {
+                console.warn(`Erro ao salvar localStorage (${key}):`, e.message);
+            }
+            return false;
+        }
+    }
+};
+
+// --- SEGURANÇA: SANITIZAÇÃO E VALIDAÇÃO ---
+/**
+ * Sanitizar texto para evitar XSS - escapa HTML
+ * @param {string} text - Texto a sanitizar
+ * @returns {string} Texto escapado
+ */
+const sanitizeHTML = (text) => {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+};
+
+/**
+ * Validar schema de dados JSON
+ * @param {Object} data - Objeto a validar
+ * @param {Array<string>} requiredFields - Campos obrigatórios
+ * @returns {boolean} true se válido
+ */
+const validateJSONSchema = (data, requiredFields = []) => {
+    if (!data || typeof data !== 'object') return false;
+    return requiredFields.every(field => field in data && data[field] !== undefined);
+};
+
+/**
+ * Sanitizar lista de tags para evitar injeção em onclick
+ * @param {Array<string>} tags - Lista de tags
+ * @returns {Array<string>} Tags sanitizadas
+ */
+const sanitizeTags = (tags) => {
+    return (Array.isArray(tags) ? tags : [])
+        .filter(t => typeof t === 'string' && t.length > 0 && t.length <= 50)
+        .map(t => t.replace(/[^a-zA-Z0-9\s\-]/g, '').trim())
+        .filter(t => t.length > 0);
+};
+
 // --- CONFIGURAÇÃO DA API DO YOUTUBE ---
+// A chave está segura no servidor Vercel (backend proxy)
+// Frontend chama: /api/youtube via Vercel Serverless Function
 const YT_CONFIG = {
-    KEY: 'AIzaSyDaPbh2ZDKB3Gq16K68V8xatYZ4ZTy2hlQ',
     PLAYLIST_ID: 'PLKQ_ZTvlL-M-XEn1Biw7iMalaIGxl3IBg',
-    MAX_RESULTS: 50
+    MAX_RESULTS: 50,
+    // URL da API proxy - muda automaticamente entre local e Vercel
+    API_PROXY_URL: window.location.hostname === 'localhost' 
+        ? 'http://localhost:3000/api/youtube'
+        : `${window.location.origin}/api/youtube`
 };
 let ytPlaylistLoaded = false;
 let isFetching = false;
 let youtubeNextPageToken = '';
 
-// Função global para filtrar por tag
+/**
+ * Filtrar cards por tag ao clicar
+ * @param {string} tag - Tag para filtrar
+ */
 window.filterByTag = (tag) => {
     const input = document.getElementById('search-input');
     if (input) {
@@ -36,35 +115,37 @@ window.filterByTag = (tag) => {
     }
 };
 
+/**
+ * Carregar playlist do YouTube com paginação
+ * @param {string} pageToken - Token de página para paginação
+ */
 window.carregarPlaylistYouTube = async function(pageToken = '') {
     const musicasGrid = document.getElementById('musicas-grid');
     const loadMoreBtn = document.getElementById('btn-carregar-mais-musicas');
     if (!musicasGrid || isFetching || (pageToken === '' && ytPlaylistLoaded)) return;
+    
     isFetching = true;
 
     if (pageToken === '') {
         musicasGrid.innerHTML = `<p style="color:var(--primary-neon); grid-column: 1/-1; text-align:center; padding: 20px;">Sintonizando frequências do YouTube...</p>`;
     } else if (loadMoreBtn) {
-        loadMoreBtn.innerText = 'Carregando...';
+        loadMoreBtn.innerHTML = '⏳ Carregando...';
+        loadMoreBtn.disabled = true;
     }
 
     try {
-        // Acesso seguro ao localStorage para evitar erros em navegadores mobile restritos
-        let favorites = [];
-        try {
-            const stored = localStorage.getItem('user-favorites');
-            if (stored) favorites = JSON.parse(stored);
-        } catch (e) { console.warn("Acesso ao localStorage limitado."); }
+        // Acesso seguro ao localStorage
+        const favorites = safeStorageGostos.get('user-favorites') || [];
 
+        // Chamar API proxy ao invés de direto o YouTube
         const params = new URLSearchParams({
-            part: 'snippet',
-            maxResults: YT_CONFIG.MAX_RESULTS,
             playlistId: YT_CONFIG.PLAYLIST_ID,
-            key: YT_CONFIG.KEY,
             pageToken: pageToken
         });
         
-        const url = `https://www.googleapis.com/youtube/v3/playlistItems?${params.toString()}`;
+        const url = `${YT_CONFIG.API_PROXY_URL}?${params.toString()}`;
+        console.log('📡 Chamando API proxy:', url);
+        
         const response = await fetch(url);
         if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
 
@@ -124,7 +205,10 @@ window.carregarPlaylistYouTube = async function(pageToken = '') {
         musicasGrid.innerHTML = `<p style="color:#ff4b2b; grid-column: 1/-1; text-align:center; padding: 20px;">Falha na conexão YouTube.</p>`;
     } finally {
         isFetching = false;
-        if (loadMoreBtn) loadMoreBtn.innerText = 'Carregar Mais Músicas';
+        if (loadMoreBtn) {
+            loadMoreBtn.innerHTML = '📡 Carregar Mais Músicas';
+            loadMoreBtn.disabled = false;
+        }
     }
 };
 
@@ -133,6 +217,9 @@ const categoriasCarregadas = new Set();
 const poolGlobalGostos = [];
 const categoriasParaPrefetch = ['animes', 'jogos', 'filmes', 'series', 'desenhos'];
 
+/**
+ * Prefetch todos os JSONs de gostos para alimentar tags e sorteio
+ */
 async function prefetchGostos() {
     const tagCloud = document.getElementById('tag-cloud');
     if (tagCloud) tagCloud.innerHTML = '<p style="color:var(--primary-neon); font-size:0.7rem; text-align:center; width:100%;">Sintonizando frequências das tags...</p>';
@@ -158,6 +245,14 @@ async function prefetchGostos() {
     carregarPlaylistYouTube();
 }
 
+/**
+ * Carregar dados de categoria em JSON
+ * @param {string} categoria - Nome da categoria (animes, jogos, filmes, series, desenhos)
+ */
+/**
+ * Carregar dados de categoria em JSON
+ * @param {string} categoria - Nome da categoria (animes, jogos, filmes, series, desenhos)
+ */
 window.carregarCategoriaJSON = async function(categoria) {
     const gridId = `${categoria}-grid`;
     const grid = document.getElementById(gridId);
@@ -172,8 +267,23 @@ window.carregarCategoriaJSON = async function(categoria) {
         const response = await fetch(`./pagina-gostos/${categoria}.json`);
         if (!response.ok) throw new Error(`Erro ao carregar pagina gostos/${categoria}.json`);
         const data = await response.json();
+        
+        // VALIDAÇÃO DE SCHEMA
+        if (!validateJSONSchema(data, [categoria])) {
+            throw new Error(`Schema inválido: arquivo deve conter propriedade '${categoria}'`);
+        }
+        
         const lista = data[categoria] || [];
-        renderizarCategoria(lista.map(item => ({...item, categoriaPai: categoria})), gridId);
+        if (!Array.isArray(lista)) {
+            throw new Error(`Schema inválido: '${categoria}' deve ser um array`);
+        }
+        
+        // Validar cada item tem os campos obrigatórios
+        const listaNormalizada = lista.filter(item => {
+            return validateJSONSchema(item, ['titulo', 'descricao', 'imagem', 'tags']);
+        });
+        
+        renderizarCategoria(listaNormalizada.map(item => ({...item, categoriaPai: categoria})), gridId);
         categoriasCarregadas.add(categoria);
         atualizarInterfaceTags();
     } catch (error) {
@@ -186,15 +296,18 @@ window.carregarCategoriaJSON = async function(categoria) {
             mensagemCustom = `Erro de digitação no arquivo pagina-gostos/${categoria}.json (verifique vírgulas ou aspas).`;
         }
 
-        grid.innerHTML = `
-            <div style="color:#ff4b2b; grid-column: 1/-1; text-align:center; padding: 30px; background: rgba(255,0,0,0.05); border-radius: 15px; border: 1px dashed #ff4b2b; margin: 20px 0;">
-                <p style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; margin-bottom: 5px;">${mensagemCustom}</p>
-                <p style="font-size: 0.6rem; opacity: 0.7;">Detalhe: ${error.message}</p>
-            </div>`;
+        grid.innerHTML = '';
+        const errorDiv = document.createElement('div');
+        errorDiv.style.cssText = "color:#ff4b2b; grid-column: 1/-1; text-align:center; padding: 30px; background: rgba(255,0,0,0.05); border-radius: 15px; border: 1px dashed #ff4b2b; margin: 20px 0;";
+        errorDiv.innerHTML = `
+            <p style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; margin-bottom: 5px;">${sanitizeHTML(mensagemCustom)}</p>
+            <p style="font-size: 0.6rem; opacity: 0.7;">Detalhe: ${sanitizeHTML(error.message)}</p>
+        `;
+        grid.appendChild(errorDiv);
     }
 };
 
-function renderizarCategoria(lista, gridId) {
+function renderizarCategoria(lista, gridId) {\n    /**\n     * Renderizar itens de uma categoria no grid\n     * @param {Array} lista - Lista de itens da categoria\n     * @param {string} gridId - ID do elemento grid para renderizar\n     */
     const grid = document.getElementById(gridId);
     
     let favorites = [];
@@ -203,38 +316,93 @@ function renderizarCategoria(lista, gridId) {
         if (stored) favorites = JSON.parse(stored);
     } catch (e) { favorites = []; }
 
-    grid.innerHTML = lista.map(item => {
+    grid.innerHTML = '';
+    
+    lista.forEach(item => {
+        // SANITIZAR DADOS ANTES DE USAR
+        const titulo = sanitizeHTML(item.titulo || 'Sem título');
+        const descricao = sanitizeHTML(item.descricao || 'Sem descrição');
+        const imagem = (typeof item.imagem === 'string' && item.imagem.length > 0) ? item.imagem : 'img/default.jpg';
+        const validTags = sanitizeTags(item.tags);
+        
         const isFavorited = Array.isArray(favorites) && favorites.some(f => f.title === item.titulo);
-        const validTags = (item.tags || []).filter(t => t.trim() !== "");
         const searchStr = `${item.titulo || ''} ${item.descricao || ''} ${validTags.join(' ')} ${item.categoriaPai || ''}`.toLowerCase();
         
-        // Coleta tags diretamente dos dados para a nuvem global
+        // Coleta tags para a nuvem global
         validTags.forEach(t => allUniqueTags.add(t));
 
-        const favTag = (item.favorito && item.favorito.imagem && item.favorito.texto) ? `
-            <div class="favorito-tag" onclick="event.stopPropagation(); ampliarImagem(this.querySelector('.mini-img'))">
-                <span>Favorito: ${item.favorito.texto}</span>
-                <img src="${item.favorito.imagem}" class="mini-img" onclick="event.stopPropagation(); ampliarImagem(this)">
-            </div>` : '';
-
-        return `
-            <div class="gostos-card reveal-section card-${item.categoriaPai} ${isFavorited ? 'is-favorite' : ''}" data-search="${searchStr}" data-tooltip="Ver Detalhes" onclick="ampliarCard(this)">
-                <div class="card-img-container"><img src="${item.imagem}" alt="${item.titulo}"></div>
-                <h3>${item.titulo}</h3>
-                <p>${item.descricao}</p>
-                <div class="tags-list">${validTags.map(t => `<span class="tag" onclick="event.stopPropagation(); filterByTag('${t}')">${t}</span>`).join('')}</div>
-                ${favTag}
-                <span class="fav-toggle ${isFavorited ? 'active' : ''}" onclick="toggleFavorite(event, this)" data-tooltip="Salvar nos Tesouros">★</span>
-            </div>`;
-    }).join('');
-
-    // Observa os novos cards para o efeito de Scroll Reveal
-    // E coleta as tags para a nuvem
-    if (window.revealObserver) {
-        grid.querySelectorAll('.reveal-section').forEach(el => {
-            window.revealObserver.observe(el);
+        // Criar elementos SEM innerHTML para evitar XSS
+        const card = document.createElement('div');
+        card.className = `gostos-card reveal-section card-${item.categoriaPai || ''} ${isFavorited ? 'is-favorite' : ''}`;
+        card.setAttribute('data-search', searchStr);
+        card.setAttribute('data-tooltip', 'Ver Detalhes');
+        card.onclick = function() { ampliarCard(this); };
+        
+        // Imagem
+        const imgContainer = document.createElement('div');
+        imgContainer.className = 'card-img-container';
+        const img = document.createElement('img');
+        img.src = imagem;
+        img.alt = '';
+        imgContainer.appendChild(img);
+        card.appendChild(imgContainer);
+        
+        // Título
+        const h3 = document.createElement('h3');
+        h3.textContent = titulo;
+        card.appendChild(h3);
+        
+        // Descrição
+        const p = document.createElement('p');
+        p.textContent = descricao;
+        card.appendChild(p);
+        
+        // Tags
+        const tagsList = document.createElement('div');
+        tagsList.className = 'tags-list';
+        validTags.forEach(t => {
+            const tagSpan = document.createElement('span');
+            tagSpan.className = 'tag';
+            tagSpan.textContent = t;
+            tagSpan.onclick = (e) => { e.stopPropagation(); filterByTag(t); };
+            tagsList.appendChild(tagSpan);
         });
-    }
+        card.appendChild(tagsList);
+        
+        // Favorito tag (se existir)
+        if (item.favorito && item.favorito.texto && item.favorito.imagem) {
+            const favTag = document.createElement('div');
+            favTag.className = 'favorito-tag';
+            favTag.onclick = (e) => { e.stopPropagation(); ampliarImagem(favTag.querySelector('.mini-img')); };
+            
+            const favSpan = document.createElement('span');
+            favSpan.textContent = `Favorito: ${item.favorito.texto}`;
+            favTag.appendChild(favSpan);
+            
+            const favImg = document.createElement('img');
+            favImg.src = item.favorito.imagem;
+            favImg.className = 'mini-img';
+            favImg.onclick = (e) => { e.stopPropagation(); ampliarImagem(favImg); };
+            favTag.appendChild(favImg);
+            
+            card.appendChild(favTag);
+        }
+        
+        // Toggle favorito
+        const favToggle = document.createElement('span');
+        favToggle.className = `fav-toggle ${isFavorited ? 'active' : ''}`;
+        favToggle.textContent = '★';
+        favToggle.setAttribute('data-tooltip', 'Salvar nos Tesouros');
+        favToggle.onclick = (e) => toggleFavorite(e, favToggle);
+        card.appendChild(favToggle);
+        
+        grid.appendChild(card);
+        
+        // Observar para scroll reveal
+        if (window.revealObserver) {
+            window.revealObserver.observe(card);
+        }
+    });
 
     // Atualiza a interface da nuvem de tags
     atualizarInterfaceTags();
@@ -242,6 +410,9 @@ function renderizarCategoria(lista, gridId) {
 
 const allUniqueTags = new Set(); // Conjunto global para todas as tags
 
+/**
+ * Atualizar interface de nuvem de tags com todas as tags únicas
+ */
 function atualizarInterfaceTags() {
     const tagCloudContainer = document.getElementById('tag-cloud');
     if (!tagCloudContainer || allUniqueTags.size === 0) return;
