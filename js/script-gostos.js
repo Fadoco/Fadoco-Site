@@ -122,6 +122,7 @@ window.carregarPlaylistYouTube = async function(pageToken = '') {
         loadMoreBtn.disabled = true;
     }
 
+    let url;
     try {
         // Acesso seguro ao localStorage
         const favorites = safeStorageGostos.get('user-favorites') || [];
@@ -132,11 +133,17 @@ window.carregarPlaylistYouTube = async function(pageToken = '') {
             pageToken: pageToken
         });
         
-        const url = `${YT_CONFIG.API_PROXY_URL}?${params.toString()}`;
+        url = `${YT_CONFIG.API_PROXY_URL}?${params.toString()}`;
         console.log('📡 Chamando API proxy:', url);
         
         const response = await fetch(url);
-        if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
+        if (!response.ok) {
+            // Se estiver em desenvolvimento local (Live Server), mostrar mensagem diferente
+            if (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') {
+                throw new Error('YouTube só funciona em Vercel. Localmente, use as outras categorias! 🚀');
+            }
+            throw new Error(`Erro HTTP: ${response.status}`);
+        }
 
         const data = await response.json();
         if (pageToken === '') musicasGrid.innerHTML = '';
@@ -191,15 +198,15 @@ window.carregarPlaylistYouTube = async function(pageToken = '') {
         atualizarInterfaceTags();
     } catch (error) {
         console.error('❌ Erro ao carregar YouTube API:', error);
-        console.error('URL chamada:', url);
+        if (url) console.error('URL chamada:', url);
         console.error('Detalhes:', error.message);
         
         // Mostrar erro específico para o usuário
         if (!ytPlaylistLoaded) {
             musicasGrid.innerHTML = `
                 <p style="color:#ff4b2b; grid-column: 1/-1; text-align:center; padding: 20px;">
-                    ⚠️ Erro ao carregar playlist do YouTube<br>
-                    <small style="font-size: 0.9em; opacity: 0.8;">${error.message}</small>
+                    ⚠️ ${error.message}<br>
+                    <small style="font-size: 0.9em; opacity: 0.8;">Se estiver em Vercel, verifique se YOUTUBE_API_KEY está configurada.</small>
                 </p>
             `;
         }
