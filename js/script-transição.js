@@ -261,11 +261,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Se a página já carregou (cache), fecha. Senão, espera o evento 'load'.
     if (document.readyState === 'complete') {
+        console.log('✅ Documento já estava carregado - fechando loading');
         fecharLoading();
     } else {
-        window.addEventListener('load', fecharLoading);
-        // Fallback de segurança: Fecha o loading após 5 segundos mesmo que o evento 'load' não dispare
-        setTimeout(fecharLoading, 5000);
+        console.log('⏳ Aguardando evento load...');
+        window.addEventListener('load', () => {
+            console.log('✅ Evento load disparado - fechando loading');
+            fecharLoading();
+        });
+        // Fallback de segurança: Fecha o loading após 3 segundos mesmo que o evento 'load' não dispare
+        setTimeout(() => {
+            if (!document.body.classList.contains('site-loaded')) {
+                console.warn('⚠️ Timeout: Forçando fechamento do loading após 3s');
+                fecharLoading();
+            }
+        }, 3000);
     }
 
     // --- 3. TRANSIÇÃO AO CLICAR EM LINKS ---
