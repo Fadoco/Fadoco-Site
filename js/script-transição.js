@@ -46,7 +46,11 @@ window.ampliarImagem = function(elemento) {
     }
 };
 
-/**\n * Ampliar card de gosstos em overlay\n * @param {Element} elemento - Card element\n */\nwindow.ampliarCard = function(elemento) {
+/**
+ * Ampliar card de gosstos em overlay
+ * @param {Element} elemento - Card element
+ */
+window.ampliarCard = function(elemento) {
     const overlay = document.getElementById('overlay');
     const conteudo = document.getElementById('conteudo-expandido');
     conteudo.innerHTML = '';
@@ -79,7 +83,11 @@ window.ampliarImagem = function(elemento) {
     overlay.style.display = 'flex';
 };
 
-/**\n * Analisar imagem em modo zoom\n * @param {Element} imageContainer - Container com a imagem\n */\nwindow.analisarImagem = function(imageContainer) {
+/**
+ * Analisar imagem em modo zoom
+ * @param {Element} imageContainer - Container com a imagem
+ */
+window.analisarImagem = function(imageContainer) {
     const conteudo = document.getElementById('conteudo-expandido');
     const originalImg = imageContainer.querySelector('img');
     if (!originalImg) return;
@@ -89,7 +97,10 @@ window.ampliarImagem = function(elemento) {
     conteudo.appendChild(clone);
 };
 
-/**\n * Fechar overlay de ampliação\n */\nwindow.fecharAmpliacao = function() {
+/**
+ * Fechar overlay de ampliação
+ */
+window.fecharAmpliacao = function() {
     const overlay = document.getElementById('overlay');
     const conteudo = document.getElementById('conteudo-expandido');
     overlay.style.display = 'none';
@@ -98,7 +109,10 @@ window.ampliarImagem = function(elemento) {
     conteudo.innerHTML = '';
 };
 
-/**\n * Fechar overlay de favoritos\n */\nwindow.fecharFavoritos = function() {
+/**
+ * Fechar overlay de favoritos
+ */
+window.fecharFavoritos = function() {
     const favOverlay = document.getElementById('favorites-overlay');
     if (favOverlay) favOverlay.style.display = 'none';
     document.body.classList.remove('no-scroll');
