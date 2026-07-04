@@ -201,8 +201,19 @@ window.carregarPlaylistYouTube = async function(pageToken = '') {
         ytPlaylistLoaded = true;
         atualizarInterfaceTags();
     } catch (error) {
-        console.error('Erro YouTube API:', error);
-        musicasGrid.innerHTML = `<p style="color:#ff4b2b; grid-column: 1/-1; text-align:center; padding: 20px;">Falha na conexão YouTube.</p>`;
+        console.error('❌ Erro ao carregar YouTube API:', error);
+        console.error('URL chamada:', url);
+        console.error('Detalhes:', error.message);
+        
+        // Mostrar erro específico para o usuário
+        if (!ytPlaylistLoaded) {
+            musicasGrid.innerHTML = `
+                <p style="color:#ff4b2b; grid-column: 1/-1; text-align:center; padding: 20px;">
+                    ⚠️ Erro ao carregar playlist do YouTube<br>
+                    <small style="font-size: 0.9em; opacity: 0.8;">${error.message}</small>
+                </p>
+            `;
+        }
     } finally {
         isFetching = false;
         if (loadMoreBtn) {
