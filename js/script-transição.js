@@ -182,28 +182,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     transitionOverlay.appendChild(fragment);
 
-    // --- 2. LÓGICA DE ESPERA (ACELERADA) ---
+    // --- 2. LÓGICA DE LOADING AUTOMÁTICO (SIMPLES E ROBUSTO) ---
     const fecharLoading = () => {
+        transitionOverlay.classList.add('finished');
+        // Pequeno delay para garantir que o overlay começou a sumir antes de revelar o fundo
         setTimeout(() => {
-            transitionOverlay.classList.add('finished');
-            // Pequeno delay para garantir que o overlay começou a sumir antes de revelar o fundo
-            setTimeout(() => {
-                document.body.classList.add('site-loaded');
-                // Verifica se a função existe antes de chamar para não travar o script
-                if (typeof updateProgressBar === 'function') updateProgressBar(); 
+            document.body.classList.add('site-loaded');
+            // Verifica se a função existe antes de chamar para não travar o script
+            if (typeof updateProgressBar === 'function') updateProgressBar(); 
 
-                // Força a revelação das seções que já estão visíveis no viewport assim que o loading acaba
-                document.querySelectorAll('.reveal-section').forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    if (rect.top < window.innerHeight * 0.85) { // 0.85 para alinhar com o threshold de 15%
-                        section.classList.add('revealed');
-                        if (window.revealObserver) window.revealObserver.unobserve(section);
-                    }
-                });
-            }, 100);
-            // Mantemos no DOM para transições de saída, apenas escondemos
-        }, 800); 
+            // Força a revelação das seções que já estão visíveis no viewport assim que o loading acaba
+            document.querySelectorAll('.reveal-section').forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.85) { // 0.85 para alinhar com o threshold de 15%
+                    section.classList.add('revealed');
+                    if (window.revealObserver) window.revealObserver.unobserve(section);
+                }
+            });
+        }, 100);
     };
+
+    // Fecha o loading automaticamente após 1.2 segundos (sem depender de eventos)
+    setTimeout(() => {
+        console.log('✅ Fechando loading após 1.2s (automático)');
+        fecharLoading();
+    }, 1200);
 
     // --- 4. SISTEMA DE SCROLL REVEAL ---
     window.revealObserver = new IntersectionObserver((entries) => {
@@ -272,25 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay) fecharAmpliacao();
         });
-    }
-
-    // Se a página já carregou (cache), fecha. Senão, espera o evento 'load'.
-    if (document.readyState === 'complete') {
-        console.log('✅ Documento já estava carregado - fechando loading');
-        fecharLoading();
-    } else {
-        console.log('⏳ Aguardando evento load...');
-        window.addEventListener('load', () => {
-            console.log('✅ Evento load disparado - fechando loading');
-            fecharLoading();
-        });
-        // Fallback de segurança: Fecha o loading após 1.5 segundos mesmo que o evento 'load' não dispare
-        setTimeout(() => {
-            if (!document.body.classList.contains('site-loaded')) {
-                console.warn('⚠️ Timeout: Forçando fechamento do loading após 1.5s');
-                fecharLoading();
-            }
-        }, 1500);
     }
 
     // --- 3. TRANSIÇÃO AO CLICAR EM LINKS ---
