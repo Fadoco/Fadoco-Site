@@ -53,17 +53,6 @@ const safeStorageGostos = {
 
 // --- SEGURANÇA: SANITIZAÇÃO E VALIDAÇÃO ---
 /**
- * Sanitizar texto para evitar XSS - escapa HTML
- * @param {string} text - Texto a sanitizar
- * @returns {string} Texto escapado
- */
-const sanitizeHTML = (text) => {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-};
-
-/**
  * Validar schema de dados JSON
  * @param {Object} data - Objeto a validar
  * @param {Array<string>} requiredFields - Campos obrigatórios

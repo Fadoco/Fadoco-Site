@@ -283,13 +283,13 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('✅ Evento load disparado - fechando loading');
             fecharLoading();
         });
-        // Fallback de segurança: Fecha o loading após 3 segundos mesmo que o evento 'load' não dispare
+        // Fallback de segurança: Fecha o loading após 1.5 segundos mesmo que o evento 'load' não dispare
         setTimeout(() => {
             if (!document.body.classList.contains('site-loaded')) {
-                console.warn('⚠️ Timeout: Forçando fechamento do loading após 3s');
+                console.warn('⚠️ Timeout: Forçando fechamento do loading após 1.5s');
                 fecharLoading();
             }
-        }, 3000);
+        }, 1500);
     }
 
     // --- 3. TRANSIÇÃO AO CLICAR EM LINKS ---
