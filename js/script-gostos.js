@@ -91,11 +91,22 @@ let youtubeNextPageToken = '';
  * Filtrar cards por tag ao clicar
  * @param {string} tag - Tag para filtrar
  */
-window.filterByTag = (tag) => {
+window.filterByTag = async (tag) => {
     const input = document.getElementById('search-input');
     if (input) {
+        // Carrega TODAS as categorias primeiro para garantir que os cards existem
+        const categories = ['animes', 'jogos', 'filmes', 'series', 'desenhos'];
+        for (const cat of categories) {
+            const grid = document.getElementById(`${cat}-grid`);
+            if (grid && !grid.classList.contains('active')) {
+                await carregarCategoriaJSON(cat);
+                grid.classList.add('active');
+            }
+        }
+        
+        // Agora dispara o filtro
         input.value = tag.toLowerCase();
-        input.dispatchEvent(new Event('input'));
+        input.dispatchEvent(new Event('input', { bubbles: true }));
         if (typeof fecharFavoritos === 'function') fecharFavoritos();
         if (typeof fecharAmpliacao === 'function') fecharAmpliacao();
     }
@@ -540,20 +551,26 @@ const inicializarEventosGostos = () => {
         const term = searchInput?.value.toLowerCase().trim() || '';
         let globalVisibleCount = 0;
 
+        // Filtra todos os cards
         document.querySelectorAll('.gostos-card').forEach(card => {
-            const matches = (card.getAttribute('data-search') || '').includes(term);
-            card.style.display = matches ? '' : 'none'; // Usa o valor padrão do CSS (grid)
+            const matches = term === '' || (card.getAttribute('data-search') || '').includes(term);
+            card.style.display = matches ? '' : 'none';
             if (matches) globalVisibleCount++;
         });
 
+        // Atualiza visibilidade dos containers
         document.querySelectorAll('.toggle-container').forEach(container => {
             const grid = container.querySelector('.gostos-grid');
             const hasVisible = Array.from(grid?.querySelectorAll('.gostos-card') || []).some(c => c.style.display !== 'none');
+            
             if (term !== '') {
+                // Se há um termo de busca, mostra apenas se tiver resultados
                 container.style.display = hasVisible ? 'block' : 'none';
-                if (hasVisible) grid.classList.add('active');
+                if (hasVisible && grid) grid.classList.add('active');
             } else {
+                // Se não há termo, mostra o container normalmente
                 container.style.display = 'block';
+                // Mantém o estado aberto/fechado da grid (não força)
             }
         });
 
@@ -570,6 +587,8 @@ const inicializarEventosGostos = () => {
         } else if (emptyMsg) {
             emptyMsg.remove();
         }
+        
+        console.log(`🔍 Filtro: "${term}" | Resultados: ${globalVisibleCount}`);
     };
 
     searchInput?.addEventListener('input', debounce(applyFilters, 300));
