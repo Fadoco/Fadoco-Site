@@ -76,15 +76,12 @@ const sanitizeTags = (tags) => {
 };
 
 // --- CONFIGURAÇÃO DA API DO YOUTUBE ---
-// A chave está segura no servidor Vercel (backend proxy)
-// Frontend chama: /api/youtube via Vercel Serverless Function
+// Chamada direta à API do YouTube (chave visível no código)
 const YT_CONFIG = {
     PLAYLIST_ID: 'PLKQ_ZTvlL-M-XEn1Biw7iMalaIGxl3IBg',
     MAX_RESULTS: 50,
-    // URL da API proxy - muda automaticamente entre local e Vercel
-    API_PROXY_URL: window.location.hostname === 'localhost' 
-        ? 'http://localhost:3000/api/youtube'
-        : `${window.location.origin}/api/youtube`
+    API_KEY: 'AIzaSyDpd3zy6K0MXW-UUhKwmRPcJfvCF-Yq0fg', // ⚠️ Chave pública para YouTube Data API
+    API_URL: 'https://www.googleapis.com/youtube/v3/playlistItems'
 };
 let ytPlaylistLoaded = false;
 let isFetching = false;
@@ -127,21 +124,20 @@ window.carregarPlaylistYouTube = async function(pageToken = '') {
         // Acesso seguro ao localStorage
         const favorites = safeStorageGostos.get('user-favorites') || [];
 
-        // Chamar API proxy ao invés de direto o YouTube
+        // Chamar YouTube API diretamente
         const params = new URLSearchParams({
+            key: YT_CONFIG.API_KEY,
             playlistId: YT_CONFIG.PLAYLIST_ID,
+            part: 'snippet,contentDetails',
+            maxResults: YT_CONFIG.MAX_RESULTS,
             pageToken: pageToken
         });
         
-        url = `${YT_CONFIG.API_PROXY_URL}?${params.toString()}`;
-        console.log('📡 Chamando API proxy:', url);
+        url = `${YT_CONFIG.API_URL}?${params.toString()}`;
+        console.log('📡 Chamando YouTube API:', url);
         
         const response = await fetch(url);
         if (!response.ok) {
-            // Se estiver em desenvolvimento local (Live Server), mostrar mensagem diferente
-            if (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') {
-                throw new Error('YouTube só funciona em Vercel. Localmente, use as outras categorias! 🚀');
-            }
             throw new Error(`Erro HTTP: ${response.status}`);
         }
 
@@ -205,8 +201,8 @@ window.carregarPlaylistYouTube = async function(pageToken = '') {
         if (!ytPlaylistLoaded) {
             musicasGrid.innerHTML = `
                 <p style="color:#ff4b2b; grid-column: 1/-1; text-align:center; padding: 20px;">
-                    ⚠️ ${error.message}<br>
-                    <small style="font-size: 0.9em; opacity: 0.8;">Se estiver em Vercel, verifique se YOUTUBE_API_KEY está configurada.</small>
+                    ⚠️ Erro ao carregar playlist do YouTube<br>
+                    <small style="font-size: 0.9em; opacity: 0.8;">${error.message}</small>
                 </p>
             `;
         }
