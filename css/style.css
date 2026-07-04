@@ -826,6 +826,17 @@ header li a {
         padding: 30px;
         text-align: left !important;
     }
+
+    .historia-personagem {
+        height: auto;
+        padding: 30px;
+        margin: 20px auto;
+        max-width: 95%;
+    }
+
+    .historia-personagem .subtitulo-estelar {
+        font-size: 1.2rem;
+    }
 }
 
 
@@ -845,7 +856,7 @@ header li a {
     border-radius: 10px;
     transition: 0.4s ease;
     box-shadow: 0 10px 60px rgba(138, 43, 226, 0.2), inset 0 0 40px rgba(138, 43, 226, 0.12);
-    animation: fadeInUp 0.8s ease-out, glowBorderPulse 4s ease-in-out infinite;
+    animation: glowBorderPulse 4s ease-in-out infinite;
 }
 
 .historia-personagem:hover {
