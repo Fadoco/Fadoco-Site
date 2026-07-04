@@ -1,5 +1,6 @@
 /**
  * STAR HUB - SISTEMA DE CARREGAMENTO, TRANSIÇÃO E CORE UI
+ * v1.0.1 - Bug fixes
  */
 
 // --- 1. GESTÃO DE OVERLAY E LIGHTBOX (CORE UI) ---
