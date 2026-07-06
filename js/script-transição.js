@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- CRIAR ESTRELAS NO LOADING ---
     const isMobile = window.innerWidth <= 768;
-    const starCount = isMobile ? 20 : 50; // Performance: Menos estrelas no mobile
+    const starCount = isMobile ? 0 : 50; // Sem estrelas no mobile
     const fragment = document.createDocumentFragment();
 
     for (let i = 0; i < starCount; i++) {
