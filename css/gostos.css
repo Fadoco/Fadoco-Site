@@ -498,6 +498,12 @@
         gap: 14px;
     }
     
+    /* Desabilitar will-change em mobile */
+    .gostos-card {
+        will-change: auto;
+        transform: none;
+    }
+    
     .gostos-cabecalho {
         margin-bottom: 30px;
     }
