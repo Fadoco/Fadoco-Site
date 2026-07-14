@@ -922,3 +922,64 @@ body.site-loaded :is(header, main, footer, .background, #back-to-top, .progress-
         overflow-y: auto; /* Permite rolar se o card expandido for maior que a tela */
     }
 }
+
+/* --- FORMATAÇÃO DE CONTEÚDO (Tags customizadas) --- */
+.quote-inline {
+    display: block;
+    margin: 20px 0;
+    padding: 15px 20px;
+    border-left: 3px solid var(--primary-neon);
+    background: rgba(0, 212, 255, 0.05);
+    font-style: italic;
+    color: var(--primary-neon);
+    text-shadow: var(--text-shadow-glow);
+    line-height: 1.6;
+    border-radius: 4px;
+}
+
+.transcendental-name {
+    color: var(--secondary-neon);
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(138, 43, 226, 0.6);
+    letter-spacing: 1px;
+}
+
+/* Estilos para as falas do vínculo */
+.fala-vinculo {
+    display: block;
+    margin: 15px 0 5px 0;
+    color: #00ffaa;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(0, 255, 170, 0.8);
+    animation: falaGlitch 0.3s ease-in-out;
+}
+
+.aviso-narracao {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 15px;
+    color: #ff4444;
+    background: rgba(255, 68, 68, 0.15);
+    border-left: 3px solid #ff4444;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 68, 68, 0.8);
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+}
+
+@keyframes falaGlitch {
+    0% { 
+        opacity: 0;
+        text-shadow: -2px 0 #8a2be2, 2px 0 #00ffaa, 0 0 10px rgba(0, 255, 170, 0.8);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(0, 255, 170, 0.9);
+    }
+    100% { 
+        opacity: 1;
+        text-shadow: 0 0 10px rgba(0, 255, 170, 0.8);
+    }
+}

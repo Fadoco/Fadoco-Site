@@ -10,6 +10,23 @@ document.addEventListener('DOMContentLoaded', () => {
     carregarConteudo(capId);
 });
 
+// Função para processar tags customizadas de formatação
+function formatarConteudo(texto) {
+    // Processa tags [QUOTE]...[/QUOTE]
+    texto = texto.replace(/\[QUOTE\](.*?)\[\/QUOTE\]/g, '<span class="quote-inline">$1</span>');
+    
+    // Processa tags [NOME]...[/NOME]
+    texto = texto.replace(/\[NOME\](.*?)\[\/NOME\]/g, '<span class="transcendental-name">$1</span>');
+    
+    // Processa tags [FALA]...[/FALA]
+    texto = texto.replace(/\[FALA\](.*?)\[\/FALA\]/g, '<span class="fala-vinculo">$1</span>');
+    
+    // Processa tags [AVISO]...[/AVISO]
+    texto = texto.replace(/\[AVISO\](.*?)\[\/AVISO\]/g, '<span class="aviso-narracao">$1</span>');
+    
+    return texto;
+}
+
 async function carregarConteudo(id) {
     const container = document.getElementById('conteudo-capitulo');
     const titulo = document.getElementById('cap-titulo');
@@ -21,7 +38,7 @@ async function carregarConteudo(id) {
 
         const data = await response.json();
         titulo.innerText = data.titulo;
-        container.innerHTML = data.conteudo.map(p => `<p>${p}</p>`).join('');
+        container.innerHTML = data.conteudo.map(p => `<p>${formatarConteudo(p)}</p>`).join('');
 
         gerarNavegacao(id);
     } catch (err) {
