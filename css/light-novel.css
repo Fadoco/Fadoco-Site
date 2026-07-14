@@ -400,40 +400,62 @@ body.site-loaded :is(header, main, footer, .background, #back-to-top, .progress-
 }
 
 .btn-capitulo {
-    background: rgba(255, 255, 255, 0.12); /* Botões mais visíveis */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 20px 30px;
-    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(138, 43, 226, 0.08) 100%);
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    padding: 25px 35px;
+    border-radius: 12px;
     text-decoration: none;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
 }
 
+.btn-capitulo::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+}
+
 .btn-capitulo:hover {
-    background: rgba(0, 212, 255, 0.15);
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(138, 43, 226, 0.2) 100%);
     border-color: var(--primary-neon);
     border-width: 2px;
-    transform: translateX(10px) translateY(-3px);
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4), 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.6), 0 0 60px rgba(138, 43, 226, 0.3), 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
 .cap-numero {
     font-family: 'Orbitron', sans-serif;
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     color: var(--primary-neon);
     display: block;
-    margin-bottom: 5px;
     letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
 }
 
 .cap-titulo {
     color: #fff;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
 }
 
 /* --- 3. HUD & NAVIGATION (Header / Sidebar) --- */

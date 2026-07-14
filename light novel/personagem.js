@@ -38,7 +38,6 @@ function renderizarCapitulos() {
                 <span class="cap-numero">REGISTRO #${cap.id}</span>
                 <span class="cap-titulo">${cap.titulo}</span>
             </div>
-            <span class="cap-status">DISPONÍVEL</span>
         </a>
     `).join('');
 }
