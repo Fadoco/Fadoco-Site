@@ -176,6 +176,22 @@
     display: inline-block;
 }
 
+.playlist-link-container {
+    display: none;
+    justify-content: center;
+    margin: -20px auto 30px;
+}
+
+.playlist-link-container.active {
+    display: flex;
+}
+
+.playlist-link {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+
 .toggle-container.collapsed .toggle-bar .seta {
     transform: rotate(-90deg);
 }
