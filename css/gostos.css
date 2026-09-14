@@ -3,33 +3,6 @@
     Paleta: Cyan (#00d4ff) + Purple (#8a2be2)
 */
 
-/* Performance & Accessibility */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-/* Skip to Content Link */
-.skip-to-content {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: #00d4ff;
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
-    z-index: 100;
-    font-weight: bold;
-    border-radius: 0 0 4px 0;
-}
-
-.skip-to-content:focus {
-    top: 0;
-}
-
 /* Section Divider */
 .section-divider {
     height: 2px;
@@ -190,6 +163,15 @@
     display: inline-block;
     text-decoration: none;
     text-align: center;
+}
+
+.favoritos-titulo {
+    margin-bottom: 40px;
+}
+
+.carregar-mais-musicas {
+    display: none;
+    margin-top: 20px;
 }
 
 .toggle-container.collapsed .toggle-bar .seta {

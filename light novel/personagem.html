@@ -9,7 +9,7 @@
 </head>
 <body class="personagem-page">
     <div id="hyperspace" class="hyperspace-overlay">
-        <video class="loading-video" autoplay loop muted playsinline style="background: #000; mix-blend-mode: screen;">
+        <video class="loading-video loading-video-screen" autoplay loop muted playsinline>
             <source src="../img/personagem-carregamento.mp4" type="video/mp4">
         </video>
         <div class="loading-content">
@@ -49,15 +49,15 @@
             <div class="info-rapida">
                 <div class="status-item"><span>REGISTRO DE CLASSE:</span> <p>Guardião da Criação</p></div>
                 <div class="status-item"><span>COORDENADA DE ORIGEM:</span> <p>Desconhecida</p></div>
-                <div class="status-item"><span>STATUS:</span> <p style="color: #00ff00;">● EM ANDAMENTO</p></div>
+                <div class="status-item"><span>STATUS:</span> <p class="status-current">● EM ANDAMENTO</p></div>
             </div>
         </section>
 
-        <section class="historia-sessao" style="width: 100%;">
-            <h2 class="subtitulo-estelar" style="text-align: center; margin-bottom: 40px; font-size: 1rem;">Banco de Dados de Capítulos</h2>
+            <section class="historia-sessao">
+            <h2 class="subtitulo-estelar capitulos-titulo">Banco de Dados de Capítulos</h2>
             
             <!-- Container para o botão de retomar leitura -->
-            <div id="resume-container" style="display: flex; justify-content: center; margin-bottom: 30px;"></div>
+            <div id="resume-container"></div>
             
             <nav class="capitulos-nav" id="capitulos-menu">
                 <!-- Botões dos capítulos serão gerados aqui -->

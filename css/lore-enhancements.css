@@ -1,5 +1,20 @@
 /* --- LORE PAGE ENHANCEMENTS --- */
 
+.lore-metadata {
+    background: rgba(0, 212, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    color: var(--primary-neon);
+}
+
+.lore-metadata span {
+    opacity: 0.6;
+}
+
 /* Timeline Styles */
 .lore-timeline {
     position: relative;

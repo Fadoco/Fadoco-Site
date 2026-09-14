@@ -317,6 +317,26 @@ body.site-loaded :is(header, main, footer, .background, #back-to-top, .progress-
     text-shadow: var(--text-shadow-glow);
 }
 
+.status-item .status-current {
+    color: #00ff00;
+}
+
+.historia-sessao {
+    width: 100%;
+}
+
+.capitulos-titulo {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1rem;
+}
+
+#resume-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
 /* --- NOVOS COMPONENTES DE STATUS (SISTEMA) --- */
 
 /* Container para Atributos com Barras (HP, MP, etc) */

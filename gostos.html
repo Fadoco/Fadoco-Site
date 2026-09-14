@@ -24,7 +24,7 @@
     <div id="hyperspace" class="hyperspace-overlay">
         <div class="scanlines"></div>
         <div class="noise"></div>
-        <video class="loading-video" autoplay loop muted playsinline preload="metadata" style="background: #000;">
+        <video class="loading-video" autoplay loop muted playsinline preload="metadata">
             <source src="img/personagem-carregamento.mp4" type="video/mp4">
         </video>
         <div class="loading-content">
@@ -33,7 +33,7 @@
         </div>
     </div>
 
-    <video class="background" autoplay loop muted playsinline preload="metadata" style="width: 100%; height: 100%; position: fixed; top: 0; left: 0; z-index: -1; object-fit: cover;">
+    <video class="background" autoplay loop muted playsinline preload="metadata">
         <source src="img/Background.mp4" type="video/mp4">
     </video>
     
@@ -87,7 +87,7 @@
         <!-- Overlay de Favoritos -->
         <div id="favorites-overlay" class="fav-overlay">
             <span class="close-overlay" onclick="fecharFavoritos()" data-tooltip="Fechar Baú" role="button" aria-label="Fechar favoritos" tabindex="0">&times;</span>
-            <h1 class="titulo" style="margin-bottom: 40px;">Tesouros Estelares</h1>
+            <h1 class="titulo favoritos-titulo">Tesouros Estelares</h1>
             <div id="favorites-grid" class="fav-content">
                 <!-- Favoritos serão injetados aqui via JS -->
             </div>
@@ -140,7 +140,7 @@
             </div>
             <div class="gostos-grid" id="musicas-grid">
             </div>
-            <button id="btn-carregar-mais-musicas" class="btn-action" style="display: none; margin-top: 20px;" data-tooltip="Sincronizar mais faixas">Carregar Mais Músicas</button>
+            <button id="btn-carregar-mais-musicas" class="btn-action carregar-mais-musicas" data-tooltip="Sincronizar mais faixas">Carregar Mais Músicas</button>
         </div>
 
         <!-- SEÇÃO: FILMES -->

@@ -3,15 +3,6 @@
    Performance-optimized social media contact page
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* Performance: Respect user motion preferences */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
 /* ─────────────────────────────────────────────────────────────────────────── 
    MAIN PAGE STYLING
    ─────────────────────────────────────────────────────────────────────────── */
@@ -19,6 +10,11 @@
 .pagina-contato {
     position: relative;
     z-index: 1;
+}
+
+.contato-descricao {
+    color: rgba(255, 212, 255, 0.95);
+    margin-top: 1rem;
 }
 
 .pagina-contato .titulo {
